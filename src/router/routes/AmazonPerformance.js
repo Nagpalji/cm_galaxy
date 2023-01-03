@@ -11,4 +11,4 @@ const AmazonRoutes = [
     }
 ]
 
-export default AmazonRoutes
+export default AmazonRoutes         
