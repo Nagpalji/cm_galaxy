@@ -1,0 +1,405 @@
+/*================================================================================
+	Author: Himanshu Bajaj
+	Email: him.bajaj8410@gmail.com
+================================================================================ */
+
+// My Css start
+
+@media only screen and (min-width: 1200px) {
+
+  .mb-xl-0,
+  .my-xl-0 {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+//  Scrollbar start
+
+@media all and (min-width: 768px) and (max-width: 2560px) {
+  ::-webkit-scrollbar {
+    width: 15px
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 2560px) {
+  ::-webkit-scrollbar-thumb {
+    border-width: 1px 1px 1px 2px;
+    border-radius: 11px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 2560px) {
+  ::-webkit-scrollbar-track {
+    background-clip: padding-box;
+    border: solid transparent;
+  }
+}
+
+::-webkit-scrollbar:horizontal {
+  background-color: #fff;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background-color: #a9a9a9;
+  border-radius: 10px;
+  background-clip: padding-box;
+}
+
+@media all and (min-width: 768px) and (max-width: 2560px) {
+  ::-webkit-scrollbar-thumb:vertical {
+    background-color: #a9a9a9;
+    background-clip: padding-box;
+    border: solid transparent;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 2560px) {
+  ::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: grey;
+  }
+}
+
+// Footer copyright start
+.mtt10 {
+  // margin-top: 10px!important;
+  margin-top: 8px !important;
+
+}
+
+@media all and (min-width: 1023px) and (max-width: 2560px) {
+  .float-md-left {
+    float: left !important;
+    width: 33.33% !important;
+  }
+}
+
+.float-md-center {
+  float: center !important;
+}
+
+// Datatable start
+.react-dataTable .rdt_TableHead .rdt_TableHeadRow .rdt_TableCol {
+  background-color: aliceblue !important;
+}
+
+.react-dataTable .rdt_TableHead .rdt_TableHeadRow .rdt_TableCol .rdt_TableCol_Sortable {
+  color: #000 !important;
+  text-transform: capitalize !important;
+  font-size: 13px !important;
+}
+
+.doBktq {
+  border: 1px solid aliceblue !important;
+}
+
+// .react-dataTable .rdt_TableHead .rdt_TableHeadRow {
+//   border: 1px solid #a9a9a9!important;
+// }
+
+
+// navbar start
+.mt-20 {
+  margin-top: 20px !important;
+  margin-left: 6px !important;
+}
+
+.widthdate {
+  width: 337px !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .widthdate {
+    margin-bottom: 10px !important;
+  }
+}
+
+@media only screen and (max-width: 424px) {
+  .mobilefontsize {
+    font-size: 13px !important;
+    margin-left: 5px !important;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 2560px) {
+  .mr-20 {
+    margin-right: 20px !important;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 2560px) {
+  .widthdate {
+    margin-right: 20px !important;
+  }
+
+  // Parth 16/05/2022
+  .CustomDropDownWidth {
+    margin-right: 20px !important;
+    width: 337px !important;
+  }
+}
+
+
+// laptop & mobile dateranger picker adjust and customdropdown
+@media all and (min-width: 992px) and (max-width: 2560px) {
+  .laptophidedaterange {
+    display: none !important;
+  }
+
+  .laptophideCustomdropdown {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .laptophideCustomdropdown {
+    margin-top: 22px !important;
+  }
+}
+
+// Dropdown start
+.mb-7 {
+  margin-bottom: 7px !important;
+}
+
+// statscards Start
+.mtb-20 {
+  margin-bottom: -20px;
+  margin-top: 0px;
+}
+
+// select dropdown Css start
+
+.css-47z9mc-multiValue {
+  background-color: #4076d9 !important;
+}
+
+.css-qj08tm-indicatorContainer {
+  color: #a9a9a9 !important;
+}
+
+.css-1eyvi4t-control {
+  border-color: #d8d6de !important;
+}
+
+// Navigation start
+// Logo Css
+// Option 1 start css
+// .width_logo_menu1
+// {
+// margin-top: -12px !important;
+// }
+
+// .width_logo_menu2
+// {
+// width: 140px!important;
+// margin-top: -2px !important;
+// }
+
+// Option 2 start css
+.width_logo_menu1 {
+  position: relative !important;
+  top: -11px !important;
+}
+
+.width_logo_menu2 {
+  width: 137px !important;
+  margin-top: -19px !important;
+  position: relative;
+  right: 10px;
+}
+
+.main-menu .navbar-header .navbar-brand .brand-logo img {
+  max-width: 46px;
+}
+
+// Logo Css End
+
+.main-menu.menu-light .navigation>li.active>a {
+  box-shadow: none !important;
+}
+
+// .main-menu.menu-light .navigation > li.open:not(.menu-item-closing) > a, [dir] .main-menu.menu-light .navigation > li.sidebar-group-active > a {
+//   background: transparent!important;
+// }
+
+// Login, signup , forgot Logo start
+.SignLogo {
+  max-width: 180px !important;
+  height: 46px !important;
+}
+
+// Menus sub-menus Links start
+// .main-menu.menu-light .navigation > li ul li > a {
+//   font-size: 13px!important;
+// }
+
+.main-menu.menu-light .navigation li a>* {
+  // font-size: 12px!important;
+  font-size: 13px !important;
+}
+
+.nav-button {
+  position: relative !important;
+  left: 18px !important;
+  top: -20px !important;
+}
+
+// menu button image start
+.menu-button1 {
+  margin-top: -10px !important;
+  position: relative !important;
+  right: 14px;
+  height: 38px;
+  width: 36px;
+}
+
+.menu-button2 {
+  width: 180px !important;
+  height: 38px;
+  margin-top: -9px !important;
+  position: relative;
+  right: 14px;
+}
+
+// Tables color start
+.react-dataTable .rdt_TableBody .rdt_TableRow .rdt_TableCell {
+  color: #000 !important;
+}
+
+// badge class start Menu Button
+.badgedesignremove {
+  background-color: #9c67c3 !important;
+  // background-color: #F38FB3!important;
+  height: 30px !important;
+  line-height: 22px !important;
+  border-radius: 4px !important;
+  color: #fff !important;
+}
+
+.badge.badge-light-danger {
+  color: #fff !important;
+}
+
+//Custom Dashboard Popup css start
+.swal2-container.swal2-backdrop-show,
+.swal2-container.swal2-noanimation {
+  background: rgba(0, 0, 0, 0.9) !important;
+  opacity: 1.5 !important;
+}
+
+.swal2-show {
+  width: 850px !important;
+  // padding: 100px 0px 30px 0px!important;
+  padding: 35px 0px 35px 0px !important;
+}
+
+.swal2-title {
+  font-size: 60px !important;
+}
+
+.swal2-content {
+  font-size: 36px !important;
+  // padding: 55px 1.6em!important;
+  padding: 33px 1.6em !important;
+  line-height: inherit !important;
+}
+
+.custom-buttoncss {
+  padding: 0.786rem 2.5rem !important;
+  font-size: 25px !important;
+}
+
+// Popup css End
+
+// custom dashboard mobile css
+@media only screen and (max-width: 424px) {
+  .custom_mobile_css {
+    position: relative !important;
+    top: 12px !important;
+    padding: 12px 0px 35px 0px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .mbottom-mobile {
+    margin-bottom: 25px !important;
+  }
+}
+
+// dropdown 4 boxes css
+.select__multi-value {
+
+  margin-bottom: 2px !important;
+}
+
+// 30-12-2021 css again
+.react-dataTable .rdt_TableHead .rdt_TableHeadRow {
+  height: 50px !important;
+}
+
+.react-dataTable .rdt_TableHead .rdt_TableHeadRow .rdt_TableCol .rdt_TableCol_Sortable {
+  line-height: 17px !important;
+}
+
+// 11-01-2022 css React table line break
+.cEUUPK div:first-child {
+  white-space: inherit !important;
+  line-height: 20px !important;
+}
+
+// Form validation css
+.input-group.is-invalid .form-control,
+[dir] .input-group.is-invalid .input-group-append .input-group-text,
+[dir] .input-group.is-invalid .input-group-prepend .input-group-text {
+  border-color: #e94265 !important;
+}
+
+.was-validated .form-control:invalid,
+[dir] .form-control.is-invalid {
+  border-color: #e94265 !important;
+}
+
+.input-group.is-invalid .form-control {
+  border-color: #e94265 !important;
+}
+
+.invalid-feedback {
+  color: #e94265 !important;
+}
+
+.was-validated .form-control:invalid,
+[dir] .form-control.is-invalid {
+  background-image: none !important;
+}
+
+// loader mobile start
+@media only screen and (max-width: 768px) {
+  .loader_mobileal {
+    position: relative !important;
+    top: -20px !important;
+  }
+}
+
+// lead management system mobile responsive button start
+@media only screen and (max-width: 800px) {
+  .m_responlead {
+    margin-top: -20px !important;
+    margin-bottom: 45px !important;
+  }
+}
+
+// capacha mobile
+@media only screen and (max-width: 425px) {
+  .g-recaptcha {
+    transform: scale(0.92);
+    transform-origin: 0 0;
+  }
+}
+
+@media all and (min-width: 500px) and (max-width: 1024px) {
+  .g-recaptcha {
+    transform: scale(0.70);
+    transform-origin: 0 0;
+  }
+}
