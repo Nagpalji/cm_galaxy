@@ -120,9 +120,18 @@ const LMSDashboard = () => {
           <CardCongratulations />
         </Col> */}
         <Col lg="3" sm="6">
-          <SubscribersGained color="#3f48cc" kFormatter={kFormatter} />
+          <SubscribersGained color="#69b5f2" kFormatter={kFormatter} />
         </Col>
         <Col lg="3" sm="6">
+          <SubscribersGained color="#f39f95" kFormatter={kFormatter} />
+        </Col>
+        <Col lg="3" sm="6">
+          <SubscribersGained color="#6cd6ca" kFormatter={kFormatter} />
+        </Col>
+        <Col lg="3" sm="6">
+          <SubscribersGained color="#a398e6" kFormatter={kFormatter} />
+        </Col>
+        {/* <Col lg="3" sm="6">
           <OrdersReceived
             kFormatter={kFormatter}
             warning={colors.warning.main}
@@ -139,7 +148,7 @@ const LMSDashboard = () => {
             kFormatter={kFormatter}
             warning={colors.warning.main}
           />
-        </Col>
+        </Col> */}
       </Row>
       {/* <Row className="match-height">
         <Col lg="6" xs="12">
