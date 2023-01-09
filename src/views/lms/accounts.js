@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import {selectThemeColors, kFormatter } from "@utils"
 import Avatar from "@components/avatar"
 import AvatarGroup from "@components/avatar-group"
@@ -25,7 +25,19 @@ import "@styles/react/libs/charts/apex-charts.scss"
 
 const LMSAccounts = () => {
   const { colors } = useContext(ThemeColors)
-
+  const [fields, setfields] = useState({
+    name:"",
+    site_url:"",
+    location:"",
+    global_domain:"",
+    category:[]
+  })
+  const handleChange = (e) => {
+    setfields({
+      [e.target.name]: e.target.value
+    })
+  }
+  
   const category = [
     {
         label:"capgate finance",
@@ -63,6 +75,11 @@ const LMSAccounts = () => {
     }
   ]
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(fields)
+  }
+
   return (
     <div id="dashboard-analytics">
      <Card>
@@ -79,7 +96,10 @@ const LMSAccounts = () => {
             <Input
               type="text"
               id="name"
+              name="name"
               placeholder="Enter Account Holder Name"
+              onChange = {handleChange}
+              value = {fields?.name}
             //   defaultValue={userData && userData.brand_name}
             />
           </FormGroup>
@@ -89,8 +109,11 @@ const LMSAccounts = () => {
             <Label for="email">Site URL</Label>
             <Input
               type="text"
+              name="site_url"
               id="site_url"
+              onChange = {handleChange}
               placeholder="Enter Your Site Url"
+              value={fields?.site_url}
             //   defaultValue={userData && userData.email}
             />
           </FormGroup>
@@ -101,7 +124,10 @@ const LMSAccounts = () => {
             <Select
               isClearable={false}
               theme={selectThemeColors}
-              name='colors'
+              name='global_domain'
+              onChange = {(e) => {
+                setfields({...fields, global_domain:e})
+              }}
               options={[
                 {
                     label:"true",
@@ -112,9 +138,8 @@ const LMSAccounts = () => {
                     value:"false"
                 }
               ]}
-              defaultValue={{}}
+              defaultValue={fields?.global_domain?.label}
               className='react-select'
-              onChange={{}}
               placeholder='Select Location'
               classNamePrefix='select'
             />
@@ -127,11 +152,14 @@ const LMSAccounts = () => {
               isClearable={false}
               theme={selectThemeColors}
               isMulti
-              name='colors'
+              name='category'
               options={category}
-              defaultValue={category}
+              defaultValue={fields?.category}
               className='react-select'
-              onChange={{}}
+              onChange={(e) => {
+                const category = {...fields?.category, e}
+                setfields({...fields, category })
+              }}
               placeholder='Domain Type'
               classNamePrefix='select'
             />
@@ -143,7 +171,7 @@ const LMSAccounts = () => {
             <Select
               isClearable={false}
               theme={selectThemeColors}
-              name='colors'
+              name='location'
               options={[
                 {
                     label:"true",
@@ -154,9 +182,11 @@ const LMSAccounts = () => {
                     value:"false"
                 }
               ]}
-              defaultValue={{}}
+              defaultValue={fields?.location}
               className='react-select'
-              onChange={{}}
+              onChange={(e) => {
+                setfields({...fields, location:e})
+              }}
               placeholder='Select Location'
               classNamePrefix='select'
             />
@@ -164,7 +194,7 @@ const LMSAccounts = () => {
             </Col>
             <Col sm='12'>
             <FormGroup>
-            <Select
+            {/* <Select
               isClearable={false}
               theme={selectThemeColors}
               isMulti
@@ -175,12 +205,12 @@ const LMSAccounts = () => {
               onChange={{}}
               placeholder='Domain Type'
               classNamePrefix='select'
-            />
+            /> */}
           </FormGroup>
             </Col>
             <Col sm='12'>
               <FormGroup className='d-flex mb-0'>
-                <Button.Ripple className='mr-1' color='primary' type='submit' onClick={e => e.preventDefault()}>
+                <Button.Ripple className='mr-1' color='primary' type='submit' onClick={handleSubmit}>
                   Submit
                 </Button.Ripple>
                 <Button.Ripple outline color='secondary' type='reset'>
