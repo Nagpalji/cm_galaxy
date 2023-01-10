@@ -3,8 +3,12 @@ import { lazy } from 'react'
 const FunnelMappingRoutes = [
   // Dashboards
   {
-    path: '/funnelmapping',
-    component: lazy(() => import('../../views/funnelmapping'))
+    path: '/funnelmapping/index',
+    component: lazy(() =>  import('../../views/funnelmapping/'))
+  },
+  {
+    path: '/funnelmapping/viewdetails/',
+    component: lazy(() => import('../../views/funnelmapping/FunnelMappingDetails'))
   }
 ]
 

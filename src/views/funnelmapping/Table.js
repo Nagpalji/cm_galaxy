@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Table1 = () => {
+const Table = () => {
     return (
         <>
             <div className='d-flex justify-content-between my-1'>
@@ -51,11 +51,11 @@ const Table1 = () => {
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
-                        <td>@cmrsl</td>
+                        <td><a href="/funnelmapping/view-details">Sahil</a></td>
                     </tr>
                 </tbody>
             </table>
         </>
     )
 }
-export default Table1
+export default Table

@@ -9,6 +9,7 @@ import Funnel from './Funnel'
 import Table1 from './Table1'
 import Table2 from './Table2'
 import Table3 from './Table3'
+import Table from './Table'
 
 const tooltipRender = (props) => {
     if (props.point) {
@@ -29,7 +30,7 @@ const ChartContainer1 = () => {
             </Row>
             <Row className="match-height">
                 <Col xs="12">
-                    <Table1 />
+                    <Table />
                     {/* <Table2 />
                     <Table3 /> */}
                 </Col>

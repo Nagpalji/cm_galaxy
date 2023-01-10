@@ -51,7 +51,7 @@ const Table3 = () => {
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
-                        <td>@cmrsl</td>
+                        <td><a href="./view-details">Sahil</a></td>
                     </tr>
                 </tbody>
             </table>

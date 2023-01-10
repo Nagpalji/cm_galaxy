@@ -128,7 +128,7 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
       title: 'Funnel Mapping',
       // icon: <Chrome size={12} />,
       icon: <FaChrome size={12} />,
-      navLink: '/funnelmapping'
+      navLink: '/funnelmapping/index'
     },
     {
       id: 'eCommerceDash',
