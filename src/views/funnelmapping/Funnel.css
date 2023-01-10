@@ -137,3 +137,8 @@
     border-right: 50px solid #27CA75;
     border-bottom: 25px solid transparent;
   }
+  .funnelPara{
+    margin: -40px 10px;
+    text-align: center;
+    color: white;
+  }

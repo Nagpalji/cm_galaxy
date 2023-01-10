@@ -6,7 +6,9 @@ import { NumericTextBox } from '@progress/kendo-react-inputs'
 import { Chart, ChartTitle, ChartLegend, ChartTooltip, ChartArea, ChartPlotArea, ChartSeries, ChartSeriesItem, ChartSeriesLabels } from '@progress/kendo-react-charts'
 import "hammerjs"
 import Funnel from './Funnel'
-import Table from './Table'
+import Table1 from './Table1'
+import Table2 from './Table2'
+import Table3 from './Table3'
 
 const tooltipRender = (props) => {
     if (props.point) {
@@ -27,7 +29,9 @@ const ChartContainer1 = () => {
             </Row>
             <Row className="match-height">
                 <Col xs="12">
-                    <Table />
+                    <Table1 />
+                    {/* <Table2 />
+                    <Table3 /> */}
                 </Col>
             </Row>
         </>

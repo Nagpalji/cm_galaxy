@@ -1,15 +1,15 @@
 import React from 'react'
 
-const Table1 = () => {
+const Table3 = () => {
     return (
         <>
             <div className='d-flex justify-content-between my-1'>
  
                 <select className='btn btn-primary btn-sm'>
                     <option className="dropdown-item" href="#">Select</option>
-                    <option className="dropdown-item" href="#">Option A</option>
                     <option className="dropdown-item" href="#">Option B</option>
                     <option className="dropdown-item" href="#">Option C</option>
+                    <option className="dropdown-item" href="#">Option D</option>
                 </select>
                 <form className="form-inline my-2 my-lg-0">
                     <button className="btn btn-primary mr-sm-3">Download</button>
@@ -21,10 +21,10 @@ const Table1 = () => {
                 <thead className="thead-muted rounded">
                     <tr>
                         <th scope="col">User</th>
-                        <th scope="col">Heat Map Analysis</th>
-                        <th scope="col">No. Of Days Last Purchase</th>
-                        <th scope="col">Customer Lifetime Value</th>
-                        <th scope="col">High ValueCustomer</th>
+                        <th scope="col">Product Preference</th>
+                        <th scope="col">No. Of Product Engaged</th>
+                        <th scope="col">Angagement Behaviour</th>
+                        <th scope="col">Visitor's Device Preferences</th>
                         <th scope="col">View Details</th>
                     </tr>
                 </thead>
@@ -58,4 +58,4 @@ const Table1 = () => {
         </>
     )
 }
-export default Table1
+export default Table3

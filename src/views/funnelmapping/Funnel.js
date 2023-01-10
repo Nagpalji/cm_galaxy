@@ -28,13 +28,13 @@ const Funnel = () => {
         <>
             <div className="d-flex justify-content-center align-items-center row m-2">
                 <div className="d-flex justify-content-center align-items-center flex-column col-md-5">
-                    <div className="taper rectangle01" />
+                    <div className="taper rectangle01"><p className='funnelPara'>TOFU</p></div>
                     <div className="rectangle02" />
-                    <div className="taper rectangle03" />
+                    <div className="taper rectangle03"><p className='funnelPara'>MOFU</p></div>
                     <div className="rectangle04" />
-                    <div className="taper rectangle05" />
+                    <div className="taper rectangle05"><p className='funnelPara'>BOFU</p></div>
                     <div className="rectangle06" />
-                    <div className="taper rectangle07" />
+                    <div className="taper rectangle07"><p className='funnelPara'>Convertion</p></div>
                 </div>
                 <div className=" justify-content-center align-items-center flex-row col-md-5 overflow-hidden">
                     <div className="content-FFC313 hide1">
