@@ -39,19 +39,47 @@ const Funnel = () => {
                 <div className=" justify-content-center align-items-center flex-row col-md-5 overflow-hidden">
                     <div className="content-FFC313 hide1">
                         <div className="triangle-right-FFC313" />
-                        <div className="content-box-FFC313"><p className='DetailPara'>Convertion</p></div>
+                        <div className="content-box-FFC313">
+                            <p className='DetailPara'>Convertion</p>
+                            <ul>
+                                <li>List number 1</li>
+                                <li>List number 2</li>
+                                <li>List number 3</li>
+                            </ul>
+                        </div>
                     </div>
                     <div className="content-4076DA hide2">
                         <div className="triangle-right-4076DA" />
-                        <div className="content-box-4076DA"><p className='DetailPara'>Convertion</p></div>
+                        <div className="content-box-4076DA">
+                            <p className='DetailPara'>Convertion</p>
+                            <ul>
+                                <li>List number 1</li>
+                                <li>List number 2</li>
+                                <li>List number 3</li>
+                            </ul>
+                        </div>
                     </div>
                     <div className="content-29A4F7 hide3">
                         <div className="triangle-right-29A4F7" />
-                        <div className="content-box-29A4F7"><p className='DetailPara'>Convertion</p></div>
+                        <div className="content-box-29A4F7">
+                            <p className='DetailPara'>Convertion</p>
+                            <ul>
+                                <li>List number 1</li>
+                                <li>List number 2</li>
+                                <li>List number 3</li>
+                            </ul>
+                        </div>
                     </div>
                     <div className="content-27CA75 hide4">
                         <div className="triangle-right-27CA75" />
-                        <div className="content-box-27CA75"><p className='DetailPara'>Convertion</p></div>
+                        <div className="content-box-27CA75">
+                            <p className='DetailPara'>Convertion</p>
+                            <ul>
+                                <li>List number 1</li>
+                                <li>List number 2</li>
+                                <li>List number 3</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
