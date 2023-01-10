@@ -51,7 +51,7 @@ const Table = () => {
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
-                        <td><a href="/funnelmapping/view-details">Sahil</a></td>
+                        <td><a href="/funnelmapping/viewdetails">Sahil</a></td>
                     </tr>
                 </tbody>
             </table>
