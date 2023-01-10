@@ -5,6 +5,10 @@ const LMSRoutes = [
   {
     path: '/LMS/dashboard/analytics',
     component: lazy(() => import('../../views/lms/dashboard'))
+  },
+  {
+    path: '/LMS/dashboard/accounts',
+    component: lazy(() => import('../../views/lms/accounts'))
   }
 ]
 
