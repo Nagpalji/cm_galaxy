@@ -3,6 +3,13 @@ import './Funnel.css'
 import $ from 'jquery'
 
 const Funnel = () => {
+
+//     fetch('https://srvr1px.cyberads.io/getFunnelData/', {
+//         method: "GET" 
+//     })
+//    .then(response => response.json())
+//    .then(data => console.log(data))
+
     $(document).ready(function () {
         $('.hide1').show()
         $('.hide2, .hide3, .hide4').hide()
@@ -40,29 +47,75 @@ const Funnel = () => {
                     <div className="content-FFC313 hide1">
                         <div className="triangle-right-FFC313" />
                         <div className="content-box-FFC313">
-                            <p className='DetailPara'>Convertion</p>
+                            <p className='DetailPara'>Avg. Session</p>
                             <ul>
-                                <li>List number 1</li>
-                                <li>List number 2</li>
-                                <li>List number 3</li>
+                                <li>19.00</li>
+                            </ul>
+                            <p className='DetailPara'>Pages Per Session</p>
+                            <ul>
+                                <li>23.00</li>
+                            </ul>
+                            <p className='DetailPara'>Avg. Time Per Session</p>
+                            <ul>
+                                <li>12.22</li>
                             </ul>
                         </div>
                     </div>
                     <div className="content-4076DA hide2">
                         <div className="triangle-right-4076DA" />
                         <div className="content-box-4076DA">
-                            <p className='DetailPara'>Convertion</p>
+                            <p className='DetailPara'>Product Preference</p>
                             <ul>
-                                <li>List number 1</li>
-                                <li>List number 2</li>
-                                <li>List number 3</li>
+                                <li>Product A</li>
+                                <li>Product B</li>
+                                <li>Product C</li>
+                                <li>Product D</li>
+                                <li>Product E</li>
+                            </ul>
+                            <p className='DetailPara'>Number Of Product Engaged</p>
+                            <ul>
+                                <li>Product A</li>
+                                <li>Product B</li>
+                                <li>Product C</li>
+                                <li>Product D</li>
+                                <li>Product E</li>
+                            </ul>
+                            <p className='DetailPara'>Engagement Behaviour</p>
+                            <ul>
+                                <li>Product A</li>
+                                <li>Product B</li>
+                                <li>Product C</li>
+                                <li>Product D</li>
+                                <li>Product E</li>
+                            </ul>
+                            <p className='DetailPara'>Visitor’s Device Preferences</p>
+                            <ul>
+                                <li>DeskTop</li>
+                                <li>Mobile</li>
+                                <li>Tablet</li>
                             </ul>
                         </div>
                     </div>
                     <div className="content-29A4F7 hide3">
                         <div className="triangle-right-29A4F7" />
                         <div className="content-box-29A4F7">
-                            <p className='DetailPara'>Convertion</p>
+                            <p className='DetailPara'>Heat Map Analysis</p>
+                            <ul>
+                                <li> </li>
+                                <li> </li>
+                                <li> </li>
+                            </ul>
+                            <p className='DetailPara'>Number Of Days Last Purchase</p>
+                            <ul>
+                                <li>List number 1</li>
+                                <li>List number 2</li>
+                                <li>List number 3</li>
+                            </ul>
+                            <p className='DetailPara'>Customer Lifetime Value</p>
+                            <ul>
+                                <li> </li>
+                            </ul>
+                            <p className='DetailPara'>High Value Customer</p>
                             <ul>
                                 <li>List number 1</li>
                                 <li>List number 2</li>
