@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Table = () => {
+const Table = ({data}) => {
     return (
         <>
             <div className='float-right mb-2'>
@@ -33,36 +33,31 @@ const Table = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>-</td>
-                        <td>@fat</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>Sahil</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
+                        {data && data.map((val) => {
+                            let ddevice 
+                            if (val.mob) {
+                                ddevice = 'Mobile'
+                            } else if (val.tab) {
+                                ddevice = 'Tablet'
+                            } else if (val.desktop) {
+                                ddevice = 'Desktop'
+                            }
+                            return (
+                                <>
+                                <tr>
+                                <th scope="row">{val.ip}</th>
+                                <td>{ddevice}</td>
+                                <td>{val.user_agent_device_model}</td>
+                                <td>{val.user_agent_Os_family}</td>
+                                <td>{val.country_name}</td>
+                                <td>{''}</td>
+                                <td>{''}</td>
+                                <td>{val.Keyword_Bucket}</td>
+                                </tr>
+                                </>
+                            )
+                        })}
+                  
                 </tbody>
             </table>
         </>

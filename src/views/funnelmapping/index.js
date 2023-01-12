@@ -20,6 +20,7 @@ const tooltipRender = (props) => {
 const ChartContainer1 = () => {
     const history = useHistory()
     const [res, setRes] = useState([])
+    const [tabelData, setTabelData] = useState([])
 
     useEffect(() => {
         fetch('https://srvr1px.cyberads.io/getFunnelData/', {
@@ -28,6 +29,14 @@ const ChartContainer1 = () => {
        .then(response => response.json())
        .then(data => setRes(data))
     
+    }, [])
+
+    useEffect(() => {
+        fetch('https://srvr1px.cyberads.io/getFunneltableData/', {
+            method: "GET" 
+        })
+       .then(response => response.json())
+       .then(data => setTabelData(data))    
     }, [])
     
     return (
@@ -40,9 +49,7 @@ const ChartContainer1 = () => {
             </Row>
             <Row className="my-2">
                 <Col xs="12">
-                    <Table />
-                    {/* <Table2 />
-                    <Table3 /> */}
+                    <Table data={tabelData}/>
                 </Col>
             </Row>
         </>

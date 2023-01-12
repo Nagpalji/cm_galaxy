@@ -79,7 +79,7 @@ const Funnel = ({res}) => {
                             </ul>
                             <p className='DetailPara'>Engagement Behaviour</p>
                             <ul>
-                                {res?.mofu_engagementBehaviors && res?.mofu_engagementBehavior.map((val) => {
+                                {res?.mofu_engagementBehavior && res?.mofu_engagementBehavior.map((val) => {
                                     return (
                                         <>
                                         <li key={val.product_name}>{`${val.product_name} : ${val.Priority}`}</li>
