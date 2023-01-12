@@ -2,19 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Funnel.css'
 import $ from 'jquery'
 
-const Funnel = () => {
-    const [res, setRes] = useState([])
-
-    useEffect(() => {
-        fetch('https://srvr1px.cyberads.io/getFunnelData/', {
-            method: "GET" 
-        })
-       .then(response => response.json())
-       .then(data => setRes(data))
-    
-    }, [])
-
-
+const Funnel = ({res}) => {
     $(document).ready(function () {
         $('.hide1').show()
         $('.hide2, .hide3, .hide4').hide()
@@ -38,7 +26,7 @@ const Funnel = () => {
 
     return (
         <>
-            <div className="d-flex justify-content-center align-items-center row m-2">
+        {res ? <div className="d-flex justify-content-center align-items-center row m-2">
                 <div className="d-flex justify-content-center align-items-center flex-column col-md-5">
                     <div className="taper rectangle01"><p className='funnelPara'>TOFU</p></div>
                     <div className="rectangle02" />
@@ -71,7 +59,7 @@ const Funnel = () => {
                         <div className="content-box-4076DA">
                             <p className='DetailPara'>Product Preference</p>
                             <ul>
-                                {res && res?.mofu_productPreferences.map((val) => {
+                                {res?.mofu_productPreferences && res.mofu_productPreferences.map((val) => {
                                     return (
                                         <>
                                         <li key={val.product_name}>{`${val.product_name} : ${val.user_count}`}</li>
@@ -81,7 +69,7 @@ const Funnel = () => {
                             </ul>
                             <p className='DetailPara'>Number Of Product Engaged</p>
                             <ul>
-                                {res && res?.mofu_productEngaged.map((val) => {
+                                {res?.mofu_productEngaged && res?.mofu_productEngaged.map((val) => {
                                     return (
                                         <>
                                         <li key={val.product_name}>{`${val.product_name} : ${val.user_count}`}</li>
@@ -91,7 +79,7 @@ const Funnel = () => {
                             </ul>
                             <p className='DetailPara'>Engagement Behaviour</p>
                             <ul>
-                                {res && res?.mofu_engagementBehavior.map((val) => {
+                                {res?.mofu_engagementBehaviors && res?.mofu_engagementBehavior.map((val) => {
                                     return (
                                         <>
                                         <li key={val.product_name}>{`${val.product_name} : ${val.Priority}`}</li>
@@ -101,7 +89,7 @@ const Funnel = () => {
                             </ul>
                             <p className='DetailPara'>Visitor’s Device Preferences</p>
                             <ul>
-                                {res && res?.mofu_visitorDeviceCounts.map((val) => {
+                                {res?.mofu_visitorDeviceCounts && res?.mofu_visitorDeviceCounts.map((val) => {
                                     return (
                                         <>
                                         <li key={val.Device}>{`${val.Device} : ${val.count}`}</li>
@@ -122,7 +110,7 @@ const Funnel = () => {
                             </ul>
                             <p className='DetailPara'>Number Of Days Last Purchase</p>
                             <ul>
-                                {res && res?.bofu_lastPurchase.map((val) => {
+                                {res?.bofu_lastPurchase && res?.bofu_lastPurchase.map((val) => {
                                     return (
                                         <>
                                         <li key={val.product_name}>{`${val.product_name} : ${val.Date}`}</li>
@@ -154,7 +142,7 @@ const Funnel = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> : null }
         </>
     )
 }

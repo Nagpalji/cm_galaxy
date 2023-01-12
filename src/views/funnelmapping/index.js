@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, Redirect, Route, Router, useHistory } from "react-router-dom"
 import { Card, CardHeader, CardTitle, CardBody, Row, Col } from 'reactstrap'
 import * as ReactDOM from 'react-dom'
@@ -19,13 +19,23 @@ const tooltipRender = (props) => {
 
 const ChartContainer1 = () => {
     const history = useHistory()
+    const [res, setRes] = useState([])
+
+    useEffect(() => {
+        fetch('https://srvr1px.cyberads.io/getFunnelData/', {
+            method: "GET" 
+        })
+       .then(response => response.json())
+       .then(data => setRes(data))
+    
+    }, [])
     
     return (
 
         <>
             <Row className="match-height">
                 <Col xs="12">
-                    <Funnel />
+                    <Funnel res={res} />
                 </Col>
             </Row>
             <Row className="my-2">
