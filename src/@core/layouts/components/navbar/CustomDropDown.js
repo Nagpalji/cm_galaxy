@@ -141,7 +141,7 @@ const CustomDropDown = () => {
   if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getItem("email") === 'dhavalg@cmrsl.net' || localStorage.getItem("email") === 'gauravg@cmrsl.net' || (localStorage.getItem("level") === 'Manager'))) {
     return (
         <Row>
-          <Col className='mb-0 mt-0 mb-9' md='12' sm='12'>
+        {window.location.pathname !== '/funnelmapping/index' ? <Col className='mb-0 mt-0 mb-9' md='12' sm='12'>
           {/* <h6 className='font-weight-bold'>Product</h6> */}
             <Select
               isClearable={false}
@@ -155,7 +155,7 @@ const CustomDropDown = () => {
               placeholder='Brands'
               classNamePrefix='select'
             />
-          </Col>
+          </Col> : null}
         </Row>
   )
   } else {
