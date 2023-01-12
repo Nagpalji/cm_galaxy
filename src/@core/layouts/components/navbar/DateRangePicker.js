@@ -385,7 +385,8 @@ const ed = localStorage.getItem("ed")
           const em =  fd2.getMonth()
        
           const ed = fd2.getDate()
-          const mi = "-"
+          const startDate = `${sy}-${(sm + 1) < 10 ? '0' : ''}${sm + 1}-${sd}`
+          const endDate = `${ey}-${(em + 1) < 10 ? '0' : ''}${em + 1}-${ed}`
 
           localStorage.setItem("sy", [sy])
           localStorage.setItem("sm", [sm + 1])
@@ -393,6 +394,8 @@ const ed = localStorage.getItem("ed")
           localStorage.setItem("ey", [ey])
           localStorage.setItem("em", [em + 1])
           localStorage.setItem("ed", [ed])
+          localStorage.setItem("date_from", [startDate])
+          localStorage.setItem("date_to", [endDate])
 
           if (isNaN(fd2.getTime())) {
             console.log("iff")

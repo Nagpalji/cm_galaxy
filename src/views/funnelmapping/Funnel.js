@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Funnel.css'
 import $ from 'jquery'
 
-const Funnel = ({res}) => {
+const Funnel = ({res}) => {  
     $(document).ready(function () {
         $('.hide1').show()
         $('.hide2, .hide3, .hide4').hide()
@@ -102,12 +102,12 @@ const Funnel = ({res}) => {
                     <div className="content-29A4F7 hide3">
                         <div className="triangle-right-29A4F7" />
                         <div className="content-box-29A4F7">
-                            <p className='DetailPara'>Heat Map Analysis</p>
+                            {/* <p className='DetailPara'>Heat Map Analysis</p>
                             <ul>
                                 <li> </li>
                                 <li> </li>
                                 <li> </li>
-                            </ul>
+                            </ul> */}
                             <p className='DetailPara'>Number Of Days Last Purchase</p>
                             <ul>
                                 {res?.bofu_lastPurchase && res?.bofu_lastPurchase.map((val) => {
