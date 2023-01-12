@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Funnel.css'
 import $ from 'jquery'
 
 const Funnel = () => {
+    const [res, setRes] = useState([])
 
-//     fetch('https://srvr1px.cyberads.io/getFunnelData/', {
-//         method: "GET" 
-//     })
-//    .then(response => response.json())
-//    .then(data => console.log(data))
+    useEffect(() => {
+        fetch('https://srvr1px.cyberads.io/getFunnelData/', {
+            method: "GET" 
+        })
+       .then(response => response.json())
+       .then(data => setRes(data))
+    
+    }, [])
+
 
     $(document).ready(function () {
         $('.hide1').show()
@@ -49,15 +54,15 @@ const Funnel = () => {
                         <div className="content-box-FFC313">
                             <p className='DetailPara'>Avg. Session</p>
                             <ul>
-                                <li>19.00</li>
+                                <li>{res && res?.tofu_avg_session}</li>
                             </ul>
                             <p className='DetailPara'>Pages Per Session</p>
                             <ul>
-                                <li>23.00</li>
+                                <li>{res && res?.tofu_PagesPerSession}</li>
                             </ul>
                             <p className='DetailPara'>Avg. Time Per Session</p>
                             <ul>
-                                <li>12.22</li>
+                                <li>{res && res?.tofu_avgTimePerSession}</li>
                             </ul>
                         </div>
                     </div>
@@ -66,33 +71,43 @@ const Funnel = () => {
                         <div className="content-box-4076DA">
                             <p className='DetailPara'>Product Preference</p>
                             <ul>
-                                <li>Product A</li>
-                                <li>Product B</li>
-                                <li>Product C</li>
-                                <li>Product D</li>
-                                <li>Product E</li>
+                                {res && res?.mofu_productPreferences.map((val) => {
+                                    return (
+                                        <>
+                                        <li key={val.product_name}>{`${val.product_name} : ${val.user_count}`}</li>
+                                        </>
+                                    )
+                                })}
                             </ul>
                             <p className='DetailPara'>Number Of Product Engaged</p>
                             <ul>
-                                <li>Product A</li>
-                                <li>Product B</li>
-                                <li>Product C</li>
-                                <li>Product D</li>
-                                <li>Product E</li>
+                                {res && res?.mofu_productEngaged.map((val) => {
+                                    return (
+                                        <>
+                                        <li key={val.product_name}>{`${val.product_name} : ${val.user_count}`}</li>
+                                        </>
+                                    )
+                                })}
                             </ul>
                             <p className='DetailPara'>Engagement Behaviour</p>
                             <ul>
-                                <li>Product A</li>
-                                <li>Product B</li>
-                                <li>Product C</li>
-                                <li>Product D</li>
-                                <li>Product E</li>
+                                {res && res?.mofu_engagementBehavior.map((val) => {
+                                    return (
+                                        <>
+                                        <li key={val.product_name}>{`${val.product_name} : ${val.Priority}`}</li>
+                                        </>
+                                    )
+                                })}
                             </ul>
                             <p className='DetailPara'>Visitor’s Device Preferences</p>
                             <ul>
-                                <li>DeskTop</li>
-                                <li>Mobile</li>
-                                <li>Tablet</li>
+                                {res && res?.mofu_visitorDeviceCounts.map((val) => {
+                                    return (
+                                        <>
+                                        <li key={val.Device}>{`${val.Device} : ${val.count}`}</li>
+                                        </>
+                                    )
+                                })}
                             </ul>
                         </div>
                     </div>
@@ -107,13 +122,17 @@ const Funnel = () => {
                             </ul>
                             <p className='DetailPara'>Number Of Days Last Purchase</p>
                             <ul>
-                                <li>List number 1</li>
-                                <li>List number 2</li>
-                                <li>List number 3</li>
+                                {res && res?.bofu_lastPurchase.map((val) => {
+                                    return (
+                                        <>
+                                        <li key={val.product_name}>{`${val.product_name} : ${val.Date}`}</li>
+                                        </>
+                                    )
+                                })}
                             </ul>
                             <p className='DetailPara'>Customer Lifetime Value</p>
                             <ul>
-                                <li> </li>
+                                <li>{res && res?.bofu_customerLifetimeValues}</li>
                             </ul>
                             <p className='DetailPara'>High Value Customer</p>
                             <ul>

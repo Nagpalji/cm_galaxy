@@ -28,7 +28,7 @@ const ChartContainer1 = () => {
                     <Funnel />
                 </Col>
             </Row>
-            <Row className="match-height">
+            <Row className="my-2">
                 <Col xs="12">
                     <Table />
                     {/* <Table2 />
