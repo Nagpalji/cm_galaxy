@@ -34,7 +34,7 @@ const Funnel = ({res}) => {
                     <div className="rectangle04" />
                     <div className="taper rectangle05"><p className='funnelPara'>BOFU</p></div>
                     <div className="rectangle06" />
-                    <div className="taper rectangle07"><p className='funnelPara'>Convertion</p></div>
+                    <div className="taper rectangle07"><p className='funnelPara'>Conversion</p></div>
                 </div>
                 <div className=" justify-content-center align-items-center flex-row col-md-5 overflow-hidden">
                     <div className="content-FFC313 hide1">
@@ -133,7 +133,7 @@ const Funnel = ({res}) => {
                     <div className="content-27CA75 hide4">
                         <div className="triangle-right-27CA75" />
                         <div className="content-box-27CA75">
-                            <p className='DetailPara'>Convertion</p>
+                            <p className='DetailPara'>Conversion</p>
                             <ul>
                                 <li>List number 1</li>
                                 <li>List number 2</li>

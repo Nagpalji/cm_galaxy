@@ -1,262 +1,177 @@
-/* .sidebar{
-    position: absolute;
-    width: 70px;
-    height: 768px;
-    left: 0px;
-    top: 0px;
+.profile {
+    width: 250px;
     background: #FFFFFF;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-} */
-    
-.topbar{
-        position: absolute;
-        width: 1256px;
-        height: 70px;
-        left: 95px;
-        top: 10px;
-        background: #FFFFFF;
-        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 4px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
 
-.profile{
-position: absolute;
-width: 250px;
-height: 633px;
-left: 95px;
-top: 95px;
-background: #FFFFFF;
-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-border-radius: 4px;
+.imageDetail {
+    width: 100px;
+    height: 100px;
+    background: rgba(208, 208, 208, 0.5);
+    border: 2px solid;
+    padding: 3px;
 }
 
-.heatmap{
-position: absolute;
-width: 980px;
-height: 468px;
-left: 370px;
-top: 95px;
-background: #FFFFFF;
-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+.profile .userNameDetail {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: #808085;
 }
 
-.circleinside{
-border-radius: 50%;
-position: absolute;
-width: 100px;
-height: 100px;
-left: 75px;
-top: 30px;
-background: rgba(208, 208, 208, 0.5);
-}
-
-.circleoutside{
-border-radius: 50%;
-position: absolute;
-width: 110px;
-height: 110px;
-left: 67.8px;
-top: 22.6px;
-border: 2px solid #000000;
-}
-
-.profile p1{
-position: absolute;
-left: 114px;
-top: 145px;
-font-family: 'Montserrat', sans-serif;
-font-style: normal;
-font-weight: 700;
-font-size: 14px;
-line-height: 100%;
-letter-spacing: 0.02em;
-color: #808085;
-}
-.profile p2{
-position: absolute;
-left: 96px;
-top: 165px;
-font-family: 'Montserrat', sans-serif;
-font-style: normal;
-font-weight: 300;
-font-size: 16px;
-color: #808085;
+.profile .userIdDetail {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    color: #808085;
 }
 
 .line1 {
-position: absolute;
-width: 150px;
-height: 2px;
-left: 50px;
-top: 200px;
-background-color: #e8e8e8;
+    width: 150px;
+    height: 2px;
+    background-color: #e8e8e8;
 }
 
-.profile p3{
-    position: absolute;
-    left: 40px;
-    top: 220px;
-    font-family: 'Montserrat', sans-serif;
+.profile .emailPhoneDetail {
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     color: #808085;
-    line-height: 25px;
 }
 
 .line2 {
-    position: absolute;
     width: 150px;
     height: 2px;
-    left: 50px;
-    top: 285px;
     background-color: #e8e8e8;
 }
 
-.profile p4{
-    position: absolute;
-    left: 40px;
-    top: 290px;
-    font-family: 'Montserrat', sans-serif;
+.profile .p4 {
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     color: #808085;
-    line-height: 60px;
 }
-.profile p5{
-    position: absolute;
-    left: 40px;
-    top: 310px;
-    font-family: 'Montserrat', sans-serif;
+
+.profile .p5 {
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     color: #000000;
-    line-height: 60px;
 }
 
 .line3 {
-    position: absolute;
     width: 150px;
     height: 2px;
-    left: 50px;
-    top: 490px;
     background-color: #e8e8e8;
 }
 
-.profile p6{
-    position: absolute;
-    left: 40px;
-    top: 485px;
-    font-family: 'Montserrat', sans-serif;
+.profile .p6 {
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     color: #808085;
-    line-height: 60px;
 }
-.profile p7{
-    position: absolute;
-    left: 40px;
-    top: 505px;
-    font-family: 'Montserrat', sans-serif;
+
+.profile .p7 {
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     color: #000000;
-    line-height: 60px;
 }
 
-.top1{
-position: absolute;
-width: 980px;
-height: 60px;
-display: flex;
-justify-content: center;
-align-items: center;
-font-weight: 400;
-font-family: 'Montserrat', sans-serif;
-font-size: 20px;
-background: #4076DA;
-color: #FFFFFF;
+.heatmap {
+    width: 760px;
+    height: 400px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
 }
 
-.interest{
-position: absolute;
-width: 300px;
-height: 145px;
-left: 370px;
-top: 585px;
-background: #ffffff;
-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
-border-radius: 10px;
+.top {
+    width: 760px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 20px;
+    background: #4076DA;
+    color: #FFFFFF;
 }
 
-.goods{
-position: absolute;
-width: 660px;
-height: 145px;
-left: 690px;
-top: 585px;
-
-background: #ffffff;
-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
-border-radius: 10px;
+.interest {
+    position: absolute;
+    width: 300px;
+    height: 145px;
+    left: 370px;
+    top: 585px;
+    background: #ffffff;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
 }
 
-.c-line{
-position: absolute;
-width: 120px;
-height: 2px;
-top: 70px;
-left: 275px;
-background: #808085;
-transform: rotate(90deg);
-border-radius: 20px;
-opacity: 75%;
+.goods {
+    position: absolute;
+    width: 660px;
+    height: 145px;
+    left: 690px;
+    top: 585px;
+
+    background: #ffffff;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
 }
 
-.interest img{
+.c-line {
+    position: absolute;
+    width: 120px;
+    height: 2px;
+    top: 70px;
+    left: 275px;
+    background: #808085;
+    transform: rotate(90deg);
+    border-radius: 20px;
+    opacity: 75%;
+}
+
+.interest img {
     margin-top: 20px;
     margin-left: 20px
 }
 
-.interest p{
-position: absolute;
-left: 50px;
-bottom: 85px;
-font-family: 'Montserrat', sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-color: #808085;
+.interest p {
+    position: absolute;
+    left: 50px;
+    bottom: 85px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #808085;
 }
 
-.goods img{
+.goods img {
     margin-top: 20px;
     margin-left: 20px;
 }
 
-.goods p1{
-position: absolute;
+.goods p1 {
+    position: absolute;
 
-left: 50px;
-bottom: 102px;
-font-family: 'Montserrat', sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-color: #808085;
+    left: 50px;
+    bottom: 102px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #808085;
 }
 
-.purchased{
-position: absolute;
-width: 180px;
-height: 24px;
-left: 360px;
-bottom: 100px;
-background: rgba(255, 255, 255, 0.3);
+.purchased {
+    position: absolute;
+    width: 180px;
+    height: 24px;
+    left: 360px;
+    bottom: 100px;
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .purchased img {
@@ -264,13 +179,127 @@ background: rgba(255, 255, 255, 0.3);
     padding: 0px;
 }
 
-.purchased p2{
-position: absolute;
-left: 30px;
-top: 2px;
-font-family: 'Montserrat', sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-color: #808085;
+.purchased p2 {
+    position: absolute;
+    left: 30px;
+    top: 2px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #808085;
 }
+
+/* ----------------- CSS for Notification Hub ----------------- */
+
+.back {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.back .notificationHeading {
+    font-weight: 700;
+    font-size: 24px;
+    color: #4F4F4F;
+}
+
+.back .markAsRead {
+    font-weight: lighter;
+    font-size: 16px;
+    color: #4076DA;
+}
+
+.line {
+    height: 1px;
+    background-color: #808085;
+}
+
+.circle {
+    background-color: #D9D9D9;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.rect1 {
+    box-sizing: border-box;
+    background: rgba(64, 118, 218, 0.1);
+    border: 1px solid #4076DA;
+}
+
+.innerContent h3 {
+    font-weight: bolder;
+    font-size: 16px;
+    color: #000000;
+}
+
+.notificationSender {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    color: #4076DA;
+}
+
+.notificationTime,
+.notificationDate {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    color: #27CA75;
+}
+
+.rect3 {
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #808085;
+}
+
+/* ----------------- CSS for Notification Start Here ----------------- */
+.notificationContainer{
+    max-width: 350px;
+}
+.notificationCircle{
+    height: 35px;
+    width: 35px;
+}
+.notificationHeading{
+    font-size: 16px;
+    font-weight: bold;
+}
+/* ----------------- CSS for Notification End Here ----------------- */
+
+/* ----------------- CSS for Push Notification Start Here ----------------- */
+.sidebar{
+width: 250px;
+height: 75vh;
+background: #FFFFFF;
+box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+}
+.sidebar div p{
+    cursor: pointer;
+}
+.sidebar div p:hover{
+    background-color: #27CA75;
+    color: white;
+}
+.options{
+    display: none;
+}
+/* .userIP {
+
+}
+
+.deviceTracking {
+
+}
+
+.operatingSystem {
+
+}
+
+.geographic {
+
+}
+
+.demographic {
+ 
+} */

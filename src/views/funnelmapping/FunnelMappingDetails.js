@@ -1,40 +1,53 @@
 import React from 'react'
 import "./details.css"
-const  FunnelMappingDetails = () => {
+
+const FunnelMappingDetails = () => {
   return (
     <>
-      <div class="sidebar"></div>
-    <div class="topbar"></div>
-    <div class="profile">
-        <div class="circleinside"></div>
-        <div class="circleoutside"></div>
-        <p1>XYZ</p1>
-        <p2>USER-ID</p2>
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <p3>mail@abcxyz@gmail.com <br />+91-xxxxxxxxxx</p3>
-        <p4>Country <br /> State <br /> City </p4>
-        <p5>India <br /> Haryana <br /> Gurgaon </p5>
-        <div class="line3"></div>
-        <p6>OS <br /> Device</p6>
-        <p7>Windows <br /> HP-xxxxxxxx </p7>
-    </div>
-    <div class="heatmap">
-        <div class="top1">Heat Map Analysis</div>
-    </div>
-    <div class="interest">
-        <img src="/assets/images/userDetails/Package Search.png" alt="" />
-        <p>Interest:</p>
-    </div>
-    <div class="goods">
-        <div class="c-line"></div>
-        <img src="Buy.png" alt="" />
-        <p1>Ordered Goods:</p1>
-            <div class="purchased">
-                <img src="/assets/images/userDetails/60 Seconds.png" alt="" />
-                <p2>Last Purchased:</p2>
+      <div className="d-flex justify-content-between">
+        <div className="profile rounded d-flex flex-column col-md-3">
+          <div className="rounded d-flex justify-content-center align-items-center flex-column">
+            <img className="imageDetail rounded-circle m-1" src="/assets/images/team/04.jpg" alt="avatar" />
+            <p className='userNameDetail m-0 p-0'>XYZ</p>
+            <p className='userIdDetail m-0 p-0'>USER-ID</p>
+            <div className="line1 m-1"></div>
+            <p className="emailPhoneDetail m-0 p-0">abcxyz@gmail.com</p>
+            <p className="emailPhoneDetail m-0 p-0">+91-xxxxxxxxxx</p>
+            <div className="line2 m-1"></div>
+            <div className="">
+              <p className="p m-0 p-0">Country </p>
+              <p className="p5">India</p>
+              <p className="p m-0 p-0">State</p>
+              <p className="p5">Haryana</p>
+              <p className="p m-0 p-0">City </p>
+              <p className="p5">Gurgaon </p>
+              <div className="line3"></div>
+              <p className="p m-0 p-0">OS</p>
+              <p className="p7">Windows</p>
+              <p className="p m-0 p-0">Device</p>
+              <p className="p7">HP-xxxxxxxx </p>
             </div>
-    </div>
+          </div>
+        </div>
+        <div className='row col-md-8 d-flex flex-column'>
+          <div className="heatmap">
+            <div className="top">Heat Map Analysis</div>
+          </div>
+          <div className="interest">
+            <img src="/assets/images/userDetails/Package Search.png" alt="" />
+            <p>Interest:</p>
+          </div>
+          <div className="goods">
+            <div className="c-line"></div>
+            <img src="Buy.png" alt="" />
+            <p1>Ordered Goods:</p1>
+            <div className="purchased">
+              <img src="/assets/images/userDetails/60 Seconds.png" alt="" />
+              <p2>Last Purchased:</p2>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

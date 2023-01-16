@@ -6,9 +6,6 @@ import { NumericTextBox } from '@progress/kendo-react-inputs'
 import { Chart, ChartTitle, ChartLegend, ChartTooltip, ChartArea, ChartPlotArea, ChartSeries, ChartSeriesItem, ChartSeriesLabels } from '@progress/kendo-react-charts'
 import "hammerjs"
 import Funnel from './Funnel'
-import Table1 from './Table1'
-import Table2 from './Table2'
-import Table3 from './Table3'
 import Table from './Table'
 
 const tooltipRender = (props) => {
@@ -31,11 +28,11 @@ const ChartContainer1 = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({startDate: dateFrom, endDate: dateTo})
+            body: JSON.stringify({ startDate: dateFrom, endDate: dateTo })
         })
-       .then(response => response.json())
-       .then(data => setRes(data))
-    
+            .then(response => response.json())
+            .then(data => setRes(data))
+
     }, [])
 
     useEffect(() => {
@@ -44,12 +41,12 @@ const ChartContainer1 = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({startDate: dateFrom, endDate: dateTo})
+            body: JSON.stringify({ startDate: dateFrom, endDate: dateTo })
         })
-       .then(response => response.json())
-       .then(data => setTabelData(data))    
+            .then(response => response.json())
+            .then(data => setTabelData(data))
     }, [])
-    
+
     return (
 
         <>
@@ -60,7 +57,7 @@ const ChartContainer1 = () => {
             </Row>
             <Row className="my-2">
                 <Col xs="12">
-                    <Table data={tabelData}/>
+                    <Table data={tabelData} />
                 </Col>
             </Row>
         </>
