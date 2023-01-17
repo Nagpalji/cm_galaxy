@@ -266,3 +266,26 @@
     font-weight: bold;
 }
 /* ----------------- CSS for Notification End Here ----------------- */
+
+/* ----------------- CSS for Push Notification Templete Start Here ----------------- */
+.logo1{
+    width: 50px;
+    height: 50px;
+}
+.uImage1{
+    width: 120px;
+    height: 120px;
+}
+.uFile{
+    display: none;
+}
+.choose1{
+    width: 120px;
+    height: 36px;
+    background: #27CA75;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 30px;
+}
+    /* ----------------- CSS for Push Notification Templete End Here ----------------- */

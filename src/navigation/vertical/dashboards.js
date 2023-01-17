@@ -110,7 +110,7 @@
 //   // }
 // ]
 // import { Home, Circle, Facebook, Linkedin, Youtube, Chrome, Globe, Settings, Command, Twitter, Package, Play, Atsign, AtSign, Filter, Users  } from 'react-feather'
-import { FaHome, FaFacebook, FaLinkedin, FaYoutube, FaChrome, Globe, Settings, Command, FaTwitter, Package, FaPlay, FaAmazon, FaFilter, FaUserAlt, FaUsers  } from 'react-icons/fa'
+import { FaHome, FaFacebook, FaLinkedin, FaYoutube, FaChrome, Globe, Settings, Command, FaTwitter, Package, FaPlay, FaAmazon, FaFilter, FaUserAlt, FaUsers, FaBell  } from 'react-icons/fa'
 
 let sample
 
@@ -129,6 +129,13 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
       // icon: <Chrome size={12} />,
       icon: <FaChrome size={12} />,
       navLink: '/funnelmapping/index'
+    },
+    {
+      id: 'eCommerceDash',
+      title: 'Push Notification',
+      // icon: <Chrome size={12} />,
+      icon: <FaBell size={12} />,
+      navLink: '/pushNotification/index'
     },
     {
       id: 'eCommerceDash',
@@ -238,6 +245,12 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
       title: 'Funnel Mapping',
       icon: <FaChrome size={12} />,
       navLink: '/funnelmapping'     
+    },
+    {
+      id: 'eCommerceDash',
+      title: 'Push Notification',
+      icon: <FaBell size={12} />,
+      navLink: '/pushNotification/index'
     },
     {
       id: 'eCommerceDash',

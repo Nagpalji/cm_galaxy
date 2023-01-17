@@ -7,6 +7,8 @@ import { Chart, ChartTitle, ChartLegend, ChartTooltip, ChartArea, ChartPlotArea,
 import "hammerjs"
 import Funnel from './Funnel'
 import Table from './Table'
+import PushNotification from './PushNotification'
+import Templete1 from './Templete1'
 
 const tooltipRender = (props) => {
     if (props.point) {
@@ -50,16 +52,16 @@ const ChartContainer1 = () => {
     return (
 
         <>
-            <Row className="match-height">
-                <Col xs="12">
-                    <Funnel res={res} />
-                </Col>
-            </Row>
-            <Row className="my-2">
-                <Col xs="12">
-                    <Table data={tabelData} />
-                </Col>
-            </Row>
+                <Row className="match-height">
+                    <Col xs="12">
+                        <Funnel res={res} />
+                    </Col>
+                </Row>
+                <Row className="my-2">
+                    <Col xs="12">
+                        <Table data={tabelData} />
+                    </Col>
+                </Row>
         </>
     )
 }

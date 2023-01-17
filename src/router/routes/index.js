@@ -12,6 +12,7 @@ import PageLayoutsRoutes from './PageLayouts'
 // new routes Start
 import OverallSnapshotRoutes from './OverallSnapshot'
 import FunnelMappingRoutes from './FunnelMapping'
+import PushNotificationRoutes  from './PushNotification'
 import Dv360PerformanceRoutes from './Dv360Performance'
 import FacebookPerformanceRoutes from './FacebookPerformance'
 import YoutubePerformanceRoutes from './YoutubePerformance'
@@ -39,9 +40,9 @@ const Routes = [
   ...ExtensionsRoutes,
   ...PageLayoutsRoutes,
   ...FunnelMappingRoutes,
+  ...PushNotificationRoutes,
   ...FormRoutes,
   ...TablesRoutes,
-  ...ChartMapsRoutes,
   ...ChartMapsRoutes,
   ...OverallSnapshotRoutes,
   ...Dv360PerformanceRoutes,
