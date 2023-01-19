@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import "./details.css"
 import "../funnelmapping/details.css"
+import * as AiIcons from 'react-icons/ai'
 
 export default function Form() {
   const [options, setOption] = useState([
@@ -29,7 +30,7 @@ export default function Form() {
                 aria-expanded="true"
                 aria-controls="dropdown"
               >
-               DropDown
+                DropDown
               </button>
             </h2>
             <div
@@ -39,17 +40,11 @@ export default function Form() {
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-              <h2>Drag and drop</h2>
-              <h2>Drag and drop</h2>
-              <h2>Drag and drop</h2>
-              <h2>Drag and drop</h2>
-              <h2>Drag and drop</h2>
-              <h2>Drag and drop</h2>
-              <h2>Drag and drop</h2>
-              <h2>Drag and drop</h2>
-              <h2>Drag and drop</h2>
-              <h2>Drag and drop</h2>
-              <h2>Drag and drop</h2>
+                <h2>Drag and drop</h2>
+                <h2>Drag and drop</h2>
+                <h2>Drag and drop</h2>
+                <h2>Drag and drop</h2>
+                <h2>Drag and drop</h2>
               </div>
             </div>
           </div>
@@ -80,15 +75,6 @@ export default function Form() {
                     alt=""
                   />
                 </div>
-                {/* <div className="justify-content-center align-items-center d-flex ">
-                        <div className="d-flex align-items-center">
-                            <img className='uImage1 bg-dark border rounded-circle' src="" alt="" />
-                            <div className='m-1'>
-                                <label htmlFor="uFile" className='btn btn-primary btn-md'>Choose Image</label>
-                                <input type="file" className="uFile" id='uFile' />
-                            </div>
-                        </div>
-                    </div> */}
                 <div>
                   <h4>Message</h4>
                   <div className="d-flex flex-column justify-content-center">
@@ -104,26 +90,29 @@ export default function Form() {
                     ></textarea>
                   </div>
                   <div className="d-flex justify-content-center m-1">
-                    <button className="btn btn-md btn-primary">Send</button>
+                    <button className="btn btn-md btn-primary ml-1">Preview</button>
                   </div>
                 </div>
-                <div>
-                  <div className="previewNotification float-right d-flex border p-1">
-                    <img
-                      src="/assets/images/team/04.jpg"
-                      className="circle rounded-circle border border-primary"
-                      alt=""
-                    />
-                    <div className="pl-1">
-                      <h5>CM Galaxy</h5>
-                      <p>{text}</p>
-                      <div className="d-flex">
-                        <p className="pr-1">15:34</p>
-                        <a href="https://cmgalaxy.com/index">cmgalaxy.com</a>
-                      </div>
-                    </div>
+              </div>
+              <div className="previewNotification float-right border m-1 p-1">
+                <div className="d-flex justify-content-between">
+                  <img
+                    src="/assets/images/team/04.jpg"
+                    className="circle rounded-circle border border-primary"
+                    alt=""
+                  />
+                  <AiIcons.AiOutlineClose />
+                </div>
+                <div className="pt-1">
+                  <h5>CM Galaxy</h5>
+                  <p>{text}</p>
+                  <div className="d-flex">
+                    <a href="https://cmgalaxy.com/index">cmgalaxy.com</a>
                   </div>
                 </div>
+                  <div className="d-flex justify-content-center mt-1">
+                    <button className="btn btn-primary">Send</button>
+                  </div>
               </div>
               {/* <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. */}
             </div>

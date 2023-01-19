@@ -7,7 +7,6 @@ import { Chart, ChartTitle, ChartLegend, ChartTooltip, ChartArea, ChartPlotArea,
 import "hammerjs"
 import Funnel from './Funnel'
 import Table from './Table'
-import Notification from './Notification'
 
 const tooltipRender = (props) => {
     if (props.point) {
