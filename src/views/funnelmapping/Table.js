@@ -4,10 +4,10 @@ const Table = ({data}) => {
     return (
         <>
             <div className='float-right mb-2'>
-                <form className="form-inline my-2 my-lg-0">
+                <form className="form-inline my-1 my-lg-0">
                     <button className="btn btn-primary mr-sm-3">Download</button>
                     <input className="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search" />
-                    <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                    <button className="btn btn-outline-primary my-1 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
             <div className='d-flex justify-content-between my-1'>
@@ -45,14 +45,14 @@ const Table = ({data}) => {
                             return (
                                 <>
                                 <tr>
-                                <th scope="row">{val.ip}</th>
-                                <td>{ddevice}</td>
-                                <td>{val.user_agent_device_model}</td>
-                                <td>{val.user_agent_Os_family}</td>
-                                <td>{val.country_name}</td>
-                                <td>{''}</td>
-                                <td>{''}</td>
-                                <td>{val.Keyword_Bucket}</td>
+                                    <th scope="row">{val.ip}</th>
+                                    <td>{ddevice}</td>
+                                    <td>{val.user_agent_device_model}</td>
+                                    <td>{val.user_agent_Os_family}</td>
+                                    <td>{val.country_name}</td>
+                                    <td>{''}</td>
+                                    <td>{''}</td>
+                                    <td>{val.Keyword_Bucket}</td>
                                 </tr>
                                 </>
                             )

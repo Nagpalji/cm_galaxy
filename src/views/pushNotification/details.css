@@ -1,16 +1,25 @@
 /* ----------------- CSS for Push Notification Templete Start Here ----------------- */
-.logo1{
+.logo1 {
     width: 50px;
     height: 50px;
 }
-.uImage1{
+
+.uImage1 {
     width: 80px;
     height: 80px;
 }
-.uFile{
+
+.uFile {
     display: none;
 }
-.template1{
+
+.template1 {
     height: 75vh;
 }
-    /* ----------------- CSS for Push Notification Templete End Here ----------------- */
+
+.previewNotification {
+    max-width: 330px;
+    min-width: 330px;
+}
+
+/* ----------------- CSS for Push Notification Templete End Here ----------------- */

@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import Multiselect from 'multiselect-react-dropdown'
 import './details.css'
+import '../funnelmapping/details.css'
 
 
 const Templete1 = () => {
     const [options, setOption] = useState(['Option-1', 'Option-2', 'Option-3', 'Option-4', 'Option-5'])
+    const [text, setText] = useState('')
+
+    const textChange = (event) => {
+        setText(event.target.value)
+    }
 
     return (
         <>
@@ -47,7 +53,7 @@ const Templete1 = () => {
                     <div className="">
                         <img className='logo1 border rounded-circle bg-dark' src="" alt="" />
                     </div>
-                    <div className="justify-content-center align-items-center d-flex ">
+                    {/* <div className="justify-content-center align-items-center d-flex ">
                         <div className="d-flex align-items-center">
                             <img className='uImage1 bg-dark border rounded-circle' src="" alt="" />
                             <div className='m-1'>
@@ -55,14 +61,27 @@ const Templete1 = () => {
                                 <input type="file" className="uFile" id='uFile' />
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div>
                         <h4>Message</h4>
                         <div className="d-flex flex-column justify-content-center">
-                            <textarea name="Message" id="Message" cols='70' rows="5" placeholder='Write message...'></textarea>
+                            <textarea name="Message" id="Message" cols='70' rows="5" value={text} onChange={textChange} placeholder='Write message...'></textarea>
                         </div>
                         <div className='d-flex justify-content-center m-1'>
                             <button className="btn btn-md btn-primary">Send</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div className='previewNotification float-right d-flex border p-1'>
+                            <img src="/assets/images/team/04.jpg" className='circle rounded-circle border border-primary' alt="" />
+                            <div className='pl-1'>
+                                <h5>CM Galaxy</h5>
+                                <p>{text}</p>
+                                <div className='d-flex'>
+                                    <p className='pr-1'>15:34</p>
+                                    <a href="https://cmgalaxy.com/index">cmgalaxy.com</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div >
