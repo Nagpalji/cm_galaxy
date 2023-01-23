@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Card, CardHeader, CardTitle, CardBody, Row, Col } from 'reactstrap'
-import DropDown from './DropDown'
 import Form from './Form'
 
 
@@ -11,7 +10,6 @@ const ChartContainer1 = () => {
             <Row className="match-height">
                 <Col xs="12">
                 <div className='d-flex row justify-content-around'>
-                    <DropDown />
                     <Form />
                 </div>
                 </Col>
