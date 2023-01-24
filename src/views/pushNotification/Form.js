@@ -19,7 +19,7 @@ const DropDown = ({value, onDragStart}) => {
                 aria-expanded="true"
                 aria-controls={`${id}`}
               >
-                DropDown
+                {`${id}`}
               </button>
             </h2>
             <div
@@ -37,7 +37,7 @@ const DropDown = ({value, onDragStart}) => {
                         draggable
                         className=""
                     >
-                        {val}
+                        <span className={`btn btn-outline-info ${index > 0 && "mt-1"}`}>{val}</span>
                     </div>
                     </>
                 )
@@ -80,6 +80,7 @@ export default function Form() {
      <div className='template1 shadow bg-white rounded p-1 col-lg-3 col-md-10 col-sm-10 overflow-auto'>
 
     <DropDown value={{id:"device", option:tasks}} onDragStart={onDragStart}/>
+    <DropDown value={{id:"os", option:tasks}} onDragStart={onDragStart}/>
     </div>    
       <div className="bg-white shadow rounded p-1  col-lg-8 col-md-10 col-sm-11">
         <div className="accordion" id="accordionExample">
@@ -108,8 +109,8 @@ export default function Form() {
               {dropedItem.map((val, index) => {
                 return (
                     <>
-                    <div>
-                        {val}
+                    <div className="d-inline">
+                        <span className={`btn btn-outline-success ${index > 0 && "ml-1"}`}>{val}</span>
                     </div>
                     </>
                 )
