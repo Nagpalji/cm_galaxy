@@ -4,54 +4,54 @@ import "../funnelmapping/details.css"
 import { Modal, ModalBody, ModalHeader } from 'reactstrap'
 
 
-const DropDown = ({value, onDragStart}) => {
-    const {id, option} = value
-    return (
-        <>
-         <div className="accordion" id="accordionExample">
-          <div className="accordion-item">
-            <h2 className="accordion-header" id="Dropdown">
-              <button
-                className="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target={`#${id}`}
-                aria-expanded="true"
-                aria-controls={`${id}`}
-              >
-                {`${id}`}
-              </button>
-            </h2>
-            <div
-              id="dropdown"
-              className="accordion-collapse collapse show"
-              aria-labelledby="Dropdown"
-              data-bs-parent="#accordionExample"
+const DropDown = ({ value, onDragStart }) => {
+  const { id, option } = value
+  return (
+    <>
+      <div className="accordion" id="accordionExample">
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="Dropdown">
+            <button
+              className="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target={`#${id}`}
+              aria-expanded="true"
+              aria-controls={`${id}`}
             >
-              <div className="accordion-body">
-               {option.map((val, index) => {
+              {`${id}`}
+            </button>
+          </h2>
+          <div
+            id="dropdown"
+            className="accordion-collapse collapse show"
+            aria-labelledby="Dropdown"
+            data-bs-parent="#accordionExample"
+          >
+            <div className="accordion-body">
+              {option.map((val, index) => {
                 return (
-                    <>
+                  <>
                     <div key={val}
-                        onDragStart = {(e) => onDragStart(e,  val)}
-                        draggable
-                        className=""
+                      onDragStart={(e) => onDragStart(e, val)}
+                      draggable
+                      className=""
                     >
-                        <span className={`btn btn-outline-info ${index > 0 && "mt-1"}`}>{val}</span>
+                      <span className={`btn btn-outline-info ${index > 0 && "mt-1"}`}>{val}</span>
                     </div>
-                    </>
+                  </>
                 )
-               })}
-              </div>
+              })}
             </div>
           </div>
-          </div>
-        </>
-    )
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default function Form() {
-  
+
   const [text, setText] = useState("")
   const [tasks, setTasks] = useState(['android', 'ios', 'window', 'ubuntu'])
   const [dropedItem, setDropItem] = useState([])
@@ -66,22 +66,22 @@ export default function Form() {
   }
 
   const onDragStart = (ev, value) => {
-    ev.dataTransfer.setData("text/plain",  value)
+    ev.dataTransfer.setData("text/plain", value)
   }
   const onDrop = (ev, cat) => {
     const id = ev.dataTransfer.getData("text")
     const filteredTask = tasks.filter((item) => !id.includes(item))
     setTasks(filteredTask)
     setDropItem([...dropedItem, id])
- }
+  }
 
   return (
     <>
-     <div className='template1 shadow bg-white rounded p-1 col-lg-3 col-md-10 col-sm-10 overflow-auto'>
+      <div className='template1 shadow bg-white rounded p-1 col-lg-3 col-md-10 col-sm-10 overflow-auto'>
 
-    <DropDown value={{id:"device", option:tasks}} onDragStart={onDragStart}/>
-    <DropDown value={{id:"os", option:tasks}} onDragStart={onDragStart}/>
-    </div>    
+        <DropDown value={{ id: "device", option: tasks }} onDragStart={onDragStart} />
+        <DropDown value={{ id: "os", option: tasks }} onDragStart={onDragStart} />
+      </div>
       <div className="bg-white shadow rounded p-1  col-lg-8 col-md-10 col-sm-11">
         <div className="accordion" id="accordionExample">
           <div className="accordion-item">
@@ -103,18 +103,18 @@ export default function Form() {
               aria-labelledby="Dropdown"
               data-bs-parent="#accordionExample"
               onDragOver={(e) => onDragOver(e)}
-            onDrop={(e) => onDrop(e, "complete")}
+              onDrop={(e) => onDrop(e, "complete")}
             >
               <div className="accordion-body">
-              {dropedItem.map((val, index) => {
-                return (
+                {dropedItem.map((val, index) => {
+                  return (
                     <>
-                    <div className="d-inline">
+                      <div className="d-inline">
                         <span className={`btn btn-outline-success ${index > 0 && "ml-1"}`}>{val}</span>
-                    </div>
+                      </div>
                     </>
-                )
-               })}
+                  )
+                })}
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@ export default function Form() {
                     <div className="border m-1 p-1" style={{ maxWidth: 330, minWidth: 330 }}>
                       <div className="d-flex">
                         <img
-                          src="/assets/images/team/04.jpg"
+                          src="./okana.png"
                           className="circle rounded-circle border border-primary"
                           alt=""
                         />
