@@ -112,11 +112,11 @@ const DropdownNotification = () => {
   /*eslint-enable */
 
   return (
-    <UncontrolledDropdown tag='li' className='dropdown-notification nav-item mr-25delete mr-20'>
+    <UncontrolledDropdown tag='li' className='dropdown-notification nav-item mr-20'>
       <DropdownToggle tag='a' className='nav-link' href='/' onClick={e => e.preventDefault()}>
         <Bell size={22} />
         <Badge pill color='danger' className='badge-up'>
-          3
+        {notificationsArray.length}
         </Badge>
       </DropdownToggle>
       <DropdownMenu tag='ul' right className='dropdown-menu-media mt-0'>
@@ -124,13 +124,13 @@ const DropdownNotification = () => {
           <DropdownItem className='d-flex' tag='div' header>
             <h4 className='notification-title mb-0 mr-auto'>Notifications</h4>
             <Badge tag='div' color='light-primary' pill>
-              3 New
+            {notificationsArray.length} New
             </Badge>
           </DropdownItem>
         </li>
         {renderNotificationItems()}
         <li className='dropdown-menu-footer'>
-          <Link to="../../../../views/pushNotification/NotificationHub">
+          <Link to="/NotificationHub">
             <Button.Ripple color='primary' block>
               View All Notifications
             </Button.Ripple>

@@ -23,6 +23,7 @@ import LeadManagementRoutes from './LeadManagement'
 import LandingPageRoutes from './LandingPage'
 import UserRoutes from './ManageUsers'
 import LMSRoutes from './Lms'
+import NotificationHubRoutes from './NotificationHub'
 // new routes End
 
 // ** Document title
@@ -54,7 +55,8 @@ const Routes = [
   ...LeadManagementRoutes,
   ...LandingPageRoutes, 
   ...LMSRoutes, 
- ...UserRoutes
+  ...UserRoutes,
+  ...NotificationHubRoutes
 ]
 
 export { DefaultRoute, TemplateTitle, Routes }
