@@ -9,7 +9,7 @@ export default function DropDown() {
     }
   return (
     <>
-      <div className='template1 shadow bg-white rounded p-1 col-lg-3 col-md-10 col-sm-10 overflow-auto'>
+      <div className='shadow bg-white rounded p-1 col-lg-3 col-md-10 col-sm-10 overflow-auto'>
         {/* <label htmlFor="">User IP</label>
         <Multiselect isObject={false} options={options} showCheckbox className='multiSelect mb-1' /> */}
         <label htmlFor="">Devide Tracking</label>

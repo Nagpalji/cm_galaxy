@@ -1,8 +1,7 @@
 import React, { useState } from "react"
-import "./details.css"
 import "../funnelmapping/details.css"
 import { Modal, ModalBody, ModalHeader } from 'reactstrap'
-
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 const DropDown = ({ value, onDragStart }) => {
   const { id, option } = value
@@ -37,7 +36,7 @@ const DropDown = ({ value, onDragStart }) => {
                       draggable
                       className=""
                     >
-                      <span className={`btn btn-outline-info ${index > 0 && "mt-1"}`}>{val}</span>
+                      <span className={`btn btn-outline-primary ${index > 0 && "mt-1"}`}>{val}</span>
                     </div>
                   </>
                 )
@@ -77,12 +76,11 @@ export default function Form() {
 
   return (
     <>
-      <div className='template1 shadow bg-white rounded p-1 col-lg-3 col-md-10 col-sm-10 overflow-auto'>
-
+      <PerfectScrollbar className='shadow bg-white rounded p-1 col-lg-3 col-md-10 col-sm-10' style={{ height: '75vh' }}>
         <DropDown value={{ id: "device", option: tasks }} onDragStart={onDragStart} />
         <DropDown value={{ id: "os", option: tasks }} onDragStart={onDragStart} />
-      </div>
-      <div className="bg-white shadow rounded p-1  col-lg-8 col-md-10 col-sm-11">
+      </PerfectScrollbar>
+      <div className="bg-white shadow rounded p-1 col-lg-8 col-md-10 col-sm-11">
         <div className="accordion" id="accordionExample">
           <div className="accordion-item">
             <h2 className="accordion-header" id="Dropdown">
@@ -110,7 +108,7 @@ export default function Form() {
                   return (
                     <>
                       <div className="d-inline">
-                        <span className={`btn btn-outline-success ${index > 0 && "ml-1"}`}>{val}</span>
+                        <span className={`btn btn-outline-primary ${index > 0 && "ml-1"}`}>{val}</span>
                       </div>
                     </>
                   )
@@ -118,7 +116,7 @@ export default function Form() {
               </div>
             </div>
           </div>
-          <div className="accordion-item mt-5">
+          <div className="accordion-item mt-1 border">
             <h2 className="accordion-header" id="sendMessage">
               <button
                 className="accordion-button"
@@ -140,9 +138,10 @@ export default function Form() {
               <div className="accordion-body">
                 <div className="">
                   <img
-                    className="logo1 border rounded-circle bg-dark"
+                    className="border rounded-circle bg-dark"
                     src=""
                     alt=""
+                    style={{ height: 50, width: 50 }}
                   />
                 </div>
                 <div>
