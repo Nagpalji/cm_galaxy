@@ -77,7 +77,7 @@ const ThemeNavbar = props => {
             <DateRangePicker />
           </Col>
         </Row>
-
+        
         {/* <Bell /> */}
         {/* <NavbarSearch /> */}
         {/* <CartDropdown /> */}

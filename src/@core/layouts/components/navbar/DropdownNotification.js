@@ -1,5 +1,5 @@
 // ** React Imports
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // ** Custom Components
@@ -13,7 +13,27 @@ import { Button, Badge, Media, DropdownMenu, DropdownItem, DropdownToggle, Uncon
 
 const DropdownNotification = () => {
   // ** Notification Array
-  const notificationsArray = [
+    const userName = localStorage.getItem("brand_name")
+    const [notificationsArray, setNotificationsArray] = useState([])
+    const url = "https://srvr1px.cyberads.io/cpl_alert/"
+    useEffect(() => {
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                "Content-Type":"application/json"
+              },
+              body: JSON.stringify({
+                brand: userName
+              })
+        }).then(response => response.json()).then(anyjsonname => {
+            console.log("anyjson", anyjsonname)
+            setNotificationsArray(anyjsonname)
+        }).catch(e => {
+            console.log('e', e)
+        })
+    }, [])
+
+  /* const notificationsArray = [
     {
       img: require('@src/assets/images/portrait/small/avatar-s-1.jpg').default,
       subtitle: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolores quae? Iure dolor nihil expedita quos.',
@@ -44,7 +64,7 @@ const DropdownNotification = () => {
       subtitle: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolores quae? Iure dolor nihil expedita quos.',
       title: 'Monthly Payment Advice is ready.'
     }
-  ]
+  ] */
 
   // ** Function to render Notifications
   /*eslint-disable */
@@ -86,18 +106,18 @@ const DropdownNotification = () => {
                       />
                     </Media>
                     <Media body>
-                      <div className='text-black font-weight-bold'>{item.title}</div>
-                      <p className='' style={{ color: '#6e6b7b' }}>{item.subtitle}</p>
+                      <div className='text-black font-weight-bold'>{item.Brand_name}</div>
+                      <p className='' style={{ color: '#6e6b7b' }}>{item.CPL_Variation}</p>
                       <div className='d-flex'>
                         <p className='mr-2 notificationSender'>Sender</p>
-                        <p className='mr-2 notificationDate'>28-12-22</p>
+                        <p className='mr-2 notificationDate'>{item.date_created}</p>
                         <p className='notificationTime'>9:19pm</p>
                       </div>
                     </Media>
                   </Fragment>
                 ) : (
                   <Fragment>
-                    {item.title}
+                    {item.Brand_name}
                     {item.switch}
                   </Fragment>
                 )}
