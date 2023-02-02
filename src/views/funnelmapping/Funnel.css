@@ -10,7 +10,6 @@
     width: 380px;
     left: 440px;
     top: 190px;
-    border-color: #FFC313 transparent;
   }
 
   .rectangle03 {
@@ -24,7 +23,7 @@
     width: 260px;
     left: 500px;
     top: 402.1px;
-    border-color: #29A4F7 transparent;
+    border-color: #00def6 transparent;
   }
 
   .rectangle07 {
@@ -34,24 +33,11 @@
     border-color: #27CA75 transparent;
   }
 
-  .rectangle02 {
-    width: 320px;
-  }
-
-  .rectangle04 {
-    width: 260px;
-  }
-
-  .rectangle06 {
-    width: 200px;
-  }
-
   .rectangle02,
   .rectangle04,
   .rectangle06 {
     border-color: #4F4F4F transparent;
     border-radius: 1px 1px 12px 12px;
-    height: 0px;
     border-style: solid;
     border-width: 20px 10px 0PX 10px;
   }
@@ -62,20 +48,8 @@
   .content-27CA75 {
     display: flex;
   }
-
-  .content-box-FFC313,
-  .content-box-4076DA,
-  .content-box-29A4F7,
-  .content-box-27CA75 {
-    width: 360px;
-    height: 310px;
-    overflow: auto;
-  }
-
   .content-box-FFC313 {
     background: rgba(255, 195, 19, 0.25);
-    box-shadow: 2px 2px 10px #FFC313;
-    border-radius: 2px;
   }
 
   .triangle-right-FFC313 {
@@ -84,12 +58,6 @@
     border-top: 25px solid transparent;
     border-right: 50px solid #FFC313;
     border-bottom: 25px solid transparent;
-  }
-
-  .content-box-4076DA {
-    background: rgba(64, 118, 218, 0.25);
-    box-shadow: 2px 2px 10px #4076DA;
-    border-radius: 2px;
   }
 
   .triangle-right-4076DA {
@@ -101,25 +69,13 @@
     border-bottom: 25px solid transparent;
   }
 
-  .content-box-29A4F7 {
-    background: rgba(41, 164, 247, 0.25);
-    box-shadow: 2px 2px 10px #29A4F7;
-    border-radius: 2px;
-  }
-
   .triangle-right-29A4F7 {
     width: 0;
     height: 0;
     margin-top: 170px;
     border-top: 25px solid transparent;
-    border-right: 50px solid #29A4F7;
+    border-right: 50px solid #00def6;
     border-bottom: 25px solid transparent;
-  }
-
-  .content-box-27CA75 {
-    background: rgba(39, 202, 117, 0.25);
-    box-shadow: 2px 2px 10px #27CA75;
-    border-radius: 2px;
   }
 
   .triangle-right-27CA75 {
@@ -132,12 +88,4 @@
   }
   .funnelPara{
     margin: -40px 10px;
-    text-align: center;
-    color: white;
-  }
-  .DetailPara{
-    /* padding-top: 10px; */
-    color: #4f4f4f;
-    /* font-size: 14px; */
-    font-weight: bold;
   }

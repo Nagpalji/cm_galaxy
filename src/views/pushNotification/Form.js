@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import "../funnelmapping/details.css"
 import { Modal, ModalBody, ModalHeader } from 'reactstrap'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
@@ -10,33 +9,17 @@ const DropDown = ({ value, onDragStart }) => {
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header" id="Dropdown">
-            <button
-              className="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target={`#${id}`}
-              aria-expanded="true"
-              aria-controls={`${id}`}
-            >
+            <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#${id}`} aria-expanded="true" aria-controls={`${id}`} >
               {`${id}`}
             </button>
           </h2>
-          <div
-            id="dropdown"
-            className="accordion-collapse collapse show"
-            aria-labelledby="Dropdown"
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body">
+          <div id="dropdown" className="accordion-collapse collapse show" aria-labelledby="Dropdown" data-bs-parent="#accordionExample" >
+            <div className="accordion-body m-0 p-0 d-flex flex-wrap justify-content-around align-items-center">
               {option.map((val, index) => {
                 return (
                   <>
-                    <div key={val}
-                      onDragStart={(e) => onDragStart(e, val)}
-                      draggable
-                      className=""
-                    >
-                      <span className={`btn btn-outline-primary ${index > 0 && "mt-1"}`}>{val}</span>
+                    <div key={val} onDragStart={(e) => onDragStart(e, val)} draggable className="m-0 ml-1 mb-1 p-0" >
+                      <span className={`btn btn-outline-primary m-0 ${index > 0}`}>{val}</span>
                     </div>
                   </>
                 )
@@ -52,7 +35,7 @@ const DropDown = ({ value, onDragStart }) => {
 export default function Form() {
 
   const [text, setText] = useState("")
-  const [tasks, setTasks] = useState(['android', 'ios', 'window', 'ubuntu'])
+  const [tasks, setTasks] = useState(['android', 'ubuntu', 'windows', 'ios'])
   const [dropedItem, setDropItem] = useState([])
 
   const textChange = (event) => {
@@ -174,8 +157,9 @@ export default function Form() {
                       <div className="d-flex">
                         <img
                           src="./okana.png"
-                          className="circle rounded-circle border border-primary"
+                          className="rounded-circle border border-primary"
                           alt=""
+                          style={{ height: 50, width: 50 }}
                         />
                       </div>
                       <div className="pt-1">
