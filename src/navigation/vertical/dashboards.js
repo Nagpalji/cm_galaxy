@@ -132,13 +132,6 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
     },
     {
       id: 'eCommerceDash',
-      title: 'Push Notification',
-      // icon: <Chrome size={12} />,
-      icon: <FaBell size={12} />,
-      navLink: '/pushNotification/index'
-    },
-    {
-      id: 'eCommerceDash',
       title: 'Google Performance',
       // icon: <Chrome size={12} />,
       icon: <FaChrome size={12} />,
@@ -187,6 +180,13 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
       // icon: <Play size={12} />,
       icon: <FaPlay size={12} />,
       navLink: '/dv360-performance'
+    },
+    {
+      id: 'eCommerceDash',
+      title: 'Push Notification',
+      // icon: <Chrome size={12} />,
+      icon: <FaBell size={12} />,
+      navLink: '/pushNotification/index'
     },
     // {
     //   id: 'eCommerceDash',
