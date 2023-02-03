@@ -8,7 +8,8 @@ import Avatar from '@components/avatar'
 import classnames from 'classnames'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Bell } from 'react-feather'
-import { Button, Badge, Media, DropdownItem, div } from 'reactstrap'
+import * as FaIcons from 'react-icons/fa'
+import { Button, Badge, Media, DropdownItem } from 'reactstrap'
 
 const DropdownNotification = () => {
     // ** Notification Array
@@ -75,7 +76,17 @@ const DropdownNotification = () => {
     /*eslint-disable */
     const renderNotificationItems = () => {
         return (
-            <PerfectScrollbar className='media-list scrollable-container bg-white rounded shadow' >
+            <div className='media-list scrollable-container bg-white rounded shadow p-1' >
+            <div className='d-flex justify-content-between align-item-center'>
+                <h2 className='font-weight-bold'>Notifications Hub</h2>
+                <div className='d-flex'>
+                    <div className='mx-1'>
+                        <FaIcons.FaCheckDouble className='text-primary' />
+                    </div>
+                    <p className='text-primary'>Mark as read</p>
+                </div>
+            </div>
+            <hr className="my-2" />
                 {notificationsArray.map((item, index) => {
                     return (
                         <a key={index} className='d-flex' href='/' onClick={e => e.preventDefault()}>
@@ -126,7 +137,7 @@ const DropdownNotification = () => {
                     )
                 })
                 }
-            </PerfectScrollbar >
+            </div >
         )
     }
     /*eslint-enable */

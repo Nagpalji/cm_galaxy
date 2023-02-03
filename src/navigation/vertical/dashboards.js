@@ -110,7 +110,7 @@
 //   // }
 // ]
 // import { Home, Circle, Facebook, Linkedin, Youtube, Chrome, Globe, Settings, Command, Twitter, Package, Play, Atsign, AtSign, Filter, Users  } from 'react-feather'
-import { FaHome, FaFacebook, FaLinkedin, FaYoutube, FaChrome, Globe, Settings, Command, FaTwitter, Package, FaPlay, FaAmazon, FaFilter, FaUserAlt, FaUsers, FaBell  } from 'react-icons/fa'
+import { FaHome, FaFacebook, FaLinkedin, FaYoutube, FaChrome, Globe, Settings, Command, FaTwitter, Package, FaPlay, FaAmazon, FaFilter, FaUserAlt, FaUsers, FaUser, FaBullhorn, FaBell  } from 'react-icons/fa'
 
 let sample
 
@@ -127,7 +127,7 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
       id: 'eCommerceDash',
       title: 'Funnel Mapping',
       // icon: <Chrome size={12} />,
-      icon: <FaChrome size={12} />,
+      icon: <FaFilter size={12} />,
       navLink: '/funnelmapping/index'
     },
     {
@@ -188,13 +188,13 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
       icon: <FaPlay size={12} />,
       navLink: '/dv360-performance'
     },
-    {
-      id: 'eCommerceDash',
-      title: 'Lead Management',
-      // icon: <Filter size={12} />,
-      icon: <FaFilter size={12} />,
-      navLink: '/lead-management'
-    },
+    // {
+    //   id: 'eCommerceDash',
+    //   title: 'Lead Management',
+    //   // icon: <Filter size={12} />,
+    //   icon: <FaFilter size={12} />,
+    //   navLink: '/lead-management'
+    // },
     {
       id: 'eCommerceDash',
       title: 'LMS',
@@ -204,19 +204,19 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
         {
           id: "Dashboard",
           title: "Dashboard",
-          icon: <FaFilter size={12} />,
+          icon: <FaHome size={12} />,
           navLink: "/LMS/dashboard/analytics"
         },
         {
           id: "Accounts",
           title: "Accounts",
-          icon: <FaFilter size={12} />,
+          icon: <FaUser size={12} />,
           navLink: "/LMS/dashboard/accounts"
         },
         {
           id: "Campaign Manager",
           title: "Campaign Manager",
-          icon: <FaFilter size={12} />
+          icon: <FaBullhorn size={12} />
           // navLink: "/dashboard/analytics"
         }
       ]
