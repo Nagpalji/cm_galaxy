@@ -45,11 +45,13 @@ const Funnel = ({ res }) => {
     const [colour, setColour] = useState('warning')
     const [funnel, setFunnel] = useState('tofu')
     const [top, setTop] = useState(25)
+    const [marginleft, setMarginleft] = useState(182)
 
     const detail = (e) => {
         setColour(e.target.dataset.color)
         setFunnel(e.target.textContent.toLowerCase())
         setTop(e.target.dataset.top)
+        setMarginleft(e.target.dataset.marginleft)
     }
 
     return (
@@ -62,11 +64,11 @@ const Funnel = ({ res }) => {
                     <div className="rectangle04 h-none" style={{ width: 235 }} />
                     <div className="taper rectangle05" onClick={detail} style={{ borderColor: '#4acade transparent', width: '240px' }}><p data-color="secondary" data-top={190} className='funnelPara text-center text-white'>BOFU</p></div>
                     <div className="rectangle06 h-none" style={{ width: 175 }} />
-                    <div className="taper rectangle07" onClick={detail} style={{ borderColor: '#27CA75 transparent', width: '180px' }}><p data-color="success" data-top={270} className='funnelPara text-center text-white'>Conversion</p></div>
+                    <div className="taper rectangle07" onClick={detail} style={{ borderColor: '#27CA75 transparent', width: '180px' }}><p data-color="success" data-top={270} data-marginLeft={190} className='funnelPara text-center text-white'>Conversion</p></div>
                 </div>
                 <div className="d-flex flex-row col-lg-7 col-sm-12 p-1">
                     <div className="content-FFC313 hide1 w-100" style={{ height: 300 }}>
-                        <div className={`d-none d-lg-block w-25 position-relative border-top-${colour}`} style={{ marginLeft: '-182px', top: `${top}px`, height: 0, zIndex: '-1000' }} />
+                        <div className={`d-none d-lg-block w-25 position-relative border-top-${colour}`} style={{ marginLeft: `-${marginleft}px`, top: `${top}px`, height: 0, zIndex: '-1000' }} />
                         <PerfectScrollbar className={`w-100 border-left-${colour}`}>
                             {data0[funnel].map((item) => {
                                 return (
