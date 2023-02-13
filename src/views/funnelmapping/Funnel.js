@@ -179,7 +179,7 @@ const Funnel = ({ res }) => {
                                     <p className='m-0 ml-2' > <b>{res?.Mofu?.avg_time_per_session}</b></p>
                                 </div>
                             </div>
-                            <div className='d-block' data-toggle="tooltip" data-placement="top" title="Top 3 ads" >
+                            {/* <div className='d-block' data-toggle="tooltip" data-placement="top" title="Top 3 ads" >
                                 <div className='d-flex align-items-center p-0 m-0'>
                                     <IoIosArrowRoundForward size={32} className='text-primary' />
                                     <p className='fw-bold text-primary m-0'>Best Ad Contributing Avg Pages per session (in secs) – </p>
@@ -193,7 +193,7 @@ const Funnel = ({ res }) => {
                                         )
                                     })}
                                 </div>
-                            </div>
+                            </div> */}
 
                         </PerfectScrollbar>
                     </div>
