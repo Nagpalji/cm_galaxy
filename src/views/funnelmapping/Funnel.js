@@ -102,15 +102,6 @@ const Funnel = ({ res }) => {
                                     })}
                                 </div>
                             </div>
-                            {/* <div className='d-block' data-toggle="tooltip" data-placement="top" title="Top 3 ad copies by CTR" >
-                                <div className='d-flex align-items-center p-0 m-0'>
-                                    <IoIosArrowRoundForward size={32} className='text-warning' />
-                                    <p className='fw-bold text-warning m-0'>Best Ad contributing to ToFU –</p>
-                                </div>
-                                <div className='ml-1 mb-1'>
-                                    <p><b>{0}</b></p>
-                                </div>
-                            </div> */}
                         </PerfectScrollbar>
                     </div>
                     <div className="content-4076DA hide2 w-100" style={{ height: 300 }}>
@@ -155,7 +146,7 @@ const Funnel = ({ res }) => {
                                     {res?.Mofu?.os_Preference && res?.Mofu?.os_Preference.map((val) => {
                                         return (
                                             <>
-                                                <li className='m-0' key={val.OS}>{val.OS} <b>: ${val.count}</b></li>
+                                                <li className='m-0' key={val.OS}>{val.OS} <b>: %{val.count}</b></li>
                                             </>
                                         )
                                     })}
@@ -179,22 +170,6 @@ const Funnel = ({ res }) => {
                                     <p className='m-0 ml-2' > <b>{res?.Mofu?.avg_time_per_session}</b></p>
                                 </div>
                             </div>
-                            {/* <div className='d-block' data-toggle="tooltip" data-placement="top" title="Top 3 ads" >
-                                <div className='d-flex align-items-center p-0 m-0'>
-                                    <IoIosArrowRoundForward size={32} className='text-primary' />
-                                    <p className='fw-bold text-primary m-0'>Best Ad Contributing Avg Pages per session (in secs) – </p>
-                                </div>
-                                <div className='ml-1 mb-1'>
-                                    {res?.mofu_productPreferences && res.mofu_productPreferences.map((val) => {
-                                        return (
-                                            <>
-                                                <li className='m-0' key={val.product_name}>{val.product_name} <b>: {val.user_count}</b></li>
-                                            </>
-                                        )
-                                    })}
-                                </div>
-                            </div> */}
-
                         </PerfectScrollbar>
                     </div>
                     <div className="content-29A4F7 hide3 w-100 p-0 m-0" style={{ height: 300 }}>
@@ -248,15 +223,6 @@ const Funnel = ({ res }) => {
                                     <p className='m-0 ml-2' > <b>{res?.Bofu?.visitor_to_cart_conversion_rate}</b></p>
                                 </div>
                             </div>
-                            {/* <div className='d-block' data-toggle="tooltip" data-placement="top" title="Top 3 ads that has resulted in maximum no. of visitors creating a cart" >
-                                <div className='d-flex align-items-center p-0 m-0'>
-                                    <IoIosArrowRoundForward size={32} className='text-secondary p-0 m-0' />
-                                    <p className='fw-bold m-0 text-secondary'>Best Ads Contribution to BoFU – </p>
-                                </div>
-                                <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{res?.Bofu?.add_to_cart}</b></p>
-                                </div>
-                            </div> */}
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Number of abandoned carts" >
                                 <div className='d-flex align-items-center p-0 m-0'>
                                     <IoIosArrowRoundForward size={32} className='text-secondary p-0 m-0' />
@@ -275,15 +241,6 @@ const Funnel = ({ res }) => {
                                     <p className='m-0 ml-2' > <b>{res?.Bofu?.abandoned_cart_value}</b></p>
                                 </div>
                             </div>
-                            {/* <div className='d-block' data-toggle="tooltip" data-placement="top" title="Returning Users Vs New Users %" >
-                                <div className='d-flex align-items-center p-0 m-0'>
-                                    <IoIosArrowRoundForward size={32} className='text-secondary p-0 m-0' />
-                                    <p className='fw-bold m-0 text-secondary'>Returning Users Vs New Users % – </p>
-                                </div>
-                                <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{res?.Bofu?.add_to_cart}</b></p>
-                                </div>
-                            </div> */}
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Cart Value for Returning/ No. of Returning Visitors" >
                                 <div className='d-flex align-items-center p-0 m-0'>
                                     <IoIosArrowRoundForward size={32} className='text-secondary p-0 m-0' />
@@ -302,55 +259,6 @@ const Funnel = ({ res }) => {
                                     <p className='m-0 ml-2' > <b>{res?.Bofu?.new_users_cart_value}</b></p>
                                 </div>
                             </div>
-                            {/* <div className='d-flex align-items-center bg-secondary'>
-                                <p className='fw-bold text-white m-0' style={{ padding: 5 }}>For Performance Marketing: </p>
-                            </div>
-                            <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total number of leads" >
-                                <div className='d-flex align-items-center p-0 m-0'>
-                                    <IoIosArrowRoundForward size={32} className='text-secondary p-0 m-0' />
-                                    <p className='fw-bold m-0 text-secondary'>Leads – </p>
-                                </div>
-                                <div className='ml-1 mb-1'>
-                                    <li className='m-0' >{res && res?.bofu_customerLifetimeValues}</li>
-                                </div>
-                            </div>
-                            <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Number of qualified Leads" >
-                                <div className='d-flex align-items-center p-0 m-0'>
-                                    <IoIosArrowRoundForward size={32} className='text-secondary p-0 m-0' />
-                                    <p className='fw-bold m-0 text-secondary'>Qualified Leads – </p>
-                                </div>
-                                <div className='ml-1 mb-1'>
-                                    <li className='m-0' >{res && res?.bofu_customerLifetimeValues}</li>
-                                </div>
-                            </div>
-                            <div className='d-block' data-toggle="tooltip" data-placement="top" title="otal Cost / Total Number of Leads" >
-                                <div className='d-flex align-items-center p-0 m-0'>
-                                    <IoIosArrowRoundForward size={32} className='text-secondary p-0 m-0' />
-                                    <p className='fw-bold m-0 text-secondary'>CPL($) – </p>
-                                </div>
-                                <div className='ml-1 mb-1'>
-                                    <li className='m-0' >{res && res?.bofu_customerLifetimeValues}</li>
-                                </div>
-                            </div>
-                            <div className='d-block' data-toggle="tooltip" data-placement="top" title="Leads or Carts created / Visitors * 100" >
-                                <div className='d-flex align-items-center p-0 m-0'>
-                                    <IoIosArrowRoundForward size={32} className='text-secondary p-0 m-0' />
-                                    <p className='fw-bold m-0 text-secondary'>Visitor to Lead Conversion Rate % – </p>
-                                </div>
-                                <div className='ml-1 mb-1'>
-                                    <li className='m-0' >{res && res?.bofu_customerLifetimeValues}</li>
-                                </div>
-                            </div>
-                            <div className='d-block' data-toggle="tooltip" data-placement="top" title="Top 3 ad that has resulted in maximum no. of visitors creating a cart" >
-                                <div className='d-flex align-items-center p-0 m-0'>
-                                    <IoIosArrowRoundForward size={32} className='text-secondary p-0 m-0' />
-                                    <p className='fw-bold m-0 text-secondary'>Best Ads Contribution to BoFU – </p>
-                                </div>
-                                <div className='ml-1 mb-1'>
-                                    <li className='m-0' >{res && res?.bofu_customerLifetimeValues}</li>
-                                </div>
-                            </div> */}
-
                         </PerfectScrollbar>
                     </div>
                     <div className="content-27CA75 hide4 w-100" style={{ height: 300 }}>
@@ -365,13 +273,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-success m-0'>Conversions – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    {res?.bofu_lastPurchase && res?.bofu_lastPurchase.map((val) => {
-                                        return (
-                                            <>
-                                                <li className='m-0' key={val.product_name}>{val.product_name} <b>: {val.Date}</b></li>
-                                            </>
-                                        )
-                                    })}
+                                    <p className='m-0 ml-2' > <b>{res?.Conversion?.conversions}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Revenue" >
@@ -380,13 +282,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-success m-0'>Revenue ($) – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    {res?.bofu_lastPurchase && res?.bofu_lastPurchase.map((val) => {
-                                        return (
-                                            <>
-                                                <li className='m-0' key={val.product_name}>{val.product_name} <b>: {val.Date}</b></li>
-                                            </>
-                                        )
-                                    })}
+                                    <p className='m-0 ml-2' > <b>{res?.Conversion?.revenue}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Spends / Number Of Sales" >
@@ -395,13 +291,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-success m-0'>Cost Per Conversion ($) – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    {res?.bofu_lastPurchase && res?.bofu_lastPurchase.map((val) => {
-                                        return (
-                                            <>
-                                                <li className='m-0' key={val.product_name}>{val.product_name} <b>: {val.Date}</b></li>
-                                            </>
-                                        )
-                                    })}
+                                    <p className='m-0 ml-2' > <b>{res?.Conversion?.cost_per_conversion}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Revenue / Total Spends" >
@@ -410,13 +300,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-success m-0'>ROAS – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    {res?.bofu_lastPurchase && res?.bofu_lastPurchase.map((val) => {
-                                        return (
-                                            <>
-                                                <li className='m-0' key={val.product_name}>{val.product_name} <b>: {val.Date}</b></li>
-                                            </>
-                                        )
-                                    })}
+                                    <p className='m-0 ml-2' > <b>{res?.Conversion?.roas}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Revenue / Number Of Sales " >
@@ -425,91 +309,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-success m-0'>Avg. Order Value ($) – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    {res?.bofu_lastPurchase && res?.bofu_lastPurchase.map((val) => {
-                                        return (
-                                            <>
-                                                <li className='m-0' key={val.product_name}>{val.product_name} <b>: {val.Date}</b></li>
-                                            </>
-                                        )
-                                    })}
-                                </div>
-                            </div>
-                            <div className='d-flex align-items-center bg-success'>
-                                <p className='fw-bold text-white m-0' style={{ padding: 5 }}>For Performance Marketing </p>
-                            </div>
-                            <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Number of Sales" >
-                                <div className='d-flex align-items-center p-0 m-0'>
-                                    <IoIosArrowRoundForward size={32} className='text-success p-0 m-0' />
-                                    <p className='fw-bold text-success m-0'>Conversions – </p>
-                                </div>
-                                <div className='ml-1 mb-1'>
-                                    {res?.bofu_lastPurchase && res?.bofu_lastPurchase.map((val) => {
-                                        return (
-                                            <>
-                                                <li className='m-0' key={val.product_name}>{val.product_name} <b>: {val.Date}</b></li>
-                                            </>
-                                        )
-                                    })}
-                                </div>
-                            </div>
-                            <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Revenue" >
-                                <div className='d-flex align-items-center p-0 m-0'>
-                                    <IoIosArrowRoundForward size={32} className='text-success p-0 m-0' />
-                                    <p className='fw-bold text-success m-0'>Revenue ($) – </p>
-                                </div>
-                                <div className='ml-1 mb-1'>
-                                    {res?.bofu_lastPurchase && res?.bofu_lastPurchase.map((val) => {
-                                        return (
-                                            <>
-                                                <li className='m-0' key={val.product_name}>{val.product_name} <b>: {val.Date}</b></li>
-                                            </>
-                                        )
-                                    })}
-                                </div>
-                            </div>
-                            <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Spends / Total Conversions No" >
-                                <div className='d-flex align-items-center p-0 m-0'>
-                                    <IoIosArrowRoundForward size={32} className='text-success p-0 m-0' />
-                                    <p className='fw-bold text-success m-0'>Cost Per Conversion ($) – </p>
-                                </div>
-                                <div className='ml-1 mb-1'>
-                                    {res?.bofu_lastPurchase && res?.bofu_lastPurchase.map((val) => {
-                                        return (
-                                            <>
-                                                <li className='m-0' key={val.product_name}>{val.product_name} <b>: {val.Date}</b></li>
-                                            </>
-                                        )
-                                    })}
-                                </div>
-                            </div>
-                            <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Revenue/ Total Spends" >
-                                <div className='d-flex align-items-center p-0 m-0'>
-                                    <IoIosArrowRoundForward size={32} className='text-success p-0 m-0' />
-                                    <p className='fw-bold text-success m-0'>ROAS – </p>
-                                </div>
-                                <div className='ml-1 mb-1'>
-                                    {res?.bofu_lastPurchase && res?.bofu_lastPurchase.map((val) => {
-                                        return (
-                                            <>
-                                                <li className='m-0' key={val.product_name}>{val.product_name} <b>: {val.Date}</b></li>
-                                            </>
-                                        )
-                                    })}
-                                </div>
-                            </div>
-                            <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Revenue/ Number of sales." >
-                                <div className='d-flex align-items-center p-0 m-0'>
-                                    <IoIosArrowRoundForward size={32} className='text-success p-0 m-0' />
-                                    <p className='fw-bold text-success m-0'>Avg. Order Value ($) – </p>
-                                </div>
-                                <div className='ml-1 mb-1'>
-                                    {res?.bofu_lastPurchase && res?.bofu_lastPurchase.map((val) => {
-                                        return (
-                                            <>
-                                                <li className='m-0' key={val.product_name}>{val.product_name} <b>: {val.Date}</b></li>
-                                            </>
-                                        )
-                                    })}
+                                    <p className='m-0 ml-2' > <b>{res?.Conversion?.avg_order_value}</b></p>
                                 </div>
                             </div>
                         </PerfectScrollbar>
