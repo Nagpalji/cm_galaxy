@@ -6,33 +6,6 @@
     cursor: pointer;
   }
 
-  .rectangle01 {
-    width: 380px;
-    left: 440px;
-    top: 190px;
-  }
-
-  .rectangle03 {
-    width: 320px;
-    left: 470px;
-    top: 296.05px;
-    border-color: #4076DA transparent;
-  }
-
-  .rectangle05 {
-    width: 260px;
-    left: 500px;
-    top: 402.1px;
-    border-color: #00def6 transparent;
-  }
-
-  .rectangle07 {
-    width: 200px;
-    left: 530px;
-    top: 509.31px;
-    border-color: #27CA75 transparent;
-  }
-
   .rectangle02,
   .rectangle04,
   .rectangle06 {
@@ -48,44 +21,8 @@
   .content-27CA75 {
     display: flex;
   }
-  .content-box-FFC313 {
-    background: rgba(255, 195, 19, 0.25);
-  }
 
-  .triangle-right-FFC313 {
-    width: 0;
-    height: 0;
-    border-top: 25px solid transparent;
-    border-right: 50px solid #FFC313;
-    border-bottom: 25px solid transparent;
-  }
-
-  .triangle-right-4076DA {
-    width: 0;
-    height: 0;
-    margin-top: 85px;
-    border-top: 25px solid transparent;
-    border-right: 50px solid #4076DA;
-    border-bottom: 25px solid transparent;
-  }
-
-  .triangle-right-29A4F7 {
-    width: 0;
-    height: 0;
-    margin-top: 170px;
-    border-top: 25px solid transparent;
-    border-right: 50px solid #00def6;
-    border-bottom: 25px solid transparent;
-  }
-
-  .triangle-right-27CA75 {
-    width: 0;
-    height: 0;
-    margin-top: 260px;
-    border-top: 25px solid transparent;
-    border-right: 50px solid #27CA75;
-    border-bottom: 25px solid transparent;
-  }
   .funnelPara{
-    margin: -40px 10px;
+    margin: -60px -15px;
+    padding: 20px;
   }
