@@ -146,7 +146,7 @@ const Funnel = ({ res }) => {
                                     {res?.Mofu?.os_Preference && res?.Mofu?.os_Preference.map((val) => {
                                         return (
                                             <>
-                                                <li className='m-0' key={val.OS}>{val.OS} <b>: %{val.count}</b></li>
+                                                <li className='m-0' key={val.OS}>{val.OS} <b>: {val.count}</b></li>
                                             </>
                                         )
                                     })}

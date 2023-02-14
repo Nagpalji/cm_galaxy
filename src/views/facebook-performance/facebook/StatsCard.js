@@ -62,6 +62,8 @@ const StatsCard = ({ cols }) => {
         data[5].icon = <Percent size={24} />
         data[6].icon = <CheckCircle size={24} />
         data[7].icon = <UserCheck size={24} />
+        data[8].icon = <Filter size={24} />
+        data[9].icon = <UserCheck size={24} />
       })
       .catch((error) => {
         console.error("Error fetching data: ", error)
@@ -123,24 +125,142 @@ const StatsCard = ({ cols }) => {
   const renderData = () => {
     return data.map((item, index) => {
       const margin = Object.keys(cols)
-      return (
-        <Col
-          key={index}
-          {...cols}
-          className={classnames({
-            [`mb-2 mb-${margin[0]}-0`]: index !== data.length - 1
-          })}
-        >
-          <Media>
-            {/* <Avatar color={item.color} icon={item.icon} className='mr-2' /> */}
-            <Avatar color={item.color} icon={item.icon} className='mr-2' />
-            <Media className='my-auto' body>
-              <h4 className='font-weight-bolder mb-0'>{item.title}</h4>
-              <CardText className='font-small-3 mb-0'>{item.subtitle}</CardText>
+      const userName = localStorage.getItem("brand_name")
+      const userEmail = localStorage.getItem("user_name")
+      // return (
+      //   <Col
+      //     key={index}
+      //     {...cols}
+      //     className={classnames({
+      //       [`mb-2 mb-${margin[0]}-0`]: index !== data.length - 1
+      //     })}
+      //   >
+      //     <Media>
+      //       {/* <Avatar color={item.color} icon={item.icon} className='mr-2' /> */}
+      //       <Avatar color={item.color} icon={item.icon} className='mr-2' />
+      //       <Media className='my-auto' body>
+      //         <h4 className='font-weight-bolder mb-0'>{item.title}</h4>
+      //         <CardText className='font-small-3 mb-0'>{item.subtitle}</CardText>
+      //       </Media>
+      //     </Media>
+      //   </Col>
+      // )
+      if (userEmail === "dhavalg@cmrsl.net") {
+        if (userName === "masteraccess") {
+          return (
+            <Col
+              key={index}
+              {...cols}
+              className={classnames({
+                [`mb-2 mb-${margin[0]}-0`]: index !== data.length - 1
+              })}
+            >
+              <Media>
+                {/* {/ <Avatar color={item.color} icon={item.icon} className='mr-2' /> /} */}
+                <Avatar color={item.color} icon={item.icon} className='mr-2' />
+                <Media className='my-auto' body>
+                  <h4 className='font-weight-bolder mb-0'>{item.title}</h4>
+                  <CardText className='font-small-3 mb-0'>{item.subtitle}</CardText>
+                </Media>
+              </Media>
+            </Col>
+          )
+        } else {
+          const valJSON = JSON.parse(userName)
+          const valJSONuser = valJSON[0].value
+         // console.log("shiv", valJSONuser)
+          if (valJSONuser === "GlobalLogic") {
+            if (item.subtitle === "Leads" || item.subtitle === "CPL") {
+
+            } else {
+              return (
+                <Col
+                  key={index}
+                  {...cols}
+                  className={classnames({
+                    [`mb-2 mb-${margin[0]}-0`]: index !== data.length - 1
+                  })}
+                >
+                  <Media>
+                    {/* {/ <Avatar color={item.color} icon={item.icon} className='mr-2' /> /} */}
+                    <Avatar color={item.color} icon={item.icon} className='mr-2' />
+                    <Media className='my-auto' body>
+                      <h4 className='font-weight-bolder mb-0'>{item.title}</h4>
+                      <CardText className='font-small-3 mb-0'>{item.subtitle}</CardText>
+                    </Media>
+                  </Media>
+                </Col>
+              )
+            }
+          } else if (item.subtitle === "Post Engagement" || item.subtitle === "CPE") {
+            //console.log('other than global logic')
+          } else {
+            return (
+              <Col
+                key={index}
+                {...cols}
+                className={classnames({
+                  [`mb-2 mb-${margin[0]}-0`]: index !== data.length - 1
+                })}
+              >
+                <Media>
+                  {/* {/ <Avatar color={item.color} icon={item.icon} className='mr-2' /> /} */}
+                  <Avatar color={item.color} icon={item.icon} className='mr-2' />
+                  <Media className='my-auto' body>
+                    <h4 className='font-weight-bolder mb-0'>{item.title}</h4>
+                    <CardText className='font-small-3 mb-0'>{item.subtitle}</CardText>
+                  </Media>
+                </Media>
+              </Col>
+            )
+          }
+        }
+        
+      } else if (userEmail === "globallogic@cmrsl.net") {
+        if (item.subtitle === "Leads" || item.subtitle === "CPL") {
+
+        } else {
+          return (
+            <Col
+              key={index}
+              {...cols}
+              className={classnames({
+                [`mb-2 mb-${margin[0]}-0`]: index !== data.length - 1
+              })}
+            >
+              <Media>
+                {/* {/ <Avatar color={item.color} icon={item.icon} className='mr-2' /> /} */}
+                <Avatar color={item.color} icon={item.icon} className='mr-2' />
+                <Media className='my-auto' body>
+                  <h4 className='font-weight-bolder mb-0'>{item.title}</h4>
+                  <CardText className='font-small-3 mb-0'>{item.subtitle}</CardText>
+                </Media>
+              </Media>
+            </Col>
+          )
+        }
+      } else if (item.subtitle === "Post Engagement" || item.subtitle === "CPE") {
+
+      } else {
+        return (
+          <Col
+            key={index}
+            {...cols}
+            className={classnames({
+              [`mb-2 mb-${margin[0]}-0`]: index !== data.length - 1
+            })}
+          >
+            <Media>
+              {/* {/ <Avatar color={item.color} icon={item.icon} className='mr-2' /> /} */}
+              <Avatar color={item.color} icon={item.icon} className='mr-2' />
+              <Media className='my-auto' body>
+                <h4 className='font-weight-bolder mb-0'>{item.title}</h4>
+                <CardText className='font-small-3 mb-0'>{item.subtitle}</CardText>
+              </Media>
             </Media>
-          </Media>
-        </Col>
-      )
+          </Col>
+        )
+      }
     })
   }
 
