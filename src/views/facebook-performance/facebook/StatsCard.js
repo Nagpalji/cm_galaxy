@@ -145,6 +145,13 @@ const StatsCard = ({ cols }) => {
       //     </Media>
       //   </Col>
       // )
+
+      /* const valJSON = JSON.parse(userName)
+      const valJSONuser = valJSON[0].value */
+
+    
+    console.log("shankar", data)
+
       if (userEmail === "dhavalg@cmrsl.net") {
         if (userName === "masteraccess") {
           return (
@@ -156,7 +163,10 @@ const StatsCard = ({ cols }) => {
               })}
             >
               <Media>
+
                 {/* {/ <Avatar color={item.color} icon={item.icon} className='mr-2' /> /} */}
+
+                {/* <Avatar color={item.color} icon={item.icon} className='mr-2' /> */}
                 <Avatar color={item.color} icon={item.icon} className='mr-2' />
                 <Media className='my-auto' body>
                   <h4 className='font-weight-bolder mb-0'>{item.title}</h4>
@@ -183,6 +193,7 @@ const StatsCard = ({ cols }) => {
                 >
                   <Media>
                     {/* {/ <Avatar color={item.color} icon={item.icon} className='mr-2' /> /} */}
+                    {/* <Avatar color={item.color} icon={item.icon} className='mr-2' /> */}
                     <Avatar color={item.color} icon={item.icon} className='mr-2' />
                     <Media className='my-auto' body>
                       <h4 className='font-weight-bolder mb-0'>{item.title}</h4>
@@ -205,6 +216,7 @@ const StatsCard = ({ cols }) => {
               >
                 <Media>
                   {/* {/ <Avatar color={item.color} icon={item.icon} className='mr-2' /> /} */}
+                  {/* <Avatar color={item.color} icon={item.icon} className='mr-2' /> */}
                   <Avatar color={item.color} icon={item.icon} className='mr-2' />
                   <Media className='my-auto' body>
                     <h4 className='font-weight-bolder mb-0'>{item.title}</h4>
@@ -230,6 +242,7 @@ const StatsCard = ({ cols }) => {
             >
               <Media>
                 {/* {/ <Avatar color={item.color} icon={item.icon} className='mr-2' /> /} */}
+                {/* <Avatar color={item.color} icon={item.icon} className='mr-2' /> */}
                 <Avatar color={item.color} icon={item.icon} className='mr-2' />
                 <Media className='my-auto' body>
                   <h4 className='font-weight-bolder mb-0'>{item.title}</h4>
@@ -252,6 +265,7 @@ const StatsCard = ({ cols }) => {
           >
             <Media>
               {/* {/ <Avatar color={item.color} icon={item.icon} className='mr-2' /> /} */}
+              {/* <Avatar color={item.color} icon={item.icon} className='mr-2' /> */}
               <Avatar color={item.color} icon={item.icon} className='mr-2' />
               <Media className='my-auto' body>
                 <h4 className='font-weight-bolder mb-0'>{item.title}</h4>
