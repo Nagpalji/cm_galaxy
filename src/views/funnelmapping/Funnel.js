@@ -84,7 +84,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-warning m-0'>CTR % –</p>
                                 </div>
                                 <div className='ml-2'>
-                                    <p><b>{parseFloat(res?.Tofu?.CTR).toFixed(1)}</b></p>
+                                    <p><b>{parseFloat(res?.Tofu?.CTR).toFixed(2)}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Post Clicks ( M/F) – Post click on Gender, Age data to show up" >
@@ -146,7 +146,7 @@ const Funnel = ({ res }) => {
                                     {res?.Mofu?.os_Preference && res?.Mofu?.os_Preference.map((val) => {
                                         return (
                                             <>
-                                                <li className='m-0' key={val.OS}>{val.OS} <b>: {val.count}</b></li>
+                                                <li className='m-0' key={val.OS}>{val.OS} <b>: {val.percentage} %</b></li>
                                             </>
                                         )
                                     })}
@@ -175,9 +175,9 @@ const Funnel = ({ res }) => {
                     <div className="content-29A4F7 hide3 w-100 p-0 m-0" style={{ height: 300 }}>
                         <div className="d-none d-lg-block w-25 position-relative border-top-secondary" style={{ marginLeft: '-187px', top: 190, height: 0, zIndex: '-1000' }} />
                         <PerfectScrollbar className=" w-100 p-0 border-left-secondary">
-                            <div className='d-flex align-items-center bg-secondary'>
+                            {/* <div className='d-flex align-items-center bg-secondary'>
                                 <p className='fw-bold text-white m-0' style={{ padding: 5 }}>For E-Commerce </p>
-                            </div>
+                            </div> */}
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Number of users who have created a cart" >
                                 <div className='d-flex align-items-center p-0 m-0'>
                                     <IoIosArrowRoundForward size={32} className='text-secondary' />
@@ -264,9 +264,9 @@ const Funnel = ({ res }) => {
                     <div className="content-27CA75 hide4 w-100" style={{ height: 300 }}>
                         <div className="d-none d-lg-block w-25 position-relative border-top-success" style={{ marginLeft: '-190px', top: 270, height: 0, zIndex: '-1000' }} />
                         <PerfectScrollbar className="w-100 p-0 border-left-success">
-                            <div className='d-flex align-items-center bg-success'>
+                            {/* <div className='d-flex align-items-center bg-success'>
                                 <p className='fw-bold text-white m-0' style={{ padding: 5 }}>For E-Commerce </p>
-                            </div>
+                            </div> */}
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Number of Sales" >
                                 <div className='d-flex align-items-center p-0 m-0'>
                                     <IoIosArrowRoundForward size={32} className='text-success p-0 m-0' />
