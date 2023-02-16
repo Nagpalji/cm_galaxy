@@ -51,7 +51,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-warning m-0'>Reach –</p>
                                 </div>
                                 <div className='ml-3'>
-                                    <p><b>{res?.Tofu?.Reach.toLocaleString()}</b></p>
+                                    <p><b>{res?.Tofu?.Reach?.toLocaleString()}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Number Of Unique People" >
@@ -60,7 +60,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-warning m-0'>Unique Reach –</p>
                                 </div>
                                 <div className='ml-3'>
-                                    <p><b>{res?.Tofu?.Unique_Reach.toLocaleString()}</b></p>
+                                    <p><b>{res?.Tofu?.Unique_Reach?.toLocaleString()}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Sum Of Total Spends" >
@@ -69,7 +69,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-warning m-0'>Spends ($) –</p>
                                 </div>
                                 <div className='ml-3'>
-                                    <p><b>{parseFloat(res?.Tofu?.Spends.toLocaleString()).toFixed(2)}</b></p>
+                                    <p><b>{parseFloat(res?.Tofu?.Spends?.toLocaleString()).toFixed(2)}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Number of Sessions" >
@@ -78,7 +78,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-warning m-0'>Session –</p>
                                 </div>
                                 <div className='ml-3'>
-                                    <p><b>{res?.Tofu?.Session.toLocaleString()}</b></p>
+                                    <p><b>{res?.Tofu?.Session?.toLocaleString()}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Number of Clicks / Total Number Of Impression" >
@@ -164,7 +164,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-primary m-0'>Avg. Pages per session </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{res?.Mofu?.avg_pages_per_session.toLocaleString()}</b></p>
+                                    <p className='m-0 ml-2' > <b>{res?.Mofu?.avg_pages_per_session?.toLocaleString()}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions" >
@@ -173,7 +173,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-primary m-0'>Avg. Time Per Session (in secs) – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{res?.Mofu?.avg_time_per_session.toLocaleString()}</b></p>
+                                    <p className='m-0 ml-2' > <b>{res?.Mofu?.avg_time_per_session?.toLocaleString()}</b></p>
                                 </div>
                             </div>
                         </PerfectScrollbar>
@@ -190,7 +190,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold m-0 text-secondary'>Add To Cart – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{res?.Bofu?.add_to_cart.toLocaleString()}</b></p>
+                                    <p className='m-0 ml-2' > <b>{res?.Bofu?.add_to_cart?.toLocaleString()}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Number of Users who have initiated checkout" >
@@ -199,7 +199,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold m-0 text-secondary'>Initiate Checkout – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{res?.Bofu?.initiate_checkout.toLocaleString()}</b></p>
+                                    <p className='m-0 ml-2' > <b>{res?.Bofu?.initiate_checkout?.toLocaleString()}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total value of orders added to cart. " >
@@ -208,7 +208,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold m-0 text-secondary'>Checkout Value ($) – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Bofu?.checkout_value.toLocaleString()).toFixed(2)}</b></p>
+                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Bofu?.checkout_value?.toLocaleString()).toFixed(2)}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Checkout value / total spends" >
@@ -217,7 +217,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold m-0 text-secondary'>Cost per Lead ($) – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Bofu?.cost_per_lead.toLocaleString()).toFixed(2)}</b></p>
+                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Bofu?.cost_per_lead?.toLocaleString()).toFixed(2)}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Leads or Carts created / Visitors * 100" >
@@ -244,7 +244,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold m-0 text-secondary'>Abandoned Cart Value ($) – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Bofu?.abandoned_cart_value.toLocaleString()).toFixed(2)}</b></p>
+                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Bofu?.abandoned_cart_value?.toLocaleString()).toFixed(2)}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Cart Value for Returning/ No. of Returning Visitors" >
@@ -253,7 +253,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold m-0 text-secondary'>Returning Users Cart Value ($) – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Bofu?.returning_users_cart_value.toLocaleString()).toFixed(2)}</b></p>
+                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Bofu?.returning_users_cart_value?.toLocaleString()).toFixed(2)}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Cart Value for New Visitors/ No. of New Visitors" >
@@ -262,7 +262,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold m-0 text-secondary'>New Users Cart Value ($) – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Bofu?.new_users_cart_value.toLocaleString()).toFixed(2)}</b></p>
+                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Bofu?.new_users_cart_value?.toLocaleString()).toFixed(2)}</b></p>
                                 </div>
                             </div>
                         </PerfectScrollbar>
@@ -279,7 +279,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-success m-0'>Conversions – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{res?.Conversion?.conversions.toLocaleString()}</b></p>
+                                    <p className='m-0 ml-2' > <b>{res?.Conversion?.conversions?.toLocaleString()}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Revenue" >
@@ -288,7 +288,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-success m-0'>Revenue ($) – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Conversion?.revenue.toLocaleString()).toFixed(2)}</b></p>
+                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Conversion?.revenue?.toLocaleString()).toFixed(2)}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Spends / Number Of Sales" >
@@ -297,7 +297,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-success m-0'>Cost Per Conversion ($) – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Conversion?.cost_per_conversion.toLocaleString()).toFixed(2)}</b></p>
+                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Conversion?.cost_per_conversion?.toLocaleString()).toFixed(2)}</b></p>
                                 </div>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Revenue / Total Spends" >
@@ -315,7 +315,7 @@ const Funnel = ({ res }) => {
                                     <p className='fw-bold text-success m-0'>Avg. Order Value ($) – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
-                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Conversion?.avg_order_value.toLocaleString()).toFixed(2)}</b></p>
+                                    <p className='m-0 ml-2' > <b>{parseFloat(res?.Conversion?.avg_order_value?.toLocaleString()).toFixed(2)}</b></p>
                                 </div>
                             </div>
                         </PerfectScrollbar>
