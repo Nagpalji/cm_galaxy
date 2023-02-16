@@ -1,5 +1,5 @@
 // ** React Imports
-import { Suspense, useContext, lazy } from 'react'
+import { Suspense, useContext, lazy, useEffect } from 'react'
 
 // ** Utils
 import { isUserLoggedIn } from '@utils'
@@ -21,6 +21,10 @@ import { DefaultRoute, Routes } from './routes'
 import BlankLayout from '@layouts/BlankLayout'
 import VerticalLayout from '@src/layouts/VerticalLayout'
 import HorizontalLayout from '@src/layouts/HorizontalLayout'
+
+import { getToken } from "firebase/messaging"
+import { messaging } from '../firebase.cofig'
+
 
 const Router = () => {
   // ** Hooks
@@ -117,6 +121,23 @@ const Router = () => {
 
       // ** RouterProps to pass them to Layouts
       const routerProps = {}
+
+      async function requestPermission() {
+        const permission = await Notification.requestPermission()
+        if (permission === "granted") {
+          // Generate Token
+          const token = await getToken(messaging, { vapidKey:"BKlgg-yZdutENiYbqRZp-rXJwSmsuTMcAD1iRHLdeupmgnWTS_ui_WB85ssDgRKAuqrhao3yYBw2lPsUno0_ZKQ"})
+          console.log("Token Gen", token)
+          // Send this token  to server ( db)
+        } else if (permission === "denied") {
+          alert("You denied for the notification")
+        }
+      }
+    
+      useEffect(() => {
+        // Req user for notification permission
+        requestPermission()
+      }, [])
 
       return (
         <Route path={LayoutPaths} key={index}>
