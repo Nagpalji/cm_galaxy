@@ -58,7 +58,7 @@ const ChartContainer1 = () => {
                 </Col>
             </Row>
             <hr />
-            <Row className="my-2">
+            <Row className="match-height">
                 <Col xs="12">
                     <Table data={tabelData} />
                 </Col>
