@@ -57,14 +57,14 @@ const Table = ({ data }) => {
                             <th className='bg-primary text-white' scope="col">Sr. No.</th>
                             <th className='bg-primary text-white' scope="col">Country</th>
                             <th className='bg-primary text-white' scope="col">City</th>
-                            {/* <th className='bg-primary text-white' scope="col">Source</th> */}
+                            <th className='bg-primary text-white' scope="col">Source Medium</th>
                             <th className='bg-primary text-white' scope="col">Device</th>
                             <th className='bg-primary text-white' scope="col">Model</th>
                             <th className='bg-primary text-white' scope="col">Os</th>
-                            <th className='bg-primary text-white' scope="col">Plateform</th>
-                            <th className='bg-primary text-white' scope="col">Gender</th>
+                            {/* <th className='bg-primary text-white' scope="col">Plateform</th> */}
+                            {/* <th className='bg-primary text-white' scope="col">Gender</th> */}
                             <th className='bg-primary text-white' scope="col">Session</th>
-                            <th className='bg-primary text-white' scope="col">Clicks</th>
+                            {/* <th className='bg-primary text-white' scope="col">Clicks</th> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -75,14 +75,14 @@ const Table = ({ data }) => {
                                         <th className='text-black'>{index + 1}</th>
                                         <td className='text-black'>{item?.Country}</td>
                                         <td className='text-black'>{item?.City}</td>
-                                        {/* <td className='text-black'>{item?.gateway}</td> */}
+                                        <td className='text-black'>{item?.source_medium}</td>
                                         <td className='text-black'>{item?.Device}</td>
-                                        <td className='text-black'>{item?.order_name}</td>
+                                        <td className='text-black'>{item?.device_model}</td>
                                         <td className='text-black'>{item?.OS}</td>
-                                        <td className='text-black'>{item?.OS}</td>
-                                        <td className='text-black'>{item?.OS}</td>
+                                        {/* <td className='text-black'>{item?.Plateform}</td> */}
+                                        {/* <td className='text-black'>{item?.Gender}</td> */}
                                         <td className='text-black'>{item?.Sessions}</td>
-                                        <td className='text-black'>{item?.Sessions}</td>
+                                        {/* <td className='text-black'>{item?.Clicks}</td> */}
                                     </tr>
                                 </>
                             )
