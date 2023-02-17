@@ -8,6 +8,7 @@ import "hammerjs"
 import Funnel from './Funnel'
 import Table from './Table'
 import FunnelMappingDetails from './FunnelMappingDetails'
+import { toast, ToastContainer } from 'react-toastify'
 
 const tooltipRender = (props) => {
     if (props.point) {
@@ -33,7 +34,10 @@ const ChartContainer1 = () => {
         })
             .then(response => response.json())
             .then(data => setRes(data))
-
+            .catch(err => {
+                toast.error(err.message)
+            })
+       
     }, [])
 
     useEffect(() => {
@@ -51,6 +55,7 @@ const ChartContainer1 = () => {
     return (
 
         <>
+        <ToastContainer />
             <Row className="match-height">
                 <Col xs="12">
                     <Funnel res={res} />
