@@ -99,7 +99,7 @@ const Funnel = ({ res }) => {
                                     {res?.Tofu?.Demographics && res?.Tofu?.Demographics.map((val) => {
                                         return (
                                             <>
-                                                <li className='m-0' key={val.Gender}>{val.Gender} <b>: {val.Clicks.toLocaleString()}</b></li>
+                                                <li className='m-0' key={val.Gender}>{val.Gender} <b>: {val.Sessions?.toLocaleString()}</b></li>
                                             </>
                                         )
                                     })}
@@ -110,7 +110,7 @@ const Funnel = ({ res }) => {
                     <div className="content-4076DA hide2 w-100" style={{ height: 300 }}>
                         <div className="d-none d-lg-block w-25 position-relative border-top-primary" style={{ marginLeft: '-185px', top: 110, height: 0, zIndex: '-1000' }} />
                         <PerfectScrollbar className="w-100 border-left-primary">
-                        <div className='d-flex align-items-center bg-primary mb-1'>
+                            <div className='d-flex align-items-center bg-primary mb-1'>
                                 <p className='fw-bold text-white m-0' style={{ padding: 5 }}>Middle-of-Funnel </p>
                             </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" >
@@ -161,7 +161,7 @@ const Funnel = ({ res }) => {
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Number of page views / Number of sessions" >
                                 <div className='d-flex align-items-center p-0 m-0'>
                                     <IoIosArrowRoundForward size={32} className='text-primary' />
-                                    <p className='fw-bold text-primary m-0'>Avg. Pages per session </p>
+                                    <p className='fw-bold text-primary m-0'>Avg. Pages per session – </p>
                                 </div>
                                 <div className='ml-1 mb-1'>
                                     <p className='m-0 ml-2' > <b>{res?.Mofu?.avg_pages_per_session?.toLocaleString()}</b></p>
@@ -181,9 +181,9 @@ const Funnel = ({ res }) => {
                     <div className="content-29A4F7 hide3 w-100 p-0 m-0" style={{ height: 300 }}>
                         <div className="d-none d-lg-block w-25 position-relative border-top-secondary" style={{ marginLeft: '-187px', top: 190, height: 0, zIndex: '-1000' }} />
                         <PerfectScrollbar className=" w-100 p-0 border-left-secondary">
-                            {/* <div className='d-flex align-items-center bg-secondary'>
-                                <p className='fw-bold text-white m-0' style={{ padding: 5 }}>For E-Commerce </p>
-                            </div> */}
+                            <div className='d-flex align-items-center bg-secondary'>
+                                <p className='fw-bold text-white m-0' style={{ padding: 5 }}>Bottom-of-Funnel </p>
+                            </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Number of users who have created a cart" >
                                 <div className='d-flex align-items-center p-0 m-0'>
                                     <IoIosArrowRoundForward size={32} className='text-secondary' />
@@ -270,9 +270,9 @@ const Funnel = ({ res }) => {
                     <div className="content-27CA75 hide4 w-100" style={{ height: 300 }}>
                         <div className="d-none d-lg-block w-25 position-relative border-top-success" style={{ marginLeft: '-190px', top: 270, height: 0, zIndex: '-1000' }} />
                         <PerfectScrollbar className="w-100 p-0 border-left-success">
-                            {/* <div className='d-flex align-items-center bg-success'>
-                                <p className='fw-bold text-white m-0' style={{ padding: 5 }}>For E-Commerce </p>
-                            </div> */}
+                            <div className='d-flex align-items-center bg-success'>
+                                <p className='fw-bold text-white m-0' style={{ padding: 5 }}>Conversion-Funnel</p>
+                            </div>
                             <div className='d-block' data-toggle="tooltip" data-placement="top" title="Total Number of Sales" >
                                 <div className='d-flex align-items-center p-0 m-0'>
                                     <IoIosArrowRoundForward size={32} className='text-success p-0 m-0' />
