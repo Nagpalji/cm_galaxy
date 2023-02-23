@@ -4,7 +4,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 import './Funnel.css'
 import $ from 'jquery'
 
-const Funnel = ({ res }) => {
+const Funnel = ({ res, setselectedCategory }) => {
     $(document).ready(function () {
         $('.hide1').show()
         $('.hide2, .hide3, .hide4').hide()
@@ -26,17 +26,21 @@ const Funnel = ({ res }) => {
         })
     })
 
+    const hanldeClick = async (e) => {
+        setselectedCategory(e.target.textContent)
+    }
+
     return (
         <>
             {res ? <div className="d-flex row rounded shadow">
                 <div className="d-flex justify-content-center align-items-center flex-column col-lg-5 col-sm-12 p-0 py-1">
-                    <div className="taper rectangle01" data-toggle="tooltip" data-placement="top" title="Total Number Of Users" style={{ borderColor: '#FFC313 transparent', width: '360px' }}><p className='funnelPara text-center text-white'>TOFU</p></div>
+                    <div onClick={hanldeClick}  className="taper rectangle01" data-toggle="tooltip" data-placement="top" title="Total Number Of Users" style={{ borderColor: '#FFC313 transparent', width: '360px' }}><p className='funnelPara text-center text-white'>TOFU</p></div>
                     <div className="rectangle02 h-none" style={{ width: 290 }} />
-                    <div className="taper rectangle03" data-toggle="tooltip" data-placement="top" title="User Engagement Behaviour (Number Of Users)" style={{ borderColor: '#4076DA transparent', width: '300px' }}><p className='funnelPara text-center text-white'>MOFU</p></div>
+                    <div onClick={hanldeClick} className="taper rectangle03" data-toggle="tooltip" data-placement="top" title="User Engagement Behaviour (Number Of Users)" style={{ borderColor: '#4076DA transparent', width: '300px' }}><p className='funnelPara text-center text-white'>MOFU</p></div>
                     <div className="rectangle04 h-none" style={{ width: 235 }} />
-                    <div className="taper rectangle05" style={{ borderColor: '#4acade transparent', width: '240px' }}><p className='funnelPara text-center text-white'>BOFU</p></div>
+                    <div onClick={hanldeClick} className="taper rectangle05" style={{ borderColor: '#4acade transparent', width: '240px' }}><p className='funnelPara text-center text-white'>BOFU</p></div>
                     <div className="rectangle06 h-none" style={{ width: 175 }} />
-                    <div className="taper rectangle07" style={{ borderColor: '#27CA75 transparent', width: '180px' }}><p className='funnelPara text-center text-white'>Conversion</p></div>
+                    <div onClick={hanldeClick} className="taper rectangle07" style={{ borderColor: '#27CA75 transparent', width: '180px' }}><p className='funnelPara text-center text-white'>Conversion</p></div>
                 </div>
                 <div className="d-flex flex-row col-lg-7 col-sm-12 p-1">
                     <div className="content-FFC313 hide1 w-100" style={{ height: 300 }}>

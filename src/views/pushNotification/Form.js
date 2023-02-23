@@ -6,19 +6,19 @@ const DropDown = ({ value, onDragStart }) => {
   const { id, option } = value
   return (
     <>
-      <div className="accordion" id="accordionExample">
+      <div className="accordion" id="accordion">
         <div className="accordion-item">
           <h2 className="accordion-header" id="Dropdown">
             <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#${id}`} aria-expanded="true" aria-controls={`${id}`} >
               {`${id}`}
             </button>
           </h2>
-          <div id="dropdown" className="accordion-collapse collapse show" aria-labelledby="Dropdown" data-bs-parent="#accordionExample" >
+          <div id="dropdown" className="accordion-collapse collapse show" aria-labelledby="Dropdown" data-bs-parent="#accordion" >
             <div className="accordion-body m-0 p-0 d-flex flex-wrap justify-content-around align-items-center">
               {option.map((val, index) => {
                 return (
                   <>
-                    <div key={val} onDragStart={(e) => onDragStart(e, val)} draggable className="m-0 ml-1 mb-1 p-0" >
+                    <div key={val} id={id} onDragStart={(e) => onDragStart(e, val)} draggable className={`m-0 ml-1 mb-1 p-0 ${id}`} >
                       <span className={`btn btn-outline-primary m-0 ${index > 0}`}>{val}</span>
                     </div>
                   </>
@@ -35,8 +35,13 @@ const DropDown = ({ value, onDragStart }) => {
 export default function Form() {
 
   const [text, setText] = useState("")
-  const [tasks, setTasks] = useState(['android', 'ubuntu', 'windows', 'ios'])
+  const [tasks, setTasks] = useState({
+    device:['android', 'ubuntu', 'windows', 'ios'],
+    category:['tofu', 'mofu', 'bofu', 'convertion']
+
+  })
   const [dropedItem, setDropItem] = useState([])
+  
 
   const textChange = (event) => {
     setText(event.target.value)
@@ -48,20 +53,40 @@ export default function Form() {
   }
 
   const onDragStart = (ev, value) => {
-    ev.dataTransfer.setData("text/plain", value)
+    // console.log('====================================')
+    // console.log(ev.target.getAttribute('id'))
+    // console.log('====================================')
+    ev.dataTransfer.setData("text/plain", JSON.stringify({
+      [ev.target.getAttribute('id')]:value
+    }))
   }
   const onDrop = (ev, cat) => {
+    // console.log(ev.dataTransfer.getData("text"))
     const id = ev.dataTransfer.getData("text")
-    const filteredTask = tasks.filter((item) => !id.includes(item))
-    setTasks(filteredTask)
-    setDropItem([...dropedItem, id])
+    const test = JSON.parse(id)
+    const category = Object.keys(test)
+    tasks[category].splice(id, 1)
+    
+    // const filteredTask = tasks[category].filter((item) => !id.includes(test[category]))
+    setTasks(tasks)
+    console.log({id})
+    console.log({test})
+    setDropItem([...dropedItem, dropedItem[category] = [test[category]]])
+    console.log({dropedItem})
+    // dropedItem[category] = test[category] 
+    // setDropItem(dropedItem)
+    // console.log({dropedItem})
+    // dropedItem[test]
+    // dropedItem = {}
+    // dropedItem[category] = [test[category]]
+
   }
 
   return (
     <>
       <PerfectScrollbar className='shadow bg-white rounded p-1 col-lg-3 col-md-10 col-sm-10' style={{ height: '75vh' }}>
-        <DropDown value={{ id: "device", option: tasks }} onDragStart={onDragStart} />
-        <DropDown value={{ id: "os", option: tasks }} onDragStart={onDragStart} />
+        <DropDown value={{ id: "device", option: tasks.device }} onDragStart={onDragStart} />
+        <DropDown value={{ id: "category", option: tasks.category }} onDragStart={onDragStart} />
       </PerfectScrollbar>
       <div className="bg-white shadow rounded p-1 col-lg-8 col-md-10 col-sm-11">
         <div className="accordion" id="accordionExample">
@@ -71,15 +96,15 @@ export default function Form() {
                 className="accordion-button"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#dropdown"
+                data-bs-target="#dropdowns"
                 aria-expanded="true"
-                aria-controls="dropdown"
+                aria-controls="dropdowns"
               >
                 Drop Here
               </button>
             </h2>
             <div
-              id="dropdown"
+              id="dropdowns"
               className="accordion-collapse collapse show"
               aria-labelledby="Dropdown"
               data-bs-parent="#accordionExample"
@@ -87,7 +112,8 @@ export default function Form() {
               onDrop={(e) => onDrop(e, "complete")}
             >
               <div className="accordion-body">
-                {dropedItem.map((val, index) => {
+                {console.log(dropedItem)}
+                {/* {dropedItem.map((val, index) => {
                   return (
                     <>
                       <div className="d-inline">
@@ -95,7 +121,7 @@ export default function Form() {
                       </div>
                     </>
                   )
-                })}
+                })} */}
               </div>
             </div>
           </div>

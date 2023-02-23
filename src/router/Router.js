@@ -24,6 +24,7 @@ import HorizontalLayout from '@src/layouts/HorizontalLayout'
 
 import { getToken } from "firebase/messaging"
 import { messaging } from '../firebase.cofig'
+import { toast } from 'react-toastify'
 
 
 const Router = () => {
@@ -128,9 +129,22 @@ const Router = () => {
           // Generate Token
           const token = await getToken(messaging, { vapidKey:"BKlgg-yZdutENiYbqRZp-rXJwSmsuTMcAD1iRHLdeupmgnWTS_ui_WB85ssDgRKAuqrhao3yYBw2lPsUno0_ZKQ"})
           console.log("Token Gen", token)
+          fetch('https://srvr1px.cyberads.io/saveUserTokenData/', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token })
+        })
+            .then(response => response.json())
+            .then(data => {})
+            .catch(err => {
+              console.log(err.message)
+                // alert(err.message)
+            })
           // Send this token  to server ( db)
         } else if (permission === "denied") {
-          alert("You denied for the notification")
+          // alert("You denied for the notification")
         }
       }
     

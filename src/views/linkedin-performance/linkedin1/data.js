@@ -46,84 +46,77 @@ const ExpandableTable = ({ data }) => {
 export const serverSideColumns = [
   {
     name: 'Campaign',
-    selector: 'Campaign Name',
+    selector: 'full_name',
     sortable: true,
     minWidth: '180px'
   },
   {
     name: 'Spends',
-    selector: 'Spends',
-    sortable: true,
-    minWidth: '120px'
-  },
-  {
-    name: 'Clicks',
-    selector: 'Clicks',
+    selector: 'email',
     sortable: true,
     minWidth: '120px'
   },
   {
     name: 'Impressions',
-    selector: 'Impressions',
+    selector: 'post',
+    sortable: true,
+    minWidth: '120px'
+  },
+  {
+    name: 'Clicks',
+    selector: 'city',
     sortable: true,
     minWidth: '75px'
   },
   {
-    name: 'CPC',
-    selector: 'CPC',
+    name: 'Leads',
+    selector: 'start_date',
     sortable: true,
     minWidth: '75px'
   },
   {
-    name: 'CTR(%)',
-    selector: 'CTR',
+    name: 'AVG Frequency',
+    selector: 'start_date',
     sortable: true,
-    minWidth: '75px'
+    minWidth: '180px'
   }
-  
 ]
 
 // ** Overall Performance table 2
 export const overColumns = [
   {
     name: 'Campaign Name',
-    selector: 'Campaign Name',
+    selector: 'full_name',
     sortable: true,
     minWidth: '180px'
   },
   {
-    name: 'Engagements',
-    selector: 'Engagements',
+    name: 'Spends',
+    selector: 'email',
     sortable: true,
     minWidth: '120px'
   },
   {
-    name: 'Reach',
-    selector: 'Reach',
+    name: 'Impressions',
+    selector: 'post',
     sortable: true,
     minWidth: '120px'
   },
   {
-    name: 'Follows',
-    selector: 'Follows',
+    name: 'Clicks',
+    selector: 'city',
     sortable: true,
     minWidth: '75px'
   },
   {
-    name: 'CPM',
-    selector: 'CPM',
+    name: 'Leads',
+    selector: 'city',
     sortable: true,
     minWidth: '75px'
   },
   {
-    name: 'Engagement Rate',
-    selector: 'EngagementRate',
-    sortable: true,
-    minWidth: '75px'
-  },
-  {
-    name: 'Avg Frequency',
-    selector: 'AvgFrequency',
+    name: 'Engagement',
+    selector: 'city',
     sortable: true,
     minWidth: '75px'
   }

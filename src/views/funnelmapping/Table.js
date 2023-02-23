@@ -1,15 +1,28 @@
 import React from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import { Redirect } from 'react-router-dom'
 
-const Table = ({ data }) => {
+const Table = ({ data, selectedCategory}) => {
+
+    const downloadHandle = async () => {
+        fetch('https://srvr1px.cyberads.io/getexcelData/', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({type:selectedCategory})
+        })
+            .then(response => response.json())
+            .then(data => { window.location.href = data.url })
+    }
 
     return (
         <>
             <div className='d-flex justify-content-end'>
                 <form className="form-inline my-lg-0">
-                    <input className="form-control" type="search" placeholder="Search" aria-label="Search" />
-                    <button className="btn btn-outline-primary m-1" type="submit">Search</button>
-                    <button className="btn btn-primary">Download</button>
+                    {/* <input className="form-control" type="search" placeholder="Search" aria-label="Search" /> */}
+                    {/* <button className="btn btn-outline-primary m-1" type="submit">Search</button> */}
+                    <button className="mb-1 btn btn-primary" onClick={downloadHandle}>Download</button>
                 </form>
             </div>
             <PerfectScrollbar className='hide1'>

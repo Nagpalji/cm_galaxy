@@ -38,7 +38,35 @@ const EcommerceDashboard = () => {
   // my popup start
   const MySwal = withReactContent(Swal)
 
-  
+  // const handleHTMLAlert = () => {
+  // return MySwal.fire({
+  //   title: '',
+  //   // footer: '<a href="javascript:void(0);">If You any further issue ! Please Let me Know</a>',
+  //   // icon: 'success',
+  //   // html:
+  //   //   'Data Integration Inactive.</b> ',
+  //   html: (
+  //     <span style={{ fontSize: 25 }}>If you would like to link your LinkedIn account please contact your account manager.</span>
+  //     ),
+  //   showCloseButton: false,
+  //   showCancelButton: false,
+  //   focusConfirm: false,
+  //   confirmButtonText: (
+  //     <span className='align-middle'>
+  //       {/* <ThumbsUp className='mr-50' size={15} /> */}
+  //       {/* <span className='align-middle'>Close</span> */}
+  //       <a href="/overall-snapshot" className='align-middle text-white'>Close</a>
+  //     </span>
+  //   ),
+  //   cancelButtonText: <ThumbsDown size={15} />,
+  //   customClass: {
+  //     confirmButton: 'btn btn-primary custom-buttoncss',
+  //     cancelButton: 'btn btn-outline-danger ml-1'
+  //   },
+  //   buttonsStyling: false
+  // })
+  // }
+  // my popup end
   return (
     <div id='dashboard-ecommerce'>
       <Row className='laptophideCustomdropdown match-height mt-1 mb-1'>
