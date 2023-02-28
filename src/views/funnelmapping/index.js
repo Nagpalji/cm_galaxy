@@ -23,7 +23,6 @@ const ChartContainer1 = () => {
     const history = useHistory()
     const [res, setRes] = useState([])
     const [tabelData, setTabelData] = useState([])
-    const [selectedCategory, setselectedCategory] = useState("tofu")
     useEffect(() => {
         fetch('https://srvr1px.cyberads.io/getFunnelData/', {
             method: "POST",
@@ -58,14 +57,8 @@ const ChartContainer1 = () => {
         <ToastContainer />
             <Row className="match-height">
                 <Col xs="12">
-                    <Funnel res={res} setselectedCategory={(cat) => setselectedCategory(cat)}  />
+                    <Funnel res={res}  table={tabelData} />
                     {/* <FunnelMappingDetails /> */}
-                </Col>
-            </Row>
-            <hr />
-            <Row className="match-height">
-                <Col xs="12">
-                    <Table data={tabelData} selectedCategory={selectedCategory} />
                 </Col>
             </Row>
         </>

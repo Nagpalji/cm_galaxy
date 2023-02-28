@@ -1,42 +1,111 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { IoIosArrowRoundForward, IoIosArrowForward } from 'react-icons/io'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import './Funnel.css'
 import $ from 'jquery'
+import { rectangle } from 'leaflet'
+import { Card, CardHeader, CardTitle, CardBody, Row, Col } from 'reactstrap'
+import Table from './Table'
 
-const Funnel = ({ res }) => {
-    $(document).ready(function () {
+
+const Funnel = ({ res, table }) => {
+    const textInput = useRef([])
+    const [category, setSelectedCategory] = useState("tofu")
+    textInput.current = [0, 0, 0, 0, 0].map((ref, index) => (textInput.current[index] = useRef()))
+    function handleClick(e, index) {
+        selectedCategory(textInput.current[e.target.dataset.id].current.textContent.toLowerCase())
+    }
+    // $('.taper').click(function (e) {
+    //     const selectedText = e.target.textContent
+    //     // const selectedText = $(this).find('p').text()
+    //     setSelectedCategory(selectedText.toLowerCase())
+    // })
+    $(document).ready(function (e) {
+      
         $('.hide1').show()
         $('.hide2, .hide3, .hide4').hide()
-        $('.rectangle01').click(function () {
+        $('.rectangle01').click(function (e) {
+            setSelectedCategory(e.target.textContent)
             $('.hide2, .hide3, .hide4').hide()
             $('.hide1').show()
         })
-        $('.rectangle03').click(function () {
+        $('.rectangle03').click(function (e) {
+            setSelectedCategory(e.target.textContent)
             $('.hide1, .hide3, .hide4').hide()
             $('.hide2').show()
         })
-        $('.rectangle05').click(function () {
+        $('.rectangle05').click(function (e) {
+            setSelectedCategory(e.target.textContent)
             $('.hide1, .hide2, .hide4').hide()
             $('.hide3').show()
         })
-        $('.rectangle07').click(function () {
+        $('.rectangle07').click(function (e) {
+            setSelectedCategory(e.target.textContent)
             $('.hide1, .hide2, .hide3').hide()
             $('.hide4').show()
         })
     })
+    // $(document).ready(function () {
+    //     const hide1 = $('.hide1')
+    //     const hide2 = $('.hide2')
+    //     const hide3 = $('.hide3')
+    //     const hide4 = $('.hide4')
+    //     const rect01 = $('.rectangle01')
+    //     const rect03 = $('.rectangle03')
+    //     const rect05 = $('.rectangle05')
+    //     const rect07 = $('.rectangle07')
+      
+    //     hide1.show()
+    //     hide2.add(hide3).add(hide4).hide()
+      
+    //   let event
+    //     rect01.off('click').on('click', function (e) {
+    //       event = e.target.textContent
+    //     //   selectedCategory(e.target.textContent)
+    //       hide2.add(hide3).add(hide4).hide()
+    //       hide1.show()
+    //     })
+      
+    //     rect03.off('click').on('click', function (e) {
+    //     event = e.target.textContent
+    //       hide1.add(hide3).add(hide4).hide()
+    //       hide2.show()
+    //     })
+      
+    //     rect05.off('click').on('click', function (e) {
+    //     event = e.target.textContent
+    //     //   selectedCategory(e.target.textContent)
+    //     // event = e
+    //       hide1.add(hide2).add(hide4).hide()
+    //       hide3.show()
+    //     })
+      
+    //     rect07.off('click').on('click', function (e) {
+    //     event = e.target.textContent
+    //     //   selectedCategory(e.target.textContent)
+    //       hide1.add(hide2).add(hide3).hide()
+    //       hide4.show()
+    //     })
 
+    //     setSelectedCategory(event)
+    //   })
+      
     return (
         <>
+        {console.log({event})}
             {res ? <div className="d-flex row rounded shadow">
                 <div className="d-flex justify-content-center align-items-center flex-column col-lg-5 col-sm-12 p-0 py-1">
-                    <div className="taper rectangle01" data-toggle="tooltip" data-placement="top" title="Total Number Of Users" style={{ borderColor: '#FFC313 transparent', width: '360px' }}><p className='funnelPara text-center text-white'>TOFU</p></div>
+                    <div className="taper rectangle01" data-toggle="tooltip" data-placement="top" title="Total Number Of Users" style={{ borderColor: '#FFC313 transparent', width: '360px' }}>
+                    <p data-id={"1"} className='funnelPara text-center text-white'>TOFU</p></div>
                     <div className="rectangle02 h-none" style={{ width: 290 }} />
-                    <div className="taper rectangle03" data-toggle="tooltip" data-placement="top" title="User Engagement Behaviour (Number Of Users)" style={{ borderColor: '#4076DA transparent', width: '300px' }}><p className='funnelPara text-center text-white'>MOFU</p></div>
+                    <div className="taper rectangle03" data-toggle="tooltip" data-placement="top" title="User Engagement Behaviour (Number Of Users)" style={{ borderColor: '#4076DA transparent', width: '300px' }}>
+                    <p data-id={"2"} className='funnelPara text-center text-white'>MOFU</p></div>
                     <div className="rectangle04 h-none" style={{ width: 235 }} />
-                    <div className="taper rectangle05" style={{ borderColor: '#4acade transparent', width: '240px' }}><p className='funnelPara text-center text-white'>BOFU</p></div>
+                    <div className="taper rectangle05" style={{ borderColor: '#4acade transparent', width: '240px' }}>
+                    <p data-id={"3"} className='funnelPara text-center text-white'>BOFU</p></div>
                     <div className="rectangle06 h-none" style={{ width: 175 }} />
-                    <div className="taper rectangle07" style={{ borderColor: '#27CA75 transparent', width: '180px' }}><p className='funnelPara text-center text-white'>Conversion</p></div>
+                    <div className="taper rectangle07" style={{ borderColor: '#27CA75 transparent', width: '180px' }}>
+                    <p data-id={"4"} className='funnelPara text-center text-white'>Conversion</p></div>
                 </div>
                 <div className="d-flex flex-row col-lg-7 col-sm-12 p-1">
                     <div className="content-FFC313 hide1 w-100" style={{ height: 300 }}>
@@ -322,6 +391,12 @@ const Funnel = ({ res }) => {
                     </div>
                 </div>
             </div> : ndivl}
+            <hr />
+            <Row className="match-height">
+                <Col xs="12">
+                    <Table data={table} selectedCategory={category} />
+                </Col>
+            </Row>
         </>
     )
 }
