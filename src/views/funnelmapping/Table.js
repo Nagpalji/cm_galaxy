@@ -3,7 +3,6 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Redirect } from 'react-router-dom'
 
 const Table = ({ data, selectedCategory}) => {
-
     const downloadHandle = async () => {
         fetch('https://srvr1px.cyberads.io/getexcelData/', {
             method: "POST",
@@ -25,7 +24,7 @@ const Table = ({ data, selectedCategory}) => {
                     <button className="mb-1 btn btn-primary" onClick={downloadHandle}>Download</button>
                 </form>
             </div>
-            <PerfectScrollbar className='hide1'>
+            <PerfectScrollbar className='hide1 d-none funneltable'>
                 <table className="table table-warning">
                     <thead className="thead rounded">
                         <tr className='bg-warning'>
@@ -63,7 +62,7 @@ const Table = ({ data, selectedCategory}) => {
                     </tbody>
                 </table>
             </PerfectScrollbar>
-            <PerfectScrollbar className='hide2'>
+            <PerfectScrollbar className='hide2 d-none funneltable'>
                 <table className="table table-primary">
                     <thead className="thead rounded">
                         <tr className='bg-primary'>
@@ -103,7 +102,7 @@ const Table = ({ data, selectedCategory}) => {
                     </tbody>
                 </table>
             </PerfectScrollbar>
-            <PerfectScrollbar className='hide3'>
+            <PerfectScrollbar className='hide3 d-none funneltable'>
                 <table className="table table-secondary">
                     <thead className="thead rounded">
                         <tr className='bg-secondary'>
@@ -133,7 +132,7 @@ const Table = ({ data, selectedCategory}) => {
                     </tbody>
                 </table>
             </PerfectScrollbar>
-            <PerfectScrollbar className='hide4'>
+            <PerfectScrollbar className='hide4 d-none funneltable'>
                 <table className="table table-success">
                     <thead className="thead rounded">
                         <tr className='bg-success'>
