@@ -3,13 +3,15 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Redirect } from 'react-router-dom'
 
 const Table = ({ data, selectedCategory}) => {
+    const brand_name = localStorage.getItem("brand_name")
+
     const downloadHandle = async () => {
         fetch('https://srvr1px.cyberads.io/getexcelData/', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({type:selectedCategory})
+            body: JSON.stringify({type:selectedCategory, brand_name})
         })
             .then(response => response.json())
             .then(data => { window.location.href = data.url })
