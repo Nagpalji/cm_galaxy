@@ -23,14 +23,14 @@ const ChartContainer1 = () => {
     const history = useHistory()
     const [res, setRes] = useState([])
     const [tabelData, setTabelData] = useState([])
-    const brand_name = localStorage.getItem("brand_name")
+    const brand = localStorage.getItem("brand_name")
     useEffect(() => {
         fetch('https://srvr1px.cyberads.io/getFunnelData/', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ startDate: dateFrom, endDate: dateTo, brand_name })
+            body: JSON.stringify({ startDate: dateFrom, endDate: dateTo, brand })
         })
             .then(response => response.json())
             .then(data => setRes(data))
@@ -46,7 +46,7 @@ const ChartContainer1 = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ startDate: dateFrom, endDate: dateTo, brand_name })
+            body: JSON.stringify({ startDate: dateFrom, endDate: dateTo, brand })
         })
             .then(response => response.json())
             .then(data => setTabelData(data))
