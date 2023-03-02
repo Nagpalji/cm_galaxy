@@ -2,7 +2,7 @@
     border-radius: 3px 3px 22px 22px;
     height: 0px;
     border-style: solid;
-    border-width: 60px 15px 0 15px;
+    border-width: 65px 15px 0 15px;
     cursor: pointer;
   }
 
@@ -12,7 +12,7 @@
     border-color: #4F4F4F transparent;
     border-radius: 1px 1px 12px 12px;
     border-style: solid;
-    border-width: 20px 10px 0PX 10px;
+    border-width: 25px 10px 0PX 10px;
   }
 
   .content-FFC313,
@@ -23,6 +23,6 @@
   }
 
   .funnelPara{
-    margin: -60px -15px;
+    margin: -62px -15px;
     padding: 20px;
   }
