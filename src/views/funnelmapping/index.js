@@ -23,7 +23,7 @@ const ChartContainer1 = () => {
     const history = useHistory()
     const [res, setRes] = useState([])
     const [tabelData, setTabelData] = useState([])
-    const brand = localStorage.getItem("brand_name")
+    const brand = JSON.parse(localStorage.getItem("brand_name"))
     useEffect(() => {
         fetch('https://srvr1px.cyberads.io/getFunnelData/', {
             method: "POST",

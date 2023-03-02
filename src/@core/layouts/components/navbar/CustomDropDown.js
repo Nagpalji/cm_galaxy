@@ -36,6 +36,8 @@ const orderOptions = values => {
 const CustomDropDown = () => {
   
   const brand_name = localStorage.getItem("email")
+  const role = localStorage.getItem("level")
+  console.log({role})
   const [colorOptions, setColorOptions] = useState([])
   const fett1 = 'https://srvr1px.cyberads.io/user_dropdown/?brand_name='
   const fet1 = fett1 + brand_name
@@ -141,7 +143,7 @@ const CustomDropDown = () => {
   if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getItem("email") === 'dhavalg@cmrsl.net' || localStorage.getItem("email") === 'gauravg@cmrsl.net' || (localStorage.getItem("level") === 'Manager'))) {
     return (
         <Row>
-        {window.location.pathname !== '/funnelmapping/index' ? <Col className='mb-0 mt-0 mb-9' md='12' sm='12'>
+        { role === 'Superadmin' || role === 'masteraccess' ? <Col className='mb-0 mt-0 mb-9' md='12' sm='12'>
           {/* <h6 className='font-weight-bold'>Product</h6> */}
             <Select
               isClearable={false}
