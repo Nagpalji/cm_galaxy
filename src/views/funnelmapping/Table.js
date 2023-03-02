@@ -3,8 +3,21 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Redirect } from 'react-router-dom'
 
 const Table = ({ data, selectedCategory}) => {
-    const brand = localStorage.getItem("brand_name")
-
+    function IsJsonString(str) {
+        try {
+          const json = JSON.parse(str)
+          return (typeof json === 'object')
+        } catch (e) {
+          return false
+        }
+      }
+    let brand
+    if (IsJsonString(localStorage.getItem("brand_name"))) {
+        brand = JSON.parse(localStorage.getItem("brand_name"))
+    } else {
+        brand = localStorage.getItem("brand_name")
+    }
+    
     const downloadHandle = async () => {
         fetch('https://srvr1px.cyberads.io/getexcelData/', {
             method: "POST",
