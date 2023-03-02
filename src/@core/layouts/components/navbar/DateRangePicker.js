@@ -364,9 +364,11 @@ const ed = localStorage.getItem("ed")
   const picker1 = [new Date(sy + x + sm + x + sd), new Date(ey + x + em + x + ed)]
   // const picker1 = [sd + x + sm + x + sy, c + ed + x + em + x + ey]
   const [picker, setPicker] = useState(picker1)
+  const path = window.location.pathname
+  console.log({path})
   return (
     <Fragment>
-      <Flatpickr
+      {path !== '/funnelmapping/index' && <Flatpickr
         value={picker}
 
         id='range-picker'
@@ -419,7 +421,7 @@ const ed = localStorage.getItem("ed")
           // defaultDate: ['2021-10-01', '2021-10-03']
         }}
 
-      />
+      />}
     </Fragment>
   )
   
