@@ -90,6 +90,7 @@ const CustomDropDown = () => {
     } else {
       console.log('no selection')
     }
+    window.location.reload()
     // localStorage.setItem("brand_selection", JSON.stringify(selval1))
     // localStorage.setItem("brand_name", JSON.stringify(selval1[0]['value']))
   }
