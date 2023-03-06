@@ -350,7 +350,7 @@ if (click.length === 0) {
     <Fragment>
     <Card>
       <CardHeader>
-        <CardTitle tag='h4'>CPC&CPM Analysis</CardTitle>
+        <CardTitle tag='h4'>CPC & CPM Analysis</CardTitle>
       </CardHeader>
       <CardBody>
         {/* <PieChart highcharts={Highcharts} options={options} /> */}
