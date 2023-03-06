@@ -29,6 +29,7 @@ const DataTopCampaigns = () => {
   const [allData, setAllData] = useState([])
   // const [store, setStore] = useState([])
   const brand_name = localStorage.getItem("brand_name")
+  const userName = localStorage.getItem("user_name")
   const fett = 'https://srvr1px.cyberads.io/adword_impression/?brand_name='
   const fet = fett + brand_name
   const lead_download_apit = 'https://srvr1px.cyberads.io/adword_cpl/?brand_name='
@@ -49,7 +50,11 @@ const DataTopCampaigns = () => {
   const val = sessionStorage.getItem('leadsource')
 
   const cam = '&cam='
-  const val2 = sessionStorage.getItem('leadcampaign')
+  const val21 = JSON.stringify([{value:"gems-bschool-mba/smart", label:"gems-bschool-mba/smart"}])
+  const val22 = sessionStorage.getItem('leadcampaign')
+
+  const val2 = userName === "gemssmart@gmail.com" ? val21 : val22
+  // const val2 = sessionStorage.getItem('leadcampaign')
 
 
   if (ey === 'NaN') {
@@ -256,7 +261,7 @@ const DataTopCampaigns = () => {
               <DropDown />
             </Col>
 
-            <Col xl='2' lg='2' className='mt-3 m_responlead' xl='2' lg='2'>
+            <Col xl='2' lg='2' className='mt-3 m_responlead' xl1='2' lg1='2'>
               <Button.Ripple onClick={() => window.location.reload(false)} className='pull-right' color='primary'>Get Data</Button.Ripple>
             </Col>
           </Row>

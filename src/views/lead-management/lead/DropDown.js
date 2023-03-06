@@ -71,9 +71,13 @@ const SelectOptions = () => {
       .then(res => res.json())
       .then((result) => {
         result.map((item) => {
+          const firstLetter = item.label.charAt(0)
+          const firstLetterCap = firstLetter.toUpperCase()
+          const remainingLetters  = item.value.slice(1)
+          const capitalizedWord = firstLetterCap + remainingLetters
 
           colorOptions1.push({
-            label: item.label,
+            label: capitalizedWord,
             value: item.value
           })
 
@@ -111,9 +115,13 @@ const SelectOptions = () => {
       .then(res => res.json())
       .then((result) => {
         result.map((item) => {
+          const firstLetter = item.label.charAt(0)
+          const firstLetterCap = firstLetter.toUpperCase()
+          const remainingLetters  = item.value.slice(1)
+          const capitalizedWord = firstLetterCap + remainingLetters
 
           colorOptions.push({
-            label: item.label,
+            label: capitalizedWord,
             value: item.value
           })
 
