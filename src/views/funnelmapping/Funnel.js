@@ -39,7 +39,7 @@ export default function Funnel({ res, table }) {
     return (
         <>
             {res && (
-                <div className="d-flex row rounded shadow">
+                <div className="row rounded shadow">
                     <div className="d-flex justify-content-center align-items-center flex-column col-lg-5 col-sm-12 p-0 py-1">
                         <div onClick={handleChange} className="taper rectangle01" data-toggle="tooltip" data-placement="top" title="Total Number Of Users" style={{ borderColor: "#FFC313 transparent", width: "360px" }}>
                             <p data-id={"1"} className="hide1 funnelPara text-center text-white">TOFU</p>
@@ -57,16 +57,16 @@ export default function Funnel({ res, table }) {
                             <p data-id={"4"} className="hide4 funnelPara text-center text-white"> Conversion </p>
                         </div>
                     </div>{" "}
-                    <div className="d-flex flex-row col-lg-7 col-sm-12 p-1">
-                        <div className="content-FFC313 hide1 w-100 d-none data" style={{ height: 225 }}>
+                    <div className="d-flex flex-row col-lg-7 col-sm-12 p-1"  style={{ minHeight: 350 }}>
+                        <div className="content-FFC313 hide1 w-100 d-none data" style={{ height: 250 }}>
                             <div
                                 className="d-none d-lg-block w-25 position-relative border-top-warning"
-                                style={{ marginLeft: "-182px", top: 25, height: 0, zIndex: "-1000" }}
+                                style={{ marginLeft: "-182px", top: 30, height: 0, zIndex: "-1000" }}
                             />
                             <div className="w-100">
-                                <div className="w-100 d-flex align-items-center bg-warning flex-column">
-                                    <strong>Data from Last 7 Days</strong>
-                                    <p className=" p-1 m-0"><strong>Top-of-Funnel- </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis dolore, corporis omnis natus dicta rerum laboriosam magni neque.</p>
+                                <div className="w-100 p-1 d-flex text-white align-items-center bg-warning flex-column">
+                                    <p><strong>Data From Last 7 Days</strong></p>
+                                    <p className="m-0"><strong>Top-of-Funnel- </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis dolore, corporis omnis natus dicta rerum laboriosam magni neque.</p>
                                 </div>
                                 <PerfectScrollbar className="w-100 border-left-warning">
                                     {/* <div className="d-flex align-items-center bg-warning mb-1">
@@ -103,7 +103,7 @@ export default function Funnel({ res, table }) {
                                         </div>
                                         <div className="ml-3">
                                             <p>
-                                                <b>{res?.Tofu?.Spends?.toFixed(2)}</b>
+                                                <b>{res?.Tofu?.Spends?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -126,9 +126,9 @@ export default function Funnel({ res, table }) {
                                             />
                                             <p className="fw-bold text-warning m-0">CTR % –</p>
                                         </div>
-                                        <div className="ml-2">
+                                        <div className="ml-3">
                                             <p>
-                                                <b>{res?.Tofu?.CTR.toFixed(2)}</b>
+                                                <b>{res?.Tofu?.CTR?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -154,14 +154,14 @@ export default function Funnel({ res, table }) {
                                 </PerfectScrollbar>
                             </div>
                         </div>
-                        <div className="content-4076DA hide2 w-100 d-none data" style={{ height: 225 }}>
+                        <div className="content-4076DA hide2 w-100 d-none data" style={{ height: 250 }}>
                             <div
                                 className="d-none d-lg-block w-25 position-relative border-top-primary"
-                                style={{ marginLeft: "-185px", top: 110, height: 0, zIndex: "-1000" }} />
+                                style={{ marginLeft: "-185px", top: 120, height: 0, zIndex: "-1000" }} />
                             <div className="w-100">
-                                <div className="w-100 text-white d-flex align-items-center bg-primary flex-column">
-                                    <strong>Data from Last 7 Days</strong>
-                                    <p className="p-1 m-0"><strong>Middle-of-Funnel- </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis dolore, corporis omnis natus dicta rerum laboriosam magni neque.</p>
+                                <div className="w-100 p-1 text-white d-flex align-items-center bg-primary flex-column">
+                                    <p><strong>Data from Last 7 Days</strong></p>
+                                    <p className="m-0"><strong>Middle-of-Funnel- </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis dolore, corporis omnis natus dicta rerum laboriosam magni neque.</p>
                                 </div>
                                 <PerfectScrollbar className="w-100 border-left-primary">
                                     {/* <div className="d-flex align-items-center bg-primary mb-1">
@@ -204,7 +204,7 @@ export default function Funnel({ res, table }) {
                                                         <>
                                                             <li className="m-0" key={val.product_name}>
                                                                 {val.product_name}{" "}
-                                                                <b>: {val.Engagement.toFixed(1)}</b>
+                                                                <b>: {val.Engagement?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                                             </li>
                                                         </>
                                                     )
@@ -222,7 +222,7 @@ export default function Funnel({ res, table }) {
                                                     return (
                                                         <>
                                                             <li className="m-0" key={val.OS}>
-                                                                {val.OS} <b>: {val.percentage} %</b>
+                                                                {val.OS} <b>: {val.percentage?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} %</b>
                                                             </li>
                                                         </>
                                                     )
@@ -255,21 +255,21 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Mofu?.avg_time_per_session?.toLocaleString()}</b>
+                                                <b>{res?.Mofu?.avg_time_per_session?.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1})}</b>
                                             </p>
                                         </div>
                                     </div>
                                 </PerfectScrollbar>
                             </div>
                         </div>
-                        <div className="content-29A4F7 hide3 w-100 p-0 m-0 d-none data" style={{ height: 225 }} >
+                        <div className="content-29A4F7 hide3 w-100 p-0 m-0 d-none data" style={{ height: 250 }} >
                             <div
                                 className="d-none d-lg-block w-25 position-relative border-top-secondary"
-                                style={{ marginLeft: "-187px", top: 190, height: 0, zIndex: "-1000" }} />
+                                style={{ marginLeft: "-187px", top: 215, height: 0, zIndex: "-1000" }} />
                             <div className="w-100">
-                                <div className="w-100 text-white d-flex align-items-center bg-secondary flex-column">
-                                    <strong>Data from Last 7 Days</strong>
-                                    <p className="p-1 m-0"><strong>Bottom-of-Funnel- </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis dolore, corporis omnis natus dicta rerum laboriosam magni neque.</p>
+                                <div className="w-100 p-1 text-white d-flex align-items-center bg-secondary flex-column">
+                                    <p><strong>Data from Last 7 Days</strong></p>
+                                    <p className="m-0"><strong>Bottom-of-Funnel- </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis dolore, corporis omnis natus dicta rerum laboriosam magni neque.</p>
                                 </div>
                                 <PerfectScrollbar className=" w-100 p-0 border-left-secondary">
                                     {/* <div className="d-flex align-items-center bg-secondary">
@@ -313,7 +313,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Bofu?.checkout_value?.toFixed(2)}</b>
+                                                <b>{res?.Bofu?.checkout_value?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -327,7 +327,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Bofu?.cost_per_lead?.toFixed(2)}</b>
+                                                <b>{res?.Bofu?.cost_per_lead?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -341,9 +341,9 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>
-                                                    {res?.Bofu?.visitor_to_cart_conversion_rate.toFixed(1)}
-                                                </b>
+                                                <strong>
+                                                    {res?.Bofu?.visitor_to_cart_conversion_rate?.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1})}
+                                                </strong>
                                             </p>
                                         </div>
                                     </div>
@@ -371,7 +371,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Bofu?.abandoned_cart_value.toFixed(2)}</b>
+                                                <b>{res?.Bofu?.abandoned_cart_value?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -385,7 +385,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Bofu?.returning_users_cart_value.toFixed(2)}</b>
+                                                <b>{res?.Bofu?.returning_users_cart_value?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -399,21 +399,21 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Bofu?.new_users_cart_value.toFixed(2)}</b>
+                                                <b>{res?.Bofu?.new_users_cart_value?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                             </p>
                                         </div>
                                     </div>
                                 </PerfectScrollbar>
                             </div>
                         </div>
-                        <div className="content-27CA75 hide4 w-100 d-none data" style={{ height: 225 }}>
+                        <div className="content-27CA75 hide4 w-100 d-none data" style={{ height: 250 }}>
                             <div
                                 className="d-none d-lg-block w-25 position-relative border-top-success"
-                                style={{ marginLeft: "-190px", top: 270, height: 0, zIndex: "-1000" }} />
+                                style={{ marginLeft: "-190px", top: 300, height: 0, zIndex: "-1000" }} />
                             <div className="w-100">
-                                <div className="w-100 text-white d-flex align-items-center bg-success flex-column">
-                                    <strong>Data from Last 7 Days</strong>
-                                    <p className="p-1 m-0"><strong>Conversion-of-Funnel- </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis dolore, corporis omnis natus dicta rerum laboriosam magni neque.</p>
+                                <div className="w-100 p-1 text-white d-flex align-items-center bg-success flex-column">
+                                    <p><strong>Data from Last 7 Days</strong></p>
+                                    <p className="m-0"><strong>Conversion-of-Funnel- </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis dolore, corporis omnis natus dicta rerum laboriosam magni neque.</p>
                                 </div>
                                 <PerfectScrollbar className="w-100 p-0 border-left-success">
                                     {/* <div className="d-flex align-items-center bg-success">
@@ -441,7 +441,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Conversion?.revenue.toFixed(2)}</b>
+                                                <b>{res?.Conversion?.revenue?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -455,7 +455,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Conversion?.cost_per_conversion.toFixed(2)}</b>
+                                                <b>{res?.Conversion?.cost_per_conversion?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -467,7 +467,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Conversion?.roas.toFixed(1)}</b>
+                                                <b>{res?.Conversion?.roas?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -481,7 +481,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Conversion?.avg_order_value?.toFixed(2)}</b>
+                                                <b>{res?.Conversion?.avg_order_value?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                             </p>
                                         </div>
                                     </div>
