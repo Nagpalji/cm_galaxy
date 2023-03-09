@@ -57,80 +57,63 @@ const DataLeadPerformance = () => {
   
   const options = {
     chart: {
-      marginRight:15,
-      marginTop:30,
-      // marginLeft: 55,
-      type: 'column',
+      type: 'pie',
+      backgroundColor: 'transparent',
+          // marginTop: -10,
+          marginTop: 5,
       style: {
               fontFamily: 'Montserrat',
               fontWeight: '600'
-          }
+          },
+      options3d: {
+          enabled: false,
+          alpha: 45
+      }
   },
-colors: ['#ffc413', '#4acade', '#83ffff', '#97f7c4', '#52c777'],
-title: {
-  text: ''
-},
+  title: {
+      text: ''
+  },
 
-legend: {
-  layout: 'horizontal',
-  align: 'center',
-  verticalAlign: 'bottom',
-  y: 0,
-  padding: 3,
-  itemMarginTop: 10,
-  itemMarginBottom: -10,
-  itemStyle: {
-      lineHeight: '14px'
-  }
-},
+colors: ['#4076d9', '#38a6d9',  '#4acade', '#00def6', '#83ffff', '#97f7c4', '#52c777', '#3aab58', '#15ad29', '#ffc413'],
 
-exporting: {
-enabled:false
-},
+  tooltip: {
+          valuePrefix: ''
+      },
+
+  exporting: {
+    enabled:false
+  },
 
 credits: {
-enabled: false
+  enabled: false
 },
-
-xAxis: {
-  categories: ['Engagements'],
-  labels: {
-      x: -10
-  }
-},
-
-yAxis: {
-  min: 0,
-  title: {
-      text: 'Engagements'
-  },
-  stackLabels: {
-      enabled: false
-  }
-},
-
-tooltip: {
-      valueSuffix: '',
-      // valueDecimals: 2,
-      shared: true
-  },
-
+  
   plotOptions: {
-      area: {
-          fillColor: {
-              linearGradient: {
-                  x1: 0,
-                  y1: 0,
-                  x2: 0,
-                  y2: 1
-              }
-              // stops: [
-              //     [0, Highcharts.getOptions().colors[0]],
-              //     [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-              // ]
-          }   
-        }
-      },
+      pie: {
+          innerSize: 100,
+          depth: 45,
+           dataLabels: {
+              enabled: false
+          },
+          showInLegend: true
+
+      }
+  },
+
+  legend: {
+    layout: 'horizontal',
+    align: 'center',
+    verticalAlign: 'bottom',
+    enabled: true,
+    y: 0,
+    padding: 3,
+    itemMarginTop: 10,
+    itemMarginBottom: -5,
+    
+    itemStyle: {
+        lineHeight: '14px'
+    }
+},
 
   series: Device
 //   [
@@ -156,7 +139,7 @@ tooltip: {
         <Row className='match-height'>
             <Col lg='9' md='12'>
               <CardHeader>
-                <CardTitle tag='h4'>Engagement By Campaign</CardTitle>
+                <CardTitle tag='h4'>Cost By Campaign</CardTitle>
               </CardHeader>
             </Col>
 
@@ -187,5 +170,4 @@ tooltip: {
   )
 }
 }
-
 export default DataLeadPerformance
