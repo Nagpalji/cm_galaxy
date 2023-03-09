@@ -28,6 +28,34 @@ import { toast } from 'react-toastify'
 
 
 const Router = () => {
+  async function requestPermission() {
+    const permission = await Notification.requestPermission()
+    if (permission === "granted") {
+      // Generate Token
+      const token = await getToken(messaging, { vapidKey:"BKlgg-yZdutENiYbqRZp-rXJwSmsuTMcAD1iRHLdeupmgnWTS_ui_WB85ssDgRKAuqrhao3yYBw2lPsUno0_ZKQ"})
+      console.log("Token Gen", token)
+      fetch('https://srvr1px.cyberads.io/saveUserTokenData/', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ token })
+    })
+        .then(response => response.json())
+        .then(data => {})
+        .catch(err => {
+          console.log(err.message)
+            // alert(err.message)
+        })
+    } else if (permission === "denied") {
+      // alert("You denied for the notification")
+    }
+  }
+
+  useEffect(() => {
+    // Req user for notification permission
+    requestPermission()
+  }, [])
   // ** Hooks
   const [layout, setLayout] = useLayout()
   const [transition, setTransition] = useRouterTransition()
@@ -122,36 +150,6 @@ const Router = () => {
 
       // ** RouterProps to pass them to Layouts
       const routerProps = {}
-
-      async function requestPermission() {
-        const permission = await Notification.requestPermission()
-        if (permission === "granted") {
-          // Generate Token
-          const token = await getToken(messaging, { vapidKey:"BKlgg-yZdutENiYbqRZp-rXJwSmsuTMcAD1iRHLdeupmgnWTS_ui_WB85ssDgRKAuqrhao3yYBw2lPsUno0_ZKQ"})
-          console.log("Token Gen", token)
-          fetch('https://srvr1px.cyberads.io/saveUserTokenData/', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ token })
-        })
-            .then(response => response.json())
-            .then(data => {})
-            .catch(err => {
-              console.log(err.message)
-                // alert(err.message)
-            })
-          // Send this token  to server ( db)
-        } else if (permission === "denied") {
-          // alert("You denied for the notification")
-        }
-      }
-    
-      useEffect(() => {
-        // Req user for notification permission
-        requestPermission()
-      }, [])
 
       return (
         <Route path={LayoutPaths} key={index}>
