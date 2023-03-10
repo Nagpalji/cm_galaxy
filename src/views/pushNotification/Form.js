@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Modal, ModalBody, ModalHeader } from 'reactstrap'
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import { toast, ToastContainer } from "react-toastify"
 
 const DropDown = ({ value, onDragStart }) => {
   const { id, option } = value
@@ -15,7 +16,7 @@ const DropDown = ({ value, onDragStart }) => {
           </h2>
           <div id="dropdown" className="accordion-collapse collapse show" aria-labelledby="Dropdown" data-bs-parent="#accordion" >
             <div className="accordion-body m-0 p-0 d-flex flex-wrap justify-content-around align-items-center">
-              {option.map((val, index) => {
+              {option?.map((val, index) => {
                 return (
                   <>
                     <div key={val} id={id} onDragStart={(e) => onDragStart(e, val)} draggable className={`m-0 ml-1 mb-1 p-0 ${id}`} >
@@ -35,55 +36,91 @@ const DropDown = ({ value, onDragStart }) => {
 export default function Form() {
 
   const [text, setText] = useState("")
+  const [image, setImage] = useState("")
+  const [title, setTitle] = useState("")
   const [tasks, setTasks] = useState({
     device:['android', 'ubuntu', 'windows', 'ios'],
     category:['tofu', 'mofu', 'bofu', 'convertion']
-
   })
   const [dropedItem, setDropItem] = useState([])
-  
 
   const textChange = (event) => {
     setText(event.target.value)
   }
 
   const [modal, setModal] = useState(false)
+
   const onDragOver = (ev) => {
     ev.preventDefault()
   }
 
   const onDragStart = (ev, value) => {
-    // console.log('====================================')
-    // console.log(ev.target.getAttribute('id'))
-    // console.log('====================================')
     ev.dataTransfer.setData("text/plain", JSON.stringify({
-      [ev.target.getAttribute('id')]:value
-    }))
+          [ev.target.getAttribute('id')]:value
+        }))
   }
   const onDrop = (ev, cat) => {
-    // console.log(ev.dataTransfer.getData("text"))
     const id = ev.dataTransfer.getData("text")
     const test = JSON.parse(id)
-    const category = Object.keys(test)
+    const category = Object.keys(test)[0]
     tasks[category].splice(id, 1)
-    
-    // const filteredTask = tasks[category].filter((item) => !id.includes(test[category]))
     setTasks(tasks)
-    console.log({id})
-    console.log({test})
-    setDropItem([...dropedItem, dropedItem[category] = [test[category]]])
-    console.log({dropedItem})
-    // dropedItem[category] = test[category] 
-    // setDropItem(dropedItem)
-    // console.log({dropedItem})
-    // dropedItem[test]
-    // dropedItem = {}
-    // dropedItem[category] = [test[category]]
+    setDropItem([...dropedItem, id])
+ }
 
+ const SendNow = async () => {
+  const result = dropedItem.reduce((acc, item) => {
+    const obj = JSON.parse(item)
+    for (const key in obj) {
+      if (acc.hasOwnProperty(key)) {
+        acc[key].push(obj[key])
+      } else {
+        acc[key] = [obj[key]]
+      }
+    }
+    return acc
+  }, {})
+
+    fetch('https://srvr1px.cyberads.io/notificationSend/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          image,
+          filter: result,
+          message:text,
+          title
+        })
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            toast.success("Message Sent ...")
+          } else {
+            // show an error message
+          }
+        })
+        .catch(error => {
+          // handle errors
+          toast.error(error.message)
+      })
+  
+ }
+
+  function handleImageUpload(event) {
+    const file = event.target.files[0]
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = function() {
+      const imageDataURL = reader.result
+      setImage(imageDataURL)
+    }
   }
-
+  
   return (
     <>
+    <ToastContainer />
       <PerfectScrollbar className='shadow bg-white rounded p-1 col-lg-3 col-md-10 col-sm-10' style={{ height: '75vh' }}>
         <DropDown value={{ id: "device", option: tasks.device }} onDragStart={onDragStart} />
         <DropDown value={{ id: "category", option: tasks.category }} onDragStart={onDragStart} />
@@ -112,16 +149,16 @@ export default function Form() {
               onDrop={(e) => onDrop(e, "complete")}
             >
               <div className="accordion-body">
-                {console.log(dropedItem)}
-                {/* {dropedItem.map((val, index) => {
+                {dropedItem.map((val, index) => {
+                  const value = JSON.parse(val)
                   return (
                     <>
                       <div className="d-inline">
-                        <span className={`btn btn-outline-primary ${index > 0 && "ml-1"}`}>{val}</span>
+                        <span className={`btn btn-outline-primary ${index > 0 && "ml-1"}`}>{value[Object.keys(value)]}</span>
                       </div>
                     </>
                   )
-                })} */}
+                })}
               </div>
             </div>
           </div>
@@ -146,12 +183,19 @@ export default function Form() {
             >
               <div className="accordion-body">
                 <div className="">
-                  <img
+                <label>Set Logo </label>
+                <input type="file" className="form-control" onChange={handleImageUpload} />
+
+                  {/* <img
                     className="border rounded-circle bg-dark"
                     src=""
                     alt=""
                     style={{ height: 50, width: 50 }}
-                  />
+                  /> */}
+                </div>
+                <div className="mb-2 mt-2">
+                  <h4>Enter Title</h4>
+                  <input type="text" className="form-control" placeholder="Enter Title" onChange={(e) => setTitle(e.target.value)} />
                 </div>
                 <div>
                   <h4>Message</h4>
@@ -197,7 +241,7 @@ export default function Form() {
                       </div>
                     </div>
                     <div className="d-flex justify-content-center mt-1">
-                      <button className="btn btn-primary">Send</button>
+                      <button onClick={SendNow} className="btn btn-primary">Send</button>
                     </div>
                   </div>
                 </ModalBody>
