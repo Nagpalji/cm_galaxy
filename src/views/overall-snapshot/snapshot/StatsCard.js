@@ -134,7 +134,7 @@ const StatsCard = ({ cols }) => {
         } else {
           const valJSON = JSON.parse(userName)
           const valJSONuser = valJSON[0].value
-        //  console.log("shiv", valJSONuser)
+          //  console.log("shiv", valJSONuser)
           if (valJSONuser === "GlobalLogic") {
             if (item.subtitle === "Leads" || item.subtitle === "CPL") {
 
@@ -160,7 +160,7 @@ const StatsCard = ({ cols }) => {
                 </Col>
               )
             }
-          } else if (item.subtitle === "Post Engagement" || item.subtitle === "CPE") {
+          } else if (item.subtitle === "Engagements" || item.subtitle === "CPE") {
             //console.log('other than global logic')
           } else {
             return (
@@ -211,7 +211,7 @@ const StatsCard = ({ cols }) => {
             </Col>
           )
         }
-      } else if (item.subtitle === "Post Engagement" || item.subtitle === "CPE") {
+      } else if (item.subtitle === "Engagements" || item.subtitle === "CPE") {
 
       } else {
         return (
