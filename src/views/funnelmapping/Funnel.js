@@ -59,21 +59,13 @@ export default function Funnel({ res, table }) {
                     </div>{" "}
                     <div className="d-flex flex-row col-lg-7 col-sm-12 p-1"  style={{ minHeight: 350 }}>
                         <div className="content-FFC313 hide1 w-100 d-none data" style={{ height: 250 }}>
-                            <div
-                                className="d-none d-lg-block w-25 position-relative border-top-warning"
-                                style={{ marginLeft: "-182px", top: 30, height: 0, zIndex: "-1000" }}
-                            />
+                            <div className="d-none d-lg-block w-25 position-relative border-top-warning" style={{ marginLeft: "-182px", top: 30, height: 0, zIndex: "-1000" }} />
                             <div className="w-100">
-                                <div className="w-100 p-1 d-flex text-white align-items-center bg-warning flex-column">
-                                    <p><strong>Data From Last 7 Days</strong></p>
-                                    <p className="m-0"><strong>Top-of-Funnel- </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis dolore, corporis omnis natus dicta rerum laboriosam magni neque.</p>
+                                <div className="w-100 align-items-center flex-column">
+                                    <p className="m-0 border-left-warning border-top-warning lh-sm" style={{padding: 6}}><strong>ToFu - </strong>Marketing outreach via omni-channels where brands can interact with target audiences. Goals are to increase awareness, build trust and bring users to relevant content assets.</p>
+                                    <p className="border-left-warning m-0" style={{paddingLeft: 5, paddingTop: 4}}>Last 7 day data</p>
                                 </div>
                                 <PerfectScrollbar className="w-100 border-left-warning">
-                                    {/* <div className="d-flex align-items-center bg-warning mb-1">
-                  <p className="fw-bold text-white m-0" style={{ padding: 5 }}>
-                    Top-of-Funnel{" "}
-                  </p>
-                </div> */}
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Number Of People Reached" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-warning" />
@@ -155,20 +147,13 @@ export default function Funnel({ res, table }) {
                             </div>
                         </div>
                         <div className="content-4076DA hide2 w-100 d-none data" style={{ height: 250 }}>
-                            <div
-                                className="d-none d-lg-block w-25 position-relative border-top-primary"
-                                style={{ marginLeft: "-185px", top: 120, height: 0, zIndex: "-1000" }} />
+                            <div className="d-none d-lg-block w-25 position-relative border-top-primary" style={{ marginLeft: "-185px", top: 120, height: 0, zIndex: "-1000" }} />
                             <div className="w-100">
-                                <div className="w-100 p-1 text-white d-flex align-items-center bg-primary flex-column">
-                                    <p><strong>Data from Last 7 Days</strong></p>
-                                    <p className="m-0"><strong>Middle-of-Funnel- </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis dolore, corporis omnis natus dicta rerum laboriosam magni neque.</p>
+                                <div className="w-100 align-items-center flex-column">
+                                    <p className="m-0 border-left-primary border-top-primary lh-sm" style={{padding: 6}}><strong>MoFu - </strong>User engage with brand across multiple content assets. Goals are to map audience engagement analytics, understand who they are, and their behavioural patterns.</p>
+                                    <p className="border-left-primary m-0" style={{paddingLeft: 5, paddingTop: 4}}>Last 7 day data</p>
                                 </div>
                                 <PerfectScrollbar className="w-100 border-left-primary">
-                                    {/* <div className="d-flex align-items-center bg-primary mb-1">
-                  <p className="fw-bold text-white m-0" style={{ padding: 5 }}>
-                    Middle-of-Funnel{" "}
-                  </p>
-                </div> */}
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-primary" />
@@ -263,20 +248,13 @@ export default function Funnel({ res, table }) {
                             </div>
                         </div>
                         <div className="content-29A4F7 hide3 w-100 p-0 m-0 d-none data" style={{ height: 250 }} >
-                            <div
-                                className="d-none d-lg-block w-25 position-relative border-top-secondary"
-                                style={{ marginLeft: "-187px", top: 215, height: 0, zIndex: "-1000" }} />
+                            <div className="d-none d-lg-block w-25 position-relative border-top-secondary" style={{ marginLeft: "-187px", top: 215, height: 0, zIndex: "-1000" }} />
                             <div className="w-100">
-                                <div className="w-100 p-1 text-white d-flex align-items-center bg-secondary flex-column">
-                                    <p><strong>Data from Last 7 Days</strong></p>
-                                    <p className="m-0"><strong>Bottom-of-Funnel- </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis dolore, corporis omnis natus dicta rerum laboriosam magni neque.</p>
+                                <div className="w-100 align-items-center flex-column">
+                                    <p className="m-0 border-left-secondary border-top-secondary lh-sm" style={{padding: 6}}><strong>BoFu - </strong>Users show intent towards continued brand engagement. Goals are to track captured leads or e-cart creation. This stage also helps identify effective conversion focused retargeting.</p>
+                                    <p className="border-left-secondary m-0" style={{paddingLeft: 5, paddingTop: 4}}>Last 7 day data</p>
                                 </div>
                                 <PerfectScrollbar className=" w-100 p-0 border-left-secondary">
-                                    {/* <div className="d-flex align-items-center bg-secondary">
-                  <p className="fw-bold text-white m-0" style={{ padding: 5 }}>
-                    Bottom-of-Funnel{" "}
-                  </p>
-                </div> */}
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of users who have created a cart" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-secondary" />
@@ -411,16 +389,11 @@ export default function Funnel({ res, table }) {
                                 className="d-none d-lg-block w-25 position-relative border-top-success"
                                 style={{ marginLeft: "-190px", top: 300, height: 0, zIndex: "-1000" }} />
                             <div className="w-100">
-                                <div className="w-100 p-1 text-white d-flex align-items-center bg-success flex-column">
-                                    <p><strong>Data from Last 7 Days</strong></p>
-                                    <p className="m-0"><strong>Conversion-of-Funnel- </strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis dolore, corporis omnis natus dicta rerum laboriosam magni neque.</p>
+                                <div className="w-100 align-items-center flex-column">
+                                    <p className="m-0 border-left-success border-top-success lh-sm" style={{padding: 6}}><strong>Conversion - </strong>Comprehensive omni-channel strategy leads to effective customer acquisition. Goals are to map CRM sales data with marketing funnel and build a comprehensive picture of ROAS across channels.</p>
+                                    <p className="border-left-success m-0" style={{paddingLeft: 5, paddingTop: 4}}>Last 7 day data</p>
                                 </div>
                                 <PerfectScrollbar className="w-100 p-0 border-left-success">
-                                    {/* <div className="d-flex align-items-center bg-success">
-                  <p className="fw-bold text-white m-0" style={{ padding: 5 }}>
-                    Conversion-Funnel
-                  </p>
-                </div> */}
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Number of Sales" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
@@ -489,8 +462,8 @@ export default function Funnel({ res, table }) {
                             </div>
                         </div>
                     </div>
-                    <hr />
                     <Row className="match-height">
+                    <hr />
                         <Col xs="12">
                             <Table data={table} selectedCategory={category} />
                         </Col>
