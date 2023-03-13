@@ -29,17 +29,18 @@ const DataTopCampaigns = () => {
   const [allData, setAllData] = useState([])
   // const [store, setStore] = useState([])
   const brand_name = localStorage.getItem("brand_name")
-  const userName = localStorage.getItem("user_name")
+  const user_name = localStorage.getItem("user_name")
   const fett = 'https://srvr1px.cyberads.io/adword_impression/?brand_name='
   const fet = fett + brand_name
   const lead_download_apit = 'https://srvr1px.cyberads.io/adword_cpl/?brand_name='
-  const lead_download_api = lead_download_apit + brand_name
+  const lead_download_api = lead_download_apit + brand_name 
   const sy = localStorage.getItem("sy")
   const sm = localStorage.getItem("sm")
   const sd = localStorage.getItem("sd")
   let ey = localStorage.getItem("ey")
   let em = localStorage.getItem("em")
   let ed = localStorage.getItem("ed")
+  const user_name1 = "&user_name="
   const sy1 = "&sy="
   const sm1 = "&sm="
   const sd1 = "&sd="
@@ -50,11 +51,11 @@ const DataTopCampaigns = () => {
   const val = sessionStorage.getItem('leadsource')
 
   const cam = '&cam='
-  const val21 = JSON.stringify([{value:"gems-bschool-mba/smart", label:"gems-bschool-mba/smart"}])
-  const val22 = sessionStorage.getItem('leadcampaign')
+  // const val21 = JSON.stringify([{value:"gems-bschool-mba/smart", label:"gems-bschool-mba/smart"}])
+  // const val22 = sessionStorage.getItem('leadcampaign')
 
-  const val2 = userName === "gemssmart@gmail.com" ? val21 : val22
-  // const val2 = sessionStorage.getItem('leadcampaign')
+  // const val2 = userName === "gemssmart@gmail.com" ? val21 : val22
+  const val2 = sessionStorage.getItem('leadcampaign')
 
 
   if (ey === 'NaN') {
@@ -70,7 +71,7 @@ const DataTopCampaigns = () => {
   const x = 1
   useState(() => {
 
-    fetch(fet + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed + page + x + op + val + cam + val2,
+    fetch(fet + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed + page + x + op + val + cam + val2 + user_name1 + user_name,
       {
 
         // fetch('https://srvr1px.cyberads.io/adword_clicks/?brand_name=gems&startdate=,${startdate},&enddate=${enddate}', {
@@ -123,7 +124,7 @@ const DataTopCampaigns = () => {
     const sel = s[1].split('}')
     const sel_val = parseInt(sel[0]) + 1
     const page1 = "&page="
-    fetch(fet + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed + page1 + sel_val + op + val + cam + val2,
+    fetch(fet + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed + page1 + sel_val + op + val + cam + val2 + user_name1 + user_name,
       {
 
         method: 'GET'
@@ -199,7 +200,7 @@ const DataTopCampaigns = () => {
     }
   }
 
-  const leads = lead_download_api + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed + op + val + cam + val2
+  const leads = lead_download_api + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed + op + val + cam + val2 + user_name1 + user_name
   if (allData.length === 0) {
     return (
 

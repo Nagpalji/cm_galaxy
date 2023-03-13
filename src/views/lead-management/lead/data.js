@@ -52,6 +52,16 @@ export const serverSideColumns = [
   },
   {
     name: 'Campaign',
+    selector: 'Campaign',
+    sortable: true,
+    minWidth: '280px'
+    // right: true,
+    // style: {
+    //   justifyContent: 'right'
+    // }
+  },
+  {
+    name: 'Email',
     selector: 'Email',
     sortable: true,
     minWidth: '280px'
