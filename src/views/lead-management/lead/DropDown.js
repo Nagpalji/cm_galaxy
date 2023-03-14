@@ -19,6 +19,7 @@ const sd1 = "&sd="
 const ey1 = "&ey="
 const em1 = "&em="
 const ed1 = "&ed="
+const user_name1 = "&user_name="
 // const op = "&leadsource="
 // const val = sessionStorage.getItem('leadsource')
 
@@ -62,10 +63,11 @@ const SelectOptions = () => {
 
   const [colorOptions1, setColorOptions1] = useState([])
   const brand_name = localStorage.getItem("brand_name")
+  const user_name = localStorage.getItem("user_name")
   const fett1 = 'https://srvr1px.cyberads.io/adword_clicks/?dat=source&brand_name='
   const fet1 = fett1 + brand_name
   useState(() => {
-    fetch(fet1 + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed, {
+    fetch(fet1 + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed + user_name1 + user_name, {
       method: 'GET'
     })
       .then(res => res.json())
@@ -109,7 +111,7 @@ const SelectOptions = () => {
   const fett2 = 'https://srvr1px.cyberads.io/adword_clicks/?dat=campaign&brand_name='
   const fet2 = fett2 + brand_name
   useState(() => {
-    fetch(fet2 + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed, {
+    fetch(fet2 + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed + user_name1 + user_name, {
       method: 'GET'
     })
       .then(res => res.json())
