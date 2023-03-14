@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { Row, Col } from "reactstrap"
+import { Formik } from 'formik'
 
 // Welcome to Css
 import "@styles/react/libs/lpcss/css/bootstrap.min.css"
@@ -120,40 +121,40 @@ const optionstestimonial = {
     }
   }
 }
-const submit = (e) => {
-  e.preventDefault()
-  const fisrtname = document.getElementById('fname').value
-  const lastname = document.getElementById('lname').value
-  const businessemail = document.getElementById('email').value
-  const phonenumber = document.getElementById('phone').value
-  const lname = '&lname='
-  const bemail = '&email='
-  const phone = '&number='
-  const api = 'https://srvr1px.cyberads.io/landingpageleadform/?fname='
-  fetch(api + fisrtname + lname + lastname + bemail + businessemail + phone + phonenumber,
-    {
-      method: 'GET'
+// const submit = (e) => {
+//   e.preventDefault()
+//   const fisrtname = document.getElementById('fname').value
+//   const lastname = document.getElementById('lname').value
+//   const businessemail = document.getElementById('email').value
+//   const phonenumber = document.getElementById('phone').value
+//   const lname = '&lname='
+//   const bemail = '&email='
+//   const phone = '&number='
+//   const api = 'https://srvr1px.cyberads.io/landingpageleadform/?fname='
+//   fetch(api + fisrtname + lname + lastname + bemail + businessemail + phone + phonenumber,
+//     {
+//       method: 'GET'
 
-    }).then(res => res.json())
-    .then(
-      (result) => {
+//     }).then(res => res.json())
+//     .then(
+//       (result) => {
 
 
-        if (result.status === 200) {
-          //alert("Recovery link is send on email.")
-          alert("Request submitted successfully!")
+//         if (result.status === 200) {
+//           //alert("Recovery link is send on email.")
+//           alert("Request submitted successfully!")
 
-        } else {
-          alert(result.status)
-        }
+//         } else {
+//           alert(result.status)
+//         }
 
-      },
-      (error) => {
-        //setError({ error })
-      }
-    )
+//       },
+//       (error) => {
+//         //setError({ error })
+//       }
+//     )
 
-}
+// }
 
 const Home = () => {
   return (
@@ -1108,65 +1109,150 @@ const Home = () => {
               </div>
               <div className="col-lg-5 col-md-12 ms-auto">
                 <div className="subscribe-form">
-                  {/* <form id="mc-form" action="google.com/testing" method='post'> */}
-                  <form id="mc-form">
-                    <div
-                      className="group d-md-flex align-items-center"
-                      style={{ "margin-bottom": "20px" }}
-                    >
-                      <input
-                        type="name"
-                        name="fname"
-                        className="name"
-                        id="fname"
-                        placeholder="First Name"
-                        required
-                      />
-                      <input
-                        type="name"
-                        name="lanme"
-                        className="name"
-                        id="lname"
-                        placeholder="Last Name"
-                        required
-                      />
-                    </div>
-                    <div className="group d-md-flex align-items-center">
-                      <input
-                        type="email"
-                        name="email"
-                        className="email"
-                        id="email"
-                        placeholder="Business Email"
-                        required
-                      />
-                    </div>
-                    <div
-                      className="group d-md-flex align-items-center"
-                      style={{ "margin-top": "20px" }}
-                    >
-                      <input
-                        type="phone"
-                        name="phone"
-                        className="phone"
-                        id="phone"
-                        placeholder="Mobile No."
-                        required
-                      />
-                    </div>
-                    <div
-                      className="group align-items-center"
-                    >
-                      <input
-                        className="btn btn-theme mt-4"
-                        onClick={submit}
-                        style={{ "margin-left": "0", "margin-right": "20px" }}
-                        type="submit"
-                        name="submit"
-                        defaultValue="Submit"
-                      />
-                    </div>
-                  </form>
+                  <Formik
+                      initialValues={{ fname: '', lname: '', email: '', phone: '' }}
+                      validate={values => {
+                        const errors = {}
+                        if (!values.fname) {
+                          errors.fname = 'First name is required'
+                        }
+                        if (!values.lname) {
+                          errors.fname = 'last name is required'
+                        }
+                        if (!values.email) {
+                          errors.email = 'Email is required'
+                        } else if (
+                          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                        ) {
+                          errors.email = 'Invalid email address'
+                        }
+                       
+                        if (!values.phone) {
+                          errors.phone = 'Phone number is required'
+                        } else if (values.phone.length !== 10) {
+                          errors.phone = 'Phone number must be 10 digits long'
+                        }
+                        return errors
+                      }}
+                        onSubmit={(values, { setSubmitting }) => {
+                            // alert(JSON.stringify(values, null, 2))
+                            const api = 'https://srvr1px.cyberads.io/landingpageleadform/'
+                            fetch(api, {
+                              method: "POST", // or 'PUT'
+                              headers: {
+                                "Content-Type": "application/json"
+                              },
+                              body: JSON.stringify({
+                                fisrtname:values.fname,
+                                lname:values.lname, 
+                                bemail:values.email, 
+                                businessemail:values.email, 
+                                phonenumber:values.phone
+                              })
+                            }).then(res => res.json())
+                            .then(
+                              (result) => {
+
+
+                                if (result.status === 200) {
+                                  //alert("Recovery link is send on email.")
+                                  alert("Request submitted successfully!")
+
+                                } else {
+                                  alert(result.status)
+                                }
+
+                              },
+                              (error) => {
+                                //setError({ error })
+                              }
+                            )
+                            setSubmitting(false)
+                        
+                        }}
+                      >
+                        {({
+                          values,
+                          errors,
+                          touched,
+                          handleChange,
+                          handleBlur,
+                          handleSubmit,
+                          isSubmitting
+                          /* and other goodies */
+                        }) => (
+                          <form id="mc-form" onSubmit={handleSubmit}>
+                          <div
+            className="group d-md-flex align-items-center"
+            style={{ "margin-bottom": "20px" }}
+            >
+            <input
+              type="name"
+              name="fname"
+              className="name"
+              placeholder="First Name"
+              required
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.fname}
+            />
+            {errors.fname && touched.fname && errors.fname}
+
+            <input
+              type="text"
+              name="lname"
+              placeholder="Last Name"
+              required
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.lname}
+            />
+
+            </div>
+            {errors.lname && touched.lname && errors.lname}
+            <div className="group d-md-flex align-items-center">
+            <input
+              type="email"
+              name="email"
+              className="email"
+              id="email"
+              placeholder="Business Email"
+              required
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.email}
+            />
+            {errors.email && touched.email && errors.email}
+            </div>
+            <div
+            className="group d-md-flex align-items-center"
+            style={{ "margin-top": "20px" }}
+            >
+            <input
+              type="phone"
+              name="phone"
+              className="phone"
+              id="phone"
+              placeholder="Mobile No."
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.phone}
+            />
+            {errors.phone && touched.phone && errors.phone}
+            </div>
+            <div
+            className="group align-items-center"
+            >
+            <button
+              className="btn btn-theme mt-4"
+              style={{ "margin-left": "0", "margin-right": "20px" }}
+              name="submit"
+              type="submit" disabled={isSubmitting} >Submit </button>
+            </div>
+           
+                          </form>
+                        )}
+                      </Formik>
                 </div>
               </div>
             </div>
