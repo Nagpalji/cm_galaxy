@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { Row, Col } from "reactstrap"
+import { Row, Col, Button, Form, FormGroup, Label, Input } from "reactstrap"
 import { Formik } from 'formik'
 
 // Welcome to Css
@@ -526,7 +526,7 @@ const Home = () => {
                     </div>
                     <div className="featured-desc">
                       <p>
-                      It’s easy - API integrated, powered data, omni-channel tracking.Super easy to get started. Plug your data sources and we are Up
+                        It’s easy - API integrated, powered data, omni-channel tracking.Super easy to get started. Plug your data sources and we are Up
                       </p>{" "}
                       <br></br>
                       {/* <a className="btn-iconic mt-4" href="#">
@@ -552,7 +552,7 @@ const Home = () => {
                     </div>
                     <div className="featured-desc">
                       <p>
-                      CMGalaxy is at the core of all marketing and keeps track of your Campaign Success, in one single window
+                        CMGalaxy is at the core of all marketing and keeps track of your Campaign Success, in one single window
                       </p>{" "}
                     </div>
                   </div>
@@ -574,7 +574,7 @@ const Home = () => {
                     </div>
                     <div className="featured-desc">
                       <p>
-                      CMGalaxy seamlessly integrates multiple data sources, allowing you to make the right decision Now
+                        CMGalaxy seamlessly integrates multiple data sources, allowing you to make the right decision Now
                       </p>{" "}
                       <br></br>
                     </div>
@@ -596,7 +596,7 @@ const Home = () => {
                     </div>
                     <div className="featured-desc">
                       <p>
-                      Yes, it has the ability to adapt as per your customer needs across newsletter, Whatsapp, SMS, and more
+                        Yes, it has the ability to adapt as per your customer needs across newsletter, Whatsapp, SMS, and more
                       </p>{" "}
                     </div>
                   </div>
@@ -617,7 +617,7 @@ const Home = () => {
                     </div>
                     <div className="featured-desc">
                       <p>
-                      Get marketing intelligence at your fingertips. Save costs and save time! No more being ping-pong on multiple dashboards
+                        Get marketing intelligence at your fingertips. Save costs and save time! No more being ping-pong on multiple dashboards
                       </p>{" "}
                     </div>
                   </div>
@@ -638,7 +638,7 @@ const Home = () => {
                     </div>
                     <div className="featured-desc">
                       <p>
-                      Choose from pre-set notification that you want to receive and when you want to receive. Activate your marketing triggers
+                        Choose from pre-set notification that you want to receive and when you want to receive. Activate your marketing triggers
                       </p>{" "}
                     </div>
                   </div>
@@ -680,7 +680,7 @@ const Home = () => {
                     <div className="right-bdr" />
                   </div>
                   <p className="text-black">
-                  Great Services backed by Great Product to help you achieve your Marketing goals.
+                    Great Services backed by Great Product to help you achieve your Marketing goals.
                   </p>
                 </div>{" "}
                 <a className="btn btn-theme mt-5" href="#contactus">
@@ -704,7 +704,7 @@ const Home = () => {
                       </div>
                       <div className="featured-desc">
                         <p>
-                        Keeping up with Multiple Campaigns on Google Ads, becomes a lot more simple and resourceful with easy integration on CMGalaxy Dashboard.
+                          Keeping up with Multiple Campaigns on Google Ads, becomes a lot more simple and resourceful with easy integration on CMGalaxy Dashboard.
                         </p>
                         <br></br>
                       </div>
@@ -721,7 +721,7 @@ const Home = () => {
                       </div>
                       <div className="featured-desc">
                         <p>
-                        Integrated Facebook tools to measure the performance of your Campaigns and improve your results for Present and future campaigns.
+                          Integrated Facebook tools to measure the performance of your Campaigns and improve your results for Present and future campaigns.
                         </p>
                         <br></br>
                       </div>
@@ -738,7 +738,7 @@ const Home = () => {
                       </div>
                       <div className="featured-desc">
                         <p>
-                        Discover tips for measuring performance, gaining insights, and optimising your ads on Linkedin campaigns.
+                          Discover tips for measuring performance, gaining insights, and optimising your ads on Linkedin campaigns.
                         </p>
                         <br></br>
                         <br></br>
@@ -756,7 +756,7 @@ const Home = () => {
                       </div>
                       <div className="featured-desc">
                         <p>
-                        With Youtube dashboard, unlock reports to help understand the strengths and weaknesses of videos. Use these insights for new videos.
+                          With Youtube dashboard, unlock reports to help understand the strengths and weaknesses of videos. Use these insights for new videos.
                         </p>
                       </div>
                     </div>
@@ -772,7 +772,7 @@ const Home = () => {
                       </div>
                       <div className="featured-desc">
                         <p>
-                        With Amazon, monitoring performance is essential to your success.Never miss an order.CMGalaxy helps you monitor your growth.
+                          With Amazon, monitoring performance is essential to your success.Never miss an order.CMGalaxy helps you monitor your growth.
                         </p>
                       </div>
                     </div>
@@ -788,7 +788,7 @@ const Home = () => {
                       </div>
                       <div className="featured-desc">
                         <p>
-                        We support all major CRM, Ask for Custom CRM integration to track your journey of revenue and effort from Campaigns to Customers.
+                          We support all major CRM, Ask for Custom CRM integration to track your journey of revenue and effort from Campaigns to Customers.
                         </p>
                         <br></br>
                         <br></br>
@@ -806,7 +806,7 @@ const Home = () => {
                       </div>
                       <div className="featured-desc">
                         <p>
-                        DV360 is an essential tool today, Unlock the advance omni platform analytics to keep up the momentum of your campaigns.
+                          DV360 is an essential tool today, Unlock the advance omni platform analytics to keep up the momentum of your campaigns.
                         </p>
                         <br></br>
                         <br></br>
@@ -824,7 +824,7 @@ const Home = () => {
                       </div>
                       <div className="featured-desc">
                         <p>
-                        We all Strive for Leads, Keep up to date with Prompt triggers and multiplatform results analysis and you can plug-in your CRM.
+                          We all Strive for Leads, Keep up to date with Prompt triggers and multiplatform results analysis and you can plug-in your CRM.
                         </p>
                         <br></br>
                         <br></br>
@@ -1110,149 +1110,148 @@ const Home = () => {
               <div className="col-lg-5 col-md-12 ms-auto">
                 <div className="subscribe-form">
                   <Formik
-                      initialValues={{ fname: '', lname: '', email: '', phone: '' }}
-                      validate={values => {
-                        const errors = {}
-                        if (!values.fname) {
-                          errors.fname = 'First name is required'
-                        }
-                        if (!values.lname) {
-                          errors.fname = 'last name is required'
-                        }
-                        if (!values.email) {
-                          errors.email = 'Email is required'
-                        } else if (
-                          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                        ) {
-                          errors.email = 'Invalid email address'
-                        }
-                       
-                        if (!values.phone) {
-                          errors.phone = 'Phone number is required'
-                        } else if (values.phone.length !== 10) {
-                          errors.phone = 'Phone number must be 10 digits long'
-                        }
-                        return errors
-                      }}
-                        onSubmit={(values, { setSubmitting }) => {
-                            // alert(JSON.stringify(values, null, 2))
-                            const api = 'https://srvr1px.cyberads.io/landingpageleadform/'
-                            fetch(api, {
-                              method: "POST", // or 'PUT'
-                              headers: {
-                                "Content-Type": "application/json"
-                              },
-                              body: JSON.stringify({
-                                fisrtname:values.fname,
-                                lname:values.lname, 
-                                bemail:values.email, 
-                                businessemail:values.email, 
-                                phonenumber:values.phone
-                              })
-                            }).then(res => res.json())
-                            .then(
-                              (result) => {
+                    initialValues={{ fname: '', lname: '', email: '', phone: '' }}
+                    validate={values => {
+                      const errors = {}
+                      if (!values.fname) {
+                        errors.fname = 'First name is required'
+                      }
+                      // if (!values.lname) {
+                      //   errors.lname = 'Last name is required'
+                      // }
+                      if (!values.email) {
+                        errors.email = 'Email is required'
+                      } else if (
+                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                      ) {
+                        errors.email = 'Invalid email address'
+                      }
+
+                      if (!values.phone) {
+                        errors.phone = 'Phone number is required'
+                      } else if (values.phone.length !== 10) {
+                        errors.phone = 'Phone number must be 10 digits long'
+                      }
+                      return errors
+                    }}
+                    onSubmit={(values, { setSubmitting }) => {
+                      // alert(JSON.stringify(values, null, 2))
+                      const api = 'https://srvr1px.cyberads.io/landingpageleadform/'
+                      fetch(api, {
+                        method: "POST", // or 'PUT'
+                        headers: {
+                          "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                          fisrtname: values.fname,
+                          lname: values.lname,
+                          bemail: values.email,
+                          businessemail: values.email,
+                          phonenumber: values.phone
+                        })
+                      }).then(res => res.json())
+                        .then(
+                          (result) => {
 
 
-                                if (result.status === 200) {
-                                  //alert("Recovery link is send on email.")
-                                  alert("Request submitted successfully!")
+                            if (result.status === 200) {
+                              //alert("Recovery link is send on email.")
+                              alert("Request submitted successfully!")
 
-                                } else {
-                                  alert(result.status)
-                                }
+                            } else {
+                              alert(result.status)
+                            }
 
-                              },
-                              (error) => {
-                                //setError({ error })
-                              }
-                            )
-                            setSubmitting(false)
-                        
-                        }}
-                      >
-                        {({
-                          values,
-                          errors,
-                          touched,
-                          handleChange,
-                          handleBlur,
-                          handleSubmit,
-                          isSubmitting
-                          /* and other goodies */
-                        }) => (
-                          <form id="mc-form" onSubmit={handleSubmit}>
+                          },
+                          (error) => {
+                            //setError({ error })
+                          }
+                        )
+                      setSubmitting(false)
+
+                    }}
+                  >
+                    {({
+                      values,
+                      errors,
+                      touched,
+                      handleChange,
+                      handleBlur,
+                      handleSubmit,
+                      isSubmitting
+                      /* and other goodies */
+                    }) => (
+                      <>
+                        <Form id="mc-form" onSubmit={handleSubmit}>
+                          <div className="group d-md-flex align-items-center flex-column" style={{ "padding-bottom": "20px" }} >
+                            <div className="group d-md-flex align-items-center" >
+                              <Input
+                                type="text"
+                                name="fname"
+                                className="fname"
+                                placeholder="First Name"
+                                required
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.fname}
+                              />
+
+                              <Input
+                                type="text"
+                                name="lname"
+                                placeholder="Last Name"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.lname}
+                              />
+                            </div>
+                            <small className="text-danger"> {errors.fname && touched.fname && errors.fname} </small>
+                            {/* <small className="text-danger"> {errors.lname && touched.lname && errors.lname} </small> */}
+                          </div>
+                          <div className="group d-md-flex align-items-center flex-column">
+                            <Input
+                              type="email"
+                              name="email"
+                              className="email"
+                              id="email"
+                              placeholder="Business Email"
+                              required
+                              onChange={handleChange}
+                              onBlur={handleBlur}
+                              value={values.email}
+                            />
+                            <small className="text-danger"> {errors.email && touched.email && errors.email} </small>
+                          </div>
                           <div
-            className="group d-md-flex align-items-center"
-            style={{ "margin-bottom": "20px" }}
-            >
-            <input
-              type="name"
-              name="fname"
-              className="name"
-              placeholder="First Name"
-              required
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.fname}
-            />
-            {errors.fname && touched.fname && errors.fname}
+                            className="group d-md-flex align-items-center flex-column"
+                            style={{ "margin-top": "20px" }}
+                          >
+                            <Input
+                              type="phone"
+                              name="phone"
+                              className="phone"
+                              id="phone"
+                              placeholder="Mobile No."
+                              onChange={handleChange}
+                              onBlur={handleBlur}
+                              value={values.phone}
+                            />
+                            <small className="text-danger"> {errors.phone && touched.phone && errors.phone} </small>
+                          </div>
+                          <div
+                            className="group align-items-center"
+                          >
+                            <button
+                              className="btn btn-theme mt-4"
+                              style={{ "margin-left": "0", "margin-right": "20px" }}
+                              name="submit"
+                              type="submit" disabled={isSubmitting} >Submit </button>
+                          </div>
 
-            <input
-              type="text"
-              name="lname"
-              placeholder="Last Name"
-              required
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.lname}
-            />
-
-            </div>
-            {errors.lname && touched.lname && errors.lname}
-            <div className="group d-md-flex align-items-center">
-            <input
-              type="email"
-              name="email"
-              className="email"
-              id="email"
-              placeholder="Business Email"
-              required
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
-            />
-            {errors.email && touched.email && errors.email}
-            </div>
-            <div
-            className="group d-md-flex align-items-center"
-            style={{ "margin-top": "20px" }}
-            >
-            <input
-              type="phone"
-              name="phone"
-              className="phone"
-              id="phone"
-              placeholder="Mobile No."
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.phone}
-            />
-            {errors.phone && touched.phone && errors.phone}
-            </div>
-            <div
-            className="group align-items-center"
-            >
-            <button
-              className="btn btn-theme mt-4"
-              style={{ "margin-left": "0", "margin-right": "20px" }}
-              name="submit"
-              type="submit" disabled={isSubmitting} >Submit </button>
-            </div>
-           
-                          </form>
-                        )}
-                      </Formik>
+                        </Form>
+                      </>
+                    )}
+                  </Formik>
                 </div>
               </div>
             </div>
