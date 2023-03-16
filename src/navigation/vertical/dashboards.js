@@ -114,7 +114,7 @@ import { FaHome, FaFacebook, FaLinkedin, FaYoutube, FaChrome, Globe, Settings, C
 
 let sample
 
-if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getItem("email") === 'dhavalg@cmrsl.net') || (localStorage.getItem("email") === 'gauravg@cmrsl.net')) {
+if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getItem("email") === 'dhavalg@cmrsl.net') ||  (localStorage.getItem("email") === 'gauravg@cmrsl.net')) {
   sample = [
     {
       id: 'eCommerceDash',
@@ -242,18 +242,6 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
     },
     {
       id: 'eCommerceDash',
-      title: 'Funnel Mapping',
-      icon: <FaChrome size={12} />,
-      navLink: '/funnelmapping/index'     
-    },
-    {
-      id: 'eCommerceDash',
-      title: 'Push Notification',
-      icon: <FaBell size={12} />,
-      navLink: '/pushNotification/index'
-    },
-    {
-      id: 'eCommerceDash',
       title: 'Google Performance',
       // icon: <Chrome size={12} />,
       icon: <FaChrome size={12} />,
@@ -318,6 +306,21 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
       navLink: '/lead-management'
     }
   ]
+}
+
+if (['demo_account@cmrsl.net', 'cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem("email"))) {
+  sample.push({
+    id: 'eCommerceDash',
+    title: 'Funnel Mapping',
+    icon: <FaChrome size={12} />,
+    navLink: '/funnelmapping/index'     
+  },
+  {
+    id: 'eCommerceDash',
+    title: 'Push Notification',
+    icon: <FaBell size={12} />,
+    navLink: '/pushNotification/index'
+  })
 }
 
 
