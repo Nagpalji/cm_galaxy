@@ -297,14 +297,8 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
       // icon: <Play size={12} />,
       icon: <FaPlay size={12} />,
       navLink: '/dv360-performance'
-    },
-    {
-      id: 'eCommerceDash',
-      title: 'Lead Management',
-      // icon: <Filter size={12} />,
-      icon: <FaFilter size={12} />,
-      navLink: '/lead-management'
     }
+    
   ]
 }
 
@@ -323,6 +317,14 @@ if (['demo_account@cmrsl.net', 'cmgalaxy.okana@cmgalaxy.com'].includes(localStor
   })
 }
 
+if (!['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem("email"))) {
+  sample.push({
+    id: 'eCommerceDash',
+    title: 'Lead Management',
+    // icon: <Filter size={12} />,
+    icon: <FaFilter size={12} />,
+    navLink: '/lead-management'
+  })
+}
 
 export default sample
-

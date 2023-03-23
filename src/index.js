@@ -42,15 +42,15 @@ import './assets/scss/style.scss'
 import * as serviceWorker from './serviceWorker'
 
 // ** Lazy load app
-const LazyApp = lazy(() => import('./App'))
-
+// const LazyApp = lazy(() => import('./App'))
+import App from "./App"
 ReactDOM.render(
   <Provider store={store}>
     <Suspense fallback={<Spinner />}>
       <AbilityContext.Provider value={ability}>
         <ThemeContext>
           <IntlProviderWrapper>
-            <LazyApp />
+            <App />
             <ToastContainer newestOnTop />
           </IntlProviderWrapper>
         </ThemeContext>
@@ -60,7 +60,7 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister()
+// // If you want your app to work offline and load faster, you can change
+// // unregister() to register() below. Note this comes with some pitfalls.
+// // Learn more about service workers: https://bit.ly/CRA-PWA
+// serviceWorker.unregister()
