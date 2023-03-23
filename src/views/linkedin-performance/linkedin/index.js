@@ -37,90 +37,116 @@ const EcommerceDashboard = () => {
     trackBgColor = '#e9ecef'
   // my popup start
   const MySwal = withReactContent(Swal)
+  if ((localStorage.getItem("email") === 'globallogic@cmrsl.net')) {
+    return (
+      <div id='dashboard-ecommerce'>
+        <Row className='laptophideCustomdropdown match-height mt-1 mb-1'>
+          <Col className='widthdate' xl='12' md='12' xs='12'>
+            <CustomDropDown />
+          </Col>
+        </Row>
+        <Row className='match-height'>
+          <Col xl='12' md='12' xs='12'>
+            <DropDown />
+          </Col>
+        </Row>
 
-  
-  return (
-    <div id='dashboard-ecommerce'>
-      <Row className='laptophideCustomdropdown match-height mt-1 mb-1'>
-        <Col className='widthdate' xl='12' md='12' xs='12'>
-          <CustomDropDown />
-        </Col>
-      </Row>
-      <Row className='match-height'>
-        <Col xl='12' md='12' xs='12'>
-          <DropDown />
-        </Col>
-      </Row>
+        <Row className='match-height'>
+          <Col xl='12' md='12' xs='12'>
+            <StatsCard cols={{ xl: '3', md: '4', xs: '6' }} />
+          </Col>
+        </Row>
 
-      <Row className='match-height'>
-        <Col xl='12' md='12' xs='12'>
-          <StatsCard cols={{ xl: '3', md: '4', xs: '6' }} />
-        </Col>
-      </Row>
+        <Row className='match-height'>
+          <Col lg='7' md='12'>
+            <TopCampaigns />
+          </Col>
 
-      <Row className='match-height'>
-        <Col lg='7' md='12'>
-          <TopCampaigns />
-        </Col>
+          <Col lg='5' md='12'>
+            <ImpressionByCampaign />
+          </Col>
+        </Row>
 
-        <Col lg='5' md='12'>
-          <ImpressionByCampaign />
-        </Col>
-      </Row>
+        <Row className='match-height'>
+          <Col lg='5' md='12'>
+            <CPCAndCPLAnalysis />
+          </Col>
 
-      <Row className='match-height'>
-        <Col lg='5' md='12'>
-          <CPCAndCPLAnalysis />
-        </Col>
+          <Col lg='7' md='12'>
+            <OverallPerformance />
+          </Col>
+        </Row>
 
-        <Col lg='7' md='12'>
-          <OverallPerformance />
-        </Col>
-      </Row>
+        <Row className='match-height'>
+          <Col lg='5' md='6'>
+            <CostByCampaign />
+          </Col>
 
-      <Row className='match-height'>
-        <Col lg='5' md='6'>
-          <CostByCampaign />
-        </Col>
-
-        <Col lg='7' md='12'>
-          <LeadPerformance />
-        </Col>
-      </Row>
-      {/* <Row className='match-height'>
-        <Col lg='4' md='12'>
-          <Row className='match-height'>
-            <Col lg='6' md='3' xs='6'>
-              <OrdersBarChart warning={colors.warning.main} />
-            </Col>
-            <Col lg='6' md='3' xs='6'>
-              <ProfitLineChart info={colors.info.main} />
-            </Col>
-            <Col lg='12' md='6' xs='12'>
-              <Earnings success={colors.success.main} />
-            </Col>
-          </Row>
-        </Col>
-        <Col lg='8' md='12'>
-          <RevenueReport primary={colors.primary.main} warning={colors.warning.main} />
-        </Col>
-      </Row> 
-       <Row className='match-height'>
-        <Col lg='12' md='6' xs='12'>
-          <CardMeetup />
-        </Col>
-        <Col lg='4' md='6' xs='12'>
-          <CardBrowserStates colors={colors} trackBgColor={trackBgColor} />
-        </Col>
-        <Col lg='4' md='6' xs='12'>
-          <GoalOverview success={colors.success.main} />
-        </Col>
-        <Col lg='4' md='6' xs='12'>
-          <CardTransactions />
-        </Col>
-      </Row> */}
-    </div>
-  )
+          <Col lg='7' md='12'>
+            <LeadPerformance />
+          </Col>
+        </Row>
+        {/* <Row className='match-height'>
+          <Col lg='4' md='12'>
+            <Row className='match-height'>
+              <Col lg='6' md='3' xs='6'>
+                <OrdersBarChart warning={colors.warning.main} />
+              </Col>
+              <Col lg='6' md='3' xs='6'>
+                <ProfitLineChart info={colors.info.main} />
+              </Col>
+              <Col lg='12' md='6' xs='12'>
+                <Earnings success={colors.success.main} />
+              </Col>
+            </Row>
+          </Col>
+          <Col lg='8' md='12'>
+            <RevenueReport primary={colors.primary.main} warning={colors.warning.main} />
+          </Col>
+        </Row> 
+        <Row className='match-height'>
+          <Col lg='12' md='6' xs='12'>
+            <CardMeetup />
+          </Col>
+          <Col lg='4' md='6' xs='12'>
+            <CardBrowserStates colors={colors} trackBgColor={trackBgColor} />
+          </Col>
+          <Col lg='4' md='6' xs='12'>
+            <GoalOverview success={colors.success.main} />
+          </Col>
+          <Col lg='4' md='6' xs='12'>
+            <CardTransactions />
+          </Col>
+        </Row> */}
+      </div>) 
+  } else {
+    return MySwal.fire({
+      title: '',
+      // footer: '<a href="javascript:void(0);">If You any further issue ! Please Let me Know</a>',
+      // icon: 'success',
+      // html:
+      //   'Data Integration Inactive.</b> ',
+      html: (
+        <span style={{ fontSize: 25 }}>If you would like to link your Linkedin account please contact your account manager.</span>
+      ),
+      showCloseButton: false,
+      showCancelButton: false,
+      focusConfirm: false,
+      confirmButtonText: (
+        <span className='align-middle'>
+          {/* <ThumbsUp className='mr-50' size={15} /> */}
+          {/* <span className='align-middle'>Close</span> */}
+          <a href="/overall-snapshot" className='align-middle text-white'>Close</a>
+        </span>
+      ),
+      cancelButtonText: <ThumbsDown size={15} />,
+      customClass: {
+        confirmButton: 'btn btn-primary custom-buttoncss',
+        cancelButton: 'btn btn-outline-danger ml-1'
+      },
+      buttonsStyling: false
+    })
+  }  
 }
 
 export default EcommerceDashboard
