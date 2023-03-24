@@ -10,7 +10,7 @@ import ReactPaginate from 'react-paginate'
 const StatsCard = ({ cols }) => {
   // export default function App() {
 
-  const [data, setData] = useState(null)
+  const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const brand_name = localStorage.getItem("brand_name")
@@ -47,8 +47,8 @@ const StatsCard = ({ cols }) => {
   if (ed === 'NaN') {
     ed = sd
   }
-
-  useState(() => {
+  
+  useEffect(() => {
     fetch(fet + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed + product + c_product + campaign + c_campaign + traffic + c_traffic + geo + c_geo)
       .then((response) => {
         if (response.ok) {
@@ -76,9 +76,8 @@ const StatsCard = ({ cols }) => {
         setLoading(false)
       })
   }, [])
-
-  if (loading) return "Loading..."
-  if (error) return "Data Unavailable."
+  // if (loading) return "Loading..."
+  // if (error) return "Data Unavailable."
 
   const handlePagination = page => {
 
