@@ -238,7 +238,7 @@ const DataAudienceOverview = () => {
     <Fragment>
       <Card>
         <CardHeader className='border-bottom'>
-          <CardTitle tag='h4'>Audience Overview</CardTitle>
+          <CardTitle tag='h4'>Account Overview</CardTitle>
         </CardHeader>
         {/* <Row className='mx-0 mt-1 mb-50'>
           <Col sm='6'>
