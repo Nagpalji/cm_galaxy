@@ -353,7 +353,7 @@ if (click.length === 0) {
     <Fragment>
     <Card>
       <CardHeader>
-        <CardTitle tag='h4'>Ad Performance</CardTitle>
+        <CardTitle tag='h4'>Campaign Performance</CardTitle>
       </CardHeader>
       <CardBody>
         {/* <PieChart highcharts={Highcharts} options={options} /> */}

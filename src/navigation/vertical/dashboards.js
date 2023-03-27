@@ -110,8 +110,9 @@
 //   // }
 // ]
 // import { Home, Circle, Facebook, Linkedin, Youtube, Chrome, Globe, Settings, Command, Twitter, Package, Play, Atsign, AtSign, Filter, Users  } from 'react-feather'
-import { FaHome, FaFacebook, FaLinkedin, FaYoutube, FaChrome, Globe, Settings, Command, FaTwitter, Package, FaPlay, FaAmazon, FaFilter, FaUserAlt, FaUsers, FaUser, FaBullhorn, FaBell, FaInstagram } from 'react-icons/fa'
-
+import { FaHome, FaFacebook, FaLinkedin, FaYoutube, FaChrome, FaMeta, Globe, Settings, Command, FaTwitter, Package, FaPlay, FaAmazon, FaFilter, FaUserAlt, FaUsers, FaUser, FaBullhorn, FaBell, FaInstagram, FaMapMarkedAlt, FaFacebookMessenger, FaFacebookF } from 'react-icons/fa'
+import { BsMeta } from 'react-icons/bs'
+// import { MdMeta } from 'react-icons/md'
 let sample
 
 if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getItem("email") === 'dhavalg@cmrsl.net') ||  (localStorage.getItem("email") === 'gauravg@cmrsl.net')) {
@@ -254,14 +255,14 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
       //title: 'Facebook Performance',
       
       //icon: <FaFacebook size={12} />,
-      title: localStorage.getItem("email") === 'globallogic@cmrsl.net' ? "Instagram Performance" : "Facebook Performance",
-      icon: localStorage.getItem("email") === 'globallogic@cmrsl.net' ? <FaInstagram size={12} /> : <FaFacebook size={12} />,
-      navLink: '/facebook-performance'
-      // id: 'eCommerceDash',
-      // title: 'Facebook Performance',
-      // // icon: <Facebook size={12} />,
-      // icon: <FaFacebook size={12} />,
+      // title: localStorage.getItem("email") === 'globallogic@cmrsl.net' ? "Instagram Performance" : "Facebook Performance",
+      // icon: localStorage.getItem("email") === 'globallogic@cmrsl.net' ? <FaInstagram size={12} /> : <FaFacebook size={12} />,
       // navLink: '/facebook-performance'
+      // id: 'eCommerceDash',
+      title: 'Meta Performance',
+      // icon: <Facebook size={12} />,
+      icon: <BsMeta size={12} />,
+      navLink: '/facebook-performance'
     },
     {
       id: 'eCommerceDash',

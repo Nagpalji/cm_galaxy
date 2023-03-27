@@ -220,7 +220,7 @@ const DataAudienceOverview = () => {
           <Row className='match-height'>
             <Col lg='10' md='12'>
               <CardHeader>
-                <CardTitle tag='h4'>Audience Overview</CardTitle>
+                <CardTitle tag='h4'>Ad Group Overview</CardTitle>
               </CardHeader>
             </Col>
 

@@ -64,7 +64,7 @@ const StatsCard = ({ cols }) => {
         data[4].icon = <Filter size={24} />
         data[5].icon = <CheckCircle size={24} />
         data[6].icon = <UserCheck size={24} />
-        data[7].icon = <UserCheck size={24} />
+        data[7].icon = <MousePointer size={24} />
       })
       .catch((error) => {
         console.error("Error fetching data: ", error)
