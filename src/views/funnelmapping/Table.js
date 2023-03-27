@@ -124,9 +124,10 @@ const Table = ({ data, selectedCategory}) => {
                             <th className='bg-secondary text-white' scope="col">Sr. No.</th>
                             <th className='bg-secondary text-white' scope="col">Email</th>
                             <th className='bg-secondary text-white' scope="col">created_at</th>
+                            <th className='bg-secondary text-white' scope="col">source</th>
                             <th className='bg-secondary text-white' scope="col">Full Name</th>
-                            <th className='bg-secondary text-white' scope="col">order_name</th>
-                            <th className='bg-secondary text-white' scope="col">total_price</th>
+                            <th className='bg-secondary text-white' scope="col">order name</th>
+                            <th className='bg-secondary text-white' scope="col">total price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -137,6 +138,7 @@ const Table = ({ data, selectedCategory}) => {
                                         <th className='text-black'>{index + 1}</th>
                                         <td className='text-black'>{item?.email}</td>
                                         <td className='text-black'>{item?.created_at}</td>
+                                        <td className='text-black'>{item?.source === "" ? 'Unknown' : item?.source}</td>
                                         <td className='text-black'>{item?.first_name} {item?.last_name}</td>
                                         <td className='text-black'>{item?.order_name}</td>
                                         <td className='text-black'>{item?.total_price}</td>
@@ -154,10 +156,11 @@ const Table = ({ data, selectedCategory}) => {
                             <th className='bg-success text-white' scope="col">Sr. No.</th>
                             <th className='bg-success text-white' scope="col">Email</th>
                             <th className='bg-success text-white' scope="col">created_at</th>
+                            <th className='bg-success text-white' scope="col">Source</th>
                             <th className='bg-success text-white' scope="col">gateway</th>
-                            <th className='bg-success text-white' scope="col">financial_status</th>
-                            <th className='bg-success text-white' scope="col">order_name</th>
-                            <th className='bg-success text-white' scope="col">total_price</th>
+                            <th className='bg-success text-white' scope="col">financial status</th>
+                            <th className='bg-success text-white' scope="col">order name</th>
+                            <th className='bg-success text-white' scope="col">total price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -168,6 +171,7 @@ const Table = ({ data, selectedCategory}) => {
                                         <th className='text-black'>{index + 1}</th>
                                         <td className='text-black'>{item?.email}</td>
                                         <td className='text-black'>{item?.created_at}</td>
+                                        <td className='text-black'>{item?.source === "" ? 'Unknown' : item?.source}</td>
                                         <td className='text-black'>{item?.gateway}</td>
                                         <td className='text-black'>{item?.financial_status}</td>
                                         <td className='text-black'>{item?.order_name}</td>

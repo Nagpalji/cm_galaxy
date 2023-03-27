@@ -38,8 +38,8 @@ const ThemeNavbar = props => {
   const pathToTitleMap = {
     "/overall-snapshot": "Overall Snapshot",
     "/dashboard/ecommerce": "Google Performance",
-    "/facebook-performance":(localStorage.getItem("email") === 'globallogic@cmrsl.net') ? "Instagram Performance" : "Facebook Performance",
-    // "/facebook-performance": "Facebook Performance",
+    // "/facebook-performance":(localStorage.getItem("email") === 'globallogic@cmrsl.net') ? "Instagram Performance" : "Facebook Performance",
+    "/facebook-performance": "Meta Performance",
     "/linkedin-performance": "LinkedIn Performance",
     "/youtube-performance": "Youtube Performance",
     "/amazon-performance": "Google Performance",
