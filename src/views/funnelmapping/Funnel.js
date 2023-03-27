@@ -57,13 +57,13 @@ export default function Funnel({ res, table }) {
                             <p data-id={"4"} className="hide4 funnelPara text-center text-white"> Conversion </p>
                         </div>
                     </div>{" "}
-                    <div className="d-flex flex-row col-lg-7 col-sm-12 p-1"  style={{ minHeight: 350 }}>
+                    <div className="d-flex flex-row col-lg-7 col-sm-12 p-1" style={{ minHeight: 350 }}>
                         <div className="content-FFC313 hide1 w-100 d-none data" style={{ height: 250 }}>
                             <div className="d-none d-lg-block w-25 position-relative border-top-warning" style={{ marginLeft: "-182px", top: 30, height: 0, zIndex: "-1000" }} />
                             <div className="w-100">
                                 <div className="w-100 align-items-center flex-column">
-                                    <p className="m-0 border-left-warning border-top-warning lh-sm" style={{padding: 6}}><strong>ToFu - </strong>Marketing outreach via omni-channels where brands can interact with target audiences. Goals are to increase awareness, build trust and bring users to relevant content assets.</p>
-                                    <p className="border-left-warning m-0" style={{paddingLeft: 5, paddingTop: 4}}>Last 7 day data</p>
+                                    <p className="m-0 border-left-warning border-top-warning lh-sm" style={{ padding: 6 }}><strong>ToFu - </strong>Marketing outreach via omni-channels where brands can interact with target audiences. Goals are to increase awareness, build trust and bring users to relevant content assets.</p>
+                                    <p className="border-left-warning m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Last 7 day data</p>
                                 </div>
                                 <PerfectScrollbar className="w-100 border-left-warning">
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Number Of People Reached" >
@@ -95,7 +95,7 @@ export default function Funnel({ res, table }) {
                                         </div>
                                         <div className="ml-3">
                                             <p>
-                                                <b>{res?.Tofu?.Spends?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
+                                                <b>{res?.Tofu?.Spends?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -120,7 +120,7 @@ export default function Funnel({ res, table }) {
                                         </div>
                                         <div className="ml-3">
                                             <p>
-                                                <b>{res?.Tofu?.CTR?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
+                                                <b>{res?.Tofu?.CTR?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -150,8 +150,8 @@ export default function Funnel({ res, table }) {
                             <div className="d-none d-lg-block w-25 position-relative border-top-primary" style={{ marginLeft: "-185px", top: 120, height: 0, zIndex: "-1000" }} />
                             <div className="w-100">
                                 <div className="w-100 align-items-center flex-column">
-                                    <p className="m-0 border-left-primary border-top-primary lh-sm" style={{padding: 6}}><strong>MoFu - </strong>User engage with brand across multiple content assets. Goals are to map audience engagement analytics, understand who they are, and their behavioural patterns.</p>
-                                    <p className="border-left-primary m-0" style={{paddingLeft: 5, paddingTop: 4}}>Last 7 day data</p>
+                                    <p className="m-0 border-left-primary border-top-primary lh-sm" style={{ padding: 6 }}><strong>MoFu - </strong>User engage with brand across multiple content assets. Goals are to map audience engagement analytics, understand who they are, and their behavioural patterns.</p>
+                                    <p className="border-left-primary m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Last 7 day data</p>
                                 </div>
                                 <PerfectScrollbar className="w-100 border-left-primary">
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" >
@@ -189,7 +189,7 @@ export default function Funnel({ res, table }) {
                                                         <>
                                                             <li className="m-0" key={val.product_name}>
                                                                 {val.product_name}{" "}
-                                                                <b>: {val.Engagement?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
+                                                                <b>: {val.Engagement?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
                                                             </li>
                                                         </>
                                                     )
@@ -207,7 +207,7 @@ export default function Funnel({ res, table }) {
                                                     return (
                                                         <>
                                                             <li className="m-0" key={val.OS}>
-                                                                {val.OS} <b>: {val.percentage?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} %</b>
+                                                                {val.OS} <b>: {val.percentage?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} %</b>
                                                             </li>
                                                         </>
                                                     )
@@ -240,7 +240,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Mofu?.avg_time_per_session?.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1})}</b>
+                                                <b>{res?.Mofu?.avg_time_per_session?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -251,8 +251,8 @@ export default function Funnel({ res, table }) {
                             <div className="d-none d-lg-block w-25 position-relative border-top-secondary" style={{ marginLeft: "-187px", top: 215, height: 0, zIndex: "-1000" }} />
                             <div className="w-100">
                                 <div className="w-100 align-items-center flex-column">
-                                    <p className="m-0 border-left-secondary border-top-secondary lh-sm" style={{padding: 6}}><strong>BoFu - </strong>Users show intent towards continued brand engagement. Goals are to track captured leads or e-cart creation. This stage also helps identify effective conversion focused retargeting.</p>
-                                    <p className="border-left-secondary m-0" style={{paddingLeft: 5, paddingTop: 4}}>Last 7 day data</p>
+                                    <p className="m-0 border-left-secondary border-top-secondary lh-sm" style={{ padding: 6 }}><strong>BoFu - </strong>Users show intent towards continued brand engagement. Goals are to track captured leads or e-cart creation. This stage also helps identify effective conversion focused retargeting.</p>
+                                    <p className="border-left-secondary m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Last 7 day data</p>
                                 </div>
                                 <PerfectScrollbar className=" w-100 p-0 border-left-secondary">
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of users who have created a cart" >
@@ -291,7 +291,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Bofu?.checkout_value?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
+                                                <b>{res?.Bofu?.checkout_value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -305,7 +305,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Bofu?.cost_per_lead?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
+                                                <b>{res?.Bofu?.cost_per_lead?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -320,7 +320,7 @@ export default function Funnel({ res, table }) {
                                             <p className="m-0 ml-2">
                                                 {" "}
                                                 <strong>
-                                                    {res?.Bofu?.visitor_to_cart_conversion_rate?.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1})}
+                                                    {res?.Bofu?.visitor_to_cart_conversion_rate?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}
                                                 </strong>
                                             </p>
                                         </div>
@@ -349,7 +349,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Bofu?.abandoned_cart_value?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
+                                                <b>{res?.Bofu?.abandoned_cart_value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -363,7 +363,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Bofu?.returning_users_cart_value?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
+                                                <b>{res?.Bofu?.returning_users_cart_value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -377,8 +377,29 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Bofu?.new_users_cart_value?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
+                                                <b>{res?.Bofu?.new_users_cart_value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
                                             </p>
+                                        </div>
+                                    </div>
+                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" >
+                                        <div className="d-flex align-items-center p-0 m-0">
+                                            <IoIosArrowRoundForward size={32} className="text-secondary" />
+                                            <p className="fw-bold text-secondary m-0">
+                                                Source –{" "}
+                                            </p>
+                                        </div>
+                                        <div className="ml-1 mb-1">
+                                            {res?.Bofu?.soure &&
+                                                res?.Bofu?.soure.map((val) => {
+                                                    return (
+                                                        <>
+                                                            <li className="m-0" key={val.source}>
+                                                                {val.source === "" ? 'Unknown' : val.source}{" "}
+                                                                <b>: {val.count.toLocaleString()}</b>
+                                                            </li>
+                                                        </>
+                                                    )
+                                                })}
                                         </div>
                                     </div>
                                 </PerfectScrollbar>
@@ -390,8 +411,8 @@ export default function Funnel({ res, table }) {
                                 style={{ marginLeft: "-190px", top: 300, height: 0, zIndex: "-1000" }} />
                             <div className="w-100">
                                 <div className="w-100 align-items-center flex-column">
-                                    <p className="m-0 border-left-success border-top-success lh-sm" style={{padding: 6}}><strong>Conversion - </strong>Comprehensive omni-channel strategy leads to effective customer acquisition. Goals are to map CRM sales data with marketing funnel and build a comprehensive picture of ROAS across channels.</p>
-                                    <p className="border-left-success m-0" style={{paddingLeft: 5, paddingTop: 4}}>Last 7 day data</p>
+                                    <p className="m-0 border-left-success border-top-success lh-sm" style={{ padding: 6 }}><strong>Conversion - </strong>Comprehensive omni-channel strategy leads to effective customer acquisition. Goals are to map CRM sales data with marketing funnel and build a comprehensive picture of ROAS across channels.</p>
+                                    <p className="border-left-success m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Last 7 day data</p>
                                 </div>
                                 <PerfectScrollbar className="w-100 p-0 border-left-success">
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Number of Sales" >
@@ -414,7 +435,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Conversion?.revenue?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
+                                                <b>{res?.Conversion?.revenue?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -428,7 +449,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Conversion?.cost_per_conversion?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
+                                                <b>{res?.Conversion?.cost_per_conversion?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -440,7 +461,7 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Conversion?.roas?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
+                                                <b>{res?.Conversion?.roas?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -454,8 +475,29 @@ export default function Funnel({ res, table }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Conversion?.avg_order_value?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
+                                                <b>{res?.Conversion?.avg_order_value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
                                             </p>
+                                        </div>
+                                    </div>
+                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" >
+                                        <div className="d-flex align-items-center p-0 m-0">
+                                            <IoIosArrowRoundForward size={32} className="text-success" />
+                                            <p className="fw-bold text-success m-0">
+                                                Source –{" "}
+                                            </p>
+                                        </div>
+                                        <div className="ml-1 mb-1">
+                                            {res?.Conversion?.soure &&
+                                                res?.Conversion?.soure.map((val) => {
+                                                    return (
+                                                        <>
+                                                            <li className="m-0" key={val.source}>
+                                                                {val.source === "" ? 'Unknown' : val.source}{" "}
+                                                                <b>: {val.count.toLocaleString()}</b>
+                                                            </li>
+                                                        </>
+                                                    )
+                                                })}
                                         </div>
                                     </div>
                                 </PerfectScrollbar>
@@ -463,7 +505,7 @@ export default function Funnel({ res, table }) {
                         </div>
                     </div>
                     <Row className="match-height">
-                    <hr />
+                        <hr />
                         <Col xs="12">
                             <Table data={table} selectedCategory={category} />
                         </Col>
