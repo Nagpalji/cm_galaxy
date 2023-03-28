@@ -9,7 +9,7 @@ import { icon } from 'leaflet'
 const StatsCard = ({ cols }) => {
   // export default function App() {
 
-  const [data, setData] = useState(null)
+  const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const brand_name = localStorage.getItem("brand_name")
@@ -75,8 +75,8 @@ const StatsCard = ({ cols }) => {
       })
   }, [])
 
-  if (loading) return "Loading..."
-  if (error) return "Data Unavailable."
+  // if (loading) return "Loading..."
+  // if (error) return "Data Unavailable."
 
   const renderData = () => {
     return data.map((item, index) => {
