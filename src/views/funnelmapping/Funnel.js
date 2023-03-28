@@ -54,7 +54,7 @@ export default function Funnel({ res, table }) {
                         </div>
                         <div className="rectangle06 h-none" style={{ width: 175 }} />
                         <div onClick={handleChange} className="taper rectangle07" style={{ borderColor: "#27CA75 transparent", width: "180px" }} >
-                            <p data-id={"4"} className="hide4 funnelPara text-center text-white"> Conversion </p>
+                            <p data-id={"4"} className="hide4 funnelPara text-center text-white">Conversion</p>
                         </div>
                     </div>{" "}
                     <div className="d-flex flex-row col-lg-7 col-sm-12 p-1" style={{ minHeight: 350 }}>
