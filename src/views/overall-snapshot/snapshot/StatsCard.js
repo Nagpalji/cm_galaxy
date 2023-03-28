@@ -60,9 +60,9 @@ const StatsCard = ({ cols }) => {
       .then((data) => {
         setData(data)
         data[0].icon = <ShoppingBag size={24} />
-        data[1].icon = <Percent size={24} />
-        data[2].icon = <CheckCircle size={24} />
-        data[3].icon = <MousePointer size={24} />
+        data[1].icon = <CheckCircle size={24} />
+        data[2].icon = <MousePointer size={24} />
+        data[3].icon = <Percent size={24} />
         data[4].icon = <UserCheck size={24} />
         data[5].icon = <Filter size={24} />
         data[6].icon = <Filter size={24} />
