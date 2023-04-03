@@ -37,7 +37,7 @@ const EcommerceDashboard = () => {
     trackBgColor = '#e9ecef'
   // my popup start
   const MySwal = withReactContent(Swal)
-  if ((localStorage.getItem("email") === 'globallogic@cmrsl.net')) {
+  if (['globallogic@cmrsl.net', 'demo_account@cmrsl.net', 'admin@cmrsl.net', 'dhavalg@cmrsl.net', 'gauravg@cmrsl.net'].includes(localStorage.getItem("email"))) {
     return (
       <div id='dashboard-ecommerce'>
         <Row className='laptophideCustomdropdown match-height mt-1 mb-1'>

@@ -19,7 +19,9 @@ import DropDown from './DropDown'
 import '@styles/react/libs/react-select/_react-select.scss'
 import '@styles/react/libs/tables/react-dataTable-component.scss'
 import CustomDropDown from "./CustomDropDown"
-
+import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2'
+import { ThumbsDown } from 'react-feather'
 import TopCampaigns from './TopCampaigns'
 import AudienceOverview from './AudienceOverview'
 
@@ -35,64 +37,94 @@ sessionStorage.setItem("nam", "Facebook Performance")
 const EcommerceDashboard = () => {
   const { colors } = useContext(ThemeColors),
     trackBgColor = '#e9ecef'
-
-  return (
-    <div id='dashboard-ecommerce'>
-      <Row className='laptophideCustomdropdown match-height mt-1 mb-1'>
-        <Col className='widthdate' xl='12' md='12' xs='12'>
-          <CustomDropDown />
-        </Col>
-      </Row>
-      <Row className='laptophidedaterange match-height mt-1 mb-1'>
-        <Col className='widthdate' xl='12' md='12' xs='12'>
-          <DateRangePicker />
-        </Col>
-      </Row>
-
-      <Row className='match-height'>
-        <Col xl='12' md='12' xs='12'>
-          <DropDown />
-        </Col>
-      </Row>
-
-      <Row className='match-height'>
-        <Col xl='12' md='12' xs='12'>
-          <StatsCard cols={{ xl: '3', md: '4', xs: '6' }} />
-        </Col>
-      </Row>
-
-      <Row className='match-height'>
-        <Col lg='7' md='12'>
-          <TopCampaigns />
-        </Col>
-
-        <Col lg='5' md='12'>
-          <PlatformWiseClicks />
-        </Col>
-      </Row>
-
-      <Row className='match-height'>
-        <Col lg='5' md='12'>
-          <Demographic />
-        </Col>
-
-        <Col lg='7' md='12'>
-          <AudienceOverview />
-        </Col>
-      </Row>
-
-      <Row className='match-height'>
-        <Col lg='5' md='6'>
-          <LeadsByAudience />
-        </Col>
-
-        <Col lg='7' md='12'>
-          <AdPerformance />
-        </Col>
-      </Row>
-      
-    </div>
-  )
+const MySwal = withReactContent(Swal)
+    if (['demo_account@cmrsl.net', 'cmgalaxy.apeejay@gmail.com', 'cmgalaxy.okana@cmgalaxy.com', 'globallogic@cmrsl.ne', 'admin@cmrsl.net', 'dhavalg@cmrsl.net', 'gauravg@cmrsl.net'].includes(localStorage.getItem("email"))) {
+      return (
+        <div id='dashboard-ecommerce'>
+          <Row className='laptophideCustomdropdown match-height mt-1 mb-1'>
+            <Col className='widthdate' xl='12' md='12' xs='12'>
+              <CustomDropDown />
+            </Col>
+          </Row>
+          <Row className='laptophidedaterange match-height mt-1 mb-1'>
+            <Col className='widthdate' xl='12' md='12' xs='12'>
+              <DateRangePicker />
+            </Col>
+          </Row>
+    
+          <Row className='match-height'>
+            <Col xl='12' md='12' xs='12'>
+              <DropDown />
+            </Col>
+          </Row>
+    
+          <Row className='match-height'>
+            <Col xl='12' md='12' xs='12'>
+              <StatsCard cols={{ xl: '3', md: '4', xs: '6' }} />
+            </Col>
+          </Row>
+    
+          <Row className='match-height'>
+            <Col lg='7' md='12'>
+              <TopCampaigns />
+            </Col>
+    
+            <Col lg='5' md='12'>
+              <PlatformWiseClicks />
+            </Col>
+          </Row>
+    
+          <Row className='match-height'>
+            <Col lg='5' md='12'>
+              <Demographic />
+            </Col>
+    
+            <Col lg='7' md='12'>
+              <AudienceOverview />
+            </Col>
+          </Row>
+    
+          <Row className='match-height'>
+            <Col lg='5' md='6'>
+              <LeadsByAudience />
+            </Col>
+    
+            <Col lg='7' md='12'>
+              <AdPerformance />
+            </Col>
+          </Row>
+          
+        </div>
+      ) 
+    } else {
+      return MySwal.fire({
+        title: '',
+        // footer: '<a href="javascript:void(0);">If You any further issue ! Please Let me Know</a>',
+        // icon: 'success',
+        // html:
+        //   'Data Integration Inactive.</b> ',
+        html: (
+          <span style={{ fontSize: 25 }}>If you would like to link your Facebook account please contact your account manager.</span>
+        ),
+        showCloseButton: false,
+        showCancelButton: false,
+        focusConfirm: false,
+        confirmButtonText: (
+          <span className='align-middle'>
+            {/* <ThumbsUp className='mr-50' size={15} /> */}
+            {/* <span className='align-middle'>Close</span> */}
+            <a href="/overall-snapshot" className='align-middle text-white'>Close</a>
+          </span>
+        ),
+        cancelButtonText: <ThumbsDown size={15} />,
+        customClass: {
+          confirmButton: 'btn btn-primary custom-buttoncss',
+          cancelButton: 'btn btn-outline-danger ml-1'
+        },
+        buttonsStyling: false
+      })
+    }
+  
 }
 
 export default EcommerceDashboard

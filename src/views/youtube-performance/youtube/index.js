@@ -19,7 +19,9 @@ import DropDown from './DropDown'
 import '@styles/react/libs/react-select/_react-select.scss'
 import '@styles/react/libs/tables/react-dataTable-component.scss'
 import CustomDropDown from "./CustomDropDown"
-
+import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2'
+import { ThumbsDown } from 'react-feather'
 
 import TopCampaigns from './TopCampaigns'
 import VideoPerformanceOverview from './VideoPerformanceOverview'
@@ -36,7 +38,8 @@ sessionStorage.setItem('nam', 'Youtube')
 const EcommerceDashboard = () => {
   const { colors } = useContext(ThemeColors),
     trackBgColor = '#e9ecef'
-
+const MySwal = withReactContent(Swal)
+if (['demo_account@cmrsl.net', 'admin@cmrsl.net', 'dhavalg@cmrsl.net', 'gauravg@cmrsl.net'].includes(localStorage.getItem("email"))) {
   return (
     <div id='dashboard-ecommerce'>
       <Row className='laptophideCustomdropdown match-height mt-1 mb-1'>
@@ -124,7 +127,36 @@ const EcommerceDashboard = () => {
         </Col>
       </Row> */}
     </div>
-  )
+  ) 
+} else {
+  return MySwal.fire({
+    title: '',
+    // footer: '<a href="javascript:void(0);">If You any further issue ! Please Let me Know</a>',
+    // icon: 'success',
+    // html:
+    //   'Data Integration Inactive.</b> ',
+    html: (
+      <span style={{ fontSize: 25 }}>If you would like to link your Youtube account please contact your account manager.</span>
+    ),
+    showCloseButton: false,
+    showCancelButton: false,
+    focusConfirm: false,
+    confirmButtonText: (
+      <span className='align-middle'>
+        {/* <ThumbsUp className='mr-50' size={15} /> */}
+        {/* <span className='align-middle'>Close</span> */}
+        <a href="/overall-snapshot" className='align-middle text-white'>Close</a>
+      </span>
+    ),
+    cancelButtonText: <ThumbsDown size={15} />,
+    customClass: {
+      confirmButton: 'btn btn-primary custom-buttoncss',
+      cancelButton: 'btn btn-outline-danger ml-1'
+    },
+    buttonsStyling: false
+  })
+}  
+ 
 }
 
 export default EcommerceDashboard
