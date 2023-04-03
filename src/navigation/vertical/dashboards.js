@@ -110,7 +110,7 @@
 //   // }
 // ]
 // import { Home, Circle, Facebook, Linkedin, Youtube, Chrome, Globe, Settings, Command, Twitter, Package, Play, Atsign, AtSign, Filter, Users  } from 'react-feather'
-import { FaHome, FaFacebook, FaLinkedin, FaYoutube, FaChrome, FaMeta, Globe, Settings, Command, FaTwitter, Package, FaPlay, FaAmazon, FaFilter, FaUserAlt, FaUsers, FaUser, FaBullhorn, FaBell, FaInstagram, FaMapMarkedAlt, FaFacebookMessenger, FaFacebookF } from 'react-icons/fa'
+import { FaHome, FaFacebook, FaLinkedin, FaYoutube, FaChrome, FaMeta, Globe, Settings, Command, FaTwitter, Package, FaPlay, FaAmazon, FaFilter, FaUserAlt, FaUsers, FaUser, FaBullhorn, FaBell, FaInstagram, FaMapMarkedAlt, FaFacebookMessenger, FaFacebookF, FaKey } from 'react-icons/fa'
 import { BsMeta } from 'react-icons/bs'
 // import { MdMeta } from 'react-icons/md'
 let sample
@@ -188,6 +188,13 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
       // icon: <Chrome size={12} />,
       icon: <FaBell size={12} />,
       navLink: '/pushNotification/index'
+    },
+    {
+      id: 'eCommerceDash',
+      title: 'Permissions',
+      // icon: <Chrome size={12} />,
+      icon: <FaKey size={12} />,
+      navLink: '/Permissions/index'
     },
     // {
     //   id: 'eCommerceDash',

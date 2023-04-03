@@ -5,6 +5,10 @@ const PushNotificationRoutes = [
   {
     path: '/pushnotification/index',
     component: lazy(() =>  import('../../views/pushNotification/'))
+  },
+  {
+    path: '/Permissions/index',
+    component: lazy(() =>  import('../../views/./Permissions/index'))
   }
 ]
 
