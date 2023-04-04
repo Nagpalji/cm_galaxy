@@ -54,6 +54,12 @@ export default function index() {
     }
     toast.success("Uploaded")
   }
+  const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ]
+  
   return (
     <>
       <ToastContainer />
@@ -61,7 +67,7 @@ export default function index() {
       <button className="btn btn-primary" onClick={e => setModel(!Model)}>Create new Path</button>
         <select
           className="react-select form-control"
-          value={""}
+          value={selectedUsers}
           onChange={handleUsers}
           required
         >
@@ -69,25 +75,25 @@ export default function index() {
           {Users.map((id) => {
             return (
               <>
-                <option value={id.id}>{id.name}</option>
+              { (selectedUsers === id.id) ? <option value={id.id} selected>{id.name}</option> : <option value={id.id}>{id.name}</option>
+              }
               </>
             )
           })}
         </select>
 
         {selectedUsers > 0 && (
+          <>
           <Select
-            isClearable={false}
-            theme={selectThemeColors}
+            defaultValue={selectedPermission}
+            onChange={setSelectedPermission}
+            options={options}
             isMulti
-            name="colors"
-            options={Permission}
-            // defaultValue={colorOptions00}
-            className="react-select"
-            onChange={handlePermission}
+            theme={selectThemeColors}
+            name="Permission"
             placeholder="Select permission"
-            classNamePrefix="select"
           />
+          </>
         )}
 
         <button onClick={handleClick} className="btn btn-primary">
