@@ -1,18 +1,19 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Button, Col, Modal, ModalBody, ModalHeader, Row } from "reactstrap"
 import CustomDropDown from "../dashboard/ecommerce/CustomDropDown"
 import Select, { components } from "react-select"
 import { selectThemeColors } from "@utils"
 import { toast, ToastContainer } from "react-toastify"
 import { Formik } from "formik"
+import axios from "axios"
 
 export default function index() {
-  const usersData = [
-    {
-      id: "1",
-      name: "Sahil"
-    }
-  ]
+  // const usersData = [
+  //   {
+  //     id: "1",
+  //     name: "Sahil"
+  //   }
+  // ]
   const PermissionData = [
     {
       id: "1",
@@ -36,11 +37,22 @@ export default function index() {
     path: "/index",
     icon: "Home"
   }
-  const [Users, setUsers] = useState(usersData)
+  const [Users, setUsers] = useState([])
   const [Permission, setPermisson] = useState(PermissionData)
-  const [selectedUsers, setSelectedUsers] = useState(0)
+  const [selectedUsers, setSelectedUsers] = useState("")
   const [selectedPermission, setSelectedPermission] = useState([])
   const [Model, setModel] = useState(false)
+
+  const UserData = async () => {
+    try {
+      const request = await axios.get("http://srvr1px.cyberads.io/usersData/")
+      const response = await request?.data
+      setUsers(response)
+    } catch (error) {
+      toast.error("unable to load user list")
+    }
+  }
+  
   const handleUsers = async (e) => {
     setSelectedUsers(e.target.value)
   }
@@ -59,7 +71,9 @@ export default function index() {
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' }
   ]
-  
+  useEffect(() => {
+    UserData()
+  }, [])
   return (
     <>
       <ToastContainer />
@@ -75,14 +89,14 @@ export default function index() {
           {Users.map((id) => {
             return (
               <>
-              { (selectedUsers === id.id) ? <option value={id.id} selected>{id.name}</option> : <option value={id.id}>{id.name}</option>
+              { (selectedUsers === id._id) ? <option value={id._id} selected>{id.user_name}</option> : <option value={id._id}>{id.user_name}</option>
               }
               </>
             )
           })}
         </select>
 
-        {selectedUsers > 0 && (
+        {selectedUsers !== "" && (
           <>
           <Select
             defaultValue={selectedPermission}
@@ -107,11 +121,21 @@ export default function index() {
             <Formik
               initialValues={{ label: "", icon: "", path:"" }}
              
-              onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2))
-                  setSubmitting(false)
-                }, 400)
+              onSubmit={async (values, { setSubmitting }) => {
+                // setTimeout(() => {
+                //   alert(JSON.stringify(values, null, 2))
+                // }, 400)
+                try {
+                  // values = [...values, {user_id:SelectedUsers}]
+                  const request = await axios.post("http://srvr1px.cyberads.io/permissionForm/", values)
+                  const response = await request?.data
+                  toast.success("Navigation listed ...")
+                  window.location.href = ""
+                } catch (error) {
+                  toast.error("navigation not listed")
+                }
+                setSubmitting(false)
+
               }}
             >
               {({
