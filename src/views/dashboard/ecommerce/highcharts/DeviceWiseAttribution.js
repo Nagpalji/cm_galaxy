@@ -59,8 +59,15 @@ const DeviceWiseAttribution = () => {
         )
   })
 
+  const xcategories = ['Clicks', 'Spends']
+  if (['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem("email"))) {
+    xcategories.push('Conversions')
+  } else {
+    xcategories.push('Leads')
+  }
   
   const options = {
+
     chart: {
       marginRight:15,
       marginTop:30,
@@ -100,7 +107,7 @@ colors: ['#ffc413', '#4acade', '#83ffff', '#97f7c4', '#52c777'],
 },
 
   xAxis: {
-      categories: ['Clicks', 'Spends', 'Leads'],
+      categories: xcategories,
       labels: {
           x: -10
       }
