@@ -40,6 +40,7 @@ export default function Funnel({ res, table }) {
         <>
             {res && (
                 <div className="row rounded shadow">
+                    {/* ---- Funnel Start Here ---- */}
                     <div className="d-flex justify-content-center align-items-center flex-column col-lg-5 col-sm-12 p-0 py-1">
                         <div onClick={handleChange} className="taper rectangle01" data-toggle="tooltip" data-placement="top" title="Total Number Of Users" style={{ borderColor: "#FFC313 transparent", width: "360px" }}>
                             <p data-id={"1"} className="hide1 funnelPara text-center text-white">TOFU</p>
@@ -57,7 +58,11 @@ export default function Funnel({ res, table }) {
                             <p data-id={"4"} className="hide4 funnelPara text-center text-white">Conversion</p>
                         </div>
                     </div>{" "}
+                    {/* ---- Funnel End Here ---- */}
+
+                    {/* ---- Funnel's Detail Start Here ---- */}
                     <div className="d-flex flex-row col-lg-7 col-sm-12 p-1" style={{ minHeight: 350 }}>
+                        {/* ---- ToFu Funnel-Detail Start Here ---- */}
                         <div className="content-FFC313 hide1 w-100 d-none data" style={{ height: 250 }}>
                             <div className="d-none d-lg-block w-25 position-relative border-top-warning" style={{ marginLeft: "-182px", top: 30, height: 0, zIndex: "-1000" }} />
                             <div className="w-100">
@@ -135,7 +140,7 @@ export default function Funnel({ res, table }) {
                                                     return (
                                                         <>
                                                             <li className="m-0" key={val.Gender}>
-                                                                {val.Gender}{" "}
+                                                                {val?.Gender?.charAt(0).toUpperCase() + val?.Gender?.slice(1)}{" "}
                                                                 <b>: {val.Sessions?.toLocaleString()}</b>
                                                             </li>
                                                         </>
@@ -146,6 +151,9 @@ export default function Funnel({ res, table }) {
                                 </PerfectScrollbar>
                             </div>
                         </div>
+                        {/* ---- ToFu Funnel-Detail End Here ---- */}
+
+                        {/* ---- MoFu Funnel-Detail Start Here ---- */}
                         <div className="content-4076DA hide2 w-100 d-none data" style={{ height: 250 }}>
                             <div className="d-none d-lg-block w-25 position-relative border-top-primary" style={{ marginLeft: "-185px", top: 120, height: 0, zIndex: "-1000" }} />
                             <div className="w-100">
@@ -247,6 +255,9 @@ export default function Funnel({ res, table }) {
                                 </PerfectScrollbar>
                             </div>
                         </div>
+                        {/* ---- MoFu Funnel-Detail End Here ---- */}
+
+                        {/* ---- BoFu Funnel-Detail Start Here ---- */}
                         <div className="content-29A4F7 hide3 w-100 p-0 m-0 d-none data" style={{ height: 250 }} >
                             <div className="d-none d-lg-block w-25 position-relative border-top-secondary" style={{ marginLeft: "-187px", top: 215, height: 0, zIndex: "-1000" }} />
                             <div className="w-100">
@@ -393,8 +404,8 @@ export default function Funnel({ res, table }) {
                                                 res?.Bofu?.soure.map((val) => {
                                                     return (
                                                         <>
-                                                            <li className="m-0" key={val.source}>
-                                                                {val.source === "" ? 'Unknown' : val.source}{" "}
+                                                            <li className="m-0" key={val?.source}>
+                                                                {val?.source === "" ? 'Organic' : val?.source?.charAt(0).toUpperCase() + val?.source?.slice(1)}{" "}
                                                                 <b>: {val.count.toLocaleString()}</b>
                                                             </li>
                                                         </>
@@ -405,6 +416,9 @@ export default function Funnel({ res, table }) {
                                 </PerfectScrollbar>
                             </div>
                         </div>
+                        {/* ---- BoFu Funnel-Detail End Here ---- */}
+
+                        {/* ---- Conversion Funnel-Detail Start Here ---- */}
                         <div className="content-27CA75 hide4 w-100 d-none data" style={{ height: 250 }}>
                             <div
                                 className="d-none d-lg-block w-25 position-relative border-top-success"
@@ -491,9 +505,30 @@ export default function Funnel({ res, table }) {
                                                 res?.Conversion?.soure.map((val) => {
                                                     return (
                                                         <>
-                                                            <li className="m-0" key={val.source}>
-                                                                {val.source === "" ? 'Unknown' : val.source}{" "}
-                                                                <b>: {val.count.toLocaleString()}</b>
+                                                            <li className="m-0" key={val?.source}>
+                                                                {val?.source === "" ? 'Organic' : val?.source?.charAt(0).toUpperCase() + val?.source?.slice(1)}{" "}
+                                                                <b>: {val.sum.toLocaleString()}</b>
+                                                            </li>
+                                                        </>
+                                                    )
+                                                })}
+                                        </div>
+                                    </div>
+                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" >
+                                        <div className="d-flex align-items-center p-0 m-0">
+                                            <IoIosArrowRoundForward size={32} className="text-success" />
+                                            <p className="fw-bold text-success m-0">
+                                                OS –{" "}
+                                            </p>
+                                        </div>
+                                        <div className="ml-1 mb-1">
+                                            {res?.Conversion?.os_counts &&
+                                                res?.Conversion?.os_counts.map((val) => {
+                                                    return (
+                                                        <>
+                                                            <li className="m-0" key={val?.source}>
+                                                                {val?.source === "" ? 'Organic' : val?.source}{" "}
+                                                                <b>: {val.sum.toLocaleString()}</b>
                                                             </li>
                                                         </>
                                                     )
@@ -503,7 +538,10 @@ export default function Funnel({ res, table }) {
                                 </PerfectScrollbar>
                             </div>
                         </div>
+                        {/* ---- Conversion Funnel-Detail End Here ---- */}
                     </div>
+                    {/* ---- Funnel's Detail Start Here ---- */}
+
                     <Row className="match-height">
                         <hr />
                         <Col xs="12">
