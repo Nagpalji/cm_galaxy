@@ -26,7 +26,7 @@ import { getToken } from "firebase/messaging"
 import { messaging } from '../firebase.cofig'
 import { toast } from 'react-toastify'
 
-
+import axios from "axios"
 const Router = () => {
   async function requestPermission() {
     const permission = await Notification.requestPermission()
@@ -52,9 +52,33 @@ const Router = () => {
     }
   }
 
+  const navBar = () => {
+     axios.post("http://srvr1px.cyberads.io/permissionAssignRead/ ", {
+        user_name: localStorage.getItem("user_name")
+      }).then((res) => {
+        const sample = []
+        res?.data.map((val) => {
+          // console.log({val})
+            const col = {
+              id: "eCommerceDash",
+              title: val.label,
+              icon:"",
+              navLink: val.path
+            }
+            sample.push(col)
+        })
+        localStorage.setItem("navigation", JSON.stringify(sample))
+        // return sample
+      })
+      .catch((error) => {
+        console.log(error.message)
+      })
+  }
+
   useEffect(() => {
     // Req user for notification permission
     requestPermission()
+    navBar()
   }, [])
   // ** Hooks
   const [layout, setLayout] = useLayout()

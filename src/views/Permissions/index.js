@@ -6,6 +6,7 @@ import { selectThemeColors } from "@utils"
 import { toast, ToastContainer } from "react-toastify"
 import { Formik } from "formik"
 import axios from "axios"
+import PermissionTable from "./PermissionTable"
 
 export default function index() {
   // const usersData = [
@@ -14,33 +15,14 @@ export default function index() {
   //     name: "Sahil"
   //   }
   // ]
-  const PermissionData = [
-    {
-      id: "1",
-      label: "dashboard",
-      name: "dashboard"
-    },
-    {
-      id: "2",
-      label: "dashboard-2",
-      name: "dashboard-2"
-    },
-    {
-      id: "3",
-      label: "dashboard-3",
-      name: "dashboard-3"
-    }
-  ]
 
-  const permissionForm = {
-    label: "Dashboard",
-    path: "/index",
-    icon: "Home"
-  }
+
   const [Users, setUsers] = useState([])
-  const [Permission, setPermisson] = useState(PermissionData)
+  const [Permission, setPermisson] = useState([])
+ 
   const [selectedUsers, setSelectedUsers] = useState("")
   const [selectedPermission, setSelectedPermission] = useState([])
+ 
   const [Model, setModel] = useState(false)
 
   const UserData = async () => {
@@ -53,25 +35,32 @@ export default function index() {
     }
   }
   
-  const handleUsers = async (e) => {
-    setSelectedUsers(e.target.value)
+  const PermissionData = async () => {
+    try {
+      const request = await axios.get("http://srvr1px.cyberads.io/permissionFormRead/")
+      const response = await request?.data
+      setPermisson(response)
+    } catch (error) {
+      toast.error("unable to load user list")
+    }
   }
-  const handlePermission = async (e) => {
-    setSelectedPermission(e)
-  }
+
   const handleClick = async () => {
     const data = {
       user_id: selectedUsers,
       Permission: selectedPermission
     }
-    toast.success("Uploaded")
+    try {
+      const request = await axios.post("http://srvr1px.cyberads.io/permissionAssign/", data)
+      const response = await request?.data
+      toast.success("Uploaded")
+    } catch (error) {
+      toast.error("unable to load user list")
+    }
   }
-  const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-  ]
+ 
   useEffect(() => {
+    PermissionData()
     UserData()
   }, [])
   return (
@@ -79,29 +68,25 @@ export default function index() {
       <ToastContainer />
       <Row>
       <button className="btn btn-primary" onClick={e => setModel(!Model)}>Create new Path</button>
-        <select
-          className="react-select form-control"
-          value={selectedUsers}
-          onChange={handleUsers}
-          required
-        >
-          <option value={""}>Choose Users</option>
-          {Users.map((id) => {
-            return (
-              <>
-              { (selectedUsers === id._id) ? <option value={id._id} selected>{id.user_name}</option> : <option value={id._id}>{id.user_name}</option>
-              }
-              </>
-            )
-          })}
-        </select>
+      
+        <Select
+          defaultValue={selectedUsers}
+          onChange={setSelectedUsers}
+          options={Users}
+          getOptionLabel ={(option) => option.user_name}
+          getOptionValue ={(option) => option._id}
+          isMulti
+          theme={selectThemeColors}
+          name="Users"
+          placeholder="Select Users"
+        />
 
         {selectedUsers !== "" && (
           <>
           <Select
             defaultValue={selectedPermission}
             onChange={setSelectedPermission}
-            options={options}
+            options={Permission}
             isMulti
             theme={selectThemeColors}
             name="Permission"
@@ -188,6 +173,7 @@ export default function index() {
             </Formik>
           </ModalBody>
         </Modal>
+        <PermissionTable data={Permission}/>
         <Row className="laptophideCustomdropdown match-height mt-0 mb-1">
           <Col className="widthdate" xl="12" md="12" xs="12">
             {/* Select User  */}
