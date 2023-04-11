@@ -5,6 +5,7 @@ import { Modal, ModalBody, ModalHeader, Row, Col } from 'reactstrap'
 import UserDetail from './UserDetail'
 import TablerChart from './conversion/TablerChart'
 import CircleChart from './conversion/CircleChart'
+import axios from 'axios'
 
 const Table = ({ data, selectedCategory }) => {
 
@@ -54,15 +55,9 @@ const Table = ({ data, selectedCategory }) => {
     }
 
     const downloadHandle = async () => {
-        fetch('https://srvr1px.cyberads.io/getexcelData/', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ type: selectedCategory, brand })
-        })
-            .then(response => response.json())
-            .then(data => { window.location.href = data.url })
+        const request =  await axios.post("https://srvr1px.cyberads.io/getexcelData/", { type: selectedCategory, brand })
+        const response = await request.data
+        window.location.href = response?.url
     }
 
 
