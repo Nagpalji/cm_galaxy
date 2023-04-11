@@ -25,7 +25,7 @@ import HorizontalLayout from '@src/layouts/HorizontalLayout'
 import { getToken } from "firebase/messaging"
 import { messaging } from '../firebase.cofig'
 import { toast } from 'react-toastify'
-
+import * as Icons from "react-icons/fa" 
 import axios from "axios"
 const Router = () => {
   async function requestPermission() {
@@ -52,6 +52,16 @@ const Router = () => {
     }
   }
 
+  const DynamicFaIcon = ({ name }) => {
+    const IconComponent = Icons[name]
+  
+    if (!IconComponent) { // Return a default one
+      return <Icons.FaBeer />
+    }
+  
+    return <IconComponent />
+  }
+
   const navBar = () => {
      axios.post("http://srvr1px.cyberads.io/permissionAssignRead/ ", {
         user_name: localStorage.getItem("user_name")
@@ -62,7 +72,7 @@ const Router = () => {
             const col = {
               id: "eCommerceDash",
               title: val.label,
-              icon:"",
+              icon:val.icon,
               navLink: val.path
             }
             sample.push(col)
@@ -125,7 +135,6 @@ const Router = () => {
   const FinalRoute = props => {
     const route = props.route
     let action, resource
-
     // ** Assign vars based on route meta
     if (route.meta) {
       action = route.meta.action ? route.meta.action : null
@@ -166,7 +175,6 @@ const Router = () => {
 
       // ** Get Routes and Paths of the Layout
       const { LayoutRoutes, LayoutPaths } = LayoutRoutesAndPaths(layout)
-
       // ** We have freedom to display different layout for different route
       // ** We have made LayoutTag dynamic based on layout, we can also replace it with the only layout component,
       // ** that we want to implement like VerticalLayout or HorizontalLayout

@@ -1,6 +1,7 @@
 // ** React Imports
 import { useEffect } from 'react'
 import { NavLink, useLocation, matchPath, useParams } from 'react-router-dom'
+import * as Icons from 'react-icons/fa'
 
 // ** Third Party Components
 import { Badge } from 'reactstrap'
@@ -68,6 +69,16 @@ const VerticalNavMenuLink = ({
     }
   }, [location])
 
+  const DynamicFaIcon = (name) => {
+    const IconComponent = Icons[name]
+  
+    if (!IconComponent) { // Return a default one
+      return <Icons.FaBeer />
+    }
+  
+    return <IconComponent />
+  }
+
   return (
     <li
       className={classnames({
@@ -104,7 +115,8 @@ const VerticalNavMenuLink = ({
           parentItem ? resetActiveGroup(item.navLink) : resetActiveAndOpenGroups()
         }}
       >
-        {item.icon}
+
+        {DynamicFaIcon(item.icon)}
         <span className='menu-item text-truncate'>
           <FormattedMessage id={item.title} />
         </span>

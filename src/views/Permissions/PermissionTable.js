@@ -5,7 +5,18 @@ import { Table } from "reactstrap"
 import * as Icons from 'react-icons/fa'
 // import * as Icons from 'react-icons';
 // import Icon from "react-icons"
+
 export default function PermissionTable({data}) {
+  const DynamicFaIcon = (name) => {
+    const IconComponent = Icons[name]
+  
+    if (!IconComponent) { // Return a default one
+      return <Icons.FaBeer />
+    }
+  
+    return <IconComponent />
+  }
+
   const handleDelete = async (id) => {
     try {
       const request = await axios.post("http://srvr1px.cyberads.io/permissionFormDelete/", {
@@ -28,6 +39,7 @@ export default function PermissionTable({data}) {
             <th>Sno.</th>
             <th>label</th>
             <th>path</th>
+            <th>icon</th>
             <th>action</th>
           </tr>
         </thead>
@@ -42,6 +54,7 @@ export default function PermissionTable({data}) {
                   {/* <td>{<Icons.FaHome />} {val.label}</td> */}
                   <td>{val.label}</td>
                   <td>{val.path}</td>
+                  <td>{DynamicFaIcon(val.icon)}</td>
                   <td>
                     <div>
                       <button
