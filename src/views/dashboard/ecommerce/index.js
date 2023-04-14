@@ -42,7 +42,7 @@ const EcommerceDashboard = () => {
   const { colors } = useContext(ThemeColors),
     trackBgColor = '#e9ecef'
 const MySwal = withReactContent(Swal)
-    if (['demo_account@cmrsl.net', 'admin@cmrsl.net', 'dhavalg@cmrsl.net', 'gauravg@cmrsl.net', 'cm.gems.mysore@gmail.com', 'cm.gems.fiestaa.cuisines@gmai.com', 'cm.gems.fiestaa.resort@gmail.com', 'cmgalaxy.uom@gmail.com', 'cmgalaxy.gndu@gmail.com', 'cm.gems.bschool@gmail.com', 'cm.gems.captive@gmail.com', 'cm.gems.vizag@gmail.com', 'cm.gems.tirupathi@gmail.com', 'frtesting@test.com', 'cmgalaxy.okana@cmgalaxy.com', 'gemssmart@gmail.com'].includes(localStorage.getItem("email"))) {
+    if (['demo_account@cmrsl.net', 'admin@cmrsl.net', 'dhavalg@cmrsl.net', 'gauravg@cmrsl.net', 'cm.gems.mysore@gmail.com', 'cm.gems.fiestaa.cuisines@gmai.com', 'cm.gems.fiestaa.resort@gmail.com', 'cmgalaxy.uom@gmail.com', 'cmgalaxy.gndu@gmail.com', 'cm.gems.bschool@gmail.com', 'cm.gems.captive@gmail.com', 'cm.gems.vizag@gmail.com', 'cm.gems.tirupathi@gmail.com', 'frtesting@test.com', 'cmgalaxy.okana@cmgalaxy.com', 'gemssmart@gmail.com', 'theivdocus@cmgalaxy.com'].includes(localStorage.getItem("email"))) {
       return (
         <div id='dashboard-ecommerce'>
           <Row className='laptophideCustomdropdown match-height mt-1 mb-1'>
