@@ -413,5 +413,12 @@ import axios from "axios"
 //     navLink: '/lead-management'
 //   })
 // }
-const sample = JSON.parse(localStorage.getItem('navigation'))
+
+let sample = null
+if (localStorage.getItem('navigation') !== null) {
+    sample = JSON.parse(localStorage.getItem('navigation'))
+} else {
+  sample = JSON.parse(JSON.stringify([]))
+  console.log("Nav", localStorage.getItem('navigation'))
+}
 export default sample

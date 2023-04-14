@@ -51,17 +51,7 @@ const Router = () => {
       // alert("You denied for the notification")
     }
   }
-
-  const DynamicFaIcon = ({ name }) => {
-    const IconComponent = Icons[name]
   
-    if (!IconComponent) { // Return a default one
-      return <Icons.FaBeer />
-    }
-  
-    return <IconComponent />
-  }
-
   const navBar = () => {
      axios.post("http://srvr1px.cyberads.io/permissionAssignRead/ ", {
         user_name: localStorage.getItem("user_name")
@@ -86,6 +76,7 @@ const Router = () => {
   }
 
   useEffect(() => {
+    localStorage.setItem("navigation", JSON.stringify([]))
     // Req user for notification permission
     requestPermission()
     navBar()
