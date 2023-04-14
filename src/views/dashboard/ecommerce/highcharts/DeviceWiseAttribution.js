@@ -60,7 +60,7 @@ const DeviceWiseAttribution = () => {
   })
 
   const xcategories = ['Clicks', 'Spends']
-  if (['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem("email"))) {
+  if (['cmgalaxy.okana@cmgalaxy.com', 'theivdocus@cmgalaxy.com'].includes(localStorage.getItem("email"))) {
     xcategories.push('Conversions')
   } else {
     xcategories.push('Leads')
