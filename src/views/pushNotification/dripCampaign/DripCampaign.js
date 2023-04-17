@@ -99,50 +99,27 @@ export default function DripCampaign() {
     { value: "4", label: "Twice a Week" },
     { value: "5", label: "Twice a Month" }
   ]
+  const option03 = [
+    { value: "1", label: "Below 18" },
+    { value: "2", label: "18 to 36" },
+    { value: "3", label: "37 to 48" }
+  ]
+  const option04 = [
+    { value: "1", label: "Male" },
+    { value: "2", label: "Female" }
+  ]
+  const option05 = [
+    { value: "1", label: "android" },
+    { value: "2", label: "ubuntu" },
+    { value: "3", label: "windows" },
+    { value: "4", label: "ios" }
+  ]
 
   const getData = async () => {
     try {
-      const response = await axios.get("https://restcountries.com/v2/all")
-      setData(response.data)
-    //   setFilteredData(response.data)
-      setFilteredData([
-        {
-            _id: "643d0dd587739f8d7f054500",
-            name: "sahil",
-            startDate: "2023-01-01",
-            endDate: "2023-01-01",
-            Frequency: {value: '2', label: 'Weekly'},
-            AudienceType: {
-                value: "2",
-                label: "MoFu"
-            },
-            Audience: [
-                {
-                    value: "3",
-                    label: "Age Group"
-                },
-                {
-                    value: "2",
-                    label: "OS"
-                }
-            ],
-            device: [
-                {
-                    value: "3",
-                    label: "Mobile"
-                },
-                {
-                    value: "4",
-                    label: "TV"
-                }
-            ],
-            message: "xmsaixmsai",
-            url: "https://google.com",
-            brand_name: "masteraccess",
-            date_created: "2023-04-17"
-        }
-      ]
-      )
+      const response = await axios.post("http://srvr1px.cyberads.io/notificationList/", {brand_name:localStorage.getItem("brand_name")})
+      setData(response.data?.data)
+      setFilteredData(response.data?.data)
     } catch (error) {
       console.log(error)
     }
@@ -223,6 +200,7 @@ export default function DripCampaign() {
                 const request = await axios.post("http://srvr1px.cyberads.io/notificationSend/", values)
                 const response = await request?.data
                 toast.success("campaign created")
+                window.location.href = ""
             } catch (error) {
                 toast.error("unable to create Campaign")
             }
@@ -316,21 +294,77 @@ export default function DripCampaign() {
                         placeholder="Audience"
                     />
                   </Col>
-                  <Col>
-                    <Label className="mt-1" for="endDate">
-                      Select
-                    </Label>
-                    <Select
-                        isMulti
-                        onChange={e => {
-                            // console.log(e)
-                            setFieldValue("device", e)
-                        }}
-                        options={option02}
-                        name="device"
-                        placeholder="device"
-                    />
-                  </Col>
+                  <Row>
+                  {values?.Audience && values?.Audience?.map((val) => {
+                    return (
+                        <>
+                            {(val.label === "Age Group") && 
+                            <Col>
+                                <Label className="mt-1" for="endDate">
+                                Age
+                                </Label>
+                                <Select
+                                    isMulti
+                                    onChange={e => {
+                                        // console.log(e)
+                                        setFieldValue("age", e)
+                                    }}
+                                    options={option03}
+                                    name="age"
+                                    placeholder="age"
+                                />
+                            </Col>}
+                            {(val.label === "Gender") && 
+                            <Col>
+                                <Label className="mt-1" for="endDate">
+                                Gender
+                                </Label>
+                                <Select
+                                    isMulti
+                                    onChange={e => {
+                                        // console.log(e)
+                                        setFieldValue("gender", e)
+                                    }}
+                                    options={option04}
+                                    name="age"
+                                    placeholder="age"
+                                />
+                            </Col>}
+                            {(val.label === "Device") && 
+                            <Col>
+                                <Label className="mt-1" for="endDate">
+                                Device
+                                </Label>
+                                <Select isMulti
+                                    onChange={e => {
+                                        // console.log(e)
+                                        setFieldValue("device", e)
+                                    }}
+                                    options={option02}
+                                    name="device"
+                                    placeholder="device"
+                                />
+                            </Col>}
+                            {(val.label === "OS") && 
+                            <Col>
+                                <Label className="mt-1" for="endDate">
+                                Os
+                                </Label>
+                                <Select isMulti
+                                    onChange={e => {
+                                        // console.log(e)
+                                        setFieldValue("OS", e)
+                                    }}
+                                    options={option05}
+                                    name="OS"
+                                    placeholder="OS"
+                                />
+                            </Col>}
+                        </>
+                    )
+                  })}
+                  </Row>
+                  
                 </Row>
                 <Label className="mt-1" for="message">
                   Message
@@ -371,6 +405,7 @@ export default function DripCampaign() {
                 const request = await axios.post("http://srvr1px.cyberads.io/notificationUpdate/", values)
                 const response = await request?.data
                 toast.success("campaign Updated")
+                window.location.href = ""
             } catch (error) {
                 toast.error("unable to Update Campaign")
             }
@@ -471,13 +506,12 @@ export default function DripCampaign() {
                         placeholder="Audience"
                     />
                   </Col>
-                  <Col>
+                  {/* <Col>
                     <Label className="mt-1" for="endDate">
                       Select
                     </Label>
                     <Select
                         isMulti
-                defaultValue={values.device}
                         onChange={e => {
                             // console.log(e)
                             setFieldValue("device", e)
@@ -486,8 +520,83 @@ export default function DripCampaign() {
                         name="device"
                         placeholder="device"
                     />
-                  </Col>
+                  </Col> */}
                 </Row>
+                <Row>
+                  {values?.Audience && values?.Audience?.map((val) => {
+                    return (
+                        <>
+                            {(val.label === "Age Group") && 
+                            <Col>
+                                <Label className="mt-1" for="endDate">
+                                Age
+                                </Label>
+                                <Select
+                                    isMulti
+                                    defaultValue={values.age}
+                                    onChange={e => {
+                                        // console.log(e)
+                                        setFieldValue("age", e)
+                                    }}
+                                    options={option03}
+                                    name="age"
+                                    placeholder="age"
+                                />
+                            </Col>}
+                            {(val.label === "Gender") && 
+                            <Col>
+                                <Label className="mt-1" for="endDate">
+                                Gender
+                                </Label>
+                                <Select
+                                    isMulti
+                defaultValue={values.gender}
+                                    onChange={e => {
+                                        // console.log(e)
+                                        setFieldValue("gender", e)
+                                    }}
+                                    options={option04}
+                                    name="age"
+                                    placeholder="age"
+                                />
+                            </Col>}
+                            {(val.label === "Device") && 
+                            <Col>
+                                <Label className="mt-1" for="endDate">
+                                Device
+                                </Label>
+                                <Select isMulti
+                defaultValue={values.device}
+                                    onChange={e => {
+                                        // console.log(e)
+                                        setFieldValue("device", e)
+                                    }}
+                                    options={option02}
+                                    name="device"
+                                    placeholder="device"
+                                />
+                            </Col>}
+                            {(val.label === "OS") && 
+                            <Col>
+                                <Label className="mt-1" for="endDate">
+                                Os
+                                </Label>
+                                <Select isMulti
+                defaultValue={values.OS}
+
+                                    onChange={e => {
+                                        // console.log(e)
+                                        setFieldValue("OS", e)
+                                    }}
+                                    options={option05}
+                                    name="OS"
+                                    placeholder="OS"
+                                />
+                            </Col>}
+                        </>
+                    )
+                  })}
+                  </Row>
                 <Label className="mt-1" for="message">
                   Message
                 </Label>
