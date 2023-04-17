@@ -8,7 +8,6 @@ import { icon } from 'leaflet'
 
 const StatsCard = ({ cols }) => {
   // export default function App() {
-
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -29,7 +28,6 @@ const StatsCard = ({ cols }) => {
   const campaign = '&campaign='
   const adgroup = '&adgroup='
   const device = "&device="
-
   const sy1 = "&sy="
   const sm1 = "&sm="
   const sd1 = "&sd="
@@ -65,6 +63,7 @@ const StatsCard = ({ cols }) => {
         data[5].icon = <CheckCircle size={24} />
         data[6].icon = <UserCheck size={24} />
         data[7].icon = <MousePointer size={24} />
+        data[8].icon = <TrendingUp size={24} />
       })
       .catch((error) => {
         console.error("Error fetching data: ", error)
@@ -74,10 +73,8 @@ const StatsCard = ({ cols }) => {
         setLoading(false)
       })
   }, [])
-
   // if (loading) return "Loading..."
   // if (error) return "Data Unavailable."
-
   const renderData = () => {
     return data.map((item, index) => {
       const margin = Object.keys(cols)
