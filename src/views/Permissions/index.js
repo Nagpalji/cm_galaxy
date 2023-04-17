@@ -20,7 +20,7 @@ export default function index() {
   const [Users, setUsers] = useState([])
   const [Permission, setPermisson] = useState([])
  
-  const [selectedUsers, setSelectedUsers] = useState("")
+  const [selectedUsers, setSelectedUsers] = useState([])
   const [selectedPermission, setSelectedPermission] = useState([])
  
   const [Model, setModel] = useState(false)
@@ -63,12 +63,13 @@ export default function index() {
     PermissionData()
     UserData()
   }, [])
+
+
   return (
     <>
       <ToastContainer />
       <Row>
       <button className="btn btn-primary" onClick={e => setModel(!Model)}>Create new Path</button>
-      
         <Select
           defaultValue={selectedUsers}
           onChange={setSelectedUsers}
@@ -87,7 +88,7 @@ export default function index() {
             defaultValue={selectedPermission}
             onChange={setSelectedPermission}
             options={Permission}
-            isMulti
+            isMulti={true}
             theme={selectThemeColors}
             name="Permission"
             placeholder="Select permission"
