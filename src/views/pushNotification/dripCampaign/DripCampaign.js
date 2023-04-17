@@ -1,6 +1,5 @@
 import { Formik } from "formik"
 import React, { useEffect, useState } from "react"
-import CustomDropDown from "../CustomDropDown"
 import DataTable from "react-data-table-component"
 import { ChevronDown } from "react-feather"
 import { FaEdit } from "react-icons/fa"
@@ -25,12 +24,15 @@ import {
 } from "reactstrap"
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
+
 export default function DripCampaign() {
   const [modal, setModal] = useState(false)
   const [data, setData] = useState([])
   const [search, setSearch] = useState("")
   const [filteredData, setFilteredData] = useState([])
 
+  const [UpdateModal, setUpdateModal] = useState(false)
+  const [editData, seteditData] = useState([])
   const columns = [
     {
       name: "Campaign Name",
@@ -39,22 +41,22 @@ export default function DripCampaign() {
     },
     {
       name: "Start Date",
-      selector: (row) => row.nativeName,
+      selector: (row) => row.startDate,
       sortable: true
     },
     {
       name: "End Date",
-      selector: (row) => row.capital,
+      selector: (row) => row.endDate,
       sortable: true
     },
     {
       name: "Channel",
-      selector: (row) => row.capital,
+      selector: (row) => "push notification",
       sortable: true
     },
     {
       name: "Message",
-      selector: (row) => row.capital
+      selector: (row) => row.message
     },
     // {
     //     name: 'Action',
@@ -62,7 +64,10 @@ export default function DripCampaign() {
     // },
     {
       name: "Action",
-      selector: (row) => <FaEdit size={24} className="text-primary" />
+      selector: (row) => <FaEdit size={24} className="text-primary" onClick={(e) => {
+        setUpdateModal(true)
+        seteditData(row)
+      }} />
     }
   ]
 
@@ -99,7 +104,45 @@ export default function DripCampaign() {
     try {
       const response = await axios.get("https://restcountries.com/v2/all")
       setData(response.data)
-      setFilteredData(response.data)
+    //   setFilteredData(response.data)
+      setFilteredData([
+        {
+            _id: "643d0dd587739f8d7f054500",
+            name: "sahil",
+            startDate: "2023-01-01",
+            endDate: "2023-01-01",
+            Frequency: {value: '2', label: 'Weekly'},
+            AudienceType: {
+                value: "2",
+                label: "MoFu"
+            },
+            Audience: [
+                {
+                    value: "3",
+                    label: "Age Group"
+                },
+                {
+                    value: "2",
+                    label: "OS"
+                }
+            ],
+            device: [
+                {
+                    value: "3",
+                    label: "Mobile"
+                },
+                {
+                    value: "4",
+                    label: "TV"
+                }
+            ],
+            message: "xmsaixmsai",
+            url: "https://google.com",
+            brand_name: "masteraccess",
+            date_created: "2023-04-17"
+        }
+      ]
+      )
     } catch (error) {
       console.log(error)
     }
@@ -174,11 +217,11 @@ export default function DripCampaign() {
         <Formik
           initialValues={{ name: "", startDate: "", endDate: "", Frequency: "", AudienceType: "", Audience: [], device: "", message: "", url: "" }}
          
-          onSubmit={(values, { setSubmitting }) => {
-            console.log(values)
+          onSubmit={async (values, { setSubmitting }) => {
             try {
-                const request = axios.post("http://srvr1px.cyberads.io/createNotificationCampaign/", values)
-                const response = request?.data
+                values.brand_name = localStorage.getItem("brand_name")
+                const request = await axios.post("http://srvr1px.cyberads.io/notificationSend/", values)
+                const response = await request?.data
                 toast.success("campaign created")
             } catch (error) {
                 toast.error("unable to create Campaign")
@@ -306,6 +349,163 @@ export default function DripCampaign() {
               </FormGroup>
               <button type="submit" className="btn btn-primary align-center justify-content-center" disabled={isSubmitting}>
              Save
+           </button>
+              {/* <Button color="primary align-center justify-content-center">
+                Save
+              </Button> */}
+            </Form>
+          )}
+        </Formik>
+      </Modal>
+
+
+      {/* Update Module */}
+      <Modal size="md" isOpen={UpdateModal} toggle={() => setUpdateModal(!UpdateModal)}>
+        <Formik
+          initialValues={{ name: editData?.name, startDate: editData?.startDate, endDate: editData?.endDate, Frequency: editData?.Frequency, AudienceType: editData?.AudienceType, Audience: editData?.Audience, device: editData?.device, message: editData?.message, url: editData?.url }}
+         
+          onSubmit={async (values, { setSubmitting }) => {
+            try {
+                values.brand_name = localStorage.getItem("brand_name")
+                values._id = editData?._id
+                const request = await axios.post("http://srvr1px.cyberads.io/notificationUpdate/", values)
+                const response = await request?.data
+                toast.success("campaign Updated")
+            } catch (error) {
+                toast.error("unable to Update Campaign")
+            }
+            setSubmitting(false)
+          }}
+        >
+          {({ values,
+         errors,
+         touched,
+         handleChange,
+         handleBlur,
+         handleSubmit,
+         setFieldValue,
+         isSubmitting }) => (
+            <Form className="mx-2" onSubmit={handleSubmit}>
+              <FormGroup>
+                <Label className="" for="campaignName">
+                  Campaign Name
+                </Label>
+                <Input
+                value={values.name}
+                  id="campaignName"
+                  name="name"
+                  placeholder="Campaign Name"
+                  type="text"
+                  onChange={handleChange}
+                />
+                <Row>
+                  <Col>
+                    <Label className="mt-1" for="startDate">
+                      Start Date
+                    </Label>
+                    <Input
+                value={values.startDate}
+                      id="startDate"
+                      name="startDate"
+                      placeholder="date placeholder"
+                      type="date"
+                      onChange={handleChange}
+                    />
+                  </Col>
+                  <Col>
+                    <Label className="mt-1" for="endDate">
+                      End Date
+                    </Label>
+                    <Input
+                      id="endDate"
+                value={values.endDate}
+                      name="endDate"
+                      placeholder="date placeholder"
+                      type="date"
+                      onChange={handleChange}
+                    />
+                  </Col>
+                </Row>
+                <Label className="mt-1" for="frequencyTime">
+                  Frequency Time
+                </Label>
+                <Select
+                defaultValue={values.Frequency}
+                    onChange={e => {
+                        setFieldValue("Frequency", e)
+                    }}
+                    options={option1}
+                    name="Frequency"
+                    placeholder="Frequency"
+                />
+
+                <Row>
+                  <Col>
+                    <Label className="mt-1" for="endDate">
+                      Audience Type
+                    </Label>
+                    <Select
+                defaultValue={values.AudienceType}
+
+                        onChange={e => {
+                            setFieldValue("AudienceType", e)
+                        }}
+                        options={option}
+                        name="AudienceType"
+                        placeholder="Audience Type"
+                    />
+                  </Col>
+                  <Col>
+                    <Label className="mt-1" for="endDate">
+                      Audience
+                    </Label>
+                    <Select
+                        isMulti
+                defaultValue={values.Audience}
+                        onChange={e => {
+                            // console.log(e)
+                            setFieldValue("Audience", e)
+                        }}
+                        options={option01}
+                        name="Audience"
+                        placeholder="Audience"
+                    />
+                  </Col>
+                  <Col>
+                    <Label className="mt-1" for="endDate">
+                      Select
+                    </Label>
+                    <Select
+                        isMulti
+                defaultValue={values.device}
+                        onChange={e => {
+                            // console.log(e)
+                            setFieldValue("device", e)
+                        }}
+                        options={option02}
+                        name="device"
+                        placeholder="device"
+                    />
+                  </Col>
+                </Row>
+                <Label className="mt-1" for="message">
+                  Message
+                </Label>
+                <Input
+                  id="message"
+                  name="message"
+                  placeholder="Message"
+                  type="textarea"
+                  value={values.message}
+                  onChange={handleChange}
+                />
+                <Label className="mt-1" for="url">
+                  URL
+                </Label>
+                <Input id="url" name="url"   value={values.url} onChange={handleChange} placeholder="URL" type="url" />
+              </FormGroup>
+              <button type="submit" className="btn btn-primary align-center justify-content-center" disabled={isSubmitting}>
+             Update
            </button>
               {/* <Button color="primary align-center justify-content-center">
                 Save
