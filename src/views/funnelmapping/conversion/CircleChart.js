@@ -66,12 +66,16 @@ function CircleChart(props) {
 
         series: [
             {
-                name: 'Platform Wise Clicks',
+                name: props.seriesName,
                 type: 'pie',
-                data: [
-                    ['Product Purchases', 35],
-                    ['Product Views', 20]
-                ]
+                // data: props.seriesData
+                data:
+                    [
+                        // [props.seriesData?.draftItems?.length],
+                        // [props.seriesData?.orderItems?.length]
+                        ['Product Views', props.seriesData?.draftItems?.length],
+                        ['Product Purcheses', props.seriesData?.orderItems?.length]
+                    ]
             }
         ]
 
@@ -84,7 +88,11 @@ function CircleChart(props) {
                     <CardTitle tag='h4'>{props.title}</CardTitle>
                 </CardHeader>
                 <CardBody>
-                    <PieChart containerProps={{ style: { height: "430px" } }} highcharts={Highcharts} options={options} />
+                    <PieChart
+                        containerProps={{ style: { height: "430px" } }}
+                        highcharts={Highcharts}
+                        options={options} />
+                    {console.log(props)}
                 </CardBody>
             </Card>
         </Fragment>

@@ -37,11 +37,11 @@ export default function DripCampaign() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.post("http://srvr1px.cyberads.io/notificationDelete/", {id})
+      const response = await axios.post("http://srvr1px.cyberads.io/notificationDelete/", { id })
       toast.success("Deleted Success")
     } catch (error) {
-        toast.error("Deleted Success")
-        console.log(error)
+      toast.error("Deleted Success")
+      console.log(error)
     }
   }
 
@@ -78,17 +78,17 @@ export default function DripCampaign() {
       name: "Action",
       selector: (row) => (
         <>
-            <FaEdit size={24} className="text-primary" onClick={(e) => {
-                setUpdateModal(true)
-                seteditData(row)
-            }} />
+          <FaEdit size={24} className="text-primary" onClick={(e) => {
+            setUpdateModal(true)
+            seteditData(row)
+          }} />
 
-             <MdDelete size={24} className="ml-1 text-primary" onClick={(e) => {
-                handleDelete(row._id)
-            }} />
+          <MdDelete size={24} className="ml-1 text-primary" onClick={(e) => {
+            handleDelete(row._id)
+          }} />
         </>
-    )
-        }
+      )
+    }
   ]
 
   const option = [
@@ -137,7 +137,7 @@ export default function DripCampaign() {
 
   const getData = async () => {
     try {
-      const response = await axios.post("http://srvr1px.cyberads.io/notificationList/", {brand_name:localStorage.getItem("brand_name")})
+      const response = await axios.post("http://srvr1px.cyberads.io/notificationList/", { brand_name: localStorage.getItem("brand_name") })
       setData(response.data?.data)
       setFilteredData(response.data?.data)
     } catch (error) {
@@ -157,7 +157,7 @@ export default function DripCampaign() {
   }, [])
   return (
     <div>
-    <ToastContainer />
+      <ToastContainer />
       <Card>
         <Row className="d-flex justify-content-between p-1">
           <Col lg="6">
@@ -166,29 +166,29 @@ export default function DripCampaign() {
             </Row>
           </Col>
           <Col lg="3">
-          <Col>
-            <Button
-            className="mb-1"
-            color="primary"
-            onClick={() => setModal(true)}
-            >
-            Add New
-            </Button>
-        </Col>
+            <Col>
+              <Button
+                className="mb-1"
+                color="primary"
+                onClick={() => setModal(true)}
+              >
+                Add New
+              </Button>
+            </Col>
           </Col>
 
-  <Col>
-    <Input
-      type="search"
-      placeholder="Search Campaign"
-      name="search"
-      className="rounded"
-      id="searchCampaign"
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-    />
-  </Col>
-         
+          <Col>
+            <Input
+              type="search"
+              placeholder="Search Campaign"
+              name="search"
+              className="rounded"
+              id="searchCampaign"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </Col>
+
         </Row>
       </Card>
       <Row>
@@ -204,31 +204,34 @@ export default function DripCampaign() {
         />
       </Row>
       <Modal size="md" isOpen={modal} toggle={() => setModal(!modal)}>
+        <ModalHeader toggle={() => setModal(!modal)}>
+          Add New Drip Campaign
+        </ModalHeader>
         <Formik
           initialValues={{ name: "", startDate: "", endDate: "", Frequency: "", AudienceType: "", Audience: [], device: "", message: "", url: "" }}
-         
+
           onSubmit={async (values, { setSubmitting }) => {
             try {
-                values.brand_name = localStorage.getItem("brand_name")
-                const request = await axios.post("http://srvr1px.cyberads.io/notificationSend/", values)
-                const response = await request?.data
-                toast.success("campaign created")
-                window.location.href = ""
+              values.brand_name = localStorage.getItem("brand_name")
+              const request = await axios.post("http://srvr1px.cyberads.io/notificationSend/", values)
+              const response = await request?.data
+              toast.success("campaign created")
+              window.location.href = ""
             } catch (error) {
-                toast.error("unable to create Campaign")
+              toast.error("unable to create Campaign")
             }
             setSubmitting(false)
           }}
         >
           {({ values,
-         errors,
-         touched,
-         handleChange,
-         handleBlur,
-         handleSubmit,
-         setFieldValue,
-         isSubmitting }) => (
-            <Form className="mx-2" onSubmit={handleSubmit}>
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            setFieldValue,
+            isSubmitting }) => (
+            <Form className="m-2" onSubmit={handleSubmit}>
               <FormGroup>
                 <Label className="" for="campaignName">
                   Campaign Name
@@ -270,12 +273,12 @@ export default function DripCampaign() {
                   Frequency Time
                 </Label>
                 <Select
-                    onChange={e => {
-                        setFieldValue("Frequency", e)
-                    }}
-                    options={option1}
-                    name="Frequency"
-                    placeholder="Frequency"
+                  onChange={e => {
+                    setFieldValue("Frequency", e)
+                  }}
+                  options={option1}
+                  name="Frequency"
+                  placeholder="Frequency"
                 />
 
                 <Row>
@@ -284,12 +287,12 @@ export default function DripCampaign() {
                       Audience Type
                     </Label>
                     <Select
-                        onChange={e => {
-                            setFieldValue("AudienceType", e)
-                        }}
-                        options={option}
-                        name="AudienceType"
-                        placeholder="Audience Type"
+                      onChange={e => {
+                        setFieldValue("AudienceType", e)
+                      }}
+                      options={option}
+                      name="AudienceType"
+                      placeholder="Audience Type"
                     />
                   </Col>
                   <Col>
@@ -297,87 +300,87 @@ export default function DripCampaign() {
                       Audience
                     </Label>
                     <Select
-                        isMulti
-                        onChange={e => {
-                            // console.log(e)
-                            setFieldValue("Audience", e)
-                        }}
-                        options={option01}
-                        name="Audience"
-                        placeholder="Audience"
+                      isMulti
+                      onChange={e => {
+                        // console.log(e)
+                        setFieldValue("Audience", e)
+                      }}
+                      options={option01}
+                      name="Audience"
+                      placeholder="Audience"
                     />
                   </Col>
                   <Row>
-                  {values?.Audience && values?.Audience?.map((val) => {
-                    return (
+                    {values?.Audience && values?.Audience?.map((val) => {
+                      return (
                         <>
-                            {(val.label === "Age Group") && 
+                          {(val.label === "Age Group") &&
                             <Col>
-                                <Label className="mt-1" for="endDate">
+                              <Label className="mt-1" for="endDate">
                                 Age
-                                </Label>
-                                <Select
-                                    isMulti
-                                    onChange={e => {
-                                        // console.log(e)
-                                        setFieldValue("age", e)
-                                    }}
-                                    options={option03}
-                                    name="age"
-                                    placeholder="age"
-                                />
+                              </Label>
+                              <Select
+                                isMulti
+                                onChange={e => {
+                                  // console.log(e)
+                                  setFieldValue("age", e)
+                                }}
+                                options={option03}
+                                name="age"
+                                placeholder="age"
+                              />
                             </Col>}
-                            {(val.label === "Gender") && 
+                          {(val.label === "Gender") &&
                             <Col>
-                                <Label className="mt-1" for="endDate">
+                              <Label className="mt-1" for="endDate">
                                 Gender
-                                </Label>
-                                <Select
-                                    isMulti
-                                    onChange={e => {
-                                        // console.log(e)
-                                        setFieldValue("gender", e)
-                                    }}
-                                    options={option04}
-                                    name="age"
-                                    placeholder="age"
-                                />
+                              </Label>
+                              <Select
+                                isMulti
+                                onChange={e => {
+                                  // console.log(e)
+                                  setFieldValue("gender", e)
+                                }}
+                                options={option04}
+                                name="age"
+                                placeholder="age"
+                              />
                             </Col>}
-                            {(val.label === "Device") && 
+                          {(val.label === "Device") &&
                             <Col>
-                                <Label className="mt-1" for="endDate">
+                              <Label className="mt-1" for="endDate">
                                 Device
-                                </Label>
-                                <Select isMulti
-                                    onChange={e => {
-                                        // console.log(e)
-                                        setFieldValue("device", e)
-                                    }}
-                                    options={option02}
-                                    name="device"
-                                    placeholder="device"
-                                />
+                              </Label>
+                              <Select isMulti
+                                onChange={e => {
+                                  // console.log(e)
+                                  setFieldValue("device", e)
+                                }}
+                                options={option02}
+                                name="device"
+                                placeholder="device"
+                              />
                             </Col>}
-                            {(val.label === "OS") && 
+                          {(val.label === "OS") &&
                             <Col>
-                                <Label className="mt-1" for="endDate">
+                              <Label className="mt-1" for="endDate">
                                 Os
-                                </Label>
-                                <Select isMulti
-                                    onChange={e => {
-                                        // console.log(e)
-                                        setFieldValue("OS", e)
-                                    }}
-                                    options={option05}
-                                    name="OS"
-                                    placeholder="OS"
-                                />
+                              </Label>
+                              <Select isMulti
+                                onChange={e => {
+                                  // console.log(e)
+                                  setFieldValue("OS", e)
+                                }}
+                                options={option05}
+                                name="OS"
+                                placeholder="OS"
+                              />
                             </Col>}
                         </>
-                    )
-                  })}
+                      )
+                    })}
                   </Row>
-                  
+
                 </Row>
                 <Label className="mt-1" for="message">
                   Message
@@ -388,6 +391,7 @@ export default function DripCampaign() {
                   placeholder="Message"
                   type="textarea"
                   onChange={handleChange}
+                  maxLength={260}
                 />
                 <Label className="mt-1" for="url">
                   URL
@@ -395,8 +399,8 @@ export default function DripCampaign() {
                 <Input id="url" name="url" onChange={handleChange} placeholder="URL" type="url" />
               </FormGroup>
               <button type="submit" className="btn btn-primary align-center justify-content-center" disabled={isSubmitting}>
-             Save
-           </button>
+                Save
+              </button>
               {/* <Button color="primary align-center justify-content-center">
                 Save
               </Button> */}
@@ -410,38 +414,38 @@ export default function DripCampaign() {
       <Modal size="md" isOpen={UpdateModal} toggle={() => setUpdateModal(!UpdateModal)}>
         <Formik
           initialValues={{ name: editData?.name, startDate: editData?.startDate, endDate: editData?.endDate, Frequency: editData?.Frequency, AudienceType: editData?.AudienceType, Audience: editData?.Audience, device: editData?.device, message: editData?.message, url: editData?.url, OS: editData?.OS }}
-         
+
           onSubmit={async (values, { setSubmitting }) => {
             try {
-                values.brand_name = localStorage.getItem("brand_name")
-                values._id = editData?._id
-                values.date_created = editData?.date_created
-                values.del = editData?.del
-                const request = await axios.post("http://srvr1px.cyberads.io/notificationUpdate/", values)
-                const response = await request?.data
-                toast.success("campaign Updated")
-                window.location.href = ""
+              values.brand_name = localStorage.getItem("brand_name")
+              values._id = editData?._id
+              values.date_created = editData?.date_created
+              values.del = editData?.del
+              const request = await axios.post("http://srvr1px.cyberads.io/notificationUpdate/", values)
+              const response = await request?.data
+              toast.success("campaign Updated")
+              window.location.href = ""
             } catch (error) {
-                toast.error("unable to Update Campaign")
+              toast.error("unable to Update Campaign")
             }
             setSubmitting(false)
           }}
         >
           {({ values,
-         errors,
-         touched,
-         handleChange,
-         handleBlur,
-         handleSubmit,
-         setFieldValue,
-         isSubmitting }) => (
-            <Form className="mx-2" onSubmit={handleSubmit}>
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            setFieldValue,
+            isSubmitting }) => (
+            <Form className="m-2" onSubmit={handleSubmit}>
               <FormGroup>
                 <Label className="" for="campaignName">
                   Campaign Name
                 </Label>
                 <Input
-                value={values.name}
+                  value={values.name}
                   id="campaignName"
                   name="name"
                   placeholder="Campaign Name"
@@ -454,7 +458,7 @@ export default function DripCampaign() {
                       Start Date
                     </Label>
                     <Input
-                value={values.startDate}
+                      value={values.startDate}
                       id="startDate"
                       name="startDate"
                       placeholder="date placeholder"
@@ -468,7 +472,7 @@ export default function DripCampaign() {
                     </Label>
                     <Input
                       id="endDate"
-                value={values.endDate}
+                      value={values.endDate}
                       name="endDate"
                       placeholder="date placeholder"
                       type="date"
@@ -480,13 +484,13 @@ export default function DripCampaign() {
                   Frequency Time
                 </Label>
                 <Select
-                defaultValue={values.Frequency}
-                    onChange={e => {
-                        setFieldValue("Frequency", e)
-                    }}
-                    options={option1}
-                    name="Frequency"
-                    placeholder="Frequency"
+                  defaultValue={values.Frequency}
+                  onChange={e => {
+                    setFieldValue("Frequency", e)
+                  }}
+                  options={option1}
+                  name="Frequency"
+                  placeholder="Frequency"
                 />
 
                 <Row>
@@ -495,14 +499,14 @@ export default function DripCampaign() {
                       Audience Type
                     </Label>
                     <Select
-                defaultValue={values.AudienceType}
+                      defaultValue={values.AudienceType}
 
-                        onChange={e => {
-                            setFieldValue("AudienceType", e)
-                        }}
-                        options={option}
-                        name="AudienceType"
-                        placeholder="Audience Type"
+                      onChange={e => {
+                        setFieldValue("AudienceType", e)
+                      }}
+                      options={option}
+                      name="AudienceType"
+                      placeholder="Audience Type"
                     />
                   </Col>
                   <Col>
@@ -510,15 +514,15 @@ export default function DripCampaign() {
                       Audience
                     </Label>
                     <Select
-                        isMulti
-                defaultValue={values.Audience}
-                        onChange={e => {
-                            // console.log(e)
-                            setFieldValue("Audience", e)
-                        }}
-                        options={option01}
-                        name="Audience"
-                        placeholder="Audience"
+                      isMulti
+                      defaultValue={values.Audience}
+                      onChange={e => {
+                        // console.log(e)
+                        setFieldValue("Audience", e)
+                      }}
+                      options={option01}
+                      name="Audience"
+                      placeholder="Audience"
                     />
                   </Col>
                   {/* <Col>
@@ -540,77 +544,77 @@ export default function DripCampaign() {
                 <Row>
                   {values?.Audience && values?.Audience?.map((val) => {
                     return (
-                        <>
-                            {(val.label === "Age Group") && 
-                            <Col>
-                                <Label className="mt-1" for="endDate">
-                                Age
-                                </Label>
-                                <Select
-                                    isMulti
-                                    defaultValue={editData.age}
-                                    onChange={e => {
-                                        // console.log(e)
-                                        setFieldValue("age", e)
-                                    }}
-                                    options={option03}
-                                    name="age"
-                                    placeholder="age"
-                                />
-                            </Col>}
-                            {(val.label === "Gender") && 
-                            <Col>
-                                <Label className="mt-1" for="endDate">
-                                Gender
-                                </Label>
-                                <Select
-                                    isMulti
-                defaultValue={editData.gender}
-                                    onChange={e => {
-                                        // console.log(e)
-                                        setFieldValue("gender", e)
-                                    }}
-                                    options={option04}
-                                    name="age"
-                                    placeholder="age"
-                                />
-                            </Col>}
-                            {(val.label === "Device") && 
-                            <Col>
-                                <Label className="mt-1" for="endDate">
-                                Device
-                                </Label>
-                                <Select isMulti
-                defaultValue={editData.device}
-                                    onChange={e => {
-                                        // console.log(e)
-                                        setFieldValue("device", e)
-                                    }}
-                                    options={option02}
-                                    name="device"
-                                    placeholder="device"
-                                />
-                            </Col>}
-                            {(val.label === "OS") && 
-                            <Col>
-                                <Label className="mt-1" for="endDate">
-                                Os
-                                </Label>
-                                <Select isMulti
-                                defaultValue={editData.OS}
-                                    onChange={e => {
-                                        // console.log(e)
-                                        setFieldValue("OS", e)
-                                    }}
-                                    options={option05}
-                                    name="OS"
-                                    placeholder="OS"
-                                />
-                            </Col>}
-                        </>
+                      <>
+                        {(val.label === "Age Group") &&
+                          <Col>
+                            <Label className="mt-1" for="endDate">
+                              Age
+                            </Label>
+                            <Select
+                              isMulti
+                              defaultValue={editData.age}
+                              onChange={e => {
+                                // console.log(e)
+                                setFieldValue("age", e)
+                              }}
+                              options={option03}
+                              name="age"
+                              placeholder="age"
+                            />
+                          </Col>}
+                        {(val.label === "Gender") &&
+                          <Col>
+                            <Label className="mt-1" for="endDate">
+                              Gender
+                            </Label>
+                            <Select
+                              isMulti
+                              defaultValue={editData.gender}
+                              onChange={e => {
+                                // console.log(e)
+                                setFieldValue("gender", e)
+                              }}
+                              options={option04}
+                              name="age"
+                              placeholder="age"
+                            />
+                          </Col>}
+                        {(val.label === "Device") &&
+                          <Col>
+                            <Label className="mt-1" for="endDate">
+                              Device
+                            </Label>
+                            <Select isMulti
+                              defaultValue={editData.device}
+                              onChange={e => {
+                                // console.log(e)
+                                setFieldValue("device", e)
+                              }}
+                              options={option02}
+                              name="device"
+                              placeholder="device"
+                            />
+                          </Col>}
+                        {(val.label === "OS") &&
+                          <Col>
+                            <Label className="mt-1" for="endDate">
+                              Os
+                            </Label>
+                            <Select isMulti
+                              defaultValue={editData.OS}
+                              onChange={e => {
+                                // console.log(e)
+                                setFieldValue("OS", e)
+                              }}
+                              options={option05}
+                              name="OS"
+                              placeholder="OS"
+                            />
+                          </Col>}
+                      </>
                     )
                   })}
-                  </Row>
+                </Row>
                 <Label className="mt-1" for="message">
                   Message
                 </Label>
@@ -621,15 +625,16 @@ export default function DripCampaign() {
                   type="textarea"
                   value={values.message}
                   onChange={handleChange}
+                  maxLength={260}
                 />
                 <Label className="mt-1" for="url">
                   URL
                 </Label>
-                <Input id="url" name="url"   value={values.url} onChange={handleChange} placeholder="URL" type="url" />
+                <Input id="url" name="url" value={values.url} onChange={handleChange} placeholder="URL" type="url" />
               </FormGroup>
               <button type="submit" className="btn btn-primary align-center justify-content-center" disabled={isSubmitting}>
-             Update
-           </button>
+                Update
+              </button>
               {/* <Button color="primary align-center justify-content-center">
                 Save
               </Button> */}

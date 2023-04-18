@@ -10,9 +10,10 @@ import axios from 'axios'
 const Table = ({ data, selectedCategory }) => {
 
     const [modal, setModal] = useState(false)
-    const [customerUserCycle, setCustomerUserCycle] = useState([])
-    const [orderData, setOrderData] = useState({})
+    const [dateWiseProductPurchase, setDateWiseProductPurchase] = useState([])
+    const [dateWiseSessionAndTime, setDateWiseSessionAndTime] = useState([])
     const [customerData, setCustomerData] = useState({})
+    const [pieChartProductPurchase, setPieChartProductPurchase] = useState({})
 
     const userDetail = (userEmail, orderId) => {
         setModal(true)
@@ -33,9 +34,10 @@ const Table = ({ data, selectedCategory }) => {
         })
             .then(response => response.json())
             .then(data => {
-                setCustomerUserCycle(data.userCycle)
-                setOrderData(data.orderData)
+                setDateWiseProductPurchase(data.dateWiseProductPurchase)
+                setDateWiseSessionAndTime(data.dateWiseSessionAndTime)
                 setCustomerData(data.customerInfo)
+                setPieChartProductPurchase(data.pieChartProductPurchase)
             })
     }
 
@@ -55,10 +57,26 @@ const Table = ({ data, selectedCategory }) => {
     }
 
     const downloadHandle = async () => {
-        const request =  await axios.post("https://srvr1px.cyberads.io/getexcelData/", { type: selectedCategory, brand })
+        const request = await axios.post("https://srvr1px.cyberads.io/getexcelData/", { type: selectedCategory, brand })
         const response = await request.data
         window.location.href = response?.url
     }
+
+    const data0 = [
+        ['draftItems', 99],
+        ['orderItems', 251]
+    ]
+
+    const data1 = [
+        ['Product Views 1', 103],
+        ['Product Views 2', 115],
+        ['Product Views 3', 135],
+        ['Product Views 4', 181],
+        ['Product Views 5', 111],
+        ['Product Views 4', 181],
+        ['Product Views 5', 111],
+        ['Product Views 6', 191]
+    ]
 
 
     return (
@@ -145,7 +163,7 @@ const Table = ({ data, selectedCategory }) => {
                         <tr className='bg-secondary'>
                             <th className='bg-secondary text-white' scope="col">Sr. No.</th>
                             <th className='bg-secondary text-white' scope="col">Email</th>
-                            <th className='bg-secondary text-white' scope="col">created_at</th>
+                            <th className='bg-secondary text-white' scope="col">created at</th>
                             <th className='bg-secondary text-white' scope="col">source</th>
                             <th className='bg-secondary text-white' scope="col">Full Name</th>
                             <th className='bg-secondary text-white' scope="col">order name</th>
@@ -159,9 +177,9 @@ const Table = ({ data, selectedCategory }) => {
                                     <tr>
                                         <th className='text-black'>{index + 1}</th>
                                         <td className='text-black'>{item?.email}</td>
-                                        <td className='text-black'>{item?.created_at}</td>
+                                        <td className='text-black text-nowrap'>{item?.created_at}</td>
                                         <td className='text-black'>{item?.source === "" ? 'Organic' : item?.source?.charAt(0).toUpperCase() + item?.source?.slice(1)}</td>
-                                        <td className='text-black'>{item?.first_name} {item?.last_name}</td>
+                                        <td className='text-black text-nowrap'>{item?.first_name} {item?.last_name}</td>
                                         <td className='text-black'>{item?.order_name}</td>
                                         <td className='text-black'>{item?.total_price}</td>
                                     </tr>
@@ -180,9 +198,8 @@ const Table = ({ data, selectedCategory }) => {
                         <tr className='bg-success'>
                             <th className='bg-success text-white' scope="col">Sr. No.</th>
                             <th className='bg-success text-white' scope="col">Email</th>
-                            <th className='bg-success text-white' scope="col">First Visit</th>
-                            <th className='bg-success text-white' scope="col">Final Visit</th>
-                            <th className='bg-success text-white' scope="col">Source</th>
+                            <th className='bg-success text-white' scope="col">First Source</th>
+                            <th className='bg-success text-white' scope="col">Finale Source</th>
                             <th className='bg-success text-white' scope="col">gateway</th>
                             <th className='bg-success text-white' scope="col">financial status</th>
                             <th className='bg-success text-white' scope="col">order name</th>
@@ -195,9 +212,8 @@ const Table = ({ data, selectedCategory }) => {
                                 <>
                                     <tr>
                                         <th className='text-black'>{index + 1}</th>
-                                        <td className='text-black' onClick={() => userDetail(item?.email, item?.order_id)}>{item?.email}</td>
-                                        <td className='text-black'>{item?.firstVisitDate}</td>
-                                        <td className='text-black'>{item?.created_at}</td>
+                                        <td className='text-black' onClick={() => userDetail(item?.email, item?.order_id)}><a>{item?.email}</a></td>
+                                        <td className='text-black'>{item?.firstSource === "" ? 'Organic' : item?.firstSource?.charAt(0).toUpperCase() + item?.firstSource?.slice(1)}</td>
                                         <td className='text-black'>{item?.source === "" ? 'Organic' : item?.source?.charAt(0).toUpperCase() + item?.source?.slice(1)}</td>
                                         <td className='text-black'>{item?.gateway}</td>
                                         <td className='text-black'>{item?.financial_status?.charAt(0).toUpperCase() + item?.financial_status?.slice(1)}</td>
@@ -228,22 +244,34 @@ const Table = ({ data, selectedCategory }) => {
                             <div className='d-flex col-3 mb-1'> <span className='fw-bold'>Interest: </span><span>&nbsp; 0</span></div>
                         </div>
                         <PerfectScrollbar className=''>
-                            <TablerChart
-                                title='Date wise  Page per Session and time spend'
-                                titleTextLeft='Page per Session23'
-                                titleTextRight='time spend23'
-                            />
+                            <Row>
+                                <Col>
+                                    <TablerChart
+                                        title='Date wise  Page per Session and time spend'
+                                        titleTextLeft=''
+                                        titleTextRight='time spend'
+                                        series={dateWiseSessionAndTime?.map((e) => { return (e?.session) })}
+                                        categories={dateWiseSessionAndTime?.map((e) => { return (e?.created_at) })}
+                                    />
+                                </Col>
+                            </Row>
                             <Row>
                                 <Col>
                                     <TablerChart
                                         title='Date wise Products Purchase By Value'
-                                        titleTextLeft='Page per Session'
-                                        titleTextRight='time spend'
+                                        // titleTextLeft='Total Price'
+                                        titleTextLeft=''
+                                        titleTextRight='Total Price'
+                                        series={dateWiseProductPurchase?.map((e) => { return (e?.total_price) })}
+                                        categories={dateWiseProductPurchase?.map((e) => { return (e?.created_at) })}
                                     />
+                                    {console.log(dateWiseProductPurchase)}
                                 </Col>
                                 <Col>
                                     <CircleChart
-                                        title='Pie Chart Product Purchases Vs Product Views'
+                                        title='Product Views VS Product Purchases'
+                                        seriesName=''
+                                        seriesData={pieChartProductPurchase}
                                     />
                                 </Col>
                             </Row>
