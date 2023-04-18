@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import DataTable from "react-data-table-component"
 import { ChevronDown } from "react-feather"
 import { FaEdit } from "react-icons/fa"
+import { MdDelete } from "react-icons/md"
 import Select from "react-select"
 
 import {
@@ -33,6 +34,17 @@ export default function DripCampaign() {
 
   const [UpdateModal, setUpdateModal] = useState(false)
   const [editData, seteditData] = useState([])
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await axios.post("http://srvr1px.cyberads.io/notificationDelete/", {id})
+      toast.success("Deleted Success")
+    } catch (error) {
+        toast.error("Deleted Success")
+        console.log(error)
+    }
+  }
+
   const columns = [
     {
       name: "Campaign Name",
@@ -64,11 +76,19 @@ export default function DripCampaign() {
     // },
     {
       name: "Action",
-      selector: (row) => <FaEdit size={24} className="text-primary" onClick={(e) => {
-        setUpdateModal(true)
-        seteditData(row)
-      }} />
-    }
+      selector: (row) => (
+        <>
+            <FaEdit size={24} className="text-primary" onClick={(e) => {
+                setUpdateModal(true)
+                seteditData(row)
+            }} />
+
+             <MdDelete size={24} className="ml-1 text-primary" onClick={(e) => {
+                handleDelete(row._id)
+            }} />
+        </>
+    )
+        }
   ]
 
   const option = [
@@ -140,42 +160,35 @@ export default function DripCampaign() {
     <ToastContainer />
       <Card>
         <Row className="d-flex justify-content-between p-1">
-          <Col lg="4">
+          <Col lg="6">
             <Row>
               <h3 className="mb-1">Campaign Overview</h3>
             </Row>
           </Col>
-          <Col lg="4">
-            <Row>
-              <Col>
-                <Button
-                  className="mb-1"
-                  color="primary"
-                  onClick={() => setModal(true)}
-                >
-                  Add New
-                </Button>
-              </Col>
-              <Col>
-                <Button className="mb-1" color="primary">
-                  Delete
-                </Button>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Input
-                  type="search"
-                  placeholder="Search Campaign"
-                  name="search"
-                  className="rounded"
-                  id="searchCampaign"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-              </Col>
-            </Row>
+          <Col lg="3">
+          <Col>
+            <Button
+            className="mb-1"
+            color="primary"
+            onClick={() => setModal(true)}
+            >
+            Add New
+            </Button>
+        </Col>
           </Col>
+
+  <Col>
+    <Input
+      type="search"
+      placeholder="Search Campaign"
+      name="search"
+      className="rounded"
+      id="searchCampaign"
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+    />
+  </Col>
+         
         </Row>
       </Card>
       <Row>
@@ -396,12 +409,14 @@ export default function DripCampaign() {
       {/* Update Module */}
       <Modal size="md" isOpen={UpdateModal} toggle={() => setUpdateModal(!UpdateModal)}>
         <Formik
-          initialValues={{ name: editData?.name, startDate: editData?.startDate, endDate: editData?.endDate, Frequency: editData?.Frequency, AudienceType: editData?.AudienceType, Audience: editData?.Audience, device: editData?.device, message: editData?.message, url: editData?.url }}
+          initialValues={{ name: editData?.name, startDate: editData?.startDate, endDate: editData?.endDate, Frequency: editData?.Frequency, AudienceType: editData?.AudienceType, Audience: editData?.Audience, device: editData?.device, message: editData?.message, url: editData?.url, OS: editData?.OS }}
          
           onSubmit={async (values, { setSubmitting }) => {
             try {
                 values.brand_name = localStorage.getItem("brand_name")
                 values._id = editData?._id
+                values.date_created = editData?.date_created
+                values.del = editData?.del
                 const request = await axios.post("http://srvr1px.cyberads.io/notificationUpdate/", values)
                 const response = await request?.data
                 toast.success("campaign Updated")
@@ -533,7 +548,7 @@ export default function DripCampaign() {
                                 </Label>
                                 <Select
                                     isMulti
-                                    defaultValue={values.age}
+                                    defaultValue={editData.age}
                                     onChange={e => {
                                         // console.log(e)
                                         setFieldValue("age", e)
@@ -550,7 +565,7 @@ export default function DripCampaign() {
                                 </Label>
                                 <Select
                                     isMulti
-                defaultValue={values.gender}
+                defaultValue={editData.gender}
                                     onChange={e => {
                                         // console.log(e)
                                         setFieldValue("gender", e)
@@ -566,7 +581,7 @@ export default function DripCampaign() {
                                 Device
                                 </Label>
                                 <Select isMulti
-                defaultValue={values.device}
+                defaultValue={editData.device}
                                     onChange={e => {
                                         // console.log(e)
                                         setFieldValue("device", e)
@@ -582,8 +597,7 @@ export default function DripCampaign() {
                                 Os
                                 </Label>
                                 <Select isMulti
-                defaultValue={values.OS}
-
+                                defaultValue={editData.OS}
                                     onChange={e => {
                                         // console.log(e)
                                         setFieldValue("OS", e)
