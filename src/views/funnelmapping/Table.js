@@ -233,7 +233,7 @@ const Table = ({ data, selectedCategory }) => {
                     <ModalBody>
                         <div className='d-flex row'>
                             <div className='d-flex col-4 mb-1'> <span className='fw-bold'>Name: </span><span>&nbsp; {customerData?.firstName} {customerData?.lastName}</span></div>
-                            <div className='d-flex col-3 mb-1'> <span className='fw-bold'>Gender: </span><span>&nbsp; {customerData?.gender.charAt(0).toUpperCase() + customerData?.gender.slice(1)}</span></div>
+                            <div className='d-flex col-3 mb-1'> <span className='fw-bold'>Gender: </span><span>&nbsp; {customerData?.gender?.charAt(0).toUpperCase() + customerData?.gender?.slice(1)}</span></div>
                             <div className='d-flex col-2 mb-1'> <span className='fw-bold'>Age: </span><span>&nbsp; 0</span></div>
                             <div className='d-flex col-3 mb-1'> <span className='fw-bold'>Mobile: </span><span>&nbsp; {customerData?.phoneNo}</span></div>
                             <div className='d-flex col-4 mb-1'> <span className='fw-bold'>Email: </span><span>&nbsp; {customerData?.email}</span></div>

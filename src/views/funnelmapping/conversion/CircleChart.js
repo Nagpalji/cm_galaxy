@@ -26,6 +26,9 @@ function CircleChart(props) {
         colors: ['#4076d9', '#38a6d9', '#4acade', '#00def6', '#83ffff', '#97f7c4', '#52c777', '#3aab58', '#15ad29', '#ffc413'],
 
         tooltip: {
+            // formatter() {
+            //     return `hello`
+            // },
             valuePrefix: ''
         },
 
@@ -74,7 +77,7 @@ function CircleChart(props) {
                         // [props.seriesData?.draftItems?.length],
                         // [props.seriesData?.orderItems?.length]
                         ['Product Views', props.seriesData?.draftItems?.length],
-                        ['Product Purcheses', props.seriesData?.orderItems?.length]
+                        ['Product Purchases', props.seriesData?.orderItems?.length]
                     ]
             }
         ]
@@ -92,7 +95,6 @@ function CircleChart(props) {
                         containerProps={{ style: { height: "430px" } }}
                         highcharts={Highcharts}
                         options={options} />
-                    {console.log(props)}
                 </CardBody>
             </Card>
         </Fragment>
