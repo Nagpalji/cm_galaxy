@@ -212,7 +212,7 @@ const Table = ({ data, selectedCategory }) => {
                                 <>
                                     <tr>
                                         <th className='text-black'>{index + 1}</th>
-                                        <td className='text-black' onClick={() => userDetail(item?.email, item?.order_id)}><a>{item?.email}</a></td>
+                                        <td className='text-black' onClick={() => userDetail(item?.email, item?.order_id)}><a><u>{item?.email}</u></a></td>
                                         <td className='text-black'>{item?.firstSource === "" ? 'Organic' : item?.firstSource?.charAt(0).toUpperCase() + item?.firstSource?.slice(1)}</td>
                                         <td className='text-black'>{item?.source === "" ? 'Organic' : item?.source?.charAt(0).toUpperCase() + item?.source?.slice(1)}</td>
                                         <td className='text-black'>{item?.gateway}</td>
@@ -233,7 +233,7 @@ const Table = ({ data, selectedCategory }) => {
                     <ModalBody>
                         <div className='d-flex row'>
                             <div className='d-flex col-4 mb-1'> <span className='fw-bold'>Name: </span><span>&nbsp; {customerData?.firstName} {customerData?.lastName}</span></div>
-                            <div className='d-flex col-3 mb-1'> <span className='fw-bold'>Gender: </span><span>&nbsp; {customerData?.gender}</span></div>
+                            <div className='d-flex col-3 mb-1'> <span className='fw-bold'>Gender: </span><span>&nbsp; {customerData?.gender.charAt(0).toUpperCase() + customerData?.gender.slice(1)}</span></div>
                             <div className='d-flex col-2 mb-1'> <span className='fw-bold'>Age: </span><span>&nbsp; 0</span></div>
                             <div className='d-flex col-3 mb-1'> <span className='fw-bold'>Mobile: </span><span>&nbsp; {customerData?.phoneNo}</span></div>
                             <div className='d-flex col-4 mb-1'> <span className='fw-bold'>Email: </span><span>&nbsp; {customerData?.email}</span></div>

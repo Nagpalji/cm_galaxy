@@ -527,7 +527,7 @@ export default function Funnel({ res, table }) {
                                                     return (
                                                         <>
                                                             <li className="m-0" key={val?.source}>
-                                                                {val?.source === "" ? 'Organic' : val?.source}{" "}
+                                                                {val?.source === "" ? 'Organic' : val?.source === 'ios' ? 'iOS' : val?.source.charAt(0).toUpperCase() + val?.source.slice(1)}{" "}
                                                                 <b>: {val.sum.toLocaleString()}</b>
                                                             </li>
                                                         </>

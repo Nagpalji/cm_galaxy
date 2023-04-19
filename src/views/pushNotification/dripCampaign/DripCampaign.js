@@ -5,24 +5,7 @@ import { ChevronDown } from "react-feather"
 import { FaEdit } from "react-icons/fa"
 import { MdDelete } from "react-icons/md"
 import Select from "react-select"
-
-import {
-  Badge,
-  Button,
-  Card,
-  CardBody,
-  CardHeader,
-  Col,
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  Modal,
-  ModalBody,
-  ModalHeader,
-  Row,
-  Table
-} from "reactstrap"
+import { Badge, Button, Card, CardBody, CardHeader, Col, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row, Table } from "reactstrap"
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
 
