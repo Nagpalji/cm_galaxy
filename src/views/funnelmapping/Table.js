@@ -6,6 +6,8 @@ import UserDetail from './UserDetail'
 import TablerChart from './conversion/TablerChart'
 import CircleChart from './conversion/CircleChart'
 import axios from 'axios'
+import { FaUser } from 'react-icons/fa'
+import DateWiseProductPurchase from './conversion/DateWiseProductPurchase'
 
 const Table = ({ data, selectedCategory }) => {
 
@@ -61,23 +63,6 @@ const Table = ({ data, selectedCategory }) => {
         const response = await request.data
         window.location.href = response?.url
     }
-
-    const data0 = [
-        ['draftItems', 99],
-        ['orderItems', 251]
-    ]
-
-    const data1 = [
-        ['Product Views 1', 103],
-        ['Product Views 2', 115],
-        ['Product Views 3', 135],
-        ['Product Views 4', 181],
-        ['Product Views 5', 111],
-        ['Product Views 4', 181],
-        ['Product Views 5', 111],
-        ['Product Views 6', 191]
-    ]
-
 
     return (
         <>
@@ -215,7 +200,7 @@ const Table = ({ data, selectedCategory }) => {
                                         <td className='text-black' onClick={() => userDetail(item?.email, item?.order_id)}><a><u>{item?.email}</u></a></td>
                                         <td className='text-black'>{item?.firstSource === "" ? 'Organic' : item?.firstSource?.charAt(0).toUpperCase() + item?.firstSource?.slice(1)}</td>
                                         <td className='text-black'>{item?.source === "" ? 'Organic' : item?.source?.charAt(0).toUpperCase() + item?.source?.slice(1)}</td>
-                                        <td className='text-black'>{item?.gateway}</td>
+                                        <td className='text-black'>{item?.gateway?.charAt(0).toUpperCase() + item?.gateway?.slice(1)}</td>
                                         <td className='text-black'>{item?.financial_status?.charAt(0).toUpperCase() + item?.financial_status?.slice(1)}</td>
                                         <td className='text-black'>{item?.order_name}</td>
                                         <td className='text-black'>{item?.total_price}</td>
@@ -228,48 +213,49 @@ const Table = ({ data, selectedCategory }) => {
 
                 <Modal size='xl' isOpen={modal} toggle={() => setModal(!modal)} >
                     <ModalHeader toggle={() => setModal(!modal)}>
-                        User Detail
+                        <FaUser size={20} className='text-primary' />{' '}
+                        <span className='fw-bold'>User Details</span>
                     </ModalHeader>
                     <ModalBody>
                         <div className='d-flex row'>
-                            <div className='d-flex col-4 mb-1'> <span className='fw-bold'>Name: </span><span>&nbsp; {customerData?.firstName} {customerData?.lastName}</span></div>
-                            <div className='d-flex col-3 mb-1'> <span className='fw-bold'>Gender: </span><span>&nbsp; {customerData?.gender?.charAt(0).toUpperCase() + customerData?.gender?.slice(1)}</span></div>
-                            <div className='d-flex col-2 mb-1'> <span className='fw-bold'>Age: </span><span>&nbsp; 0</span></div>
-                            <div className='d-flex col-3 mb-1'> <span className='fw-bold'>Mobile: </span><span>&nbsp; {customerData?.phoneNo}</span></div>
-                            <div className='d-flex col-4 mb-1'> <span className='fw-bold'>Email: </span><span>&nbsp; {customerData?.email}</span></div>
-                            <div className='d-flex col-3 mb-1'> <span className='fw-bold'>Income: </span><span>&nbsp; 0</span></div>
-                            <div className='d-flex col-2 mb-1'> <span className='fw-bold'>Country: </span><span>&nbsp; {customerData?.country}</span></div>
-                            <div className='d-flex col-3 mb-1'> <span className='fw-bold'>City: </span><span>&nbsp; {customerData?.city}</span></div>
-                            <div className='d-flex col-4 mb-1'> <span className='fw-bold'>Address: </span><span>&nbsp; {customerData?.address1} {customerData?.address2}</span></div>
-                            <div className='d-flex col-3 mb-1'> <span className='fw-bold'>Interest: </span><span>&nbsp; 0</span></div>
+                            <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Name: </span><span>&nbsp; {customerData?.firstName} {customerData?.lastName}</span></div>
+                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Gender: </span><span>&nbsp; {customerData?.gender?.charAt(0).toUpperCase() + customerData?.gender?.slice(1)}</span></div>
+                            <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Age: </span><span>&nbsp; 0</span></div>
+                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Mobile: </span><span>&nbsp; {customerData?.phoneNo}</span></div>
+                            <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Email: </span><span>&nbsp; {customerData?.email}</span></div>
+                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Income: </span><span>&nbsp; 0</span></div>
+                            <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Country: </span><span>&nbsp; {customerData?.country}</span></div>
+                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>City: </span><span>&nbsp; {customerData?.city}</span></div>
+                            <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Address: </span><span>&nbsp; {customerData?.address1} {customerData?.address2}</span></div>
+                            {/* <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Interest: </span><span>&nbsp; 0</span></div> */}
                         </div>
+                        <hr />
                         <PerfectScrollbar className=''>
                             <Row>
                                 <Col>
                                     <TablerChart
-                                        title='Date wise  Page per Session and time spend'
+                                        title='Date wise  Page per Session and Time Spend'
                                         titleTextLeft=''
-                                        titleTextRight='time spend'
-                                        series={dateWiseSessionAndTime?.map((e) => { return (e?.session) })}
-                                        categories={dateWiseSessionAndTime?.map((e) => { return (e?.created_at) })}
+                                        titleTextRight='Time Spend'
+                                        series={dateWiseSessionAndTime}
+                                        categories={dateWiseSessionAndTime}
                                     />
                                 </Col>
                             </Row>
                             <Row>
                                 <Col>
-                                    <TablerChart
+                                    <DateWiseProductPurchase
                                         title='Date wise Products Purchase By Value'
                                         // titleTextLeft='Total Price'
                                         titleTextLeft=''
-                                        titleTextRight='Total Price'
-                                        series={dateWiseProductPurchase?.map((e) => { return (e?.total_price) })}
-                                        categories={dateWiseProductPurchase?.map((e) => { return (e?.created_at) })}
+                                        titleTextRight='Total Purchase Value'
+                                        series={dateWiseProductPurchase}
+                                        categories={dateWiseProductPurchase}
                                     />
-                                    {console.log(dateWiseProductPurchase)}
                                 </Col>
                                 <Col>
                                     <CircleChart
-                                        title='Product Views VS Product Purchases'
+                                        title='Card Value VS Purchases Value'
                                         seriesName=''
                                         seriesData={pieChartProductPurchase}
                                     />

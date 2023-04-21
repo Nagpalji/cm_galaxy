@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react'
-import { Modal, ModalBody, ModalHeader, Card, CardBody, CardHeader, CardTitle, Spinner, Row, Col } from 'reactstrap'
+import { Card, CardBody, CardHeader, CardTitle } from 'reactstrap'
 import Highcharts from "highcharts/highstock"
 import PieChart from "highcharts-react-official"
 import moment from 'moment'
 
-function TablerChart(props) {
-
+function DateWiseProductPurchase(props) {
     const options = {
         chart: {
             marginTop: 30,
@@ -60,6 +59,16 @@ function TablerChart(props) {
         ],
 
         tooltip: {
+            formatter() {
+                return `<div> ${props.titleTextRight} : ${this.y}</div>
+                <br />${props.series?.map((e) => {
+                    return `${e?.line_items?.map((e) => {
+                        return `<br />${e?.product_name} : ${e?.price}`
+                    })}`
+                })}
+                `
+            },
+
             valueSuffix: '',
             // valueDecimals: 2,
             shared: true
@@ -94,13 +103,13 @@ function TablerChart(props) {
         // series: props.series?.map((e) => { return e.total_price })
         series: [
             {
-                name: 'User Per Session',
+                name: 'Monthly Data',
                 type: 'column',
                 // yAxis: 1,
-                data: props.series?.map((e) => { return e.session }),
-                tooltip: {
-                    valueSuffix: ''
-                }
+                data: props.series?.map((e) => { return e.total_price })
+                // tooltip: {
+                //     valueSuffix: ''
+                // }
             }
         ]
 
@@ -142,4 +151,4 @@ function TablerChart(props) {
     )
 }
 
-export default TablerChart
+export default DateWiseProductPurchase
