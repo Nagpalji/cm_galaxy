@@ -115,8 +115,8 @@ const VerticalNavMenuLink = ({
           parentItem ? resetActiveGroup(item.navLink) : resetActiveAndOpenGroups()
         }}
       >
-
-        {DynamicFaIcon(item.icon)}
+        {item.icon}
+        {/* {DynamicFaIcon(item.icon)} */}
         <span className='menu-item text-truncate'>
           <FormattedMessage id={item.title} />
         </span>

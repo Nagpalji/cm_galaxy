@@ -25,8 +25,8 @@ import HorizontalLayout from '@src/layouts/HorizontalLayout'
 import { getToken } from "firebase/messaging"
 import { messaging } from '../firebase.cofig'
 import { toast } from 'react-toastify'
-import * as Icons from "react-icons/fa" 
-import axios from "axios"
+
+
 const Router = () => {
   async function requestPermission() {
     const permission = await Notification.requestPermission()
@@ -51,35 +51,10 @@ const Router = () => {
       // alert("You denied for the notification")
     }
   }
-  
-  const navBar = () => {
-     axios.post("http://srvr1px.cyberads.io/permissionAssignRead/ ", {
-        user_name: localStorage.getItem("user_name")
-      }).then((res) => {
-        const sample = []
-        res?.data.map((val) => {
-          // console.log({val})
-            const col = {
-              id: "eCommerceDash",
-              title: val.label,
-              icon:val.icon,
-              navLink: val.path
-            }
-            sample.push(col)
-        })
-        localStorage.setItem("navigation", JSON.stringify(sample))
-        // return sample
-      })
-      .catch((error) => {
-        console.log(error.message)
-      })
-  }
 
   useEffect(() => {
-    localStorage.setItem("navigation", JSON.stringify([]))
     // Req user for notification permission
     requestPermission()
-    navBar()
   }, [])
   // ** Hooks
   const [layout, setLayout] = useLayout()
@@ -126,6 +101,7 @@ const Router = () => {
   const FinalRoute = props => {
     const route = props.route
     let action, resource
+
     // ** Assign vars based on route meta
     if (route.meta) {
       action = route.meta.action ? route.meta.action : null
@@ -166,6 +142,7 @@ const Router = () => {
 
       // ** Get Routes and Paths of the Layout
       const { LayoutRoutes, LayoutPaths } = LayoutRoutesAndPaths(layout)
+
       // ** We have freedom to display different layout for different route
       // ** We have made LayoutTag dynamic based on layout, we can also replace it with the only layout component,
       // ** that we want to implement like VerticalLayout or HorizontalLayout
