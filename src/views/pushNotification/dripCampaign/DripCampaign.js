@@ -8,6 +8,7 @@ import Select from "react-select"
 import { Badge, Button, Card, CardBody, CardHeader, Col, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row, Table } from "reactstrap"
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
+import FileBase64 from 'react-file-base64'
 
 export default function DripCampaign() {
   const [modal, setModal] = useState(false)
@@ -191,7 +192,7 @@ export default function DripCampaign() {
           Add New Drip Campaign
         </ModalHeader>
         <Formik
-          initialValues={{ name: "", startDate: "", endDate: "", Frequency: "", AudienceType: "", Audience: [], device: "", message: "", url: "" }}
+          initialValues={{ name: "", startDate: "", endDate: "", Frequency: "", AudienceType: "", Audience: [], device: "", message: "", url: "", image : "" }}
 
           onSubmit={async (values, { setSubmitting }) => {
             try {
@@ -220,6 +221,7 @@ export default function DripCampaign() {
                   Campaign Name
                 </Label>
                 <Input
+                required
                   id="campaignName"
                   name="name"
                   placeholder="Campaign Name"
@@ -232,6 +234,7 @@ export default function DripCampaign() {
                       Start Date
                     </Label>
                     <Input
+                    required
                       id="startDate"
                       name="startDate"
                       placeholder="date placeholder"
@@ -244,6 +247,7 @@ export default function DripCampaign() {
                       End Date
                     </Label>
                     <Input
+                    required
                       id="endDate"
                       name="endDate"
                       placeholder="date placeholder"
@@ -252,10 +256,16 @@ export default function DripCampaign() {
                     />
                   </Col>
                 </Row>
+                <Label className="mt-1">Select Image </Label>
+                <img src={values?.image} width={100} height={100} className="mb-1" />
+                <div className="mb-1"><FileBase64
+                 className="mb-2"
+                onDone={e => setFieldValue("image", e.base64)} /></div>
                 <Label className="mt-1" for="frequencyTime">
                   Frequency Time
                 </Label>
                 <Select
+                required
                   onChange={e => {
                     setFieldValue("Frequency", e)
                   }}
@@ -270,6 +280,7 @@ export default function DripCampaign() {
                       Audience Type
                     </Label>
                     <Select
+                    required
                       onChange={e => {
                         setFieldValue("AudienceType", e)
                       }}
@@ -283,6 +294,7 @@ export default function DripCampaign() {
                       Audience
                     </Label>
                     <Select
+                    required
                       isMulti
                       onChange={e => {
                         // console.log(e)
@@ -369,6 +381,7 @@ export default function DripCampaign() {
                   Message
                 </Label>
                 <Input
+                required
                   id="message"
                   name="message"
                   placeholder="Message"
@@ -379,7 +392,7 @@ export default function DripCampaign() {
                 <Label className="mt-1" for="url">
                   URL
                 </Label>
-                <Input id="url" name="url" onChange={handleChange} placeholder="URL" type="url" />
+                <Input required id="url" name="url" onChange={handleChange} placeholder="URL" type="url" />
               </FormGroup>
               <button type="submit" className="btn btn-primary align-center justify-content-center" disabled={isSubmitting}>
                 Save
@@ -396,7 +409,7 @@ export default function DripCampaign() {
       {/* Update Module */}
       <Modal size="md" isOpen={UpdateModal} toggle={() => setUpdateModal(!UpdateModal)}>
         <Formik
-          initialValues={{ name: editData?.name, startDate: editData?.startDate, endDate: editData?.endDate, Frequency: editData?.Frequency, AudienceType: editData?.AudienceType, Audience: editData?.Audience, device: editData?.device, message: editData?.message, url: editData?.url, OS: editData?.OS }}
+          initialValues={{ name: editData?.name, startDate: editData?.startDate, endDate: editData?.endDate, Frequency: editData?.Frequency, AudienceType: editData?.AudienceType, Audience: editData?.Audience, device: editData?.device, message: editData?.message, url: editData?.url, OS: editData?.OS, image:editData?.image }}
 
           onSubmit={async (values, { setSubmitting }) => {
             try {
@@ -463,6 +476,11 @@ export default function DripCampaign() {
                     />
                   </Col>
                 </Row>
+                <Label className="mt-1">Select Image </Label>
+                <img src={values?.image} width={100} height={100} className="mb-1" />
+                <div className="mb-1"><FileBase64
+                 className="mb-2"
+                onDone={e => setFieldValue("image", e.base64)} /></div>
                 <Label className="mt-1" for="frequencyTime">
                   Frequency Time
                 </Label>
