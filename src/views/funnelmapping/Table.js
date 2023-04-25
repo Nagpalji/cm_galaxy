@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Redirect } from 'react-router-dom'
-import { Modal, ModalBody, ModalHeader, Row, Col } from 'reactstrap'
+import { Modal, ModalBody, ModalHeader, Row, Col, Badge, CardHeader } from 'reactstrap'
 import UserDetail from './UserDetail'
 import TablerChart from './conversion/TablerChart'
 import CircleChart from './conversion/CircleChart'
 import axios from 'axios'
 import { FaUser } from 'react-icons/fa'
+import { AiOutlineClose } from 'react-icons/ai'
 import DateWiseProductPurchase from './conversion/DateWiseProductPurchase'
 
 const Table = ({ data, selectedCategory }) => {
@@ -212,18 +213,23 @@ const Table = ({ data, selectedCategory }) => {
                 </table>
 
                 <Modal size='xl' isOpen={modal} toggle={() => setModal(!modal)} >
-                    <ModalHeader toggle={() => setModal(!modal)}>
-                        <FaUser size={20} className='text-primary' />{' '}
-                        <span className='fw-bold'>User Details</span>
-                    </ModalHeader>
+                    <CardHeader className='d-flex justify-content-between align-items-top'>
+                        <div>
+                            <FaUser size={20} className='text-primary' />{' '}
+                            <span className='fw-bold'>User Details</span>
+                        </div>
+                        <div className=''>
+                            <AiOutlineClose size={20} className='border shadow' onClick={() => setModal(false)}/>
+                        </div>
+                    </CardHeader>
                     <ModalBody>
                         <div className='d-flex row'>
                             <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Name: </span><span>&nbsp; {customerData?.firstName} {customerData?.lastName}</span></div>
-                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Gender: </span><span>&nbsp; {customerData?.gender?.charAt(0).toUpperCase() + customerData?.gender?.slice(1)}</span></div>
-                            <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Age: </span><span>&nbsp; 0</span></div>
+                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Gender: </span><span>&nbsp; {customerData?.gender === '' ? 'N/A' : customerData?.gender?.charAt(0).toUpperCase() + customerData?.gender?.slice(1)}</span></div>
+                            <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Age: </span><span>&nbsp; {'N/A'}</span></div>
                             <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Mobile: </span><span>&nbsp; {customerData?.phoneNo}</span></div>
                             <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Email: </span><span>&nbsp; {customerData?.email}</span></div>
-                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Income: </span><span>&nbsp; 0</span></div>
+                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Income: </span><span>&nbsp; {'N/A'}</span></div>
                             <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Country: </span><span>&nbsp; {customerData?.country}</span></div>
                             <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>City: </span><span>&nbsp; {customerData?.city}</span></div>
                             <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Address: </span><span>&nbsp; {customerData?.address1} {customerData?.address2}</span></div>
@@ -234,7 +240,7 @@ const Table = ({ data, selectedCategory }) => {
                             <Row>
                                 <Col>
                                     <TablerChart
-                                        title='Date wise  Page per Session and Time Spend'
+                                        title='Monthly Page per Session and Time Spend'
                                         titleTextLeft=''
                                         titleTextRight='Time Spend'
                                         series={dateWiseSessionAndTime}
@@ -245,7 +251,7 @@ const Table = ({ data, selectedCategory }) => {
                             <Row>
                                 <Col>
                                     <DateWiseProductPurchase
-                                        title='Date wise Products Purchase By Value'
+                                        title='Monthly Products Purchase By Value'
                                         // titleTextLeft='Total Price'
                                         titleTextLeft=''
                                         titleTextRight='Total Purchase Value'
@@ -255,7 +261,7 @@ const Table = ({ data, selectedCategory }) => {
                                 </Col>
                                 <Col>
                                     <CircleChart
-                                        title='Card Value VS Purchases Value'
+                                        title='Cart Value VS Purchases Value'
                                         seriesName=''
                                         seriesData={pieChartProductPurchase}
                                     />

@@ -5,6 +5,20 @@ import PieChart from "highcharts-react-official"
 import moment from 'moment'
 
 function DateWiseProductPurchase(props) {
+    //     const switchCase = (para) => {
+    //         switch (para) {
+    //             props.series?.map(e => {
+    //             return ( 
+    //                 `${case e.line_items: hello}` 
+    //                 break
+    //                     )
+    //         }
+
+
+    //             default:
+    //     break;
+    // }
+    //     }
     const options = {
         chart: {
             marginTop: 30,
@@ -59,14 +73,58 @@ function DateWiseProductPurchase(props) {
         ],
 
         tooltip: {
+            // formatter() {
+            //     return `<div> ${props.titleTextRight} : ${this.y}</div>
+            //         <br />${props.series?.map((e) => {
+            //         return `${e?.line_items?.map((e) => {
+            //             return `<br />${e?.product_name} : ${e?.price}`
+            //         })}`
+            //     })}
+
+            //         ${console.log()}
+            //         `
+            // },
+
+
+            // formatter() {
+            //     return `<div> ${props.titleTextRight} : ${this.y}
+
+            // ${console.log(props.series?.map(e => { return (moment(e.created_at).format('MMM YYYY') === this.x ? e.created_at : false) }))}
+            // `
+            // },
+
+            // formatter() {
+            //     return `<div> ${props.titleTextRight} : ${this.y}
+
+            // ${console.log(`switch(${this.x}){
+            //     ${props.series?.map(e => {
+            //         return (
+            //             `case ${e.created_at} : ${e.line_items?.map(e => { return (`${e.product_name}: ${e.price}`) })}`
+            //         )
+            //     })}
+            // }`)}
+            // `
+            // },
+
             formatter() {
-                return `<div> ${props.titleTextRight} : ${this.y}</div>
-                <br />${props.series?.map((e) => {
-                    return `${e?.line_items?.map((e) => {
-                        return `<br />${e?.product_name} : ${e?.price}`
-                    })}`
+                return `${this.x}
+                <br />
+                <div>${props.titleTextRight} : $${this.y}</div>
+                <br />
+            ${(this.x === moment(props.series[0].created_at).format('MMM YYYY')) ? props.series[0].line_items?.map(e => {
+                    return (`<br />${e.product_name} : $${e.price}`)
+                }) : (this.x === moment(props.series[1].created_at).format('MMM YYYY')) ? props.series[1].line_items?.map(e => {
+                    return (`<br />${e.product_name} : $${e.price}`)
+                }) : (this.x === moment(props.series[2].created_at).format('MMM YYYY')) ? props.series[2].line_items?.map(e => {
+                    return (`<br />${e.product_name} : $${e.price}`)
+                }) : (this.x === moment(props.series[3].created_at).format('MMM YYYY')) ? props.series[3].line_items?.map(e => {
+                    return (`<br />${e.product_name} : $${e.price}`)
+                }) : (this.x === moment(props.series[4].created_at).format('MMM YYYY')) ? props.series[4].line_items?.map(e => {
+                    return (`<br />${e.product_name} : $${e.price}`)
+                }) : props.series[5].line_items?.map(e => {
+                    return (`<br />${e.product_name} : $${e.price}`)
                 })}
-                `
+            `
             },
 
             valueSuffix: '',
