@@ -9,6 +9,7 @@ import { Badge, Button, Card, CardBody, CardHeader, Col, Form, FormGroup, Input,
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
 import FileBase64 from 'react-file-base64'
+import { AiOutlineClose } from "react-icons/ai"
 
 export default function DripCampaign() {
   const [modal, setModal] = useState(false)
@@ -76,7 +77,7 @@ export default function DripCampaign() {
   ]
 
   const option = [
-    { value: "1", label: "ToFu" },
+    // { value: "1", label: "ToFu" },
     { value: "2", label: "MoFu" },
     { value: "3", label: "BoFu" },
     { value: "4", label: "Existing Customer" }
@@ -90,10 +91,10 @@ export default function DripCampaign() {
   ]
 
   const option02 = [
-    { value: "1", label: "Desktop" },
-    { value: "2", label: "Tablet" },
-    { value: "3", label: "Mobile" },
-    { value: "4", label: "TV" }
+    { value: "Desktop", label: "Desktop" },
+    { value: "Tablet", label: "Tablet" },
+    { value: "Mobile", label: "Mobile" }
+    // { value: "4", label: "TV" }
   ]
 
   const option1 = [
@@ -113,10 +114,10 @@ export default function DripCampaign() {
     { value: "2", label: "Female" }
   ]
   const option05 = [
-    { value: "1", label: "android" },
-    { value: "2", label: "ubuntu" },
-    { value: "3", label: "windows" },
-    { value: "4", label: "ios" }
+    { value: "Android", label: "Android" },
+    // { value: "2", label: "ubuntu" },
+    { value: "Windows", label: "Windows" },
+    { value: "Mac Os X", label: "iOS" }
   ]
 
   const getData = async () => {
@@ -188,11 +189,16 @@ export default function DripCampaign() {
         />
       </Row>
       <Modal size="md" isOpen={modal} toggle={() => setModal(!modal)}>
-        <ModalHeader toggle={() => setModal(!modal)}>
-          Add New Drip Campaign
-        </ModalHeader>
+        <CardHeader className='d-flex justify-content-between align-items-top'>
+          <div>
+            <span className='fw-bold'>Add New Drip Campaign</span>
+          </div>
+          <div className=''>
+            <AiOutlineClose size={20} className='border shadow' onClick={() => setModal(false)} />
+          </div>
+        </CardHeader>
         <Formik
-          initialValues={{ name: "", startDate: "", endDate: "", Frequency: "", AudienceType: "", Audience: [], device: "", message: "", url: "", image : "" }}
+          initialValues={{ name: "", startDate: "", endDate: "", Frequency: "", AudienceType: "", Audience: [], device: "", message: "", url: "", image: "" }}
 
           onSubmit={async (values, { setSubmitting }) => {
             try {
@@ -221,7 +227,7 @@ export default function DripCampaign() {
                   Campaign Name
                 </Label>
                 <Input
-                required
+                  required
                   id="campaignName"
                   name="name"
                   placeholder="Campaign Name"
@@ -234,7 +240,7 @@ export default function DripCampaign() {
                       Start Date
                     </Label>
                     <Input
-                    required
+                      required
                       id="startDate"
                       name="startDate"
                       placeholder="date placeholder"
@@ -247,7 +253,7 @@ export default function DripCampaign() {
                       End Date
                     </Label>
                     <Input
-                    required
+                      required
                       id="endDate"
                       name="endDate"
                       placeholder="date placeholder"
@@ -259,13 +265,13 @@ export default function DripCampaign() {
                 <Label className="mt-1">Select Image </Label>
                 <img src={values?.image} width={100} height={100} className="mb-1" />
                 <div className="mb-1"><FileBase64
-                 className="mb-2"
-                onDone={e => setFieldValue("image", e.base64)} /></div>
+                  className="mb-2"
+                  onDone={e => setFieldValue("image", e.base64)} /></div>
                 <Label className="mt-1" for="frequencyTime">
                   Frequency Time
                 </Label>
                 <Select
-                required
+                  required
                   onChange={e => {
                     setFieldValue("Frequency", e)
                   }}
@@ -280,7 +286,7 @@ export default function DripCampaign() {
                       Audience Type
                     </Label>
                     <Select
-                    required
+                      required
                       onChange={e => {
                         setFieldValue("AudienceType", e)
                       }}
@@ -294,7 +300,7 @@ export default function DripCampaign() {
                       Audience
                     </Label>
                     <Select
-                    required
+                      required
                       isMulti
                       onChange={e => {
                         // console.log(e)
@@ -381,7 +387,7 @@ export default function DripCampaign() {
                   Message
                 </Label>
                 <Input
-                required
+                  required
                   id="message"
                   name="message"
                   placeholder="Message"
@@ -409,7 +415,7 @@ export default function DripCampaign() {
       {/* Update Module */}
       <Modal size="md" isOpen={UpdateModal} toggle={() => setUpdateModal(!UpdateModal)}>
         <Formik
-          initialValues={{ name: editData?.name, startDate: editData?.startDate, endDate: editData?.endDate, Frequency: editData?.Frequency, AudienceType: editData?.AudienceType, Audience: editData?.Audience, device: editData?.device, message: editData?.message, url: editData?.url, OS: editData?.OS, image:editData?.image }}
+          initialValues={{ name: editData?.name, startDate: editData?.startDate, endDate: editData?.endDate, Frequency: editData?.Frequency, AudienceType: editData?.AudienceType, Audience: editData?.Audience, device: editData?.device, message: editData?.message, url: editData?.url, OS: editData?.OS, image: editData?.image }}
 
           onSubmit={async (values, { setSubmitting }) => {
             try {
@@ -479,8 +485,8 @@ export default function DripCampaign() {
                 <Label className="mt-1">Select Image </Label>
                 <img src={values?.image} width={100} height={100} className="mb-1" />
                 <div className="mb-1"><FileBase64
-                 className="mb-2"
-                onDone={e => setFieldValue("image", e.base64)} /></div>
+                  className="mb-2"
+                  onDone={e => setFieldValue("image", e.base64)} /></div>
                 <Label className="mt-1" for="frequencyTime">
                   Frequency Time
                 </Label>
