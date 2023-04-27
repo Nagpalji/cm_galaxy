@@ -260,7 +260,7 @@ const DataAudienceOverview = () => {
     <Fragment>
       <Card>
         <CardHeader className='border-bottom'>
-          <CardTitle tag='h4'>Spends and Leads Analysis</CardTitle>
+          <CardTitle tag='h4'>Spends and {['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? 'Orders' : (['theivdocus@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? "Conversions" : 'Leads')} Analysis</CardTitle>
         </CardHeader>
         {/* <Row className='mx-0 mt-1 mb-50'>
           <Col sm='6'>

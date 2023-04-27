@@ -136,14 +136,14 @@ const WeekOnWeekAnalysis = () => {
         },
 
         title: {
-          text: 'Leads'
+          text: ['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? 'Orders' : (['theivdocus@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? "Conversions" : 'Leads')
         },
         min: 0
       },
       {
         min: 0,
         title: {
-          text: 'CPL'
+          text: ['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? 'Orders Value' : (['theivdocus@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? "Cost Per Conversions" : 'CPL')
         },
         opposite: true
       }
@@ -196,13 +196,13 @@ const WeekOnWeekAnalysis = () => {
 
     series: [
       {
-        name: 'Leads',
+        name: ['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? 'Orders' : (['theivdocus@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? "Conversions" : 'Leads'),
         type: 'column',
         // data: [15, 30, 10, 20, 35]
         data: lead
       },
       {
-        name: 'CPL',
+        name: ['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? 'Orders Value' : (['theivdocus@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? "Cost Per Conversions" : 'CPL'),
         type: 'line',
         marker: {
           enabled: false,
