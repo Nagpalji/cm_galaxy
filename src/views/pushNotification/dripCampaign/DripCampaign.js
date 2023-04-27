@@ -25,7 +25,7 @@ export default function DripCampaign() {
       const response = await axios.post("https://srvr1px.cyberads.io/notificationDelete/", { id })
       toast.success("Deleted Success")
     } catch (error) {
-      toast.error("Deleted Success")
+      toast.error("Deleted Failed")
       console.log(error)
     }
   }

@@ -2,7 +2,7 @@
 import { Fragment, useState, useEffect, memo } from 'react'
 
 // ** Table Columns
-import { serverSideColumns } from './data'
+import { OkanaserverSideColumns, serverSideColumns, theivserverSideColumns } from './data'
 
 // ** Store & Actions
 import { getData } from './actions'
@@ -273,7 +273,7 @@ const DataAudienceOverview = () => {
           pagination
           paginationServer
           className='react-dataTable'
-          columns={serverSideColumns}
+          columns={['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? OkanaserverSideColumns : (['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? theivserverSideColumns : serverSideColumns)}
           sortIcon={<ChevronDown size={10} />}
           paginationComponent={CustomPagination}
           data={dataToRender()}

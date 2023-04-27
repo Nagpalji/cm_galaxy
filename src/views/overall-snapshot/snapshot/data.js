@@ -94,6 +94,110 @@ export const serverSideColumns = [
   // }
 ]
 
+// CAse Of okana 
+export const OkanaserverSideColumns = [
+  {
+    name: 'Traffic Source',
+    selector: 'Traffic Source',
+    sortable: true,
+    minWidth: '180px'
+  },
+  {
+    name: 'Spends',
+    selector: 'Spends',
+    sortable: true,
+    minWidth: '120px'
+  },
+  {
+    name: 'CTR(%)',
+    selector: 'CTR',
+    sortable: true,
+    minWidth: '75px'
+  },
+  {
+    name: 'CPC',
+    selector: 'CPC',
+    sortable: true,
+    minWidth: '120px'
+  },
+  {
+    name: 'Orders',
+    selector: 'Leads',
+    sortable: true,
+    minWidth: '120px'
+  },
+  {
+    name: 'Order Value',
+    selector: 'CPL',
+    sortable: true,
+    minWidth: '180px'
+  }
+  // {
+  //   name: 'Leads',
+  //   selector: 'start_date',
+  //   sortable: true,
+  //   minWidth: '20px'
+  // },
+  // {
+  //   name: 'CPL',
+  //   selector: 'salary',
+  //   sortable: true,
+  //   minWidth: '20px'
+  // }
+]
+// CAse Of theiv 
+export const theivserverSideColumns = [
+  {
+    name: 'Traffic Source',
+    selector: 'Traffic Source',
+    sortable: true,
+    minWidth: '180px'
+  },
+  {
+    name: 'Spends',
+    selector: 'Spends',
+    sortable: true,
+    minWidth: '120px'
+  },
+  {
+    name: 'CTR(%)',
+    selector: 'CTR',
+    sortable: true,
+    minWidth: '75px'
+  },
+  {
+    name: 'CPC',
+    selector: 'CPC',
+    sortable: true,
+    minWidth: '120px'
+  },
+  {
+    name: 'Conversions',
+    selector: 'Leads',
+    sortable: true,
+    minWidth: '120px'
+  },
+  {
+    name: 'Cost Per Conversions',
+    selector: 'CPL',
+    sortable: true,
+    minWidth: '180px'
+  }
+  // {
+  //   name: 'Leads',
+  //   selector: 'start_date',
+  //   sortable: true,
+  //   minWidth: '20px'
+  // },
+  // {
+  //   name: 'CPL',
+  //   selector: 'salary',
+  //   sortable: true,
+  //   minWidth: '20px'
+  // }
+]
+
+
 // ** Platform performance table 2
 export const platformSideColumns = [
   {
