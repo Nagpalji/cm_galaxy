@@ -27,7 +27,7 @@ export default function index() {
 
   const UserData = async () => {
     try {
-      const request = await axios.get("http://srvr1px.cyberads.io/usersData/")
+      const request = await axios.get("https://srvr1px.cyberads.io/usersData/")
       const response = await request?.data
       setUsers(response)
     } catch (error) {
@@ -37,7 +37,7 @@ export default function index() {
   
   const PermissionData = async () => {
     try {
-      const request = await axios.get("http://srvr1px.cyberads.io/permissionFormRead/")
+      const request = await axios.get("https://srvr1px.cyberads.io/permissionFormRead/")
       const response = await request?.data
       setPermisson(response)
     } catch (error) {
@@ -51,7 +51,7 @@ export default function index() {
       Permission: selectedPermission
     }
     try {
-      const request = await axios.post("http://srvr1px.cyberads.io/permissionAssign/", data)
+      const request = await axios.post("https://srvr1px.cyberads.io/permissionAssign/", data)
       const response = await request?.data
       toast.success("Uploaded")
     } catch (error) {
@@ -113,7 +113,7 @@ export default function index() {
                 // }, 400)
                 try {
                   // values = [...values, {user_id:SelectedUsers}]
-                  const request = await axios.post("http://srvr1px.cyberads.io/permissionForm/", values)
+                  const request = await axios.post("https://srvr1px.cyberads.io/permissionForm/", values)
                   const response = await request?.data
                   toast.success("Navigation listed ...")
                   window.location.href = ""

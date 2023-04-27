@@ -22,7 +22,7 @@ export default function DripCampaign() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.post("http://srvr1px.cyberads.io/notificationDelete/", { id })
+      const response = await axios.post("https://srvr1px.cyberads.io/notificationDelete/", { id })
       toast.success("Deleted Success")
     } catch (error) {
       toast.error("Deleted Success")
@@ -122,7 +122,7 @@ export default function DripCampaign() {
 
   const getData = async () => {
     try {
-      const response = await axios.post("http://srvr1px.cyberads.io/notificationList/", { brand_name: localStorage.getItem("brand_name") })
+      const response = await axios.post("https://srvr1px.cyberads.io/notificationList/", { brand_name: localStorage.getItem("brand_name") })
       setData(response.data?.data)
       setFilteredData(response.data?.data)
     } catch (error) {
@@ -203,7 +203,7 @@ export default function DripCampaign() {
           onSubmit={async (values, { setSubmitting }) => {
             try {
               values.brand_name = localStorage.getItem("brand_name")
-              const request = await axios.post("http://srvr1px.cyberads.io/notificationSend/", values)
+              const request = await axios.post("https://srvr1px.cyberads.io/notificationSend/", values)
               const response = await request?.data
               toast.success("campaign created")
               window.location.href = ""
@@ -423,7 +423,7 @@ export default function DripCampaign() {
               values._id = editData?._id
               values.date_created = editData?.date_created
               values.del = editData?.del
-              const request = await axios.post("http://srvr1px.cyberads.io/notificationUpdate/", values)
+              const request = await axios.post("https://srvr1px.cyberads.io/notificationUpdate/", values)
               const response = await request?.data
               toast.success("campaign Updated")
               window.location.href = ""

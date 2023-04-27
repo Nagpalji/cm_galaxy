@@ -19,7 +19,7 @@ export default function PermissionTable({data}) {
 
   const handleDelete = async (id) => {
     try {
-      const request = await axios.post("http://srvr1px.cyberads.io/permissionFormDelete/", {
+      const request = await axios.post("https://srvr1px.cyberads.io/permissionFormDelete/", {
         id
       })
       const response = await request?.data
