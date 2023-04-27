@@ -273,7 +273,7 @@ const DataAudienceOverview = () => {
           pagination
           paginationServer
           className='react-dataTable'
-          columns={['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? OkanaserverSideColumns : (['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? theivserverSideColumns : serverSideColumns)}
+          columns={['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? OkanaserverSideColumns : (['theivdocus@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? theivserverSideColumns : serverSideColumns)}
           sortIcon={<ChevronDown size={10} />}
           paginationComponent={CustomPagination}
           data={dataToRender()}

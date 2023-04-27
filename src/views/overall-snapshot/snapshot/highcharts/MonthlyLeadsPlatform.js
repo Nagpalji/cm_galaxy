@@ -81,7 +81,7 @@ colors: ['#ffc413', '#4acade',  '#83ffff', '#97f7c4', '#52c777'],
     },
       
       title: {
-          text: 'Leads'
+          text: ['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? 'Orders' : (['theivdocus@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? "Conversions" : 'Leads')
       },
       stackLabels: {
           enabled: false
