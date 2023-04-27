@@ -160,7 +160,7 @@ colors: ['#ffc413', '#4acade',  '#83ffff', '#97f7c4', '#52c777'],
   return (
     <Card>
       <CardHeader>
-        <CardTitle tag='h4'>Monthly Leads by Platform</CardTitle>
+        <CardTitle tag='h4'>Monthly {['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? 'Orders' : (['theivdocus@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? "Conversions" : 'Leads')} by Platforms</CardTitle>
       </CardHeader>
       <CardBody>
         {/* <PieChart highcharts={Highcharts} options={options} /> */}
