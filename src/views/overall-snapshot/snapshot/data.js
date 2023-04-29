@@ -122,13 +122,13 @@ export const OkanaserverSideColumns = [
   },
   {
     name: 'Orders',
-    selector: 'Leads',
+    selector: 'Orders',
     sortable: true,
     minWidth: '120px'
   },
   {
     name: 'Order Value',
-    selector: 'CPL',
+    selector: 'Orders Value',
     sortable: true,
     minWidth: '180px'
   }

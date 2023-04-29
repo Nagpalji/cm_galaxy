@@ -62,7 +62,7 @@ const WeekOnWeekAnalysis = () => {
   })
   useState(() => {
 
-    fetch(fet2, {
+    fetch(fet2 + product + c_product + campaign + c_campaign + traffic + c_traffic + geo + c_geo, {
       method: 'GET'
     })
       .then(res => res.json())
