@@ -89,10 +89,10 @@ function DateWiseProductPurchase(props) {
             // formatter() {
             //     return `<div> ${props.titleTextRight} : ${this.y}
 
-            // ${console.log(props.series?.map(e => { return (moment(e.created_at).format('MMM YYYY') === this.x ? e.created_at : false) }))}
+            // ${console.log(this.y === props?.series[5]?.total_price ? 'In' : 'Out')}
             // `
             // },
-
+            //this.x, props?.series?.map(e => { return ((moment(e?.created_at).format('MMM YYYY') === this.x) ? e?.line_items?.map(e => { return (`${e?.product_name}: ${e?.price}`) }) : 'out') })
             // formatter() {
             //     return `<div> ${props.titleTextRight} : ${this.y}
 
@@ -112,17 +112,19 @@ function DateWiseProductPurchase(props) {
                 <div>${props.titleTextRight} : $${this.y}</div>
                 <br />
             ${(this.x === moment(props.series[0].created_at).format('MMM YYYY')) ? props.series[0].line_items?.map(e => {
-                    return (`<br />${e.product_name} : $${e.price}`)
+                    return (`<br /><span style="color: ${this.points[0].color} ">● </span>${e.product_name} : $${e.price}`)
                 }) : (this.x === moment(props.series[1].created_at).format('MMM YYYY')) ? props.series[1].line_items?.map(e => {
-                    return (`<br />${e.product_name} : $${e.price}`)
+                    return (`<br /><span style="color: ${this.points[0].color} ">● </span>${e.product_name} : $${e.price}`)
                 }) : (this.x === moment(props.series[2].created_at).format('MMM YYYY')) ? props.series[2].line_items?.map(e => {
-                    return (`<br />${e.product_name} : $${e.price}`)
+                    return (`<br /><span style="color: ${this.points[0].color} ">● </span>${e.product_name} : $${e.price}`)
                 }) : (this.x === moment(props.series[3].created_at).format('MMM YYYY')) ? props.series[3].line_items?.map(e => {
-                    return (`<br />${e.product_name} : $${e.price}`)
+                    return (`<br /><span style="color: ${this.points[0].color} ">● </span>${e.product_name} : $${e.price}`)
                 }) : (this.x === moment(props.series[4].created_at).format('MMM YYYY')) ? props.series[4].line_items?.map(e => {
-                    return (`<br />${e.product_name} : $${e.price}`)
-                }) : props.series[5].line_items?.map(e => {
-                    return (`<br />${e.product_name} : $${e.price}`)
+                    return (`<br /><span style="color: ${this.points[0].color} ">● </span>${e.product_name} : $${e.price}`)
+                }) : (this.x === moment(props.series[5].created_at).format('MMM YYYY')) ? props.series[5].line_items?.map(e => {
+                    return (`<br /><span style="color: ${this.points[0].color} ">● </span>${e.product_name} : $${e.price}`)
+                }) : props.series[6].line_items?.map(e => {
+                    return (`<br /><span style="color: ${this.points[0].color} ">● </span>${e.product_name} : $${e.price}`)
                 })}
             `
             },

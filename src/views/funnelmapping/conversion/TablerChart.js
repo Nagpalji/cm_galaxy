@@ -8,13 +8,19 @@ function TablerChart(props) {
 
     const options = {
         chart: {
+            // marginRight:50,
             marginTop: 30,
-            // marginRight:11,
-            // marginLeft: 54,
-            zoomType: 'xy',
+            // marginLeft: 75,
+            type: 'column',
             style: {
                 fontFamily: 'Montserrat',
                 fontWeight: '600'
+            },
+            scrollablePlotArea: {
+                minWidth: 600,
+                scrollPositionY: 0,
+                scrollPositionX: 0,
+                opacity: 1
             }
         },
 
@@ -22,6 +28,19 @@ function TablerChart(props) {
 
         title: {
             text: ''
+        },
+
+        legend: {
+            layout: 'horizontal',
+            align: 'center',
+            verticalAlign: 'bottom',
+            y: 0,
+            padding: 3,
+            itemMarginTop: 10,
+            itemMarginBottom: -10,
+            itemStyle: {
+                lineHeight: '14px'
+            }
         },
 
         exporting: {
@@ -33,18 +52,13 @@ function TablerChart(props) {
         },
 
         xAxis: {
-            // categories: [
-            //     '13-17',
-            //     '18-24',
-            //     '25-34',
-            //     '34-44',
-            //     '44-54',
-            //     '55-65',
-            //     '65+',
-            //     'Undetermined'
-            // ],
+            // categories: ['Alright_WYHASR_Becks', 'Alright_FirstDayInOffice_Medibuddy', 'Alright_MGIDW_Walla', 'Binge_CCSI#2_Binomo', 'LIT_CookOff-Pintola', 'LIT_FMLS2E1_Philips', 'Recharge_Mediatek'],
             categories: props.categories?.map((e) => { return moment(e.created_at).format('MMM YYYY') }),
-            crosshair: true
+            labels: {
+                x: -10
+            }
+            // min:1,
+            // max:6
         },
 
         yAxis: [
@@ -52,10 +66,21 @@ function TablerChart(props) {
                 labels: {
                     format: ''
                 },
+                title: {
+                    text: 'Avg. Time Spend'
+                },
+                opposite: true
+
+            }, {
                 gridLineWidth: 0,
                 title: {
-                    text: props.titleTextRight
+                    text: 'Pageviews'
+                },
+                labels: {
+                    format: ''
                 }
+
+
             }
         ],
 
@@ -74,58 +99,36 @@ function TablerChart(props) {
                         x2: 0,
                         y2: 1
                     }
+                    // stops: [
+                    //     [0, Highcharts.getOptions().colors[0]],
+                    //     [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                    // ]
                 }
             }
         },
+        // series: Keyword
 
-        legend: {
-            layout: 'horizontal',
-            align: 'center',
-            verticalAlign: 'bottom',
-            y: 0,
-            padding: 3,
-            itemMarginTop: 10,
-            itemMarginBottom: -10,
-            itemStyle: {
-                lineHeight: '14px'
-            }
-        },
-
-        // series: props.series?.map((e) => { return e.total_price })
         series: [
             {
-                name: 'User Per Session',
+                name: 'Pageviews',
                 type: 'column',
-                // yAxis: 1,
+                yAxis: 1,
+                // data: [49009, 715, 10664, 12876, 10344, 10000, 54564],
                 data: props.series?.map((e) => { return e.session }),
+                tooltip: {
+                    valueSuffix: ' '
+                }
+
+            }, {
+                name: 'Avg. Time Spend',
+                type: 'line',
+                data: [17, 6, 34, 14, 28, 51],
+                // data: click,
                 tooltip: {
                     valueSuffix: ''
                 }
             }
         ]
-
-        //   }, {
-        //     name: 'Female',
-        //     type: 'column',
-        //     // yAxis: 1,
-        //     data: [110, 122, 51, 66, 62, 5],
-        //     tooltip: {
-        //       valueSuffix: ' %'
-        //   }
-
-        // }, {
-        //       name: 'Unknown',
-        //       type: 'column',
-        //        marker: {
-        //           enabled: false,
-        //           symbol: 'circle'
-        //       },
-        //        data: [0, 22, 15, 0, 0, 10],
-        //        tooltip: {
-        //         valueSuffix: ' %'
-        //     }
-        //   }
-        // ]
     }
 
     return (

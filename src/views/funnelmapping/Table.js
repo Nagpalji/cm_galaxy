@@ -12,6 +12,12 @@ import DateWiseProductPurchase from './conversion/DateWiseProductPurchase'
 
 const Table = ({ data, selectedCategory }) => {
 
+    const style = {
+        marginTop: '-5px',
+        // marginRight: '-10px',
+        cursor: 'pointer'
+    }
+
     const [modal, setModal] = useState(false)
     const [dateWiseProductPurchase, setDateWiseProductPurchase] = useState([])
     const [dateWiseSessionAndTime, setDateWiseSessionAndTime] = useState([])
@@ -215,21 +221,21 @@ const Table = ({ data, selectedCategory }) => {
                 <Modal size='xl' isOpen={modal} toggle={() => setModal(!modal)} >
                     <CardHeader className='d-flex justify-content-between align-items-top'>
                         <div>
-                            <FaUser size={20} className='text-primary' />{' '}
+                            <FaUser size={20} />{' '}
                             <span className='fw-bold'>User Details</span>
                         </div>
                         <div className=''>
-                            <AiOutlineClose size={20} className='border shadow' onClick={() => setModal(false)}/>
+                            <AiOutlineClose size={20} style={style} className='rounded' onClick={() => setModal(false)} />
                         </div>
                     </CardHeader>
                     <ModalBody>
                         <div className='d-flex row'>
                             <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Name: </span><span>&nbsp; {customerData?.firstName} {customerData?.lastName}</span></div>
-                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Gender: </span><span>&nbsp; {customerData?.gender === '' ? 'N/A' : customerData?.gender?.charAt(0).toUpperCase() + customerData?.gender?.slice(1)}</span></div>
-                            <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Age: </span><span>&nbsp; {'N/A'}</span></div>
+                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Gender: </span><span>&nbsp; {customerData?.gender === '' ? '-' : customerData?.gender?.charAt(0).toUpperCase() + customerData?.gender?.slice(1)}</span></div>
+                            <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Age: </span><span>&nbsp; {'-'}</span></div>
                             <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Mobile: </span><span>&nbsp; {customerData?.phoneNo}</span></div>
                             <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Email: </span><span>&nbsp; {customerData?.email}</span></div>
-                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Income: </span><span>&nbsp; {'N/A'}</span></div>
+                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Income: </span><span>&nbsp; {'-'}</span></div>
                             <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Country: </span><span>&nbsp; {customerData?.country}</span></div>
                             <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>City: </span><span>&nbsp; {customerData?.city}</span></div>
                             <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Address: </span><span>&nbsp; {customerData?.address1} {customerData?.address2}</span></div>
@@ -240,8 +246,8 @@ const Table = ({ data, selectedCategory }) => {
                             <Row>
                                 <Col>
                                     <TablerChart
-                                        title='Monthly Page per Session and Time Spend'
-                                        titleTextLeft=''
+                                        title='Monthly Page views and Avg. Time Spend'
+                                        titleTextLeft='Time'
                                         titleTextRight='Time Spend'
                                         series={dateWiseSessionAndTime}
                                         categories={dateWiseSessionAndTime}
@@ -261,7 +267,7 @@ const Table = ({ data, selectedCategory }) => {
                                 </Col>
                                 <Col>
                                     <CircleChart
-                                        title='Cart Value VS Purchases Value'
+                                        title='Abandoned Cart Value VS Purchase Value'
                                         seriesName=''
                                         seriesData={pieChartProductPurchase}
                                     />
