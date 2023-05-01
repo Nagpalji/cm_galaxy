@@ -74,7 +74,7 @@ function TablerChart(props) {
             }, {
                 gridLineWidth: 0,
                 title: {
-                    text: 'Page Views'
+                    text: 'Pageviews'
                 },
                 labels: {
                     format: ''
@@ -110,7 +110,7 @@ function TablerChart(props) {
 
         series: [
             {
-                name: 'Page Views',
+                name: 'Pageviews',
                 type: 'column',
                 yAxis: 1,
                 // data: [49009, 715, 10664, 12876, 10344, 10000, 54564],

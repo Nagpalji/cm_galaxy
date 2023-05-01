@@ -121,12 +121,9 @@ export default function DripCampaign() {
   ]
 
   const style = {
-    marginTop: '-15px',
-    marginRight: '-10px',
-    // cursor: 'pointer',
-    backgroundColor: 'red'
-    // color: 'white',
-    // padding: '5px'
+    marginTop: '-5px',
+    // marginRight: '-10px',
+    cursor: 'pointer'
   }
 
   const getData = async () => {
@@ -202,7 +199,7 @@ export default function DripCampaign() {
             <span className='fw-bold'>Add New Drip Campaign</span>
           </div>
           <div className=''>
-            <AiOutlineClose size={20} className='border shadow' onClick={() => setModal(false)} />
+            <AiOutlineClose size={20} style={style} className='rounded' onClick={() => setModal(false)} />
           </div>
         </CardHeader>
         <Formik
