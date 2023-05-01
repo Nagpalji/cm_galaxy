@@ -105,7 +105,7 @@ const EcommerceDashboard = () => {
         </Col>
       </Row>
 
-      <Row className='match-height'>
+      {/* <Row className='match-height'>
         <Col lg='5' md='12'>
         <WeekOnWeekAnalysis /> 
         </Col>
@@ -113,7 +113,7 @@ const EcommerceDashboard = () => {
         <Col lg='7' md='12'>
         <SpendsAndLeadsAnalysis />
         </Col>
-      </Row>
+      </Row> */}
 
       {/* <Row className='match-height'>
         <Col lg='12' md='12'>
