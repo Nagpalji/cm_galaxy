@@ -4,7 +4,7 @@ import Highcharts from "highcharts/highstock"
 import PieChart from "highcharts-react-official"
 
 function CircleChart(props) {
-
+    
     const options = {
         chart: {
             type: 'pie',
@@ -27,19 +27,22 @@ function CircleChart(props) {
 
         tooltip: {
             formatter() {
-                return `<div>${this.key} : $${this.key === 'Cart Value' ? props.seriesData?.draftItems?.reduce((sum, item) => parseFloat(sum + item.price).toFixed(2), 0) : props.seriesData?.orderItems?.reduce((sum, item) => parseFloat(sum + item.price).toFixed(2), 0)} , Product Count: ${this.y}</div> 
-                <br /> 
-                ${(this.key === 'Cart Value') ? props.seriesData?.draftItems?.map((e) => {
-                            return `<br />${e?.product_name} : $${parseFloat(e?.price).toFixed(2)}`
-                        }) : props.seriesData?.orderItems?.map((e) => {
-                            return `<br />${e?.product_name} : $${parseFloat(e?.price).toFixed(2)}`
-                        })
+                return `<div>${this.key} : $${this.key === 'Abandoned Cart Value' ? props.seriesData?.draftItems?.reduce((sum, item) => { return (sum + item.price) }, 0) : props.seriesData?.orderItems?.reduce((sum, item) => { return (sum + item.price) }, 0)} , Quality: ${this.y}</div> 
+                <br /> <br /> 
+                ${(this.key === 'Abandoned Cart Value') ? props.seriesData?.draftItems?.map((e) => {
+                    return `<span style="color: ${this.point.color} ">● </span>${e?.product_name} : $${parseFloat(e?.price).toFixed(2)}`
+                }).join("<br>") : props.seriesData?.orderItems?.map((e) => {
+                    return `<span style="color: ${this.point.color} ">● </span>${e?.product_name} : $${parseFloat(e?.price).toFixed(2)}`
+                }).join("<br>")
                     }`
             },
             // formatter() {
             //     const seriesName = this.point.name
             //     const seriesColor = this.point.color
             //     return `<span> ${seriesName} </span></br><span style="color: ${seriesColor} ">●</span> AdRequest: <b> ${Highcharts.numberFormat(props.seriesData?., 0)} </b></br><span style="color: ${seriesColor} ">●</span> Earnings: <b>$ ${Highcharts.numberFormat(pageViewData[seriesName].earnings, 2)} </b></br><span style="color: ${seriesColor}">●</span> CPM: <b>$ ${pageViewData[seriesName].cpm} </b>`
+            // },
+            // formatter() {
+            //     { console.log(this.key === 'Abandoned Cart Value' ? props.seriesData?.draftItems?.reduce((sum, item) => { return (parseFloat(sum.price + item.price).toFixed(2)) }) : props.seriesData?.orderItems?.reduce((sum, item) => { return (sum.price + item.price) })) }
             // },
             valuePrefix: ''
         },
@@ -88,8 +91,8 @@ function CircleChart(props) {
                     [
                         // [props.seriesData?.draftItems?.length],
                         // [props.seriesData?.orderItems?.length]
-                        ['Cart Value', props.seriesData?.draftItems?.length],
-                        ['Purchases Value', props.seriesData?.orderItems?.length]
+                        ['Abandoned Cart Value', props.seriesData?.draftItems?.length],
+                        ['Purchase Value', props.seriesData?.orderItems?.length]
                     ]
             }
         ]

@@ -43,19 +43,19 @@ export default function Funnel({ res, table }) {
                     {/* ---- Funnel Start Here ---- */}
                     <div className="d-flex justify-content-center align-items-center flex-column col-lg-5 col-sm-12 p-0 py-1">
                         <div onClick={handleChange} className="taper rectangle01" data-toggle="tooltip" data-placement="top" title="Total Number Of Users" style={{ borderColor: "#FFC313 transparent", width: "360px" }}>
-                            <p data-id={"1"} className="hide1 funnelPara text-center text-white">TOFU</p>
+                            <h6 data-id={"1"} className="hide1 funnelPara text-center text-white">TOFU</h6>
                         </div>
                         <div className="rectangle02 h-none" style={{ width: 290 }} />
                         <div onClick={handleChange} className="taper rectangle03" data-toggle="tooltip" data-placement="top" title="User Engagement Behaviour (Number Of Users)" style={{ borderColor: "#4076DA transparent", width: "300px" }}>
-                            <p data-id={"2"} className="hide2 funnelPara text-center text-white">MOFU</p>
+                            <h6 data-id={"2"} className="hide2 funnelPara text-center text-white">MOFU</h6>
                         </div>
                         <div className="rectangle04 h-none" style={{ width: 235 }} />
                         <div onClick={handleChange} className="taper rectangle05" style={{ borderColor: "#4acade transparent", width: "240px" }} >
-                            <p data-id={"3"} className="hide3 funnelPara text-center text-white">BOFU</p>
+                            <h6 data-id={"3"} className="hide3 funnelPara text-center text-white">BOFU</h6>
                         </div>
                         <div className="rectangle06 h-none" style={{ width: 175 }} />
                         <div onClick={handleChange} className="taper rectangle07" style={{ borderColor: "#27CA75 transparent", width: "180px" }} >
-                            <p data-id={"4"} className="hide4 funnelPara text-center text-white">Conversion</p>
+                            <h6 data-id={"4"} className="hide4 funnelPara text-center text-white">Conversion</h6>
                         </div>
                     </div>{" "}
                     {/* ---- Funnel End Here ---- */}

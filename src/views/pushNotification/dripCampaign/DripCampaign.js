@@ -120,6 +120,15 @@ export default function DripCampaign() {
     { value: "Mac Os X", label: "iOS" }
   ]
 
+  const style = {
+    marginTop: '-15px',
+    marginRight: '-10px',
+    // cursor: 'pointer',
+    backgroundColor: 'red'
+    // color: 'white',
+    // padding: '5px'
+  }
+
   const getData = async () => {
     try {
       const response = await axios.post("https://srvr1px.cyberads.io/notificationList/", { brand_name: localStorage.getItem("brand_name") })
@@ -144,36 +153,35 @@ export default function DripCampaign() {
     <div>
       <ToastContainer />
       <Card>
-        <Row className="d-flex justify-content-between p-1">
-          <Col lg="6">
+        <Row className="d-flex justify-content-between align-items-center p-1">
+          <Col lg="6" md='6'>
             <Row>
-              <h3 className="mb-1">Campaign Overview</h3>
+              <h4 className="m-0">Campaign Overview</h4>
             </Row>
           </Col>
-          <Col lg="3">
-            <Col>
-              <Button
-                className="mb-1"
-                color="primary"
-                onClick={() => setModal(true)}
-              >
-                Add New
-              </Button>
-            </Col>
+          <Col lg="4" md='6'>
+            <Row>
+              <Col lg='7' md='8' className='float-right'>
+                <Input
+                  type="search"
+                  placeholder="Search Campaign"
+                  name="search"
+                  className="rounded"
+                  id="searchCampaign"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </Col>
+              <Col>
+                <Button className='float-right mt-md-0 mt-sm-1'
+                  color="primary"
+                  onClick={() => setModal(true)}
+                >
+                  Add New
+                </Button>
+              </Col>
+            </Row>
           </Col>
-
-          <Col>
-            <Input
-              type="search"
-              placeholder="Search Campaign"
-              name="search"
-              className="rounded"
-              id="searchCampaign"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </Col>
-
         </Row>
       </Card>
       <Row>

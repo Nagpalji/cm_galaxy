@@ -314,7 +314,7 @@ if (['demo_account@cmrsl.net', 'cmgalaxy.okana@cmgalaxy.com'].includes(localStor
   sample.push({
     id: 'eCommerceDash',
     title: 'Funnel Mapping',
-    icon: <FaChrome size={12} />,
+    icon: <FaFilter size={12} />,
     navLink: '/funnelmapping/index'     
   },
   {
