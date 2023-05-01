@@ -27,8 +27,8 @@ function CircleChart(props) {
 
         tooltip: {
             formatter() {
-                return `<div>${this.key} : $${this.key === 'Abandoned Cart Value' ? props.seriesData?.draftItems?.reduce((sum, item) => { return (sum + item.price) }, 0) : props.seriesData?.orderItems?.reduce((sum, item) => { return (sum + item.price) }, 0)} , Quality: ${this.y}</div> 
-                <br /> <br /> 
+                return `<div>${this.key} : $${this.key === 'Abandoned Cart Value' ? props.seriesData?.draftItems?.reduce((sum, item) => { return (sum + item.price) }, 0) : props.seriesData?.orderItems?.reduce((sum, item) => { return (sum + item.price) }, 0)}, Quality: ${this.y}</div> 
+                <br />
                 ${(this.key === 'Abandoned Cart Value') ? props.seriesData?.draftItems?.map((e) => {
                     return `<span style="color: ${this.point.color} ">● </span>${e?.product_name} : $${parseFloat(e?.price).toFixed(2)}`
                 }).join("<br>") : props.seriesData?.orderItems?.map((e) => {
