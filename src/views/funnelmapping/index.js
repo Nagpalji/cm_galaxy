@@ -25,12 +25,12 @@ const ChartContainer1 = () => {
     const [tabelData, setTabelData] = useState([])
     function IsJsonString(str) {
         try {
-          const json = JSON.parse(str)
-          return (typeof json === 'object')
+            const json = JSON.parse(str)
+            return (typeof json === 'object')
         } catch (e) {
-          return false
+            return false
         }
-      }
+    }
     let brand
     if (IsJsonString(localStorage.getItem("brand_name"))) {
         brand = JSON.parse(localStorage.getItem("brand_name"))
@@ -50,7 +50,7 @@ const ChartContainer1 = () => {
             .catch(err => {
                 toast.error(err.message)
             })
-       
+
     }, [])
 
     useEffect(() => {
@@ -67,15 +67,15 @@ const ChartContainer1 = () => {
 
     return (
 
-        <>
-        <ToastContainer />
+        <div id='dashboard-ecommerce'>
+            <ToastContainer />
             <Row className="match-height">
                 <Col xs="12">
-                    <Funnel res={res}  table={tabelData} />
+                    <Funnel res={res} table={tabelData} />
                     {/* <FunnelMappingDetails /> */}
                 </Col>
             </Row>
-        </>
+        </div>
     )
 }
 export default ChartContainer1

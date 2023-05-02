@@ -67,7 +67,7 @@ function TablerChart(props) {
                     format: ''
                 },
                 title: {
-                    text: 'Avg. Time Spend'
+                    text: 'Avg. Time Spend (Min.)'
                 },
                 opposite: true
 
@@ -118,11 +118,12 @@ function TablerChart(props) {
                 tooltip: {
                     valueSuffix: ' '
                 }
-
+                
             }, {
-                name: 'Avg. Time Spend',
+                name: 'Avg. Time Spend (Min.)',
                 type: 'line',
-                data: [17, 6, 34, 14, 28, 51],
+                data: props.series?.map((e) => { return e.minutes }),
+                // data: [17, 6, 34, 14, 28, 51],
                 // data: click,
                 tooltip: {
                     valueSuffix: ''
