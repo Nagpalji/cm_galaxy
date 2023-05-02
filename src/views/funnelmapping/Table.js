@@ -7,7 +7,7 @@ import TablerChart from './conversion/TablerChart'
 import CircleChart from './conversion/CircleChart'
 import axios from 'axios'
 import { FaUser } from 'react-icons/fa'
-import { AiOutlineClose } from 'react-icons/ai'
+import { MdClose } from 'react-icons/md'
 import DateWiseProductPurchase from './conversion/DateWiseProductPurchase'
 
 const Table = ({ data, selectedCategory }) => {
@@ -220,13 +220,11 @@ const Table = ({ data, selectedCategory }) => {
 
                 <Modal size='xl' isOpen={modal} toggle={() => setModal(!modal)} >
                     <CardHeader className='d-flex justify-content-between align-items-top'>
-                        <div>
+                        <h5>
                             <FaUser size={20} />{' '}
-                            <span className='fw-bold'>User Details</span>
-                        </div>
-                        <div className=''>
-                            <AiOutlineClose size={20} style={style} className='rounded' onClick={() => setModal(false)} />
-                        </div>
+                            <span className=''>User Details</span>
+                        </h5>
+                        <MdClose size={16} style={style} className='rounded' onClick={() => setModal(false)} />
                     </CardHeader>
                     <ModalBody>
                         <div className='d-flex row'>

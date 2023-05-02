@@ -3,13 +3,12 @@ import React, { useEffect, useState } from "react"
 import DataTable from "react-data-table-component"
 import { ChevronDown } from "react-feather"
 import { FaEdit } from "react-icons/fa"
-import { MdDelete } from "react-icons/md"
+import { MdDelete, MdClose } from "react-icons/md"
 import Select from "react-select"
 import { Badge, Button, Card, CardBody, CardHeader, Col, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row, Table } from "reactstrap"
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
 import FileBase64 from 'react-file-base64'
-import { AiOutlineClose } from "react-icons/ai"
 
 export default function DripCampaign() {
   const [modal, setModal] = useState(false)
@@ -48,7 +47,7 @@ export default function DripCampaign() {
     },
     {
       name: "Channel",
-      selector: (row) => "push notification",
+      selector: (row) => "Push Notification",
       sortable: true
     },
     {
@@ -189,18 +188,16 @@ export default function DripCampaign() {
           sortIcon={<ChevronDown size={10} />}
           columns={columns}
           data={filteredData}
-          selectableRows
+          // selectableRows
           selectableRowsHighlight
         />
       </Row>
       <Modal size="md" isOpen={modal} toggle={() => setModal(!modal)}>
         <CardHeader className='d-flex justify-content-between align-items-top'>
-          <div>
-            <span className='fw-bold'>Add New Drip Campaign</span>
-          </div>
-          <div className=''>
-            <AiOutlineClose size={20} style={style} className='rounded' onClick={() => setModal(false)} />
-          </div>
+          <h5>
+            <span>Add New Drip Campaign</span>
+          </h5>
+          <MdClose size={16} style={style} className='rounded' onClick={() => setModal(false)} />
         </CardHeader>
         <Formik
           initialValues={{ name: "", startDate: "", endDate: "", Frequency: "", AudienceType: "", Audience: [], device: "", message: "", url: "", image: "" }}
@@ -349,7 +346,7 @@ export default function DripCampaign() {
                                 }}
                                 options={option04}
                                 name="age"
-                                placeholder="age"
+                                placeholder="Gender"
                               />
                             </Col>}
                           {(val.label === "Device") &&
