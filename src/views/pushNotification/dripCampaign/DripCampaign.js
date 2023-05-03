@@ -9,12 +9,16 @@ import { Badge, Button, Card, CardBody, CardHeader, Col, Form, FormGroup, Input,
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
 import FileBase64 from 'react-file-base64'
+import ReactPaginate from "react-paginate"
+import { selectThemeColors } from '@utils'
 
 export default function DripCampaign() {
   const [modal, setModal] = useState(false)
   const [data, setData] = useState([])
   const [search, setSearch] = useState("")
   const [filteredData, setFilteredData] = useState([])
+  const [pages, setPages] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
 
   const [UpdateModal, setUpdateModal] = useState(false)
   const [editData, seteditData] = useState([])
@@ -125,6 +129,37 @@ export default function DripCampaign() {
     cursor: 'pointer'
   }
 
+  // ** Custom Pagination
+  const CustomPagination = () => {
+    const count = pages
+
+    return (
+      <ReactPaginate
+        previousLabel={''}
+        nextLabel={''}
+        breakLabel='...'
+        pageCount={count || 1}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={2}
+        activeClassName='active'
+        forcePage={currentPage !== 0 ? currentPage - 1 : 0}
+        onPageChange={page => handlePagination(page)}
+        pageClassName={'page-item'}
+        nextLinkClassName={'page-link'}
+        nextClassName={'page-item next'}
+        previousClassName={'page-item prev'}
+        previousLinkClassName={'page-link'}
+        pageLinkClassName={'page-link'}
+        breakClassName='page-item'
+        breakLinkClassName='page-link'
+        containerClassName={
+          'pagination react-paginate separated-pagination pagination-sm justify-content-end pr-1 mt-2'
+        }
+      />
+    )
+  }
+
+
   const getData = async () => {
     try {
       const response = await axios.post("https://srvr1px.cyberads.io/notificationList/", { brand_name: localStorage.getItem("brand_name") })
@@ -149,55 +184,50 @@ export default function DripCampaign() {
     <div>
       <ToastContainer />
       <Card>
-        <Row className="d-flex justify-content-between align-items-center p-1">
-          <Col lg="6" md='6'>
-            <Row>
-              <h4 className="m-0">Campaign Overview</h4>
-            </Row>
-          </Col>
-          <Col lg="4" md='6'>
-            <Row>
-              <Col lg='7' md='8' className='float-right'>
-                <Input
-                  id="searchCampaign"
-                  className="rounded"
-                  type="search"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search Campaign"
-                  name="search"
-                />
-              </Col>
-              <Col>
-                <Button className='float-right mt-md-0 mt-sm-1'
-                  color="primary"
-                  onClick={() => setModal(true)}
-                >
-                  Add New
-                </Button>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      {/* </Card>
-      <Card> */}
         <DataTable
-          onHeader
+          noHeader
           pagination
-          // responsive
-          // paginationServer
+          subHeader
+          responsive
+          paginationServer
           columns={columns}
           sortIcon={<ChevronDown size={10} />}
           className="react-dataTable"
-          // paginationComponent
+          paginationComponent={CustomPagination}
           data={filteredData}
-        // selectableRows
-        // selectableRowsHighlight
-        // subHeaderComponent={
-        //   <>
-
-        //   </>
-        //   }
+          // selectableRows
+          // selectableRowsHighlight
+          subHeaderComponent={
+            <div className='invoice-list-table-header w-100 mr-1 ml-50 mt-2 mb-75'>
+              <Row>
+                <Col xl='6' className='d-flex align-items-center p-0'>
+                  <h5 className="m-0">
+                    <span>Campaign Overview</span>
+                  </h5>
+                </Col>
+                <Col
+                  xl='6'
+                  className='d-flex align-items-sm-center justify-content-lg-end justify-content-start flex-lg-nowrap flex-wrap flex-sm-row flex-column pr-lg-1 p-0 mt-lg-0 mt-1'
+                >
+                  <div className='d-flex align-items-center mb-sm-0 mb-1 mr-1'>
+                    <Label className='mb-0' for='search-invoice'>
+                      Search:
+                    </Label>
+                    <Input
+                      id='search-invoice'
+                      className='ml-50 w-100'
+                      type='text'
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                    />
+                  </div>
+                  <Button.Ripple color='primary' onClick={() => setModal(true)}>
+                    Add New
+                  </Button.Ripple>
+                </Col>
+              </Row>
+            </div>
+          }
         />
       </Card>
       <Modal size="md" isOpen={modal} toggle={() => setModal(!modal)}>
@@ -274,9 +304,8 @@ export default function DripCampaign() {
                 </Row>
                 <Label className="mt-1">Select Image </Label>
                 <img src={values?.image} width={100} height={100} className="mb-1" />
-                <div className="mb-1"><FileBase64
-                  className="mb-2"
-                  onDone={e => setFieldValue("image", e.base64)} /></div>
+                <div className="mb-1">
+                  <FileBase64 className="mb-2" onDone={e => setFieldValue("image", e.base64)} /></div>
                 <Label className="mt-1" for="frequencyTime">
                   Frequency Time
                 </Label>
@@ -319,6 +348,9 @@ export default function DripCampaign() {
                       options={option01}
                       name="Audience"
                       placeholder="Audience"
+                      className='react-select'
+                      classNamePrefix='select'
+                      theme={selectThemeColors}
                     />
                   </Col>
                   <Row>
@@ -339,6 +371,9 @@ export default function DripCampaign() {
                                 options={option03}
                                 name="age"
                                 placeholder="age"
+                                className='react-select'
+                                classNamePrefix='select'
+                                theme={selectThemeColors}
                               />
                             </Col>}
                           {(val.label === "Gender") &&
@@ -355,6 +390,9 @@ export default function DripCampaign() {
                                 options={option04}
                                 name="age"
                                 placeholder="Gender"
+                                className='react-select'
+                                classNamePrefix='select'
+                                theme={selectThemeColors}
                               />
                             </Col>}
                           {(val.label === "Device") &&
@@ -370,6 +408,9 @@ export default function DripCampaign() {
                                 options={option02}
                                 name="device"
                                 placeholder="device"
+                                className='react-select'
+                                classNamePrefix='select'
+                                theme={selectThemeColors}
                               />
                             </Col>}
                           {(val.label === "OS") &&
@@ -385,6 +426,9 @@ export default function DripCampaign() {
                                 options={option05}
                                 name="OS"
                                 placeholder="OS"
+                                className='react-select'
+                                classNamePrefix='select'
+                                theme={selectThemeColors}
                               />
                             </Col>}
                         </>
@@ -410,12 +454,9 @@ export default function DripCampaign() {
                 </Label>
                 <Input required id="url" name="url" onChange={handleChange} placeholder="URL" type="url" />
               </FormGroup>
-              <button type="submit" className="btn btn-primary align-center justify-content-center" disabled={isSubmitting}>
+              <Button.Ripple type="submit" color='primary' className="align-center justify-content-center" disabled={isSubmitting}>
                 Save
-              </button>
-              {/* <Button color="primary align-center justify-content-center">
-                Save
-              </Button> */}
+              </Button.Ripple>
             </Form>
           )}
         </Formik>
@@ -540,6 +581,9 @@ export default function DripCampaign() {
                       options={option01}
                       name="Audience"
                       placeholder="Audience"
+                      className='react-select'
+                      classNamePrefix='select'
+                      theme={selectThemeColors}
                     />
                   </Col>
                   {/* <Col>
@@ -577,6 +621,9 @@ export default function DripCampaign() {
                               options={option03}
                               name="age"
                               placeholder="age"
+                              className='react-select'
+                              classNamePrefix='select'
+                              theme={selectThemeColors}
                             />
                           </Col>}
                         {(val.label === "Gender") &&
@@ -594,6 +641,9 @@ export default function DripCampaign() {
                               options={option04}
                               name="age"
                               placeholder="age"
+                              className='react-select'
+                              classNamePrefix='select'
+                              theme={selectThemeColors}
                             />
                           </Col>}
                         {(val.label === "Device") &&
@@ -601,7 +651,8 @@ export default function DripCampaign() {
                             <Label className="mt-1" for="endDate">
                               Device
                             </Label>
-                            <Select isMulti
+                            <Select
+                              isMulti
                               defaultValue={editData.device}
                               onChange={e => {
                                 // console.log(e)
@@ -610,6 +661,9 @@ export default function DripCampaign() {
                               options={option02}
                               name="device"
                               placeholder="device"
+                              className='react-select'
+                              classNamePrefix='select'
+                              theme={selectThemeColors}
                             />
                           </Col>}
                         {(val.label === "OS") &&
@@ -617,7 +671,8 @@ export default function DripCampaign() {
                             <Label className="mt-1" for="endDate">
                               Os
                             </Label>
-                            <Select isMulti
+                            <Select
+                              isMulti
                               defaultValue={editData.OS}
                               onChange={e => {
                                 // console.log(e)
@@ -626,6 +681,9 @@ export default function DripCampaign() {
                               options={option05}
                               name="OS"
                               placeholder="OS"
+                              className='react-select'
+                              classNamePrefix='select'
+                              theme={selectThemeColors}
                             />
                           </Col>}
                       </>
@@ -649,12 +707,9 @@ export default function DripCampaign() {
                 </Label>
                 <Input id="url" name="url" value={values.url} onChange={handleChange} placeholder="URL" type="url" />
               </FormGroup>
-              <button type="submit" className="btn btn-primary align-center justify-content-center" disabled={isSubmitting}>
+              <Button.Ripple type="submit" color='primary' className="align-center justify-content-center" disabled={isSubmitting}>
                 Update
-              </button>
-              {/* <Button color="primary align-center justify-content-center">
-                Save
-              </Button> */}
+              </Button.Ripple>
             </Form>
           )}
         </Formik>

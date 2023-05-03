@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Redirect } from 'react-router-dom'
-import { Modal, ModalBody, ModalHeader, Row, Col, Badge, CardHeader } from 'reactstrap'
+import { Modal, ModalBody, ModalHeader, Row, Col, Badge, CardHeader, Button } from 'reactstrap'
 import UserDetail from './UserDetail'
 import TablerChart from './conversion/TablerChart'
 import CircleChart from './conversion/CircleChart'
@@ -75,7 +75,7 @@ const Table = ({ data, selectedCategory }) => {
         <>
             <div className='d-flex justify-content-end'>
                 <form className="form-inline my-lg-0">
-                    <button className="mb-1 btn btn-primary" onClick={downloadHandle}>Download</button>
+                    <Button.Ripple color="primary" className="mb-1" onClick={downloadHandle}>Download</Button.Ripple>
                 </form>
             </div>
             {/* -- ToFu Start Here -- */}
