@@ -11,7 +11,7 @@ import PageLayoutsRoutes from './PageLayouts'
 
 // new routes Start
 import OverallSnapshotRoutes from './OverallSnapshot'
-import FunnelMappingRoutes from './FunnelMapping'
+import FunnelMapRoutes from './FunnelMap'
 import PushNotificationRoutes  from './PushNotification'
 import Dv360PerformanceRoutes from './Dv360Performance'
 import FacebookPerformanceRoutes from './FacebookPerformance'
@@ -40,7 +40,7 @@ const Routes = [
   ...UiElementRoutes,
   ...ExtensionsRoutes,
   ...PageLayoutsRoutes,
-  ...FunnelMappingRoutes,
+  ...FunnelMapRoutes,
   ...PushNotificationRoutes,
   ...FormRoutes,
   ...TablesRoutes,

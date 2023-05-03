@@ -3,7 +3,7 @@ import { HiDocumentSearch } from 'react-icons/hi'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 // import "./details.css"
 
-const FunnelMappingDetails = () => {
+const FunnelMapDetails = () => {
   return (
     <>
       <div className="container-fluid">
@@ -75,4 +75,4 @@ const FunnelMappingDetails = () => {
   )
 }
 
-export default FunnelMappingDetails
+export default FunnelMapDetails

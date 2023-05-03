@@ -7,7 +7,7 @@ import { Chart, ChartTitle, ChartLegend, ChartTooltip, ChartArea, ChartPlotArea,
 import "hammerjs"
 import Funnel from './Funnel'
 import Table from './Table'
-import FunnelMappingDetails from './FunnelMappingDetails'
+import FunnelMapDetails from './FunnelMapDetails'
 import { toast, ToastContainer } from 'react-toastify'
 
 const tooltipRender = (props) => {
@@ -72,7 +72,7 @@ const ChartContainer1 = () => {
             <Row className="match-height">
                 <Col xs="12">
                     <Funnel res={res} table={tabelData} />
-                    {/* <FunnelMappingDetails /> */}
+                    {/* <FunnelMapDetails /> */}
                 </Col>
             </Row>
         </div>

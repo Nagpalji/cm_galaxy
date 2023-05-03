@@ -110,7 +110,7 @@ const SpendsViewsByCampaign = () => {
       }
     },
 
-    colors: ['#4076d9', '#38a6d9', '#4acade', '#00def6', '#83ffff', '#97f7c4', '#52c777', '#3aab58', '#15ad29', '#ffc413'],
+    colors: ['#ffc413', '#4acade', '#4076d9', '#38a6d9', '#00def6', '#83ffff', '#97f7c4', '#52c777', '#3aab58', '#15ad29'],
 
     title: {
       text: '',
@@ -193,7 +193,7 @@ const SpendsViewsByCampaign = () => {
     series: [
       {
         name: 'Views',
-        type: 'line',
+        type: 'column',
         data: views,
         marker:
         {
@@ -224,7 +224,7 @@ const SpendsViewsByCampaign = () => {
     return (
 
       <Card>
-      <Row className='match-height'>
+        <Row className='match-height'>
           <Col lg='9' md='12'>
             <CardHeader>
               <CardTitle tag='h4'>Spends & Views by Campaign </CardTitle>
@@ -239,9 +239,9 @@ const SpendsViewsByCampaign = () => {
             <div style={{ height: "430px", visibility: 'hidden' }} ></div>
           </Col>
         </Row>
-       
+
       </Card>
-        )
+    )
   } else {
     return (
       <Card>

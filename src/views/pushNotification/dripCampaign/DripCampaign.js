@@ -159,13 +159,13 @@ export default function DripCampaign() {
             <Row>
               <Col lg='7' md='8' className='float-right'>
                 <Input
-                  type="search"
-                  placeholder="Search Campaign"
-                  name="search"
-                  className="rounded"
                   id="searchCampaign"
+                  className="rounded"
+                  type="search"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search Campaign"
+                  name="search"
                 />
               </Col>
               <Col>
@@ -179,19 +179,27 @@ export default function DripCampaign() {
             </Row>
           </Col>
         </Row>
-      </Card>
-      <Row>
+      {/* </Card>
+      <Card> */}
         <DataTable
           onHeader
           pagination
-          className="react-dataTable"
-          sortIcon={<ChevronDown size={10} />}
+          // responsive
+          // paginationServer
           columns={columns}
+          sortIcon={<ChevronDown size={10} />}
+          className="react-dataTable"
+          // paginationComponent
           data={filteredData}
-          // selectableRows
-          selectableRowsHighlight
+        // selectableRows
+        // selectableRowsHighlight
+        // subHeaderComponent={
+        //   <>
+
+        //   </>
+        //   }
         />
-      </Row>
+      </Card>
       <Modal size="md" isOpen={modal} toggle={() => setModal(!modal)}>
         <CardHeader className='d-flex justify-content-between align-items-top'>
           <h5>
