@@ -2,8 +2,8 @@ import { Formik } from "formik"
 import React, { useEffect, useState } from "react"
 import DataTable from "react-data-table-component"
 import { ChevronDown } from "react-feather"
-import { FaEdit } from "react-icons/fa"
-import { MdDelete, MdClose } from "react-icons/md"
+import { FaEdit, FaTrash } from "react-icons/fa"
+import { MdClose } from "react-icons/md"
 import Select from "react-select"
 import { Badge, Button, Card, CardBody, CardHeader, Col, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row, Table } from "reactstrap"
 import axios from "axios"
@@ -66,12 +66,12 @@ export default function DripCampaign() {
       name: "Action",
       selector: (row) => (
         <>
-          <FaEdit size={24} className="text-primary" onClick={(e) => {
+          <FaEdit size={20} className="text-primary" onClick={(e) => {
             setUpdateModal(true)
             seteditData(row)
           }} />
 
-          <MdDelete size={24} className="ml-1 text-primary" onClick={(e) => {
+          <FaTrash size={20} className="ml-1 text-primary" onClick={(e) => {
             handleDelete(row._id)
           }} />
         </>
@@ -192,7 +192,7 @@ export default function DripCampaign() {
           paginationServer
           columns={columns}
           sortIcon={<ChevronDown size={10} />}
-          className="react-dataTable"
+          className="react-dataTable rounded"
           paginationComponent={CustomPagination}
           data={filteredData}
           // selectableRows
@@ -201,9 +201,9 @@ export default function DripCampaign() {
             <div className='invoice-list-table-header w-100 mr-1 ml-50 mt-2 mb-75'>
               <Row>
                 <Col xl='6' className='d-flex align-items-center p-0'>
-                  <h5 className="m-0">
+                  <h4 className="m-0">
                     <span>Campaign Overview</span>
-                  </h5>
+                  </h4>
                 </Col>
                 <Col
                   xl='6'
@@ -245,10 +245,10 @@ export default function DripCampaign() {
               values.brand_name = localStorage.getItem("brand_name")
               const request = await axios.post("https://srvr1px.cyberads.io/notificationSend/", values)
               const response = await request?.data
-              toast.success("campaign created")
+              toast.success("Campaign Created")
               window.location.href = ""
             } catch (error) {
-              toast.error("unable to create Campaign")
+              toast.error("Unable to Create Campaign")
             }
             setSubmitting(false)
           }}
@@ -302,10 +302,15 @@ export default function DripCampaign() {
                     />
                   </Col>
                 </Row>
-                <Label className="mt-1">Select Image </Label>
-                <img src={values?.image} width={100} height={100} className="mb-1" />
-                <div className="mb-1">
-                  <FileBase64 className="mb-2" onDone={e => setFieldValue("image", e.base64)} /></div>
+                <Row>
+                  <Col>
+                    <Label className="mt-1">Select Image </Label>
+                    <img src={values?.image} width={100} height={100} className="mb-1" />
+                  </Col>
+                  <Col className='align-items-center justify-content-center d-flex'>
+                    <FileBase64 className="mb-2" onDone={e => setFieldValue("image", e.base64)} />
+                  </Col>
+                </Row>
                 <Label className="mt-1" for="frequencyTime">
                   Frequency Time
                 </Label>
@@ -416,7 +421,7 @@ export default function DripCampaign() {
                           {(val.label === "OS") &&
                             <Col>
                               <Label className="mt-1" for="endDate">
-                                Os
+                                OS
                               </Label>
                               <Select isMulti
                                 onChange={e => {
@@ -476,10 +481,10 @@ export default function DripCampaign() {
               values.del = editData?.del
               const request = await axios.post("https://srvr1px.cyberads.io/notificationUpdate/", values)
               const response = await request?.data
-              toast.success("campaign Updated")
+              toast.success("Campaign Updated")
               window.location.href = ""
             } catch (error) {
-              toast.error("unable to Update Campaign")
+              toast.error("Unable to Update Campaign")
             }
             setSubmitting(false)
           }}
@@ -533,11 +538,15 @@ export default function DripCampaign() {
                     />
                   </Col>
                 </Row>
-                <Label className="mt-1">Select Image </Label>
-                <img src={values?.image} width={100} height={100} className="mb-1" />
-                <div className="mb-1"><FileBase64
-                  className="mb-2"
-                  onDone={e => setFieldValue("image", e.base64)} /></div>
+                <Row>
+                  <Col>
+                    <Label className="mt-1">Select Image </Label>
+                    <img src={values?.image} width={100} height={100} />
+                  </Col>
+                  <Col className='d-flex justify-content-center align-items-center'>
+                      <FileBase64 onDone={e => setFieldValue("image", e.base64)} />
+                  </Col>
+                </Row>
                 <Label className="mt-1" for="frequencyTime">
                   Frequency Time
                 </Label>
