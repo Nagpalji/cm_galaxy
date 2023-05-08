@@ -2,7 +2,7 @@ import { Formik } from "formik"
 import React, { useEffect, useState } from "react"
 import DataTable from "react-data-table-component"
 import { ChevronDown } from "react-feather"
-import { FaEdit, FaTrash } from "react-icons/fa"
+import { FaEdit, FaEye, FaTrash } from "react-icons/fa"
 import { MdClose } from "react-icons/md"
 import Select from "react-select"
 import { Badge, Button, Card, CardBody, CardHeader, Col, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row, Table } from "reactstrap"
@@ -11,6 +11,7 @@ import { toast, ToastContainer } from "react-toastify"
 import FileBase64 from 'react-file-base64'
 import ReactPaginate from "react-paginate"
 import { selectThemeColors } from '@utils'
+import Flatpickr from 'react-flatpickr'
 
 export default function DripCampaign() {
   const [modal, setModal] = useState(false)
@@ -21,7 +22,9 @@ export default function DripCampaign() {
   const [currentPage, setCurrentPage] = useState(1)
 
   const [UpdateModal, setUpdateModal] = useState(false)
+  const [previewNotificationModal, setPreviewNotificationModal] = useState(false)
   const [editData, seteditData] = useState([])
+  const [previewNotification, setPreviewNotification] = useState([])
 
   const handleDelete = async (id) => {
     try {
@@ -58,10 +61,6 @@ export default function DripCampaign() {
       name: "Message",
       selector: (row) => row.message
     },
-    // {
-    //     name: 'Action',
-    //     selector: row => <Link to={'/editUser/'} className='btn btn-primary'><FaEdit size={24} className='text-primary' /></Link>
-    // },
     {
       name: "Action",
       selector: (row) => (
@@ -73,6 +72,11 @@ export default function DripCampaign() {
 
           <FaTrash size={20} className="ml-1 text-primary" onClick={(e) => {
             handleDelete(row._id)
+          }} />
+
+          <FaEye size={20} className="ml-1 text-primary" onClick={(e) => {
+            setPreviewNotificationModal(true)
+            setPreviewNotification(row)
           }} />
         </>
       )
@@ -129,6 +133,8 @@ export default function DripCampaign() {
     cursor: 'pointer'
   }
 
+  const date = new Date
+
   // ** Custom Pagination
   const CustomPagination = () => {
     const count = pages
@@ -180,6 +186,41 @@ export default function DripCampaign() {
   useEffect(() => {
     getData()
   }, [])
+
+  const header = () => {
+    return (
+      <div className='campaign-table-header w-100 mr-1 ml-50 mt-2 mb-75'>
+        <Row>
+          <Col xl='6' className='d-flex align-items-center p-0'>
+            <h4 className="m-0">
+              <span>Campaign Overview</span>
+            </h4>
+          </Col>
+          <Col
+            xl='6'
+            className='d-flex align-items-sm-center justify-content-lg-end justify-content-start flex-lg-nowrap flex-wrap flex-sm-row flex-column pr-lg-1 p-0 mt-lg-0 mt-1'
+          >
+            <div className='d-flex align-items-center mb-sm-0 mb-1 mr-1'>
+              <Label className='mb-0' for='search-campaign'>
+                Search:
+              </Label>
+              <Input
+                id='search-campaign'
+                className='ml-50 w-100'
+                type='text'
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+            <Button.Ripple color='primary' onClick={() => setModal(true)}>
+              Add New
+            </Button.Ripple>
+          </Col>
+        </Row>
+      </div>
+    )
+  }
+
   return (
     <div>
       <ToastContainer />
@@ -187,49 +228,21 @@ export default function DripCampaign() {
         <DataTable
           noHeader
           pagination
-          subHeader
           responsive
           paginationServer
           columns={columns}
           sortIcon={<ChevronDown size={10} />}
-          className="react-dataTable rounded"
+          className="react-dataTable"
           paginationComponent={CustomPagination}
           data={filteredData}
           // selectableRows
           // selectableRowsHighlight
-          subHeaderComponent={
-            <div className='invoice-list-table-header w-100 mr-1 ml-50 mt-2 mb-75'>
-              <Row>
-                <Col xl='6' className='d-flex align-items-center p-0'>
-                  <h4 className="m-0">
-                    <span>Campaign Overview</span>
-                  </h4>
-                </Col>
-                <Col
-                  xl='6'
-                  className='d-flex align-items-sm-center justify-content-lg-end justify-content-start flex-lg-nowrap flex-wrap flex-sm-row flex-column pr-lg-1 p-0 mt-lg-0 mt-1'
-                >
-                  <div className='d-flex align-items-center mb-sm-0 mb-1 mr-1'>
-                    <Label className='mb-0' for='search-invoice'>
-                      Search:
-                    </Label>
-                    <Input
-                      id='search-invoice'
-                      className='ml-50 w-100'
-                      type='text'
-                      value={search}
-                      onChange={(e) => setSearch(e.target.value)}
-                    />
-                  </div>
-                  <Button.Ripple color='primary' onClick={() => setModal(true)}>
-                    Add New
-                  </Button.Ripple>
-                </Col>
-              </Row>
-            </div>
-          }
+          subHeader
+          subHeaderComponent={header()}
         />
       </Card>
+      
+      {/* Add New-Drip-Compaign */}
       <Modal size="md" isOpen={modal} toggle={() => setModal(!modal)}>
         <CardHeader className='d-flex justify-content-between align-items-top'>
           <h5>
@@ -279,26 +292,43 @@ export default function DripCampaign() {
                     <Label className="mt-1" for="startDate">
                       Start Date
                     </Label>
-                    <Input
-                      required
+                    {/* <Input
                       id="startDate"
+                      type='date'
                       name="startDate"
-                      placeholder="date placeholder"
-                      type="date"
+                      required
+                      // placeholder="date placeholder"
                       onChange={handleChange}
+                    /> */}
+                    <Flatpickr
+                      type="date"
+                      required
+                      // data-enable-time
+                      // value={date}
+                      onChange={handleChange}
+                      id='range-picker'
+                      className='form-control'
+                      options={{
+                        mode: 'single',
+                        dateFormat: 'j M Y'
+                      }}
                     />
                   </Col>
                   <Col>
                     <Label className="mt-1" for="endDate">
                       End Date
                     </Label>
-                    <Input
-                      required
-                      id="endDate"
-                      name="endDate"
-                      placeholder="date placeholder"
+                    <Flatpickr
                       type="date"
+                      required
+                      // value={date}
                       onChange={handleChange}
+                      id='range-picker endDate'
+                      className='form-control'
+                      options={{
+                        mode: 'single',
+                        dateFormat: 'j M Y'
+                      }}
                     />
                   </Col>
                 </Row>
@@ -308,7 +338,7 @@ export default function DripCampaign() {
                     <img src={values?.image} width={100} height={100} className="mb-1" />
                   </Col>
                   <Col className='align-items-center justify-content-center d-flex'>
-                    <FileBase64 className="mb-2" onDone={e => setFieldValue("image", e.base64)} />
+                    <FileBase64 onDone={e => setFieldValue("image", e.base64)} />
                   </Col>
                 </Row>
                 <Label className="mt-1" for="frequencyTime">
@@ -470,6 +500,12 @@ export default function DripCampaign() {
 
       {/* Update Module */}
       <Modal size="md" isOpen={UpdateModal} toggle={() => setUpdateModal(!UpdateModal)}>
+      <CardHeader className='d-flex justify-content-between align-items-top'>
+          <h5>
+            <span>Update Drip Campaign</span>
+          </h5>
+          <MdClose size={16} style={style} className='rounded' onClick={() => setUpdateModal(false)} />
+        </CardHeader>
         <Formik
           initialValues={{ name: editData?.name, startDate: editData?.startDate, endDate: editData?.endDate, Frequency: editData?.Frequency, AudienceType: editData?.AudienceType, Audience: editData?.Audience, device: editData?.device, message: editData?.message, url: editData?.url, OS: editData?.OS, image: editData?.image }}
 
@@ -515,26 +551,52 @@ export default function DripCampaign() {
                     <Label className="mt-1" for="startDate">
                       Start Date
                     </Label>
-                    <Input
+                    {/* <Input
                       value={values.startDate}
                       id="startDate"
                       name="startDate"
                       placeholder="date placeholder"
                       type="date"
                       onChange={handleChange}
+                    /> */}
+                    <Flatpickr
+                      type="date"
+                      required
+                      // data-enable-time
+                      // value={date}
+                      onChange={handleChange}
+                      id='range-picker'
+                      className='form-control'
+                      options={{
+                        mode: 'single',
+                        dateFormat: 'j M Y'
+                      }}
                     />
                   </Col>
                   <Col>
                     <Label className="mt-1" for="endDate">
                       End Date
                     </Label>
-                    <Input
+                    {/* <Input
                       id="endDate"
                       value={values.endDate}
                       name="endDate"
                       placeholder="date placeholder"
                       type="date"
                       onChange={handleChange}
+                    /> */}
+                    <Flatpickr
+                      type="date"
+                      required
+                      // data-enable-time
+                      // value={date}
+                      onChange={handleChange}
+                      id='range-picker'
+                      className='form-control'
+                      options={{
+                        mode: 'single',
+                        dateFormat: 'j M Y'
+                      }}
                     />
                   </Col>
                 </Row>
@@ -544,7 +606,7 @@ export default function DripCampaign() {
                     <img src={values?.image} width={100} height={100} />
                   </Col>
                   <Col className='d-flex justify-content-center align-items-center'>
-                      <FileBase64 onDone={e => setFieldValue("image", e.base64)} />
+                    <FileBase64 onDone={e => setFieldValue("image", e.base64)} />
                   </Col>
                 </Row>
                 <Label className="mt-1" for="frequencyTime">
@@ -722,6 +784,20 @@ export default function DripCampaign() {
             </Form>
           )}
         </Formik>
+      </Modal>
+
+      {/* Preview Drip-Campaign */}
+      <Modal size="md" isOpen={previewNotificationModal} toggle={() => setModal(!previewNotificationModal)}>
+        <CardHeader className='d-flex justify-content-between align-items-top'>
+          <h5>
+            <span>Add New Drip Campaign</span>
+          </h5>
+          <MdClose size={16} style={style} className='rounded' onClick={() => setPreviewNotificationModal(false)} />
+        </CardHeader>
+        <div className="m-1">
+          Campaign Name: {previewNotification && previewNotification?.name}<br />
+          Message: {previewNotification && previewNotification?.message}<br />
+        </div>
       </Modal>
     </div>
   )

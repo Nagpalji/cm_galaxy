@@ -330,7 +330,7 @@ if (!['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem("email"))) {
     id: 'eCommerceDash',
     title: 'Lead Management',
     // icon: <Filter size={12} />,
-    icon: <FaFilter size={12} />,
+    icon: <FaUsers size={12} />,
     navLink: '/lead-management'
   })
 }

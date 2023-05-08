@@ -275,7 +275,7 @@ const Table = ({ data, selectedCategory }) => {
                     </ModalBody>
                 </Modal>
 
-                <UserDetail />
+                {/* <UserDetail /> */}
 
             </PerfectScrollbar>
             {/* -- Conversion End Here -- */}
