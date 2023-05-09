@@ -12,6 +12,7 @@ import FileBase64 from 'react-file-base64'
 import ReactPaginate from "react-paginate"
 import { selectThemeColors } from '@utils'
 import Flatpickr from 'react-flatpickr'
+import Avatar from '@components/avatar'
 
 export default function DripCampaign() {
   const [modal, setModal] = useState(false)
@@ -241,7 +242,7 @@ export default function DripCampaign() {
           subHeaderComponent={header()}
         />
       </Card>
-      
+
       {/* Add New-Drip-Compaign */}
       <Modal size="md" isOpen={modal} toggle={() => setModal(!modal)}>
         <CardHeader className='d-flex justify-content-between align-items-top'>
@@ -500,7 +501,7 @@ export default function DripCampaign() {
 
       {/* Update Module */}
       <Modal size="md" isOpen={UpdateModal} toggle={() => setUpdateModal(!UpdateModal)}>
-      <CardHeader className='d-flex justify-content-between align-items-top'>
+        <CardHeader className='d-flex justify-content-between align-items-top'>
           <h5>
             <span>Update Drip Campaign</span>
           </h5>
@@ -788,15 +789,20 @@ export default function DripCampaign() {
 
       {/* Preview Drip-Campaign */}
       <Modal size="md" isOpen={previewNotificationModal} toggle={() => setModal(!previewNotificationModal)}>
-        <CardHeader className='d-flex justify-content-between align-items-top'>
-          <h5>
-            <span>Add New Drip Campaign</span>
-          </h5>
+        <div className='d-flex justify-content-between align-items-top p-1'>
+          <div>
+            <Avatar color='light-primary' icon={previewNotification?.image ? <img src={previewNotification?.image} height={30} width={30} /> : ''} />{' '}
+            <span className="h5">{previewNotification && previewNotification?.brand_name}</span>
+          </div>
           <MdClose size={16} style={style} className='rounded' onClick={() => setPreviewNotificationModal(false)} />
-        </CardHeader>
+        </div>
         <div className="m-1">
-          Campaign Name: {previewNotification && previewNotification?.name}<br />
-          Message: {previewNotification && previewNotification?.message}<br />
+          <a className="text-black" href={previewNotification && previewNotification?.url}>
+            <p>{previewNotification && previewNotification?.message}</p>
+          </a>
+          <div>
+            <span className="mr-1 text-primary">10:12 PM</span>
+          </div>
         </div>
       </Modal>
     </div>
