@@ -6,7 +6,11 @@ import { rectangle } from "leaflet"
 import { Card, CardHeader, CardTitle, CardBody, Row, Col } from "reactstrap"
 import Table from "./Table"
 
-export default function Funnel({ res, table }) {
+export default function Funnel({ res, table, refreshfunction }) {
+    function loadMore() {
+        console.log("loadMOre")
+        refreshfunction()
+    }
     const [category, setcategory] = useState("tofu")
     const handleChange = (e) => {
         setcategory(e.target.textContent.toLowerCase())
@@ -545,7 +549,7 @@ export default function Funnel({ res, table }) {
                     <Row className="match-height">
                         <hr />
                         <Col xs="12">
-                            <Table data={table} selectedCategory={category} />
+                            <Table data={table} selectedCategory={category} loadMore={loadMore}/>
                         </Col>
                     </Row>
                 </div>

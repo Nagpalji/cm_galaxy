@@ -37,6 +37,20 @@ const ChartContainer1 = () => {
     } else {
         brand = localStorage.getItem("brand_name")
     }
+    function refreshfunction() {
+        fetch('https://srvr1px.cyberads.io/getFunneltableData/', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ startDate: dateFrom, endDate: dateTo, brand, start : 0, limit: tabelData?.convertionsData?.length + 20})
+        })
+        .then(response => response.json())
+        .then(data => setTabelData(data))
+            .catch(err => {
+                toast.error(err.message)
+            })        
+    }
     useEffect(() => {
         fetch('https://srvr1px.cyberads.io/getFunnelData/', {
             method: "POST",
@@ -71,7 +85,7 @@ const ChartContainer1 = () => {
             <ToastContainer />
             <Row className="match-height">
                 <Col xs="12">
-                    <Funnel res={res} table={tabelData} />
+                    <Funnel res={res} table={tabelData} refreshfunction={refreshfunction} />
                     {/* <FunnelMapDetails /> */}
                 </Col>
             </Row>
