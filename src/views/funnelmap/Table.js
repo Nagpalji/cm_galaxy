@@ -240,7 +240,7 @@ const Table = ({ data, selectedCategory }) => {
                             {/* <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Interest: </span><span>&nbsp; 0</span></div> */}
                         </div>
                         <hr />
-                        <PerfectScrollbar className=''>
+                        <>
                             <Row>
                                 <Col>
                                     <TablerChart
@@ -271,7 +271,7 @@ const Table = ({ data, selectedCategory }) => {
                                     />
                                 </Col>
                             </Row>
-                        </PerfectScrollbar>
+                        </>
                     </ModalBody>
                 </Modal>
 
