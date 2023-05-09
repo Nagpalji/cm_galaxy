@@ -2,7 +2,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import React, { useState } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Redirect } from 'react-router-dom'
-import { Modal, ModalBody, ModalHeader, Row, Col, Badge, CardHeader, Button } from 'reactstrap'
+import { Modal, ModalBody, ModalHeader, Row, Col, Badge, CardHeader, Button, Spinner } from 'reactstrap'
 import UserDetail from './UserDetail'
 import TablerChart from './conversion/TablerChart'
 import CircleChart from './conversion/CircleChart'
@@ -12,7 +12,7 @@ import { MdClose } from 'react-icons/md'
 import DateWiseProductPurchase from './conversion/DateWiseProductPurchase'
 
 const Table = ({ data, selectedCategory, loadMore }) => {
-    console.log({length : data?.convertionsData && data?.convertionsData.length  })
+    console.log({ length: data?.convertionsData && data?.convertionsData.length })
     const style = {
         marginTop: '-5px',
         // marginRight: '-10px',
@@ -24,6 +24,7 @@ const Table = ({ data, selectedCategory, loadMore }) => {
     const [dateWiseSessionAndTime, setDateWiseSessionAndTime] = useState([])
     const [customerData, setCustomerData] = useState({})
     const [pieChartProductPurchase, setPieChartProductPurchase] = useState({})
+    const [loading, setLoading] = useState(false)
 
     const userDetail = (userEmail, orderId) => {
         setModal(true)
@@ -67,16 +68,25 @@ const Table = ({ data, selectedCategory, loadMore }) => {
     }
 
     const downloadHandle = async () => {
-        const request = await axios.post("https://srvr1px.cyberads.io/getexcelData/", { type: selectedCategory, brand })
-        const response = await request.data
-        window.location.href = response?.url
+        setLoading(true)
+        try {
+            const request = await axios.post("https://srvr1px.cyberads.io/getexcelData/", { type: selectedCategory, brand })
+            const response = await request.data
+            window.location.href = response?.url
+        } catch (error) {
+            console.error('Error : ', error)
+        } finally {
+            setLoading(false)
+        }
+
     }
 
     return (
         <>
             <div className='d-flex justify-content-end'>
                 <form className="form-inline my-lg-0">
-                    <Button.Ripple color="primary" className="mb-1" onClick={downloadHandle}>Download</Button.Ripple>
+                    {loading ? (<div className='p-1'><Spinner color="primary" /></div>) : (<Button.Ripple color="primary" className="mb-1" onClick={downloadHandle}>Download</Button.Ripple>)}
+
                 </form>
             </div>
             {/* -- ToFu Start Here -- */}
@@ -186,111 +196,116 @@ const Table = ({ data, selectedCategory, loadMore }) => {
 
             {/* -- Conversion Start Here -- */}
             {/* {console.log({length:})} */}
-            
-            
-            <InfiniteScroll
-                className='hide4 d-none'
-                dataLength={data?.convertionsData ? data?.convertionsData.length : 1} //This is important field to render the next data
-                next={loadMore}
-                hasMore={true}
-                loader={<h4>Loading...</h4>}
-                endMessage={
-                    <p style={{ textAlign: 'center' }}>
-                    <b>Yay! You have seen it all</b>
-                    </p>
-                }
-                >
-                <table className="table table-success">
-                    <thead className="thead rounded">
-                        <tr className='bg-success'>
-                            <th className='bg-success text-white' scope="col">Sr. No.</th>
-                            <th className='bg-success text-white' scope="col">Email</th>
-                            <th className='bg-success text-white' scope="col">First Source</th>
-                            <th className='bg-success text-white' scope="col">Finale Source</th>
-                            <th className='bg-success text-white' scope="col">gateway</th>
-                            <th className='bg-success text-white' scope="col">financial status</th>
-                            <th className='bg-success text-white' scope="col">order name</th>
-                            <th className='bg-success text-white' scope="col">total price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data?.convertionsData && data?.convertionsData.map((item, index) => {
-                            return (
-                                <>
-                                    <tr>
-                                        <th className='text-black'>{index + 1}</th>
-                                        <td className='text-black' onClick={() => userDetail(item?.email, item?.order_id)}><a><u>{item?.email}</u></a></td>
-                                        <td className='text-black'>{item?.firstSource === "" ? 'Organic' : item?.firstSource?.charAt(0).toUpperCase() + item?.firstSource?.slice(1)}</td>
-                                        <td className='text-black'>{item?.source === "" ? 'Organic' : item?.source?.charAt(0).toUpperCase() + item?.source?.slice(1)}</td>
-                                        <td className='text-black'>{item?.gateway?.charAt(0).toUpperCase() + item?.gateway?.slice(1)}</td>
-                                        <td className='text-black'>{item?.financial_status?.charAt(0).toUpperCase() + item?.financial_status?.slice(1)}</td>
-                                        <td className='text-black'>{item?.order_name}</td>
-                                        <td className='text-black'>{item?.total_price}</td>
-                                    </tr>
-                                </>
-                            )
-                        })}
-                    </tbody>
-                </table>
-                <Modal size='xl' isOpen={modal} toggle={() => setModal(!modal)} >
-                    <CardHeader className='d-flex justify-content-between align-items-top'>
-                        <h5>
-                            <FaUser size={20} />{' '}
-                            <span className=''>User Details</span>
-                        </h5>
-                        <MdClose size={16} style={style} className='rounded' onClick={() => setModal(false)} />
-                    </CardHeader>
-                    <ModalBody>
-                        <div className='d-flex row'>
-                            <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Name: </span><span>&nbsp; {customerData?.firstName} {customerData?.lastName}</span></div>
-                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Gender: </span><span>&nbsp; {customerData?.gender === '' ? '-' : customerData?.gender?.charAt(0).toUpperCase() + customerData?.gender?.slice(1)}</span></div>
-                            <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Age: </span><span>&nbsp; {'-'}</span></div>
-                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Mobile: </span><span>&nbsp; {customerData?.phoneNo}</span></div>
-                            <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Email: </span><span>&nbsp; {customerData?.email}</span></div>
-                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Income: </span><span>&nbsp; {'-'}</span></div>
-                            <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Country: </span><span>&nbsp; {customerData?.country}</span></div>
-                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>City: </span><span>&nbsp; {customerData?.city}</span></div>
-                            <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Address: </span><span>&nbsp; {customerData?.address1} {customerData?.address2}</span></div>
-                            {/* <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Interest: </span><span>&nbsp; 0</span></div> */}
+
+            <PerfectScrollbar className='hide4 d-none funneltable'>
+                <InfiniteScroll
+                    className='hide4 d-none'
+                    dataLength={data?.convertionsData ? data?.convertionsData.length : 1} //This is important field to render the next data
+                    next={loadMore}
+                    hasMore={true}
+                    loader={
+                        <div className='p-1'>
+                            <Spinner color='primary' />
                         </div>
-                        <hr />
-                        <PerfectScrollbar className=''>
-                            <Row>
-                                <Col>
-                                    <TablerChart
-                                        title='Monthly Page views and Avg. Time Spend'
-                                        titleTextLeft='Time'
-                                        titleTextRight='Time Spend'
-                                        series={dateWiseSessionAndTime}
-                                        categories={dateWiseSessionAndTime}
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <DateWiseProductPurchase
-                                        title='Monthly Products Purchase By Value'
-                                        // titleTextLeft='Total Price'
-                                        titleTextLeft=''
-                                        titleTextRight='Total Purchase Value'
-                                        series={dateWiseProductPurchase}
-                                        categories={dateWiseProductPurchase}
-                                    />
-                                </Col>
-                                <Col>
-                                    <CircleChart
-                                        title='Abandoned Cart Value VS Purchase Value'
-                                        seriesName=''
-                                        seriesData={pieChartProductPurchase}
-                                    />
-                                </Col>
-                            </Row>
-                        </PerfectScrollbar>
-                    </ModalBody>
-                </Modal>
-                {/* {JSON.stringify(data.convertionsData)} */}
-            </InfiniteScroll>
-            
+                    }
+                    endMessage={
+                        <p style={{ textAlign: 'center' }}>
+                            <b>Yay! You have seen it all</b>
+                        </p>
+                    }
+                >
+                    <table className="table table-success">
+                        <thead className="thead rounded">
+                            <tr className='bg-success'>
+                                <th className='bg-success text-white' scope="col">Sr. No.</th>
+                                <th className='bg-success text-white' scope="col">Email</th>
+                                <th className='bg-success text-white' scope="col">First Source</th>
+                                <th className='bg-success text-white' scope="col">Finale Source</th>
+                                <th className='bg-success text-white' scope="col">gateway</th>
+                                <th className='bg-success text-white' scope="col">financial status</th>
+                                <th className='bg-success text-white' scope="col">order name</th>
+                                <th className='bg-success text-white' scope="col">total price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {data?.convertionsData && data?.convertionsData.map((item, index) => {
+                                return (
+                                    <>
+                                        <tr>
+                                            <th className='text-black'>{index + 1}</th>
+                                            <td className='text-black' onClick={() => userDetail(item?.email, item?.order_id)}><a><u>{item?.email}</u></a></td>
+                                            <td className='text-black'>{item?.firstSource === "" ? 'Organic' : item?.firstSource?.charAt(0).toUpperCase() + item?.firstSource?.slice(1)}</td>
+                                            <td className='text-black'>{item?.source === "" ? 'Organic' : item?.source?.charAt(0).toUpperCase() + item?.source?.slice(1)}</td>
+                                            <td className='text-black'>{item?.gateway?.charAt(0).toUpperCase() + item?.gateway?.slice(1)}</td>
+                                            <td className='text-black'>{item?.financial_status?.charAt(0).toUpperCase() + item?.financial_status?.slice(1)}</td>
+                                            <td className='text-black'>{item?.order_name}</td>
+                                            <td className='text-black'>{item?.total_price}</td>
+                                        </tr>
+                                    </>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                    <Modal size='xl' isOpen={modal} toggle={() => setModal(!modal)} >
+                        <CardHeader className='d-flex justify-content-between align-items-top'>
+                            <h5>
+                                <FaUser size={20} />{' '}
+                                <span className=''>User Details</span>
+                            </h5>
+                            <MdClose size={16} style={style} className='rounded' onClick={() => setModal(false)} />
+                        </CardHeader>
+                        <ModalBody>
+                            <div className='d-flex row'>
+                                <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Name: </span><span>&nbsp; {customerData?.firstName} {customerData?.lastName}</span></div>
+                                <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Gender: </span><span>&nbsp; {customerData?.gender === '' ? '-' : customerData?.gender?.charAt(0).toUpperCase() + customerData?.gender?.slice(1)}</span></div>
+                                <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Age: </span><span>&nbsp; {'-'}</span></div>
+                                <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Mobile: </span><span>&nbsp; {customerData?.phoneNo}</span></div>
+                                <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Email: </span><span>&nbsp; {customerData?.email}</span></div>
+                                <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Income: </span><span>&nbsp; {'-'}</span></div>
+                                <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Country: </span><span>&nbsp; {customerData?.country}</span></div>
+                                <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>City: </span><span>&nbsp; {customerData?.city}</span></div>
+                                <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Address: </span><span>&nbsp; {customerData?.address1} {customerData?.address2}</span></div>
+                                {/* <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Interest: </span><span>&nbsp; 0</span></div> */}
+                            </div>
+                            <hr />
+                            <>
+                                <Row>
+                                    <Col>
+                                        <TablerChart
+                                            title='Monthly Page views and Avg. Time Spend'
+                                            titleTextLeft='Time'
+                                            titleTextRight='Time Spend'
+                                            series={dateWiseSessionAndTime}
+                                            categories={dateWiseSessionAndTime}
+                                        />
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <DateWiseProductPurchase
+                                            title='Monthly Products Purchase By Value'
+                                            // titleTextLeft='Total Price'
+                                            titleTextLeft=''
+                                            titleTextRight='Total Purchase Value'
+                                            series={dateWiseProductPurchase}
+                                            categories={dateWiseProductPurchase}
+                                        />
+                                    </Col>
+                                    <Col>
+                                        <CircleChart
+                                            title='Abandoned Cart Value VS Purchase Value'
+                                            seriesName=''
+                                            seriesData={pieChartProductPurchase}
+                                        />
+                                    </Col>
+                                </Row>
+                            </>
+                        </ModalBody>
+                    </Modal>
+                    {/* {JSON.stringify(data.convertionsData)} */}
+                </InfiniteScroll>
+            </PerfectScrollbar>
+
             {/* -- Conversion End Here -- */}
         </>
     )

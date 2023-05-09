@@ -4,7 +4,10 @@ const FunnelMapRoutes = [
   // Dashboards
   {
     path: '/funnelmap/index',
-    component: lazy(() =>  import('../../views/funnelmap/'))
+    component: lazy(() =>  import('../../views/funnelmap/')),
+    meta: {
+      menuCollapsed: true
+    }
   },
   {
     path: '/funnelmap/viewdetails/',

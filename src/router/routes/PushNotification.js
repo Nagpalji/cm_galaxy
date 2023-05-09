@@ -4,7 +4,10 @@ const PushNotificationRoutes = [
   // Dashboards
   {
     path: '/pushnotification/index',
-    component: lazy(() =>  import('../../views/pushNotification/'))
+    component: lazy(() =>  import('../../views/pushNotification/')),
+    meta: {
+      menuCollapsed: true
+    }
   },
   {
     path: '/Permissions/index',
