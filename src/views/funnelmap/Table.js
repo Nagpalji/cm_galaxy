@@ -232,6 +232,62 @@ const Table = ({ data, selectedCategory, loadMore }) => {
                         })}
                     </tbody>
                 </table>
+                <Modal size='xl' isOpen={modal} toggle={() => setModal(!modal)} >
+                    <CardHeader className='d-flex justify-content-between align-items-top'>
+                        <h5>
+                            <FaUser size={20} />{' '}
+                            <span className=''>User Details</span>
+                        </h5>
+                        <MdClose size={16} style={style} className='rounded' onClick={() => setModal(false)} />
+                    </CardHeader>
+                    <ModalBody>
+                        <div className='d-flex row'>
+                            <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Name: </span><span>&nbsp; {customerData?.firstName} {customerData?.lastName}</span></div>
+                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Gender: </span><span>&nbsp; {customerData?.gender === '' ? '-' : customerData?.gender?.charAt(0).toUpperCase() + customerData?.gender?.slice(1)}</span></div>
+                            <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Age: </span><span>&nbsp; {'-'}</span></div>
+                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Mobile: </span><span>&nbsp; {customerData?.phoneNo}</span></div>
+                            <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Email: </span><span>&nbsp; {customerData?.email}</span></div>
+                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Income: </span><span>&nbsp; {'-'}</span></div>
+                            <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Country: </span><span>&nbsp; {customerData?.country}</span></div>
+                            <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>City: </span><span>&nbsp; {customerData?.city}</span></div>
+                            <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Address: </span><span>&nbsp; {customerData?.address1} {customerData?.address2}</span></div>
+                            {/* <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Interest: </span><span>&nbsp; 0</span></div> */}
+                        </div>
+                        <hr />
+                        <PerfectScrollbar className=''>
+                            <Row>
+                                <Col>
+                                    <TablerChart
+                                        title='Monthly Page views and Avg. Time Spend'
+                                        titleTextLeft='Time'
+                                        titleTextRight='Time Spend'
+                                        series={dateWiseSessionAndTime}
+                                        categories={dateWiseSessionAndTime}
+                                    />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <DateWiseProductPurchase
+                                        title='Monthly Products Purchase By Value'
+                                        // titleTextLeft='Total Price'
+                                        titleTextLeft=''
+                                        titleTextRight='Total Purchase Value'
+                                        series={dateWiseProductPurchase}
+                                        categories={dateWiseProductPurchase}
+                                    />
+                                </Col>
+                                <Col>
+                                    <CircleChart
+                                        title='Abandoned Cart Value VS Purchase Value'
+                                        seriesName=''
+                                        seriesData={pieChartProductPurchase}
+                                    />
+                                </Col>
+                            </Row>
+                        </PerfectScrollbar>
+                    </ModalBody>
+                </Modal>
                 {/* {JSON.stringify(data.convertionsData)} */}
             </InfiniteScroll>
             
