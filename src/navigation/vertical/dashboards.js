@@ -310,19 +310,37 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
   ]
 }
 
+// if (['demo_account@cmrsl.net', 'cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem("email"))) {
+//   sample.push({
+//     id: 'eCommerceDash',
+//     title: 'Funnel Map',
+//     icon: <FaFilter size={12} />,
+//     navLink: '/funnelmap/index'     
+//   },
+//   {
+//     id: 'eCommerceDash',
+//     title: 'Push Notification',
+//     icon: <FaBell size={12} />,
+//     navLink: '/pushNotification/index'
+//   })
+// }
+
 if (['demo_account@cmrsl.net', 'cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem("email"))) {
-  sample.push({
+  sample.splice(1, 0, {
     id: 'eCommerceDash',
     title: 'Funnel Map',
     icon: <FaFilter size={12} />,
-    navLink: '/funnelmap/index'     
-  },
-  {
-    id: 'eCommerceDash',
-    title: 'Push Notification',
-    icon: <FaBell size={12} />,
-    navLink: '/pushNotification/index'
+    navLink: '/funnelmap/index'
   })
+}
+if (['demo_account@cmrsl.net', 'cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem("email"))) {
+  sample.push(
+    {
+      id: 'eCommerceDash',
+      title: 'Push Notification',
+      icon: <FaBell size={12} />,
+      navLink: '/pushNotification/index'
+    })
 }
 
 if (!['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem("email"))) {
