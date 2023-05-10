@@ -368,7 +368,7 @@ const ed = localStorage.getItem("ed")
   console.log({path})
   return (
     <Fragment>
-      {path !== '/funnelmapping/index' && <Flatpickr
+      {path !== '/funnelmap/index' && <Flatpickr
         value={picker}
 
         id='range-picker'
