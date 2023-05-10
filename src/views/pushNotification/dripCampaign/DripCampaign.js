@@ -13,6 +13,7 @@ import ReactPaginate from "react-paginate"
 import { selectThemeColors } from '@utils'
 import Flatpickr from 'react-flatpickr'
 import Avatar from '@components/avatar'
+import moment from "moment"
 
 export default function DripCampaign() {
   const [modal, setModal] = useState(false)
@@ -299,9 +300,9 @@ export default function DripCampaign() {
                       name="startDate"
                       required
                       // placeholder="date placeholder"
-                      onChange={handleChange}
+                      onChange={(e) => console.log(e.target.value)}
                     /> */}
-                    <Flatpickr
+                    {/* <Flatpickr
                       type="date"
                       required
                       // data-enable-time
@@ -313,23 +314,45 @@ export default function DripCampaign() {
                         mode: 'single',
                         dateFormat: 'j M Y'
                       }}
+                    /> */}
+                    <Flatpickr
+                     id='range-picker'
+                      className='form-control'
+                      // value={selectedDate}
+                      options={{
+                        dateFormat: 'Y-m-d'
+                      }}
+                      onChange={(e) => setFieldValue('startDate', moment(e[0]).format('YYYY-MM-DD'))}
                     />
+                    {/* <Flatpickr
+                      // type="date"
+                      name="startDate"
+                      placeholder="date placeholder"
+                      required
+                      // dateFormat="Y-m-d"
+                      // data-enable-time
+                      // value={date}
+                      
+                      onChange={(e) => console.log(e)}
+                      id='range-picker'
+                      className='form-control'
+                      options={{
+                        dateFormat: 'Y-m-d'
+                      }}
+                    /> */}
                   </Col>
                   <Col>
                     <Label className="mt-1" for="endDate">
                       End Date
                     </Label>
                     <Flatpickr
-                      type="date"
-                      required
-                      // value={date}
-                      onChange={handleChange}
-                      id='range-picker endDate'
+                     id='range-picker'
                       className='form-control'
+                      // value={selectedDate}
                       options={{
-                        mode: 'single',
-                        dateFormat: 'j M Y'
+                        dateFormat: 'Y-m-d'
                       }}
+                      onChange={(e) => setFieldValue('endDate', moment(e[0]).format('YYYY-MM-DD'))}
                     />
                   </Col>
                 </Row>
@@ -552,52 +575,28 @@ export default function DripCampaign() {
                     <Label className="mt-1" for="startDate">
                       Start Date
                     </Label>
-                    {/* <Input
-                      value={values.startDate}
-                      id="startDate"
-                      name="startDate"
-                      placeholder="date placeholder"
-                      type="date"
-                      onChange={handleChange}
-                    /> */}
                     <Flatpickr
-                      type="date"
-                      required
-                      // data-enable-time
-                      // value={date}
-                      onChange={handleChange}
-                      id='range-picker'
+                     id='range-picker'
                       className='form-control'
+                      // value={selectedDate}
                       options={{
-                        mode: 'single',
-                        dateFormat: 'j M Y'
+                        dateFormat: 'Y-m-d'
                       }}
+                      onChange={(e) => setFieldValue('startDate', moment(e[0]).format('YYYY-MM-DD'))}
                     />
                   </Col>
                   <Col>
                     <Label className="mt-1" for="endDate">
                       End Date
                     </Label>
-                    {/* <Input
-                      id="endDate"
-                      value={values.endDate}
-                      name="endDate"
-                      placeholder="date placeholder"
-                      type="date"
-                      onChange={handleChange}
-                    /> */}
                     <Flatpickr
-                      type="date"
-                      required
-                      // data-enable-time
-                      // value={date}
-                      onChange={handleChange}
-                      id='range-picker'
+                     id='range-picker'
                       className='form-control'
+                      // value={selectedDate}
                       options={{
-                        mode: 'single',
-                        dateFormat: 'j M Y'
+                        dateFormat: 'Y-m-d'
                       }}
+                      onChange={(e) => setFieldValue('endDate', moment(e[0]).format('YYYY-MM-DD'))}
                     />
                   </Col>
                 </Row>
