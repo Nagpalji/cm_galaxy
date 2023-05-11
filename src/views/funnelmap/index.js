@@ -43,7 +43,7 @@ const ChartContainer1 = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ startDate: dateFrom, endDate: dateTo, brand, start : 0, limit: tabelData?.convertionsData?.length + 20})
+            body: JSON.stringify({ startDate: dateFrom, endDate: dateTo, brand, start : 0, limit: (tabelData?.convertionsData?.length + 20) || 0})
         })
         .then(response => response.json())
         .then(data => setTabelData(data))

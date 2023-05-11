@@ -5,6 +5,7 @@ import "./Funnel.css"
 import { rectangle } from "leaflet"
 import { Card, CardHeader, CardTitle, CardBody, Row, Col } from "reactstrap"
 import Table from "./Table"
+import moment from "moment"
 
 export default function Funnel({ res, table, refreshfunction }) {
     function loadMore() {
@@ -72,7 +73,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                             <div className="w-100">
                                 <div className="w-100 align-items-center flex-column">
                                     <p className="m-0 border-left-warning border-top-warning lh-sm" style={{ padding: 6 }}><strong>ToFu - </strong>Marketing outreach via omni-channels where brands can interact with target audiences. Goals are to increase awareness, build trust and bring users to relevant content assets.</p>
-                                    <p className="border-left-warning m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Last 7 day data</p>
+                                    <p className="border-left-warning m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Data From {`${moment(res?.Tofu?.startDate).format('DD-MMM-YYYY')} to ${moment(res?.Tofu?.endDate).format('DD-MMM-YYYY')}`}</p>
                                 </div>
                                 <PerfectScrollbar className="w-100 border-left-warning">
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Number Of People Reached" >
@@ -163,7 +164,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                             <div className="w-100">
                                 <div className="w-100 align-items-center flex-column">
                                     <p className="m-0 border-left-primary border-top-primary lh-sm" style={{ padding: 6 }}><strong>MoFu - </strong>User engage with brand across multiple content assets. Goals are to map audience engagement analytics, understand who they are, and their behavioural patterns.</p>
-                                    <p className="border-left-primary m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Last 7 day data</p>
+                                    <p className="border-left-primary m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Data From {`${moment(res?.Tofu?.startDate).format('DD-MMM-YYYY')} to ${moment(res?.Tofu?.endDate).format('DD-MMM-YYYY')}`}</p>
                                 </div>
                                 <PerfectScrollbar className="w-100 border-left-primary">
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" >
@@ -267,7 +268,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                             <div className="w-100">
                                 <div className="w-100 align-items-center flex-column">
                                     <p className="m-0 border-left-secondary border-top-secondary lh-sm" style={{ padding: 6 }}><strong>BoFu - </strong>Users show intent towards continued brand engagement. Goals are to track captured leads or e-cart creation. This stage also helps identify effective conversion focused retargeting.</p>
-                                    <p className="border-left-secondary m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Last 7 day data</p>
+                                    <p className="border-left-secondary m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Data From {`${moment(res?.Tofu?.startDate).format('DD-MMM-YYYY')} to ${moment(res?.Tofu?.endDate).format('DD-MMM-YYYY')}`}</p>
                                 </div>
                                 <PerfectScrollbar className=" w-100 p-0 border-left-secondary">
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of users who have created a cart" >
@@ -430,7 +431,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                             <div className="w-100">
                                 <div className="w-100 align-items-center flex-column">
                                     <p className="m-0 border-left-success border-top-success lh-sm" style={{ padding: 6 }}><strong>Conversion - </strong>Comprehensive omni-channel strategy leads to effective customer acquisition. Goals are to map CRM sales data with marketing funnel and build a comprehensive picture of ROAS across channels.</p>
-                                    <p className="border-left-success m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Last 7 day data</p>
+                                    <p className="border-left-success m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Data From {`${moment(res?.Tofu?.startDate).format('DD-MMM-YYYY')} to ${moment(res?.Tofu?.endDate).format('DD-MMM-YYYY')}`}</p>
                                 </div>
                                 <PerfectScrollbar className="w-100 p-0 border-left-success">
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Number of Sales" >
