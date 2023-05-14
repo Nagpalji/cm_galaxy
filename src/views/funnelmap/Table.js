@@ -272,7 +272,7 @@ const Table = ({ data, selectedCategory, loadMore }) => {
                                 <Row>
                                     <Col>
                                         <TablerChart
-                                            title='Monthly Page views and Avg. Time Spend'
+                                            title='Monthly Pageviews and Avg. Time Spend'
                                             titleTextLeft='Time'
                                             titleTextRight='Time Spend'
                                             series={dateWiseSessionAndTime}

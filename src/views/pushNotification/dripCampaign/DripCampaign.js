@@ -43,11 +43,12 @@ export default function DripCampaign() {
       name: "Campaign Name",
       selector: (row) => row.name,
       sortable: true
-    },
+   },
     {
       name: "Start Date",
       selector: (row) => row.startDate,
-      sortable: true
+      sortable: true,
+      minWidth: '100px'
     },
     {
       name: "End Date",
@@ -61,25 +62,32 @@ export default function DripCampaign() {
     },
     {
       name: "Message",
-      selector: (row) => row.message
+      selector: (row) => row.message,
+      maxWidth: '400px'
     },
     {
       name: "Action",
+      maxWidth: '150px',
       selector: (row) => (
         <>
-          <FaEdit size={20} className="text-primary" onClick={(e) => {
-            setUpdateModal(true)
-            seteditData(row)
-          }} />
+          <a>
+            <FaEdit size={20} className="text-warning" color="#625f6e" onClick={(e) => {
+              setUpdateModal(true)
+              seteditData(row)
+            }} />
+          </a>
+          <a>
+            <FaTrash size={20} className="ml-1 text-danger" color="#625f6e" onClick={(e) => {
+              handleDelete(row._id)
+            }} />
+          </a>
+          <a>
+            <FaEye size={20} className="ml-1 text-success" color="#625f6e" onClick={(e) => {
+              setPreviewNotificationModal(true)
+              setPreviewNotification(row)
+            }} />
 
-          <FaTrash size={20} className="ml-1 text-primary" onClick={(e) => {
-            handleDelete(row._id)
-          }} />
-
-          <FaEye size={20} className="ml-1 text-primary" onClick={(e) => {
-            setPreviewNotificationModal(true)
-            setPreviewNotification(row)
-          }} />
+          </a>
         </>
       )
     }
@@ -195,7 +203,7 @@ export default function DripCampaign() {
         <Row>
           <Col xl='6' className='d-flex align-items-center p-0'>
             <h4 className="m-0">
-              <span>Campaign Overview</span>
+              Campaign Overview
             </h4>
           </Col>
           <Col
@@ -241,6 +249,7 @@ export default function DripCampaign() {
           // selectableRowsHighlight
           subHeader
           subHeaderComponent={header()}
+          style= {{ whiteSpace: 'wrap' }}
         />
       </Card>
 
@@ -279,7 +288,7 @@ export default function DripCampaign() {
             <Form className="m-2" onSubmit={handleSubmit}>
               <FormGroup>
                 <Label className="" for="campaignName">
-                  Campaign Name
+                  Campaign Name <span className='text-danger'>*</span>
                 </Label>
                 <Input
                   required
@@ -292,7 +301,7 @@ export default function DripCampaign() {
                 <Row>
                   <Col>
                     <Label className="mt-1" for="startDate">
-                      Start Date
+                      Start Date <span className='text-danger'>*</span>
                     </Label>
                     {/* <Input
                       id="startDate"
@@ -316,7 +325,7 @@ export default function DripCampaign() {
                       }}
                     /> */}
                     <Flatpickr
-                     id='range-picker'
+                      id='range-picker'
                       className='form-control'
                       // value={selectedDate}
                       options={{
@@ -343,10 +352,10 @@ export default function DripCampaign() {
                   </Col>
                   <Col>
                     <Label className="mt-1" for="endDate">
-                      End Date
+                      End Date <span className='text-danger'>*</span>
                     </Label>
                     <Flatpickr
-                     id='range-picker'
+                      id='range-picker'
                       className='form-control'
                       // value={selectedDate}
                       options={{
@@ -366,7 +375,7 @@ export default function DripCampaign() {
                   </Col>
                 </Row>
                 <Label className="mt-1" for="frequencyTime">
-                  Frequency Time
+                  Frequency Time <span className='text-danger'>*</span>
                 </Label>
                 <Select
                   required
@@ -381,7 +390,7 @@ export default function DripCampaign() {
                 <Row>
                   <Col>
                     <Label className="mt-1" for="endDate">
-                      Audience Type
+                      Audience Type <span className='text-danger'>*</span>
                     </Label>
                     <Select
                       required
@@ -395,7 +404,7 @@ export default function DripCampaign() {
                   </Col>
                   <Col>
                     <Label className="mt-1" for="endDate">
-                      Audience
+                      Audience <span className='text-danger'>*</span>
                     </Label>
                     <Select
                       required
@@ -419,7 +428,7 @@ export default function DripCampaign() {
                           {(val.label === "Age Group") &&
                             <Col>
                               <Label className="mt-1" for="endDate">
-                                Age
+                                Age <span className='text-danger'>*</span>
                               </Label>
                               <Select
                                 isMulti
@@ -438,7 +447,7 @@ export default function DripCampaign() {
                           {(val.label === "Gender") &&
                             <Col>
                               <Label className="mt-1" for="endDate">
-                                Gender
+                                Gender <span className='text-danger'>*</span>
                               </Label>
                               <Select
                                 isMulti
@@ -457,7 +466,7 @@ export default function DripCampaign() {
                           {(val.label === "Device") &&
                             <Col>
                               <Label className="mt-1" for="endDate">
-                                Device
+                                Device <span className='text-danger'>*</span>
                               </Label>
                               <Select isMulti
                                 onChange={e => {
@@ -497,7 +506,7 @@ export default function DripCampaign() {
 
                 </Row>
                 <Label className="mt-1" for="message">
-                  Message
+                  Message <span className='text-danger'>*</span>
                 </Label>
                 <Input
                   required
@@ -509,7 +518,7 @@ export default function DripCampaign() {
                   maxLength={260}
                 />
                 <Label className="mt-1" for="url">
-                  URL
+                  URL <span className='text-danger'>*</span>
                 </Label>
                 <Input required id="url" name="url" onChange={handleChange} placeholder="URL" type="url" />
               </FormGroup>
@@ -560,7 +569,7 @@ export default function DripCampaign() {
             <Form className="m-2" onSubmit={handleSubmit}>
               <FormGroup>
                 <Label className="" for="campaignName">
-                  Campaign Name
+                  Campaign Name <span className='text-danger'>*</span>
                 </Label>
                 <Input
                   value={values.name}
@@ -573,26 +582,28 @@ export default function DripCampaign() {
                 <Row>
                   <Col>
                     <Label className="mt-1" for="startDate">
-                      Start Date
+                      Start Date <span className='text-danger'>*</span>
                     </Label>
                     <Flatpickr
-                     id='range-picker'
+                      id='range-picker'
                       className='form-control'
-                      // value={selectedDate}
+                      value={values.startDate}
                       options={{
                         dateFormat: 'Y-m-d'
                       }}
                       onChange={(e) => setFieldValue('startDate', moment(e[0]).format('YYYY-MM-DD'))}
                     />
                   </Col>
+                  {console.log(values)}
                   <Col>
                     <Label className="mt-1" for="endDate">
-                      End Date
+                      End Date <span className='text-danger'>*</span>
                     </Label>
                     <Flatpickr
-                     id='range-picker'
+                      id='range-picker'
                       className='form-control'
                       // value={selectedDate}
+                      value={values.endDate}
                       options={{
                         dateFormat: 'Y-m-d'
                       }}
@@ -610,7 +621,7 @@ export default function DripCampaign() {
                   </Col>
                 </Row>
                 <Label className="mt-1" for="frequencyTime">
-                  Frequency Time
+                  Frequency Time <span className='text-danger'>*</span>
                 </Label>
                 <Select
                   defaultValue={values.Frequency}
@@ -625,7 +636,7 @@ export default function DripCampaign() {
                 <Row>
                   <Col>
                     <Label className="mt-1" for="endDate">
-                      Audience Type
+                      Audience Type <span className='text-danger'>*</span>
                     </Label>
                     <Select
                       defaultValue={values.AudienceType}
@@ -640,7 +651,7 @@ export default function DripCampaign() {
                   </Col>
                   <Col>
                     <Label className="mt-1" for="endDate">
-                      Audience
+                      Audience <span className='text-danger'>*</span>
                     </Label>
                     <Select
                       isMulti
@@ -680,7 +691,7 @@ export default function DripCampaign() {
                         {(val.label === "Age Group") &&
                           <Col>
                             <Label className="mt-1" for="endDate">
-                              Age
+                              Age <span className='text-danger'>*</span>
                             </Label>
                             <Select
                               isMulti
@@ -691,7 +702,7 @@ export default function DripCampaign() {
                               }}
                               options={option03}
                               name="age"
-                              placeholder="age"
+                              placeholder="Age"
                               className='react-select'
                               classNamePrefix='select'
                               theme={selectThemeColors}
@@ -700,7 +711,7 @@ export default function DripCampaign() {
                         {(val.label === "Gender") &&
                           <Col>
                             <Label className="mt-1" for="endDate">
-                              Gender
+                              Gender <span className='text-danger'>*</span>
                             </Label>
                             <Select
                               isMulti
@@ -710,8 +721,8 @@ export default function DripCampaign() {
                                 setFieldValue("gender", e)
                               }}
                               options={option04}
-                              name="age"
-                              placeholder="age"
+                              name="gender"
+                              placeholder="Gender"
                               className='react-select'
                               classNamePrefix='select'
                               theme={selectThemeColors}
@@ -720,7 +731,7 @@ export default function DripCampaign() {
                         {(val.label === "Device") &&
                           <Col>
                             <Label className="mt-1" for="endDate">
-                              Device
+                              Device <span className='text-danger'>*</span>
                             </Label>
                             <Select
                               isMulti
@@ -740,7 +751,7 @@ export default function DripCampaign() {
                         {(val.label === "OS") &&
                           <Col>
                             <Label className="mt-1" for="endDate">
-                              Os
+                              Os <span className='text-danger'>*</span>
                             </Label>
                             <Select
                               isMulti
@@ -762,7 +773,7 @@ export default function DripCampaign() {
                   })}
                 </Row>
                 <Label className="mt-1" for="message">
-                  Message
+                  Message <span className='text-danger'>*</span>
                 </Label>
                 <Input
                   id="message"
@@ -774,7 +785,7 @@ export default function DripCampaign() {
                   maxLength={260}
                 />
                 <Label className="mt-1" for="url">
-                  URL
+                  URL <span className='text-danger'>*</span>
                 </Label>
                 <Input id="url" name="url" value={values.url} onChange={handleChange} placeholder="URL" type="url" />
               </FormGroup>
@@ -796,7 +807,7 @@ export default function DripCampaign() {
           <MdClose size={16} style={style} className='rounded' onClick={() => setPreviewNotificationModal(false)} />
         </div>
         <div className="m-1">
-          <a className="text-black" href={previewNotification && previewNotification?.url}>
+          <a className="text-black" href={previewNotification && previewNotification?.url} target="_blank">
             <p>{previewNotification && previewNotification?.message}</p>
           </a>
           <div>
