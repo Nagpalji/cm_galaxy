@@ -195,8 +195,6 @@ const Table = ({ data, selectedCategory, loadMore }) => {
             {/* -- BoFu Start Here -- */}
 
             {/* -- Conversion Start Here -- */}
-            {/* {console.log({length:})} */}
-
             <PerfectScrollbar className='hide4 d-none funneltable'>
                 <InfiniteScroll
                     className='hide4 d-none'
