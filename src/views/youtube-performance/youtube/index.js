@@ -1,5 +1,5 @@
-import { useContext } from 'react'
-import { Row, Col } from 'reactstrap'
+import { useContext, useState } from 'react'
+import { Row, Col, Modal, ModalBody, Button } from 'reactstrap'
 import { ThemeColors } from '@src/utility/context/ThemeColors'
 
 // import Earnings from '@src/views/ui-elements/cards/analytics/Earnings'
@@ -38,63 +38,66 @@ sessionStorage.setItem('nam', 'Youtube')
 const EcommerceDashboard = () => {
   const { colors } = useContext(ThemeColors),
     trackBgColor = '#e9ecef'
-const MySwal = withReactContent(Swal)
-if (['demo_account@cmrsl.net', 'admin@cmrsl.net', 'dhavalg@cmrsl.net', 'gauravg@cmrsl.net'].includes(localStorage.getItem("email"))) {
-  return (
-    <div id='dashboard-ecommerce'>
-      <Row className='laptophideCustomdropdown match-height mt-1 mb-1'>
-        <Col className='widthdate' xl='12' md='12' xs='12'>
-          <CustomDropDown />
-        </Col>
-      </Row>
-      <Row className='laptophidedaterange match-height mt-1 mb-1'>
-        <Col className='widthdate' xl='12' md='12' xs='12'>
-          <DateRangePicker />
-        </Col>
-      </Row>
 
-      <Row className='match-height'>
-        <Col xl='12' md='12' xs='12'>
-        <DropDown />
-        </Col>
-      </Row>
-      
-      <Row className='match-height'>
-        <Col xl='12' md='12' xs='12'>
-          <StatsCard cols={{ xl: '3', md: '4',  xs: '6' }} />
-        </Col>
-      </Row>
+  const [modal, setModal] = useState(true)
 
-      <Row className='match-height'>
-        <Col lg='7' md='12'>
-        <TopCampaigns />
-        </Col>
+  const MySwal = withReactContent(Swal)
+  if (['demo0_account@cmrsl.net', 'admin@cmrsl.net', 'dhavalg@cmrsl.net', 'gauravg@cmrsl.net'].includes(localStorage.getItem("email"))) {
+    return (
+      <div id='dashboard-ecommerce'>
+        <Row className='laptophideCustomdropdown match-height mt-1 mb-1'>
+          <Col className='widthdate' xl='12' md='12' xs='12'>
+            <CustomDropDown />
+          </Col>
+        </Row>
+        <Row className='laptophidedaterange match-height mt-1 mb-1'>
+          <Col className='widthdate' xl='12' md='12' xs='12'>
+            <DateRangePicker />
+          </Col>
+        </Row>
 
-        <Col lg='5' md='12'>
-        <TotalEngagementCampaign />
-        </Col>
-      </Row>
+        <Row className='match-height'>
+          <Col xl='12' md='12' xs='12'>
+            <DropDown />
+          </Col>
+        </Row>
 
-      <Row className='match-height'>
-        <Col lg='5' md='12'>
-         <SpendsViewsByCampaign /> 
-        </Col>
+        <Row className='match-height'>
+          <Col xl='12' md='12' xs='12'>
+            <StatsCard cols={{ xl: '3', md: '4', xs: '6' }} />
+          </Col>
+        </Row>
 
-        <Col lg='7' md='12'>
-        <VideoViewsVsVideoViewRate /> 
-        </Col>
-      </Row>
+        <Row className='match-height'>
+          <Col lg='7' md='12'>
+            <TopCampaigns />
+          </Col>
 
-      <Row className='match-height'>
-        <Col lg='5' md='6'>
-        <SpendsByCampaign />
-        </Col>
+          <Col lg='5' md='12'>
+            <TotalEngagementCampaign />
+          </Col>
+        </Row>
 
-         <Col lg='7' md='12'>
-          <VideoPerformanceOverview /> 
-        </Col> 
-      </Row>
-      {/* <Row className='match-height'>
+        <Row className='match-height'>
+          <Col lg='5' md='12'>
+            <SpendsViewsByCampaign />
+          </Col>
+
+          <Col lg='7' md='12'>
+            <VideoViewsVsVideoViewRate />
+          </Col>
+        </Row>
+
+        <Row className='match-height'>
+          <Col lg='5' md='6'>
+            <SpendsByCampaign />
+          </Col>
+
+          <Col lg='7' md='12'>
+            <VideoPerformanceOverview />
+          </Col>
+        </Row>
+        {/* <Row className='match-height'>
         <Col lg='4' md='12'>
           <Row className='match-height'>
             <Col lg='6' md='3' xs='6'>
@@ -126,37 +129,53 @@ if (['demo_account@cmrsl.net', 'admin@cmrsl.net', 'dhavalg@cmrsl.net', 'gauravg@
           <CardTransactions />
         </Col>
       </Row> */}
-    </div>
-  ) 
-} else {
-  return MySwal.fire({
-    title: '',
-    // footer: '<a href="javascript:void(0);">If You any further issue ! Please Let me Know</a>',
-    // icon: 'success',
-    // html:
-    //   'Data Integration Inactive.</b> ',
-    html: (
-      <span style={{ fontSize: 25 }}>If you would like to link your Youtube account please contact your account manager.</span>
-    ),
-    showCloseButton: false,
-    showCancelButton: false,
-    focusConfirm: false,
-    confirmButtonText: (
-      <span className='align-middle'>
-        {/* <ThumbsUp className='mr-50' size={15} /> */}
-        {/* <span className='align-middle'>Close</span> */}
-        <a href="/overall-snapshot" className='align-middle text-white'>Close</a>
-      </span>
-    ),
-    cancelButtonText: <ThumbsDown size={15} />,
-    customClass: {
-      confirmButton: 'btn btn-primary custom-buttoncss',
-      cancelButton: 'btn btn-outline-danger ml-1'
-    },
-    buttonsStyling: false
-  })
-}  
- 
+      </div>
+    )
+  } else {
+    // return MySwal.fire({
+    //   title: '',
+    //   // footer: '<a href="javascript:void(0);">If You any further issue ! Please Let me Know</a>',
+    //   // icon: 'success',
+    //   // html:
+    //   //   'Data Integration Inactive.</b> ',
+    //   html: (
+    //     <span style={{ fontSize: 25 }}>If you would like to link your Youtube account please contact your account manager.</span>
+    //   ),
+    //   showCloseButton: false,
+    //   showCancelButton: false,
+    //   focusConfirm: false,
+    //   confirmButtonText: (
+    //     <span className='align-middle'>
+    //       {/* <ThumbsUp className='mr-50' size={15} /> */}
+    //       {/* <span className='align-middle'>Close</span> */}
+    //       <a href="/overall-snapshot" className='align-middle text-white'>Close</a>
+    //     </span>
+    //   ),
+    //   cancelButtonText: <ThumbsDown size={15} />,
+    //   customClass: {
+    //     confirmButton: 'btn btn-primary custom-buttoncss',
+    //     cancelButton: 'btn btn-outline-danger ml-1'
+    //   },
+    //   buttonsStyling: false
+    // })
+    return (
+      <>
+        <Modal size='lg' isOpen={modal} toggle={() => setModal(!modal)} >
+          <ModalBody className='text-center m-1'>
+            <div className='m-xl-2 m-sx-0'>
+              <p style={{ fontSize: 25 }} className='lh-base'>If you would like to link your Amazon account please contact your account manager.</p>
+            </div>
+            <span>
+              <Button.Ripple color="primary" className='mt-1'>
+                <a href="/overall-snapshot" className='text-white'>Close</a>
+              </Button.Ripple>
+            </span>
+          </ModalBody>
+        </Modal>
+      </>
+    )
+  }
+
 }
 
 export default EcommerceDashboard
