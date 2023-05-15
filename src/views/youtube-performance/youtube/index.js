@@ -42,7 +42,7 @@ const EcommerceDashboard = () => {
   const [modal, setModal] = useState(true)
 
   const MySwal = withReactContent(Swal)
-  if (['demo0_account@cmrsl.net', 'admin@cmrsl.net', 'dhavalg@cmrsl.net', 'gauravg@cmrsl.net'].includes(localStorage.getItem("email"))) {
+  if (['demo_account@cmrsl.net', 'admin@cmrsl.net', 'dhavalg@cmrsl.net', 'gauravg@cmrsl.net'].includes(localStorage.getItem("email"))) {
     return (
       <div id='dashboard-ecommerce'>
         <Row className='laptophideCustomdropdown match-height mt-1 mb-1'>
@@ -163,7 +163,7 @@ const EcommerceDashboard = () => {
         <Modal size='lg' isOpen={modal} toggle={() => setModal(!modal)} >
           <ModalBody className='text-center m-1'>
             <div className='m-xl-2 m-sx-0'>
-              <p style={{ fontSize: 25 }} className='lh-base'>If you would like to link your Amazon account please contact your account manager.</p>
+              <p style={{ fontSize: 25 }} className='lh-base'>If you would like to link your Youtube account please contact your account manager.</p>
             </div>
             <span>
               <Button.Ripple color="primary" className='mt-1'>
