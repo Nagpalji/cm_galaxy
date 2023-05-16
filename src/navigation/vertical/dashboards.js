@@ -110,7 +110,7 @@
 //   // }
 // ]
 // import { Home, Circle, Facebook, Linkedin, Youtube, Chrome, Globe, Settings, Command, Twitter, Package, Play, Atsign, AtSign, Filter, Users  } from 'react-feather'
-import { FaHome, FaFacebook, FaLinkedin, FaYoutube, FaChrome, FaMeta, Globe, Settings, Command, FaTwitter, Package, FaPlay, FaAmazon, FaFilter, FaUserAlt, FaUsers, FaUser, FaBullhorn, FaBell, FaInstagram, FaMapMarkedAlt, FaFacebookMessenger, FaFacebookF, FaKey } from 'react-icons/fa'
+import { FaHome, FaFacebook, FaLinkedin, FaYoutube, FaChrome, FaMeta, Globe, Settings, Command, FaTwitter, Package, FaPlay, FaAmazon, FaFilter, FaUserAlt, FaUsers, FaUser, FaBullhorn, FaBell, FaInstagram, FaMapMarkedAlt, FaFacebookMessenger, FaFacebookF, FaKey, FaWpforms } from 'react-icons/fa'
 import { BsMeta } from 'react-icons/bs'
 // import { MdMeta } from 'react-icons/md'
 let sample
@@ -236,6 +236,14 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
       // icon: <Users size={12} />,
       icon: <FaUserAlt size={12} />,
       navLink: '/manage-user/user/list'
+    },
+    {
+      id: 'eCommerceDash',
+      title: 'Account Management',
+      // icon: <Users size={12} />,
+      icon: <FaWpforms size={12} />,
+      externalLink:true,
+      navLink: 'https://docs.google.com/forms/d/1ukWraI7mpJK1rjuKp4KPgFKVr1qrVdasVRbC6E7cn4Y/edit'
     }
   
   ]
