@@ -195,8 +195,6 @@ const Table = ({ data, selectedCategory, loadMore }) => {
             {/* -- BoFu Start Here -- */}
 
             {/* -- Conversion Start Here -- */}
-            {/* {console.log({length:})} */}
-
             <PerfectScrollbar className='hide4 d-none funneltable'>
                 <InfiniteScroll
                     className='hide4 d-none'
@@ -272,7 +270,7 @@ const Table = ({ data, selectedCategory, loadMore }) => {
                                 <Row>
                                     <Col>
                                         <TablerChart
-                                            title='Monthly Page views and Avg. Time Spend'
+                                            title='Monthly Pageviews and Avg. Time Spend'
                                             titleTextLeft='Time'
                                             titleTextRight='Time Spend'
                                             series={dateWiseSessionAndTime}

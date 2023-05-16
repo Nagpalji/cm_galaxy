@@ -7,7 +7,7 @@ import { Chart, ChartTitle, ChartLegend, ChartTooltip, ChartArea, ChartPlotArea,
 import "hammerjs"
 import Funnel from './Funnel'
 import Table from './Table'
-import FunnelMapDetails from './FunnelMapDetails'
+import FunnelAttributionDetails from './FunnelAttributionDetails'
 import { toast, ToastContainer } from 'react-toastify'
 
 const tooltipRender = (props) => {

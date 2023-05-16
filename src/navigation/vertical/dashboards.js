@@ -126,10 +126,10 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
     },
     {
       id: 'eCommerceDash',
-      title: 'Funnel Map',
+      title: 'Funnel Attribution',
       // icon: <Chrome size={12} />,
       icon: <FaFilter size={12} />,
-      navLink: '/funnelmap/index'
+      navLink: '/funnelattribution/index'
     },
     {
       id: 'eCommerceDash',
@@ -336,9 +336,9 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
 if (['demo_account@cmrsl.net', 'cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem("email"))) {
   sample.splice(1, 0, {
     id: 'eCommerceDash',
-    title: 'Funnel Map',
+    title: 'Funnel Attribution',
     icon: <FaFilter size={12} />,
-    navLink: '/funnelmap/index'
+    navLink: '/funnelattribution/index'
   })
 }
 if (['demo_account@cmrsl.net', 'cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem("email"))) {

@@ -38,13 +38,13 @@ const ThemeNavbar = props => {
   const pathToTitleMap = {
     "/overall-snapshot": "Overall Snapshot",
     "/dashboard/ecommerce": "Google Performance",
-    "/funnelmap/index": "Funnel Map",
+    "/funnelattribution/index": "Funnel Attribution",
     "/pushNotification/index": "Push Notification",
     // "/facebook-performance":(localStorage.getItem("email") === 'globallogic@cmrsl.net') ? "Instagram Performance" : "Facebook Performance",
     "/facebook-performance": "Meta Performance",
     "/linkedin-performance": "LinkedIn Performance",
     "/youtube-performance": "Youtube Performance",
-    "/amazon-performance": "Google Performance",
+    "/amazon-performance": "Amazon Performance",
     "/twitter-performance": "Google Performance",
     "/dv360-performance": "DV360 Performance",
     "/lead-management": "Lead Management"

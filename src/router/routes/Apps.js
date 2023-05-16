@@ -174,24 +174,24 @@ const AppRoutes = [
     }
   },
   {
-    path: '/funnelmap/MOFU',
-    component: lazy(() => import('../../views/funnelmap/MOFU')),
+    path: '/funnelAttribution/MOFU',
+    component: lazy(() => import('../../views/funnelAttribution/MOFU')),
     meta: {
-      navLink: '/funnelmap/MOFU'
+      navLink: '/funnelAttribution/MOFU'
     }
   },
   {
-    path: '/funnelmap/TOFU',
-    component: lazy(() => import('../../views/funnelmap/TOFU')),
+    path: '/funnelAttribution/TOFU',
+    component: lazy(() => import('../../views/funnelAttribution/TOFU')),
     meta: {
-      navLink: '/funnelmap/TOFU'
+      navLink: '/funnelAttribution/TOFU'
     }
   },
   {
-    path: '/funnelmap/BOFU',
-    component: lazy(() => import('../../views/funnelmap/BOFU')),
+    path: '/funnelAttribution/BOFU',
+    component: lazy(() => import('../../views/funnelAttribution/BOFU')),
     meta: {
-      navLink: '/funnelmap/BOFU'
+      navLink: '/funnelAttribution/BOFU'
     }
   }
 ]

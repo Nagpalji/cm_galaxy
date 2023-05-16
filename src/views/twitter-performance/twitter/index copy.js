@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react'
-import { Row, Col, Modal, ModalBody, Button } from 'reactstrap'
+import { useContext } from 'react'
+import { Row, Col } from 'reactstrap'
 import { ThemeColors } from '@src/utility/context/ThemeColors'
 
 // import Earnings from '@src/views/ui-elements/cards/analytics/Earnings'
@@ -35,54 +35,36 @@ import CostByCampaign from './highcharts/CostByCampaign'
 const EcommerceDashboard = () => {
   const { colors } = useContext(ThemeColors),
     trackBgColor = '#e9ecef'
-
-  const [modal, setModal] = useState(true)
   // my popup start
   const MySwal = withReactContent(Swal)
 
   // const handleHTMLAlert = () => {
-  // return MySwal.fire({
-  //   title: '',
-  //   // footer: '<a href="javascript:void(0);">If You any further issue ! Please Let me Know</a>',
-  //   // icon: 'success',
-  //   // html:
-  //   //   'Data Integration Inactive.</b> ',
-  //   html: (
-  //     <span style={{ fontSize: 25 }}>If you would like to link your Twitter account please contact your account manager.</span>
-  //     ),
-  //   showCloseButton: false,
-  //   showCancelButton: false,
-  //   focusConfirm: false,
-  //   confirmButtonText: (
-  //     <span className='align-middle'>
-  //       {/* <ThumbsUp className='mr-50' size={15} /> */}
-  //       {/* <span className='align-middle'>Close</span> */}
-  //       <a href="/overall-snapshot" className='align-middle text-white'>Close</a>
-  //     </span>
-  //   ),
-  //   cancelButtonText: <ThumbsDown size={15} />,
-  //   customClass: {
-  //     confirmButton: 'btn btn-primary custom-buttoncss',
-  //     cancelButton: 'btn btn-outline-danger ml-1'
-  //   },
-  //   buttonsStyling: false
-  // })
-  return (
-    <>
-      <Modal size='lg' isOpen={modal} toggle={() => setModal(!modal)} >
-        <ModalBody className='text-center m-1'>
-          <div className='m-xl-2 m-sx-0'>
-            <p style={{ fontSize: 25 }} className='lh-base'>If you would like to link your Twitter account please contact your account manager.</p>
-          </div>
-          <span>
-            <Button.Ripple color="primary" className='mt-1'>
-              <a href="/overall-snapshot" className='text-white'>Close</a>
-            </Button.Ripple>
-          </span>
-        </ModalBody>
-      </Modal>
-    </>
-  )
+  return MySwal.fire({
+    title: '',
+    // footer: '<a href="javascript:void(0);">If You any further issue ! Please Let me Know</a>',
+    // icon: 'success',
+    // html:
+    //   'Data Integration Inactive.</b> ',
+    html: (
+      <span style={{ fontSize: 25 }}>If you would like to link your Twitter account please contact your account manager.</span>
+      ),
+    showCloseButton: false,
+    showCancelButton: false,
+    focusConfirm: false,
+    confirmButtonText: (
+      <span className='align-middle'>
+        {/* <ThumbsUp className='mr-50' size={15} /> */}
+        {/* <span className='align-middle'>Close</span> */}
+        <a href="/overall-snapshot" className='align-middle text-white'>Close</a>
+      </span>
+    ),
+    cancelButtonText: <ThumbsDown size={15} />,
+    customClass: {
+      confirmButton: 'btn btn-primary custom-buttoncss',
+      cancelButton: 'btn btn-outline-danger ml-1'
+    },
+    buttonsStyling: false
+  })
   // }
   // my popup end
   return (
