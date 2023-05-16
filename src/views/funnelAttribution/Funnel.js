@@ -369,7 +369,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 {" "}
                                                 User <strong>: {res?.Bofu?.initiate_checkout?.count?.toLocaleString()}</strong>
                                                 <br />
-                                                value <strong>: {res?.Bofu?.initiate_checkout?.value?.toLocaleString()}</strong>
+                                                Value <strong>: {res?.Bofu?.initiate_checkout?.value?.toLocaleString()}</strong>
                                             </p>
                                         </div>
                                     </div>
@@ -397,9 +397,9 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                User <strong>: {res?.Bofu?.abandoned_cart?.count?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
+                                                User <strong>: {res?.Bofu?.abandoned_cart?.count}</strong>
                                                 <br />
-                                                Value <strong>: {res?.Bofu?.abandoned_cart?.value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
+                                                Value <strong>: {res?.Bofu?.abandoned_cart?.value.toFixed(2)}</strong>
                                             </p>
                                         </div>
                                     </div>
@@ -414,7 +414,10 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <p className="m-0 ml-2">
                                                 {" "}
                                                 <strong>
-                                                    {res?.Bofu?.returning_users_cart_value?.avg?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}
+                                                User <strong>: {res?.Bofu?.returning_users_cart_value?.count}</strong>
+                                                <br />
+                                                Value <strong>: {res?.Bofu?.returning_users_cart_value?.value.toFixed(2)}</strong>
+                                                    {/* {res?.Bofu?.returning_users_cart_value?.avg.toFixed(2)} */}
                                                 </strong>
                                             </p>
                                         </div>
@@ -429,8 +432,11 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                {res?.Bofu?.new_users_cart_value?.avg?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}
-                                                <strong>{res?.Bofu?.new_users_cart_value?.value?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</strong>
+                                                Users : <strong>{res?.Bofu?.new_users_cart_value?.count} </strong>  
+                                                <br />
+                                                {/* ?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} */}
+                                                Avg Value : <strong>{res?.Bofu?.new_users_cart_value?.avg }</strong>
+                                                {/* //?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} */}
 
                                                 {/* <b>{res?.Bofu?.abandoned_cart}</b> */}
                                             </p>
