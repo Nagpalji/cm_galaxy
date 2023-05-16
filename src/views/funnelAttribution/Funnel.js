@@ -595,7 +595,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                                 {/* {val?.source === "" ? 'Organic' : */}
                                                                 {/* {val?.source?.charAt(0).toUpperCase() + val?.source?.slice(1)}{" "} */}
                                                                 {/* <b>: {val.sum.toLocaleString()}</b> */}
-                                                                {val?.source === '' ? 'Organic' : val?.source} <strong>: {val.count || 0}</strong>
+                                                                {val?.source === '' ? 'Organic' : val?.source.charAt(0).toUpperCase() + val?.source.slice(1)} <strong>: {val.count || 0}</strong>
                                                             </li>
                                                         </>
                                                     )

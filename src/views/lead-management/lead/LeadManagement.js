@@ -280,6 +280,7 @@ const DataTopCampaigns = () => {
             sortIcon={<ChevronDown size={10} />}
             paginationComponent={CustomPagination}
             data={dataToRender()}
+            pointerOnHover
             // onRowDoubleClicked
             onRowClicked={(e) => {
               setModal(true)  
