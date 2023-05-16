@@ -343,7 +343,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                     <p className="border-left-secondary m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Data From {`${moment(res?.Bofu?.startDate).format('DD-MMM-YYYY')} to ${moment(res?.Bofu?.endDate).format('DD-MMM-YYYY')}`}</p>
                                 </div>
                                 <PerfectScrollbar className=" w-100 p-0 border-left-secondary">
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of users who have created a cart" >
+                                    {/* <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of users who have created a cart" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-secondary" />
                                             <p className="fw-bold m-0 text-secondary">Add To Cart – </p>
@@ -354,7 +354,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <b>{res?.Bofu?.add_to_cart?.toLocaleString()}</b>
                                             </p>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of Users who have initiated checkout" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-secondary" />
@@ -412,7 +412,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <p className="m-0 ml-2">
                                                 {" "}
                                                 <strong>
-                                                    {res?.Bofu?.returning_users_cart_value?.value?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}
+                                                    {res?.Bofu?.returning_users_cart_value?.avg?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}
                                                 </strong>
                                             </p>
                                         </div>
@@ -427,7 +427,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                {res?.Bofu?.new_users_cart_value?.value?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}
+                                                {res?.Bofu?.new_users_cart_value?.avg?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}
 
                                                 {/* <b>{res?.Bofu?.abandoned_cart}</b> */}
                                             </p>
