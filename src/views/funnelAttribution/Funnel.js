@@ -391,15 +391,15 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
                                             <p className="fw-bold m-0 text-secondary">
-                                                Abandoned Cart
+                                                Abandoned Checkout
                                             </p>
                                         </div>
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                Cart <strong>: {res?.Bofu?.abandoned_cart?.count?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
+                                                User <strong>: {res?.Bofu?.abandoned_cart?.count?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
                                                 <br />
-                                                Cart Value <strong>: {res?.Bofu?.abandoned_cart?.value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
+                                                Value <strong>: {res?.Bofu?.abandoned_cart?.value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
                                             </p>
                                         </div>
                                     </div>
