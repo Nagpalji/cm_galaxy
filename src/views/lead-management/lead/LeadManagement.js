@@ -13,7 +13,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import ReactPaginate from 'react-paginate'
 import { ChevronDown, Download } from 'react-feather'
 import DataTable from 'react-data-table-component'
-import { Card, CardHeader, CardTitle, CardText, Input, Label, Row, Col, Button, UncontrolledButtonDropdown, DropdownMenu, DropdownItem, DropdownToggle, Spinner } from 'reactstrap'
+import { Card, CardHeader, CardTitle, CardText, Input, Label, Row, Col, Button, UncontrolledButtonDropdown, DropdownMenu, DropdownItem, DropdownToggle, Spinner, Modal, ModalBody } from 'reactstrap'
+import { FaUser } from 'react-icons/fa'
+import { MdClose } from 'react-icons/md'
 
 const DataTopCampaigns = () => {
   // ** Store Vars
@@ -21,6 +23,8 @@ const DataTopCampaigns = () => {
   const store = useSelector(state => state.dataTables)
 
   // ** States
+  const [modal, setModal] = useState(false)
+  const [userData, setUserData] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
   const [rowsPerPage, setRowsPerPage] = useState(7)
   const [searchValue, setSearchValue] = useState('')
@@ -33,7 +37,7 @@ const DataTopCampaigns = () => {
   const fett = 'https://srvr1px.cyberads.io/adword_impression/?brand_name='
   const fet = fett + brand_name
   const lead_download_apit = 'https://srvr1px.cyberads.io/adword_cpl/?brand_name='
-  const lead_download_api = lead_download_apit + brand_name 
+  const lead_download_api = lead_download_apit + brand_name
   const sy = localStorage.getItem("sy")
   const sm = localStorage.getItem("sm")
   const sd = localStorage.getItem("sd")
@@ -267,7 +271,6 @@ const DataTopCampaigns = () => {
             </Col>
           </Row>
 
-
           <DataTable
             noHeader
             pagination
@@ -277,7 +280,68 @@ const DataTopCampaigns = () => {
             sortIcon={<ChevronDown size={10} />}
             paginationComponent={CustomPagination}
             data={dataToRender()}
+            // onRowDoubleClicked
+            onRowClicked={(e) => {
+              setModal(true)  
+              setUserData(e)
+            }}
           />
+          <Modal size='xl' isOpen={modal} >
+            <CardHeader className='d-flex justify-content-between align-items-top'>
+              <h5>
+                <FaUser size={20} />{' '}
+                <span className=''>User Details</span>
+              </h5>
+              <MdClose size={16} className='rounded' onClick={() => setModal(false)} />
+            </CardHeader>
+            <ModalBody>
+              <div className='d-flex row'>
+                <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Name: </span><span>&nbsp; {userData.Name}</span></div>
+                <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Gender: </span><span>&nbsp; {'-'}</span></div>
+                <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Age: </span><span>&nbsp; {'-'}</span></div>
+                <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Mobile: </span><span>&nbsp; {userData.Contact}</span></div>
+                <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Email: </span><span>&nbsp; {userData.Email}</span></div>
+                <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Income: </span><span>&nbsp; {'-'}</span></div>
+                <div className='d-flex col-12 col-lg-2 mb-1'> <span className='fw-bold'>Country: </span><span>&nbsp; {'-'}</span></div>
+                <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>City: </span><span>&nbsp; {'-'}</span></div>
+                <div className='d-flex col-12 col-lg-4 mb-1'> <span className='fw-bold'>Address: </span><span>&nbsp; {'-'}</span></div>
+                {/* <div className='d-flex col-12 col-lg-3 mb-1'> <span className='fw-bold'>Interest: </span><span>&nbsp; 0</span></div> */}
+              </div>
+              <hr />
+              <>
+                <Row>
+                  <Col>
+                    {/* <TablerChart
+                      title='Monthly Pageviews and Avg. Time Spend'
+                      titleTextLeft='Time'
+                      titleTextRight='Time Spend'
+                      series={dateWiseSessionAndTime}
+                      categories={dateWiseSessionAndTime}
+                    /> */}
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    {/* <DateWiseProductPurchase
+                      title='Monthly Products Purchase By Value'
+                      // titleTextLeft='Total Price'
+                      titleTextLeft=''
+                      titleTextRight='Total Purchase Value'
+                      series={dateWiseProductPurchase}
+                      categories={dateWiseProductPurchase}
+                    /> */}
+                  </Col>
+                  <Col>
+                    {/* <CircleChart
+                      title='Abandoned Cart Value VS Purchase Value'
+                      seriesName=''
+                      seriesData={pieChartProductPurchase}
+                    /> */}
+                  </Col>
+                </Row>
+              </>
+            </ModalBody>
+          </Modal>
         </Card>
       </Fragment>
     )
