@@ -33,6 +33,7 @@ import ExchangeSpends from './highcharts/ExchangeSpends'
 
 import DateRangePicker from './DateRangePicker'
 import '@styles/react/libs/flatpickr/flatpickr.scss'
+import { Link } from 'react-router-dom'
 
 const EcommerceDashboard = () => {
   const { colors } = useContext(ThemeColors),
@@ -159,14 +160,14 @@ const EcommerceDashboard = () => {
     // })
     return (
       <>
-        <Modal size='lg' isOpen={modal} toggle={() => setModal(!modal)} >
+        <Modal size='lg' isOpen={modal} centered backdrop="static" keyboard={false} >
           <ModalBody className='text-center m-1'>
             <div className='m-xl-2 m-sx-0'>
               <p style={{ fontSize: 25 }} className='lh-base'>If you would like to link your DV 360 account please contact your account manager.</p>
             </div>
             <span>
-              <Button.Ripple color="primary" className='mt-1'>
-                <a href="/overall-snapshot" className='text-white'>Close</a>
+              <Button.Ripple color="primary" className='mt-1' tag={Link} to="/">
+                Close
               </Button.Ripple>
             </span>
           </ModalBody>
