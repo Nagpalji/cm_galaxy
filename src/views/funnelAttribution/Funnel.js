@@ -76,7 +76,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                     <p className="border-left-warning m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Data From {`${moment(res?.Tofu?.startDate).format('DD-MMM-YYYY')} to ${moment(res?.Tofu?.endDate).format('DD-MMM-YYYY')}`}</p>
                                 </div>
                                 <PerfectScrollbar className="w-100 border-left-warning">
-                                <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Number Of People Reached" >
+                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Number Of People Reached" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-warning" />
                                             <p className="fw-bold text-warning m-0">Impressions –</p>
@@ -87,7 +87,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </p>
                                         </div>
                                     </div>
-                                    
+
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number Of Unique People" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-warning" />
@@ -124,8 +124,8 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                     return (
                                                         <>
                                                             <li className="m-0" key={val.Gender}>
-                                                            {/* {console.log(val)} */}
-                                                            {`${val.Age} : ${val.Total_Clicks}`}
+                                                                {/* {console.log(val)} */}
+                                                                {val.Age} <strong>: {val.Total_Clicks}</strong>
                                                                 {/* {val?.Gender?.charAt(0).toUpperCase() + val?.Gender?.slice(1)}{" "}
                                                                 <b>: {val.Sessions?.toLocaleString()}</b> */}
                                                             </li>
@@ -145,9 +145,11 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                     return (
                                                         <>
                                                             <li className="m-0" key={val.Gender}>
-                                                            {/* {console.log(val)} */}
-                                                            {/* {val.Gender} */}
-                                                            {`${val.Gender} : ${val.Total_Clicks}`}
+                                                                {/* {console.log(val)} */}
+                                                                {/* {val.Gender} */}
+
+                                                                {val.Gender} <strong>: {val.Total_Clicks}</strong>
+
                                                                 {/* {val?.Gender?.charAt(0).toUpperCase() + val?.Gender?.slice(1)}{" "}
                                                                 <b>: {val.Sessions?.toLocaleString()}</b> */}
                                                             </li>
@@ -194,7 +196,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                     <p className="border-left-primary m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Data From {`${moment(res?.Mofu?.startDate).format('DD-MMM-YYYY')} to ${moment(res?.Mofu?.endDate).format('DD-MMM-YYYY')}`}</p>
                                 </div>
                                 <PerfectScrollbar className="w-100 border-left-primary">
-                                <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions" >
+                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-primary" />
                                             <p className="fw-bold text-primary m-0">
@@ -208,7 +210,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </p>
                                         </div>
                                     </div>
-                                <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions" >
+                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-primary" />
                                             <p className="fw-bold text-primary m-0">
@@ -251,7 +253,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </p>
                                         </div>
                                         <div className="ml-1 mb-1">
-                                        {res?.Mofu?.product_info &&
+                                            {res?.Mofu?.product_info &&
                                                 res?.Mofu?.product_info.map((val) => {
                                                     return (
                                                         <>
@@ -320,15 +322,15 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                     return (
                                                         <>
                                                             <li className="m-0" key={val.OS}>
-                                                                {val.source} <b>: {val.count?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} %</b>
+                                                                {val.source && val.source === 'ios' ? 'iOS' : val.source.charAt(0).toUpperCase() + val.source.slice(1)} <strong>: {val.count?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} %</strong>
                                                             </li>
                                                         </>
                                                     )
                                                 })}
                                         </div>
                                     </div>
-                                    
-                                    
+
+
                                 </PerfectScrollbar>
                             </div>
                         </div>
@@ -365,9 +367,9 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>User : {res?.Bofu?.initiate_checkout?.count?.toLocaleString()}</b>
+                                                User <strong>: {res?.Bofu?.initiate_checkout?.count?.toLocaleString()}</strong>
                                                 <br />
-                                                <b>value : {res?.Bofu?.initiate_checkout?.value?.toLocaleString()}</b>
+                                                value <strong>: {res?.Bofu?.initiate_checkout?.value?.toLocaleString()}</strong>
                                             </p>
                                         </div>
                                     </div>
@@ -375,13 +377,13 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
                                             <p className="fw-bold m-0 text-secondary">
-                                            Users to Cart Conversion Rate % -
+                                                Users to Cart Conversion Rate % -
                                             </p>
                                         </div>
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Bofu?.user_to_cart_conversion_rate?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
+                                                <strong>{res?.Bofu?.user_to_cart_conversion_rate?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
                                             </p>
                                         </div>
                                     </div>
@@ -389,15 +391,15 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
                                             <p className="fw-bold m-0 text-secondary">
-                                            Abandoned Cart
+                                                Abandoned Cart
                                             </p>
                                         </div>
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>Cart : {res?.Bofu?.abandoned_cart?.count?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
+                                                Cart <strong>: {res?.Bofu?.abandoned_cart?.count?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
                                                 <br />
-                                                <b>Cart Value : {res?.Bofu?.abandoned_cart?.value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
+                                                Cart Value <strong>: {res?.Bofu?.abandoned_cart?.value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
                                             </p>
                                         </div>
                                     </div>
@@ -421,13 +423,13 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
                                             <p className="fw-bold m-0 text-secondary">
-                                            New Users Cart Value
+                                                New Users Cart Value
                                             </p>
                                         </div>
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                {res?.Bofu?.new_users_cart_value?.value?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}
+                                                <strong>{res?.Bofu?.new_users_cart_value?.value?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</strong>
 
                                                 {/* <b>{res?.Bofu?.abandoned_cart}</b> */}
                                             </p>
@@ -590,9 +592,9 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                         <>
                                                             <li className="m-0" key={val?.source}>
                                                                 {/* {val?.source === "" ? 'Organic' : */}
-                                                                 {/* {val?.source?.charAt(0).toUpperCase() + val?.source?.slice(1)}{" "} */}
+                                                                {/* {val?.source?.charAt(0).toUpperCase() + val?.source?.slice(1)}{" "} */}
                                                                 {/* <b>: {val.sum.toLocaleString()}</b> */}
-                                                                {val?.source === '' ? 'Organic' : val?.source } : {val.count || 0}
+                                                                {val?.source === '' ? 'Organic' : val?.source} <strong>: {val.count || 0}</strong>
                                                             </li>
                                                         </>
                                                     )
@@ -630,7 +632,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                     <Row className="match-height">
                         <hr />
                         <Col xs="12">
-                            <Table data={table} selectedCategory={category} loadMore={loadMore}/>
+                            <Table data={table} selectedCategory={category} loadMore={loadMore} />
                         </Col>
                     </Row>
                 </div>
