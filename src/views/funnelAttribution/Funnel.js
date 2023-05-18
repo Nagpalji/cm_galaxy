@@ -411,7 +411,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 {" "}
                                                 User <strong>: {res?.Bofu?.abandoned_cart?.count}</strong>
                                                 <br />
-                                                Value <strong>: {res?.Bofu?.abandoned_cart?.value.toFixed(2)}</strong>
+                                                Value <strong>: {parseFloat(res?.Bofu?.abandoned_cart?.value).toFixed(2)}</strong>
                                             </p>
                                         </div>
                                     </div>
@@ -425,12 +425,10 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <strong>
                                                 User <strong>: {res?.Bofu?.returning_users_cart_value?.count}</strong>
                                                 <br />
-                                                Value <strong>: {res?.Bofu?.returning_users_cart_value?.value.toFixed(2)}</strong>
+                                                Value <strong>: {parseFloat(res?.Bofu?.returning_users_cart_value?.value).toFixed(2)}</strong>
                                                     {/* {res?.Bofu?.returning_users_cart_value?.avg.toFixed(2)} */}
-                                                </strong>
                                             </p>
                                         </div>
                                     </div>
