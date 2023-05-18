@@ -88,6 +88,18 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         </div>
                                     </div>
 
+                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Number Of People Reached" >
+                                        <div className="d-flex align-items-center p-0 m-0">
+                                            <IoIosArrowRoundForward size={32} className="text-warning" />
+                                            <p className="fw-bold text-warning m-0">Clicks –</p>
+                                        </div>
+                                        <div className="ml-3">
+                                            <p>
+                                                <b>{res?.Tofu?.clicks?.toLocaleString()}</b>
+                                            </p>
+                                        </div>
+                                    </div>
+
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number Of Unique People" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-warning" />
