@@ -430,10 +430,10 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                Users : <strong>{res?.Bofu?.new_users_cart_value?.count} </strong>  
+                                                Users <strong>: {res?.Bofu?.new_users_cart_value?.count} </strong>  
                                                 <br />
                                                 {/* ?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} */}
-                                                Avg Value : <strong>{res?.Bofu?.new_users_cart_value?.avg }</strong>
+                                                Avg Value <strong>: {res?.Bofu?.new_users_cart_value?.avg }</strong>
                                                 {/* //?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} */}
 
                                                 {/* <b>{res?.Bofu?.abandoned_cart}</b> */}
