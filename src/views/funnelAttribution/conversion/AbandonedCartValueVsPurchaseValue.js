@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardBody } from 'reactstrap'
 import Highcharts from "highcharts/highstock"
 import PieChart from "highcharts-react-official"
 
-function CircleChart(props) {
+function AbandonedCartValueVsPurchaseValue(props) {
     
     const options = {
         chart: {
@@ -84,7 +84,7 @@ function CircleChart(props) {
 
         series: [
             {
-                name: props.seriesName,
+                name: '',
                 type: 'pie',
                 // data: props.seriesData
                 data:
@@ -116,4 +116,4 @@ function CircleChart(props) {
     )
 }
 
-export default CircleChart
+export default AbandonedCartValueVsPurchaseValue

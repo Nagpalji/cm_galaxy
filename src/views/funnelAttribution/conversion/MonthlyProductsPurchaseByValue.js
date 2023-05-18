@@ -4,21 +4,7 @@ import Highcharts from "highcharts/highstock"
 import PieChart from "highcharts-react-official"
 import moment from 'moment'
 
-function DateWiseProductPurchase(props) {
-    //     const switchCase = (para) => {
-    //         switch (para) {
-    //             props.series?.map(e => {
-    //             return ( 
-    //                 `${case e.line_items: hello}` 
-    //                 break
-    //                     )
-    //         }
-
-
-    //             default:
-    //     break;
-    // }
-    //     }
+function MonthlyProductsPurchaseByValue(props) {
     const options = {
         chart: {
             marginTop: 30,
@@ -67,49 +53,16 @@ function DateWiseProductPurchase(props) {
                 },
                 gridLineWidth: 0,
                 title: {
-                    text: props.titleTextRight
+                    text: 'Total Purchase Value'
                 }
             }
         ],
 
         tooltip: {
-            // formatter() {
-            //     return `<div> ${props.titleTextRight} : ${this.y}</div>
-            //         <br />${props.series?.map((e) => {
-            //         return `${e?.line_items?.map((e) => {
-            //             return `<br />${e?.product_name} : ${e?.price}`
-            //         })}`
-            //     })}
-
-            //         ${console.log()}
-            //         `
-            // },
-
-
-            // formatter() {
-            //     return `<div> ${props.titleTextRight} : ${this.y}
-
-            // ${console.log(this.y === props?.series[5]?.total_price ? 'In' : 'Out')}
-            // `
-            // },
-            //this.x, props?.series?.map(e => { return ((moment(e?.created_at).format('MMM YYYY') === this.x) ? e?.line_items?.map(e => { return (`${e?.product_name}: ${e?.price}`) }) : 'out') })
-            // formatter() {
-            //     return `<div> ${props.titleTextRight} : ${this.y}
-
-            // ${console.log(`switch(${this.x}){
-            //     ${props.series?.map(e => {
-            //         return (
-            //             `case ${e.created_at} : ${e.line_items?.map(e => { return (`${e.product_name}: ${e.price}`) })}`
-            //         )
-            //     })}
-            // }`)}
-            // `
-            // },
-
             formatter() {
                 return `${this.x}
                 <br />
-                <div>${props.titleTextRight}: $${this.y}</div>
+                <div>Total Purchase Value: $${this.y}</div>
                 <br />
             ${(this.x === moment(props.series[0].created_at).format('MMM YYYY')) ? props.series[0].line_items?.map(e => {
                     return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}: $${e.price}`)
@@ -211,4 +164,4 @@ function DateWiseProductPurchase(props) {
     )
 }
 
-export default DateWiseProductPurchase
+export default MonthlyProductsPurchaseByValue
