@@ -3,13 +3,12 @@ import React, { useState } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Redirect } from 'react-router-dom'
 import { Modal, ModalBody, ModalHeader, Row, Col, Badge, CardHeader, Button, Spinner } from 'reactstrap'
-import UserDetail from './UserDetail'
-import TablerChart from './conversion/TablerChart'
-import CircleChart from './conversion/CircleChart'
+import MonthlyPageviewsandAvgTimeSpend from './conversion/MonthlyPageviewsandAvgTimeSpend'
+import AbandonedCartValueVsPurchaseValue from './conversion/AbandonedCartValueVsPurchaseValue'
 import axios from 'axios'
 import { FaUser } from 'react-icons/fa'
 import { MdClose } from 'react-icons/md'
-import DateWiseProductPurchase from './conversion/DateWiseProductPurchase'
+import MonthlyProductsPurchaseByValue from './conversion/MonthlyProductsPurchaseByValue'
 
 const Table = ({ data, selectedCategory, loadMore }) => {
     console.log({ length: data?.convertionsData && data?.convertionsData.length })
@@ -269,10 +268,8 @@ const Table = ({ data, selectedCategory, loadMore }) => {
                             <>
                                 <Row>
                                     <Col>
-                                        <TablerChart
+                                        <MonthlyPageviewsandAvgTimeSpend
                                             title='Monthly Pageviews and Avg. Time Spend'
-                                            titleTextLeft='Time'
-                                            titleTextRight='Time Spend'
                                             series={dateWiseSessionAndTime}
                                             categories={dateWiseSessionAndTime}
                                         />
@@ -280,19 +277,15 @@ const Table = ({ data, selectedCategory, loadMore }) => {
                                 </Row>
                                 <Row>
                                     <Col>
-                                        <DateWiseProductPurchase
+                                        <MonthlyProductsPurchaseByValue
                                             title='Monthly Products Purchase By Value'
-                                            // titleTextLeft='Total Price'
-                                            titleTextLeft=''
-                                            titleTextRight='Total Purchase Value'
                                             series={dateWiseProductPurchase}
                                             categories={dateWiseProductPurchase}
                                         />
                                     </Col>
                                     <Col>
-                                        <CircleChart
+                                        <AbandonedCartValueVsPurchaseValue
                                             title='Abandoned Cart Value VS Purchase Value'
-                                            seriesName=''
                                             seriesData={pieChartProductPurchase}
                                         />
                                     </Col>

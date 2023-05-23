@@ -4,7 +4,7 @@ import Highcharts from "highcharts/highstock"
 import PieChart from "highcharts-react-official"
 import moment from 'moment'
 
-function TablerChart(props) {
+function MonthlyPageviewsandAvgTimeSpend(props) {
 
     const options = {
         chart: {
@@ -146,4 +146,4 @@ function TablerChart(props) {
     )
 }
 
-export default TablerChart
+export default MonthlyPageviewsandAvgTimeSpend
