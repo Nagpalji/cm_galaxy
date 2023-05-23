@@ -341,8 +341,6 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 })}
                                         </div>
                                     </div>
-
-
                                 </PerfectScrollbar>
                             </div>
                         </div>
@@ -357,18 +355,6 @@ export default function Funnel({ res, table, refreshfunction }) {
                                     <p className="border-left-secondary m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Data From {`${moment(res?.Bofu?.startDate).format('DD-MMM-YYYY')} to ${moment(res?.Bofu?.endDate).format('DD-MMM-YYYY')}`}</p>
                                 </div>
                                 <PerfectScrollbar className=" w-100 p-0 border-left-secondary">
-                                    {/* <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of users who have created a cart" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-secondary" />
-                                            <p className="fw-bold m-0 text-secondary">Add To Cart – </p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            <p className="m-0 ml-2">
-                                                {" "}
-                                                <b>{res?.Bofu?.add_to_cart?.toLocaleString()}</b>
-                                            </p>
-                                        </div>
-                                    </div> */}
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of Users who have initiated checkout" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-secondary" />
@@ -428,7 +414,6 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 User <strong>: {res?.Bofu?.returning_users_cart_value?.count}</strong>
                                                 <br />
                                                 Value <strong>: {parseFloat(res?.Bofu?.returning_users_cart_value?.value).toFixed(2)}</strong>
-                                                    {/* {res?.Bofu?.returning_users_cart_value?.avg.toFixed(2)} */}
                                             </p>
                                         </div>
                                     </div>
@@ -444,56 +429,11 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 {" "}
                                                 Users <strong>: {res?.Bofu?.new_users_cart_value?.count} </strong>  
                                                 <br />
-                                                {/* ?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} */}
                                                 Avg Value <strong>: {res?.Bofu?.new_users_cart_value?.avg }</strong>
-                                                {/* //?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} */}
 
-                                                {/* <b>{res?.Bofu?.abandoned_cart}</b> */}
                                             </p>
                                         </div>
                                     </div>
-                                    {/* <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total sum of revenue abandoned" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
-                                            <p className="fw-bold m-0 text-secondary">
-                                            Cart Created by Source
-                                            </p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            <p className="m-0 ml-2">
-                                                {" "}
-                                                <b>{res?.Bofu?.abandoned_cart_value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
-                                            </p>
-                                        </div>
-                                    </div> */}
-                                    {/* <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Cart Value for Returning/ No. of Returning Visitors" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
-                                            <p className="fw-bold m-0 text-secondary">
-                                                Returning Users Cart Value ($) –{" "}
-                                            </p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            <p className="m-0 ml-2">
-                                                {" "}
-                                                <b>{res?.Bofu?.returning_users_cart_value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Cart Value for New Visitors/ No. of New Visitors" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
-                                            <p className="fw-bold m-0 text-secondary">
-                                                New Users Cart Value ($) –{" "}
-                                            </p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            <p className="m-0 ml-2">
-                                                {" "}
-                                                <b>{res?.Bofu?.new_users_cart_value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
-                                            </p>
-                                        </div>
-                                    </div> */}
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-secondary" />
@@ -608,9 +548,6 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                     return (
                                                         <>
                                                             <li className="m-0" key={val?.source}>
-                                                                {/* {val?.source === "" ? 'Organic' : */}
-                                                                {/* {val?.source?.charAt(0).toUpperCase() + val?.source?.slice(1)}{" "} */}
-                                                                {/* <b>: {val.sum.toLocaleString()}</b> */}
                                                                 {val?.source === '' ? 'Organic' : val?.source.charAt(0).toUpperCase() + val?.source.slice(1)} <strong>: {val.count || 0}</strong>
                                                             </li>
                                                         </>

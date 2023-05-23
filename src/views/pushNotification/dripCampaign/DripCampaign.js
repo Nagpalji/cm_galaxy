@@ -121,10 +121,13 @@ export default function DripCampaign() {
     { value: "4", label: "Twice a Week" },
     { value: "5", label: "Twice a Month" }
   ]
-  const option03 = [
-    { value: "1", label: "Below 18" },
-    { value: "2", label: "18 to 36" },
-    { value: "3", label: "37 to 48" }
+  const ageGroup = [
+    { value: "1", label: "18-24" },
+    { value: "2", label: "25-34" },
+    { value: "3", label: "35-44" },
+    { value: "4", label: "45-54" },
+    { value: "5", label: "55-65" },
+    { value: "6", label: "65+" }
   ]
   const option04 = [
     { value: "1", label: "Male" },
@@ -436,7 +439,7 @@ export default function DripCampaign() {
                                   // console.log(e)
                                   setFieldValue("age", e)
                                 }}
-                                options={option03}
+                                options={ageGroup}
                                 name="age"
                                 placeholder="age"
                                 className='react-select'
@@ -700,7 +703,7 @@ export default function DripCampaign() {
                                 // console.log(e)
                                 setFieldValue("age", e)
                               }}
-                              options={option03}
+                              options={ageGroup}
                               name="age"
                               placeholder="Age"
                               className='react-select'

@@ -2,13 +2,14 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import React, { useState } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Redirect } from 'react-router-dom'
-import { Modal, ModalBody, ModalHeader, Row, Col, Badge, CardHeader, Button, Spinner } from 'reactstrap'
+import { Modal, ModalBody, ModalHeader, Row, Col, Badge, CardHeader, Button, Spinner, Label } from 'reactstrap'
 import MonthlyPageviewsandAvgTimeSpend from './conversion/MonthlyPageviewsandAvgTimeSpend'
 import AbandonedCartValueVsPurchaseValue from './conversion/AbandonedCartValueVsPurchaseValue'
 import axios from 'axios'
 import { FaUser } from 'react-icons/fa'
 import { MdClose } from 'react-icons/md'
 import MonthlyProductsPurchaseByValue from './conversion/MonthlyProductsPurchaseByValue'
+import Select from "react-select"
 
 const Table = ({ data, selectedCategory, loadMore }) => {
     console.log({ length: data?.convertionsData && data?.convertionsData.length })
@@ -24,6 +25,12 @@ const Table = ({ data, selectedCategory, loadMore }) => {
     const [customerData, setCustomerData] = useState({})
     const [pieChartProductPurchase, setPieChartProductPurchase] = useState({})
     const [loading, setLoading] = useState(false)
+
+    const options = [
+        { value: "last24hours", label: "Last 24 Hours" },
+        { value: "last7days", label: "Last 7 Days" },
+        { value: "last30days", label: "Last 30 Days" }
+    ]
 
     const userDetail = (userEmail, orderId) => {
         setModal(true)
@@ -82,12 +89,24 @@ const Table = ({ data, selectedCategory, loadMore }) => {
 
     return (
         <>
-            <div className='d-flex justify-content-end'>
-                <form className="form-inline my-lg-0">
-                    {loading ? (<div className='p-1'><Spinner color="primary" /></div>) : (<Button.Ripple color="primary" className="mb-1" onClick={downloadHandle}>Download</Button.Ripple>)}
-
-                </form>
-            </div>
+            <Row className='mb-1 '>
+                <Col></Col>
+                <Col xl={3} sm={5} xs={5}>
+                    <Select
+                        required
+                        //   onChange={e => {
+                        //     setFieldValue("Frequency", e)
+                        //   }}
+                        options={options}
+                        name="Frequency"
+                        placeholder="Frequency"
+                        className='mr-1 react-select'
+                    />
+                </Col>
+                <Col md={2} sm={3} xs={4}>
+                    {loading ? (<div className='p-1'><Spinner color="primary" /></div>) : (<Button.Ripple color="primary" onClick={downloadHandle}>Download</Button.Ripple>)}
+                </Col>
+            </Row>
             {/* -- ToFu Start Here -- */}
             <PerfectScrollbar className='hide1 d-none funneltable'>
                 <table className="table table-warning">
