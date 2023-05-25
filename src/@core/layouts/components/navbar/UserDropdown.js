@@ -99,7 +99,7 @@ const UserDropdown = () => {
       <UncontrolledDropdown tag='li' className='dropdown-user nav-item'>
         <DropdownToggle href='/' tag='a' className='nav-link dropdown-user-link' onClick={e => e.preventDefault()}>
           <div className='user-nav d-sm-flex d-none'>
-            <span className='user-name font-weight-bold'>{localStorage.getItem('user_name')}</span>
+            <span className='user-name font-weight-bold' data-toggle="tooltip" data-placement="top" title={localStorage.getItem('user_name')}>{localStorage.getItem('user_name').length <= 22 ? localStorage.getItem('user_name') : `${localStorage.getItem('user_name').substring(0, 20)} ...`}</span>
             <span className='user-status'>{(userData && level) || localStorage.getItem('level')}</span>
           </div>
           {/* <Avatar img={userAvatar} imgHeight='40' imgWidth='40' status='online' /> */}

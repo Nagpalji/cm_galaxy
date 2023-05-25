@@ -11,12 +11,10 @@ const ChartContainer1 = () => {
         <>
             <Row className="match-height">
                 <Col xs="12">
-                    <div className='d-flex row justify-content-around'>
-                        {/* <Form /> */}
-                        {/* <NotificationHub /> */}
-                        {/* <Test /> */}
-                        <DripCampaign />
-                    </div>
+                    {/* <Form /> */}
+                    {/* <NotificationHub /> */}
+                    {/* <Test /> */}
+                    <DripCampaign />
                 </Col>
             </Row>
         </>

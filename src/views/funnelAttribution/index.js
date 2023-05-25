@@ -6,8 +6,6 @@ import { NumericTextBox } from '@progress/kendo-react-inputs'
 import { Chart, ChartTitle, ChartLegend, ChartTooltip, ChartArea, ChartPlotArea, ChartSeries, ChartSeriesItem, ChartSeriesLabels } from '@progress/kendo-react-charts'
 import "hammerjs"
 import Funnel from './Funnel'
-import Table from './Table'
-import FunnelAttributionDetails from './FunnelAttributionDetails'
 import { toast, ToastContainer } from 'react-toastify'
 
 const tooltipRender = (props) => {
@@ -43,13 +41,13 @@ const ChartContainer1 = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ startDate: dateFrom, endDate: dateTo, brand, start : 0, limit: (tabelData?.convertionsData?.length + 20) || 0})
+            body: JSON.stringify({ startDate: dateFrom, endDate: dateTo, brand, start: 0, limit: (tabelData?.convertionsData?.length + 20) || 0 })
         })
-        .then(response => response.json())
-        .then(data => setTabelData(data))
+            .then(response => response.json())
+            .then(data => setTabelData(data))
             .catch(err => {
                 toast.error(err.message)
-            })        
+            })
     }
     useEffect(() => {
         fetch('https://srvr1px.cyberads.io/getFunnelData/', {
@@ -84,9 +82,8 @@ const ChartContainer1 = () => {
         <div id='dashboard-ecommerce'>
             <ToastContainer />
             <Row className="match-height">
-                <Col xs="12">
+                <Col xl='12' md='12' xs='12'>
                     <Funnel res={res} table={tabelData} refreshfunction={refreshfunction} />
-                    {/* <FunnelMapDetails /> */}
                 </Col>
             </Row>
         </div>

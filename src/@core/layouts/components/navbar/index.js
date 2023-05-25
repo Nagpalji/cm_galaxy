@@ -45,7 +45,7 @@ const ThemeNavbar = props => {
     "/linkedin-performance": "LinkedIn Performance",
     "/youtube-performance": "Youtube Performance",
     "/amazon-performance": "Amazon Performance",
-    "/twitter-performance": "Google Performance",
+    "/twitter-performance": "Twitter Performance",
     "/dv360-performance": "DV360 Performance",
     "/lead-management": "Lead Management"
 

@@ -42,135 +42,137 @@ export default function Funnel({ res, table, refreshfunction }) {
     }, [])
 
     return (
-        <>
+        <Card>
             {res && (
-                <div className="row rounded shadow">
-                    {/* ---- Funnel Start Here ---- */}
-                    <div className="d-flex justify-content-center align-items-center flex-column col-lg-5 col-sm-12 p-0 py-1">
-                        <div onClick={handleChange} className="taper rectangle01" data-toggle="tooltip" data-placement="top" title="Total Number Of Users" style={{ borderColor: "#FFC313 transparent", width: "360px" }}>
-                            <h6 data-id={"1"} className="hide1 funnelPara text-center text-white">TOFU</h6>
-                        </div>
-                        <div className="rectangle02 h-none" style={{ width: 290 }} />
-                        <div onClick={handleChange} className="taper rectangle03" data-toggle="tooltip" data-placement="top" title="User Engagement Behaviour (Number Of Users)" style={{ borderColor: "#4076DA transparent", width: "300px" }}>
-                            <h6 data-id={"2"} className="hide2 funnelPara text-center text-white">MOFU</h6>
-                        </div>
-                        <div className="rectangle04 h-none" style={{ width: 235 }} />
-                        <div onClick={handleChange} className="taper rectangle05" style={{ borderColor: "#4acade transparent", width: "240px" }} >
-                            <h6 data-id={"3"} className="hide3 funnelPara text-center text-white">BOFU</h6>
-                        </div>
-                        <div className="rectangle06 h-none" style={{ width: 175 }} />
-                        <div onClick={handleChange} className="taper rectangle07" style={{ borderColor: "#27CA75 transparent", width: "180px" }} >
-                            <h6 data-id={"4"} className="hide4 funnelPara text-center text-white">Conversion</h6>
-                        </div>
-                    </div>{" "}
-                    {/* ---- Funnel End Here ---- */}
-
-                    {/* ---- Funnel's Detail Start Here ---- */}
-                    <div className="d-flex flex-row col-lg-7 col-sm-12 p-1" style={{ minHeight: 350 }}>
-                        {/* ---- ToFu Funnel-Detail Start Here ---- */}
-                        <div className="content-FFC313 hide1 w-100 d-none data" style={{ height: 250 }}>
-                            <div className="d-none d-lg-block w-25 position-relative border-top-warning" style={{ marginLeft: "-182px", top: 30, height: 0, zIndex: "-1000" }} />
-                            <div className="w-100">
-                                <div className="w-100 align-items-center flex-column">
-                                    <p className="m-0 border-left-warning border-top-warning lh-sm" style={{ padding: 6 }}><strong>ToFu - </strong>Marketing outreach via omni-channels where brands can interact with target audiences. Goals are to increase awareness, build trust and bring users to relevant content assets.</p>
-                                    <p className="border-left-warning m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Data From {`${moment(res?.Tofu?.startDate).format('DD-MMM-YYYY')} to ${moment(res?.Tofu?.endDate).format('DD-MMM-YYYY')}`}</p>
+                <>
+                    <CardBody>
+                        <Row className="row">
+                            {/* ---- Funnel Start Here ---- */}
+                            <Col xl='5' lg='6' sm='12' className="d-flex justify-content-center align-items-center flex-column p-0 py-1">
+                                <div onClick={handleChange} className="taper rectangle01" data-toggle="tooltip" data-placement="top" title="Total Number Of Users" style={{ borderColor: "#FFC313 transparent", width: "360px", zIndex: '1000' }}>
+                                    <h6 data-id={"1"} className="hide1 funnelPara text-center text-white">TOFU</h6>
                                 </div>
-                                <PerfectScrollbar className="w-100 border-left-warning">
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Number Of People Reached" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-warning" />
-                                            <p className="fw-bold text-warning m-0">Impressions –</p>
-                                        </div>
-                                        <div className="ml-3">
-                                            <p>
-                                                <b>{res?.Tofu?.impressions?.toLocaleString()}</b>
-                                            </p>
-                                        </div>
-                                    </div>
+                                <div className="rectangle02 h-none" style={{ width: 290 }} />
+                                <div onClick={handleChange} className="taper rectangle03" data-toggle="tooltip" data-placement="top" title="User Engagement Behaviour (Number Of Users)" style={{ borderColor: "#4076DA transparent", width: "300px", zIndex: '1000' }}>
+                                    <h6 data-id={"2"} className="hide2 funnelPara text-center text-white">MOFU</h6>
+                                </div>
+                                <div className="rectangle04 h-none" style={{ width: 235 }} />
+                                <div onClick={handleChange} className="taper rectangle05" style={{ borderColor: "#4acade transparent", width: "240px", zIndex: '1000' }} >
+                                    <h6 data-id={"3"} className="hide3 funnelPara text-center text-white">BOFU</h6>
+                                </div>
+                                <div className="rectangle06 h-none" style={{ width: 175 }} />
+                                <div onClick={handleChange} className="taper rectangle07" style={{ borderColor: "#27CA75 transparent", width: "180px", zIndex: '1000' }} >
+                                    <h6 data-id={"4"} className="hide4 funnelPara text-center text-white">Conversion</h6>
+                                </div>
+                            </Col>{" "}
+                            {/* ---- Funnel End Here ---- */}
 
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Number Of People Reached" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-warning" />
-                                            <p className="fw-bold text-warning m-0">Clicks –</p>
+                            {/* ---- Funnel's Detail Start Here ---- */}
+                            <Col xl='7' lg='6' sm='12' className="d-flex flex-row p-1" style={{ minHeight: 350 }}>
+                                {/* ---- ToFu Funnel-Detail Start Here ---- */}
+                                <div className="content-FFC313 hide1 w-100 d-none data" style={{ height: 250 }}>
+                                    <div className="d-none d-lg-block w-25 position-relative border-top-warning" style={{ marginLeft: "-182px", top: 30, height: 0 }} />
+                                    <div className="w-100">
+                                        <div className="w-100 align-items-center flex-column">
+                                            <p className="m-0 border-left-warning border-top-warning lh-sm" style={{ padding: 6 }}><strong>ToFu - </strong>Marketing outreach via omni-channels where brands can interact with target audiences. Goals are to increase awareness, build trust and bring users to relevant content assets.</p>
+                                            <p className="border-left-warning m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Data From {`${moment(res?.Tofu?.startDate).format('DD-MMM-YYYY')} to ${moment(res?.Tofu?.endDate).format('DD-MMM-YYYY')}`}</p>
                                         </div>
-                                        <div className="ml-3">
-                                            <p>
-                                                <b>{res?.Tofu?.clicks?.toLocaleString()}</b>
-                                            </p>
-                                        </div>
-                                    </div>
+                                        <PerfectScrollbar className="w-100 border-left-warning">
+                                            <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Number Of People Reached" >
+                                                <div className="d-flex align-items-center p-0 m-0">
+                                                    <IoIosArrowRoundForward size={32} className="text-warning" />
+                                                    <p className="fw-bold text-warning m-0">Impressions –</p>
+                                                </div>
+                                                <div className="ml-3">
+                                                    <p>
+                                                        <b>{res?.Tofu?.impressions?.toLocaleString()}</b>
+                                                    </p>
+                                                </div>
+                                            </div>
 
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number Of Unique People" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-warning" />
-                                            <p className="fw-bold text-warning m-0">Spends –</p>
-                                        </div>
-                                        <div className="ml-3">
-                                            <p>
-                                                <b>{res?.Tofu?.spends?.toFixed(2)}</b>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of Clicks / Total Number Of Impression" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward
-                                                size={32}
-                                                className="text-warning"
-                                            />
-                                            <p className="fw-bold text-warning m-0">CTR % –</p>
-                                        </div>
-                                        <div className="ml-3">
-                                            <p>
-                                                <b>{res?.Tofu?.ctr?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Post Clicks ( M/F) – Post click on Gender, Age data to show up" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-warning" />
-                                            <p className="fw-bold text-warning m-0">Demographics Age –</p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            {res?.Tofu?.age &&
-                                                res?.Tofu?.age.map((val) => {
-                                                    return (
-                                                        <>
-                                                            <li className="m-0" key={val.Gender}>
-                                                                {/* {console.log(val)} */}
-                                                                {val.Age} <strong>: {val.Total_Clicks}</strong>
-                                                                {/* {val?.Gender?.charAt(0).toUpperCase() + val?.Gender?.slice(1)}{" "}
+                                            <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Number Of People Reached" >
+                                                <div className="d-flex align-items-center p-0 m-0">
+                                                    <IoIosArrowRoundForward size={32} className="text-warning" />
+                                                    <p className="fw-bold text-warning m-0">Clicks –</p>
+                                                </div>
+                                                <div className="ml-3">
+                                                    <p>
+                                                        <b>{res?.Tofu?.clicks?.toLocaleString()}</b>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number Of Unique People" >
+                                                <div className="d-flex align-items-center p-0 m-0">
+                                                    <IoIosArrowRoundForward size={32} className="text-warning" />
+                                                    <p className="fw-bold text-warning m-0">Spends –</p>
+                                                </div>
+                                                <div className="ml-3">
+                                                    <p>
+                                                        <b>{res?.Tofu?.spends?.toFixed(2)}</b>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of Clicks / Total Number Of Impression" >
+                                                <div className="d-flex align-items-center p-0 m-0">
+                                                    <IoIosArrowRoundForward
+                                                        size={32}
+                                                        className="text-warning"
+                                                    />
+                                                    <p className="fw-bold text-warning m-0">CTR % –</p>
+                                                </div>
+                                                <div className="ml-3">
+                                                    <p>
+                                                        <b>{res?.Tofu?.ctr?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div className="d-block" data-toggle="tooltip" data-placement="top" title="Post Clicks ( M/F) – Post click on Gender, Age data to show up" >
+                                                <div className="d-flex align-items-center p-0 m-0">
+                                                    <IoIosArrowRoundForward size={32} className="text-warning" />
+                                                    <p className="fw-bold text-warning m-0">Demographics Age –</p>
+                                                </div>
+                                                <div className="ml-1 mb-1">
+                                                    {res?.Tofu?.age &&
+                                                        res?.Tofu?.age.map((val) => {
+                                                            return (
+                                                                <>
+                                                                    <li className="m-0" key={val.Gender}>
+                                                                        {/* {console.log(val)} */}
+                                                                        {val.Age} <strong>: {val.Total_Clicks}</strong>
+                                                                        {/* {val?.Gender?.charAt(0).toUpperCase() + val?.Gender?.slice(1)}{" "}
                                                                 <b>: {val.Sessions?.toLocaleString()}</b> */}
-                                                            </li>
-                                                        </>
-                                                    )
-                                                })}
-                                        </div>
-                                    </div>
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Post Clicks ( M/F) – Post click on Gender, Age data to show up" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-warning" />
-                                            <p className="fw-bold text-warning m-0">Demographics Gender –</p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            {res?.Tofu?.gender &&
-                                                res?.Tofu?.gender.map((val) => {
-                                                    return (
-                                                        <>
-                                                            <li className="m-0" key={val.Gender}>
-                                                                {/* {console.log(val)} */}
-                                                                {/* {val.Gender} */}
+                                                                    </li>
+                                                                </>
+                                                            )
+                                                        })}
+                                                </div>
+                                            </div>
+                                            <div className="d-block" data-toggle="tooltip" data-placement="top" title="Post Clicks ( M/F) – Post click on Gender, Age data to show up" >
+                                                <div className="d-flex align-items-center p-0 m-0">
+                                                    <IoIosArrowRoundForward size={32} className="text-warning" />
+                                                    <p className="fw-bold text-warning m-0">Demographics Gender –</p>
+                                                </div>
+                                                <div className="ml-1 mb-1">
+                                                    {res?.Tofu?.gender &&
+                                                        res?.Tofu?.gender.map((val) => {
+                                                            return (
+                                                                <>
+                                                                    <li className="m-0" key={val.Gender}>
+                                                                        {/* {console.log(val)} */}
+                                                                        {/* {val.Gender} */}
 
-                                                                {val.Gender} <strong>: {val.Total_Clicks}</strong>
+                                                                        {val.Gender} <strong>: {val.Total_Clicks}</strong>
 
-                                                                {/* {val?.Gender?.charAt(0).toUpperCase() + val?.Gender?.slice(1)}{" "}
+                                                                        {/* {val?.Gender?.charAt(0).toUpperCase() + val?.Gender?.slice(1)}{" "}
                                                                 <b>: {val.Sessions?.toLocaleString()}</b> */}
-                                                            </li>
-                                                        </>
-                                                    )
-                                                })}
-                                        </div>
-                                    </div>
-                                    {/*
+                                                                    </li>
+                                                                </>
+                                                            )
+                                                        })}
+                                                </div>
+                                            </div>
+                                            {/*
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Sum Of Total Spends" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-warning" />
@@ -194,106 +196,106 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         </div>
                                     </div>
                                      */}
-                                </PerfectScrollbar>
-                            </div>
-                        </div>
-                        {/* ---- ToFu Funnel-Detail End Here ---- */}
-
-                        {/* ---- MoFu Funnel-Detail Start Here ---- */}
-                        <div className="content-4076DA hide2 w-100 d-none data" style={{ height: 250 }}>
-                            <div className="d-none d-lg-block w-25 position-relative border-top-primary" style={{ marginLeft: "-185px", top: 120, height: 0, zIndex: "-1000" }} />
-                            <div className="w-100">
-                                <div className="w-100 align-items-center flex-column">
-                                    <p className="m-0 border-left-primary border-top-primary lh-sm" style={{ padding: 6 }}><strong>MoFu - </strong>User engage with brand across multiple content assets. Goals are to map audience engagement analytics, understand who they are, and their behavioural patterns.</p>
-                                    <p className="border-left-primary m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Data From {`${moment(res?.Mofu?.startDate).format('DD-MMM-YYYY')} to ${moment(res?.Mofu?.endDate).format('DD-MMM-YYYY')}`}</p>
+                                        </PerfectScrollbar>
+                                    </div>
                                 </div>
-                                <PerfectScrollbar className="w-100 border-left-primary">
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-primary" />
-                                            <p className="fw-bold text-primary m-0">
-                                                Users –{" "}
-                                            </p>
+                                {/* ---- ToFu Funnel-Detail End Here ---- */}
+
+                                {/* ---- MoFu Funnel-Detail Start Here ---- */}
+                                <div className="content-4076DA hide2 w-100 d-none data" style={{ height: 250 }}>
+                                    <div className="d-none d-lg-block w-25 position-relative border-top-primary" style={{ marginLeft: "-182px", top: 120, height: 0 }} />
+                                    <div className="w-100">
+                                        <div className="w-100 align-items-center flex-column">
+                                            <p className="m-0 border-left-primary border-top-primary lh-sm" style={{ padding: 6 }}><strong>MoFu - </strong>User engage with brand across multiple content assets. Goals are to map audience engagement analytics, understand who they are, and their behavioural patterns.</p>
+                                            <p className="border-left-primary m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Data From {`${moment(res?.Mofu?.startDate).format('DD-MMM-YYYY')} to ${moment(res?.Mofu?.endDate).format('DD-MMM-YYYY')}`}</p>
                                         </div>
-                                        <div className="ml-1 mb-1">
-                                            <p className="m-0 ml-2">
-                                                {" "}
-                                                <b>{res?.Mofu?.user || 0}</b>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-primary" />
-                                            <p className="fw-bold text-primary m-0">
-                                                Sessions –{" "}
-                                            </p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            <p className="m-0 ml-2">
-                                                {" "}
-                                                <b>{res?.Mofu?.sessions || 0}</b>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-primary" />
-                                            <p className="fw-bold text-primary m-0">
-                                                Product Preference –{" "}
-                                            </p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            {res?.Mofu?.product_info &&
-                                                res?.Mofu?.product_info.map((val) => {
-                                                    return (
-                                                        <>
-                                                            <li className="m-0" key={val.product_name}>
-                                                                {val.title}{" "}
-                                                                <b>: {val.count.toLocaleString()}</b>
-                                                            </li>
-                                                        </>
-                                                    )
-                                                })}
-                                        </div>
-                                    </div>
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Count Of Product pages visited / Number Of Visitors" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-primary" />
-                                            <p className="fw-bold text-primary m-0">
-                                                Product Engagement –{" "}
-                                            </p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            {res?.Mofu?.product_info &&
-                                                res?.Mofu?.product_info.map((val) => {
-                                                    return (
-                                                        <>
-                                                            <li className="m-0" key={val.product_name}>
-                                                                {val.title}{" "}
-                                                                <b>: {val.average_time_diff.toLocaleString()}</b>
-                                                            </li>
-                                                        </>
-                                                    )
-                                                })}
-                                        </div>
-                                    </div>
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of page views / Number of sessions" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-primary" />
-                                            <p className="fw-bold text-primary m-0">
-                                                Avg. Pages per session –{" "}
-                                            </p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            <p className="m-0 ml-2">
-                                                {" "}
-                                                <b>
-                                                    {res?.Mofu?.avg_pages_per_session?.toLocaleString()}
-                                                </b>
-                                            </p>
-                                        </div>
-                                    </div>
+                                        <PerfectScrollbar className="w-100 border-left-primary">
+                                            <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions" >
+                                                <div className="d-flex align-items-center p-0 m-0">
+                                                    <IoIosArrowRoundForward size={32} className="text-primary" />
+                                                    <p className="fw-bold text-primary m-0">
+                                                        Users –{" "}
+                                                    </p>
+                                                </div>
+                                                <div className="ml-1 mb-1">
+                                                    <p className="m-0 ml-2">
+                                                        {" "}
+                                                        <b>{res?.Mofu?.user || 0}</b>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions" >
+                                                <div className="d-flex align-items-center p-0 m-0">
+                                                    <IoIosArrowRoundForward size={32} className="text-primary" />
+                                                    <p className="fw-bold text-primary m-0">
+                                                        Sessions –{" "}
+                                                    </p>
+                                                </div>
+                                                <div className="ml-1 mb-1">
+                                                    <p className="m-0 ml-2">
+                                                        {" "}
+                                                        <b>{res?.Mofu?.sessions || 0}</b>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div className="d-block" data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" >
+                                                <div className="d-flex align-items-center p-0 m-0">
+                                                    <IoIosArrowRoundForward size={32} className="text-primary" />
+                                                    <p className="fw-bold text-primary m-0">
+                                                        Product Preference –{" "}
+                                                    </p>
+                                                </div>
+                                                <div className="ml-1 mb-1">
+                                                    {res?.Mofu?.product_info &&
+                                                        res?.Mofu?.product_info.map((val) => {
+                                                            return (
+                                                                <>
+                                                                    <li className="m-0" key={val.product_name}>
+                                                                        {val.title}{" "}
+                                                                        <b>: {val.count.toLocaleString()}</b>
+                                                                    </li>
+                                                                </>
+                                                            )
+                                                        })}
+                                                </div>
+                                            </div>
+                                            <div className="d-block" data-toggle="tooltip" data-placement="top" title="Count Of Product pages visited / Number Of Visitors" >
+                                                <div className="d-flex align-items-center p-0 m-0">
+                                                    <IoIosArrowRoundForward size={32} className="text-primary" />
+                                                    <p className="fw-bold text-primary m-0">
+                                                        Product Engagement –{" "}
+                                                    </p>
+                                                </div>
+                                                <div className="ml-1 mb-1">
+                                                    {res?.Mofu?.product_info &&
+                                                        res?.Mofu?.product_info.map((val) => {
+                                                            return (
+                                                                <>
+                                                                    <li className="m-0" key={val.product_name}>
+                                                                        {val.title}{" "}
+                                                                        <b>: {val.average_time_diff.toLocaleString()}</b>
+                                                                    </li>
+                                                                </>
+                                                            )
+                                                        })}
+                                                </div>
+                                            </div>
+                                            <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of page views / Number of sessions" >
+                                                <div className="d-flex align-items-center p-0 m-0">
+                                                    <IoIosArrowRoundForward size={32} className="text-primary" />
+                                                    <p className="fw-bold text-primary m-0">
+                                                        Avg. Pages per session –{" "}
+                                                    </p>
+                                                </div>
+                                                <div className="ml-1 mb-1">
+                                                    <p className="m-0 ml-2">
+                                                        {" "}
+                                                        <b>
+                                                            {res?.Mofu?.avg_pages_per_session?.toLocaleString()}
+                                                        </b>
+                                                    </p>
+                                                </div>
+                                            </div>
 
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions" >
                                         <div className="d-flex align-items-center p-0 m-0">
@@ -450,77 +452,34 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 Avg Value <strong>: {res?.Bofu?.new_users_cart_value?.avg }</strong>
                                                 {/* //?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} */}
 
-                                                {/* <b>{res?.Bofu?.abandoned_cart}</b> */}
-                                            </p>
-                                        </div>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div className="d-block" data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" >
+                                                <div className="d-flex align-items-center p-0 m-0">
+                                                    <IoIosArrowRoundForward size={32} className="text-secondary" />
+                                                    <p className="fw-bold text-secondary m-0">
+                                                        Source –{" "}
+                                                    </p>
+                                                </div>
+                                                <div className="ml-1 mb-1">
+                                                    {res?.Bofu?.soure &&
+                                                        res?.Bofu?.soure.map((val) => {
+                                                            return (
+                                                                <>
+                                                                    <li className="m-0" key={val?.source}>
+                                                                        {val?.source === "" ? 'Organic' : val?.source?.charAt(0).toUpperCase() + val?.source?.slice(1)}{" "}
+                                                                        <b>: {val.count.toLocaleString()}</b>
+                                                                    </li>
+                                                                </>
+                                                            )
+                                                        })}
+                                                </div>
+                                            </div>
+                                        </PerfectScrollbar>
                                     </div>
-                                    {/* <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total sum of revenue abandoned" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
-                                            <p className="fw-bold m-0 text-secondary">
-                                            Cart Created by Source
-                                            </p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            <p className="m-0 ml-2">
-                                                {" "}
-                                                <b>{res?.Bofu?.abandoned_cart_value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
-                                            </p>
-                                        </div>
-                                    </div> */}
-                                    {/* <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Cart Value for Returning/ No. of Returning Visitors" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
-                                            <p className="fw-bold m-0 text-secondary">
-                                                Returning Users Cart Value ($) –{" "}
-                                            </p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            <p className="m-0 ml-2">
-                                                {" "}
-                                                <b>{res?.Bofu?.returning_users_cart_value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Cart Value for New Visitors/ No. of New Visitors" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
-                                            <p className="fw-bold m-0 text-secondary">
-                                                New Users Cart Value ($) –{" "}
-                                            </p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            <p className="m-0 ml-2">
-                                                {" "}
-                                                <b>{res?.Bofu?.new_users_cart_value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
-                                            </p>
-                                        </div>
-                                    </div> */}
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-secondary" />
-                                            <p className="fw-bold text-secondary m-0">
-                                                Source –{" "}
-                                            </p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            {res?.Bofu?.soure &&
-                                                res?.Bofu?.soure.map((val) => {
-                                                    return (
-                                                        <>
-                                                            <li className="m-0" key={val?.source}>
-                                                                {val?.source === "" ? 'Organic' : val?.source?.charAt(0).toUpperCase() + val?.source?.slice(1)}{" "}
-                                                                <b>: {val.count.toLocaleString()}</b>
-                                                            </li>
-                                                        </>
-                                                    )
-                                                })}
-                                        </div>
-                                    </div>
-                                </PerfectScrollbar>
-                            </div>
-                        </div>
-                        {/* ---- BoFu Funnel-Detail End Here ---- */}
+                                </div>
+                                {/* ---- BoFu Funnel-Detail End Here ---- */}
 
                         {/* ---- Conversion Funnel-Detail Start Here ---- */}
                         <div className="content-27CA75 hide4 w-100 d-none data" style={{ height: 250 }}>
@@ -660,14 +619,18 @@ export default function Funnel({ res, table, refreshfunction }) {
                     </div>
                     {/* ---- Funnel's Detail Start Here ---- */}
 
+                        </Row>
+                    </CardBody>
+                    <hr />
+                    {/* ---- Table Data Start Here ---- */}
                     <Row className="match-height">
-                        <hr />
                         <Col xs="12">
                             <Table data={table} selectedCategory={category} loadMore={loadMore} />
                         </Col>
                     </Row>
-                </div>
+                    {/* ---- Table Data Start Here ---- */}
+                </>
             )}
-        </>
+        </Card>
     )
 }
