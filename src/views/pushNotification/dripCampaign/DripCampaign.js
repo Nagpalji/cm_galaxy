@@ -863,7 +863,7 @@ export default function DripCampaign() {
       <Modal size="xl" isOpen={campaignDetailModal}>
         <CardHeader className='d-flex justify-content-between align-items-top'>
           <h5>
-            <span className=''>Details</span>
+            <span className=''>Drip Campaign Report</span>
           </h5>
           <MdClose size={16} className='rounded' style={style} onClick={() => setCampaignDetailModal(false)} />
         </CardHeader>
@@ -871,7 +871,6 @@ export default function DripCampaign() {
           <Row className='mb-1'>
             <Col>
               <strong>Campaign Name:</strong> {detailData.name}
-              {console.log(detailData)}
             </Col>
             <Col>
               <strong>Start Date:</strong> {detailData.startDate}
@@ -889,7 +888,7 @@ export default function DripCampaign() {
               {console.log(detailData)}
             </Col>
             <Col>
-              {/* <strong>End Date:</strong> {detailData.endDate} */}
+              <strong>Status:</strong> Inactive
             </Col>
           </Row>
           <hr />
