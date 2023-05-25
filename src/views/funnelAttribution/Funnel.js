@@ -615,11 +615,10 @@ export default function Funnel({ res, table, refreshfunction }) {
                                 </PerfectScrollbar>
                             </div>
                         </div>
+                        </Col>
                         {/* ---- Conversion Funnel-Detail End Here ---- */}
-                    </div>
                     {/* ---- Funnel's Detail Start Here ---- */}
-
-                        </Row>
+                    </Row> 
                     </CardBody>
                     <hr />
                     {/* ---- Table Data Start Here ---- */}
