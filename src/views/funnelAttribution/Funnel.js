@@ -334,7 +334,9 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                     return (
                                                         <>
                                                             <li className="m-0" key={val.OS}>
-                                                                {val.source && val.source === 'ios' ? 'iOS' : val.source.charAt(0).toUpperCase() + val.source.slice(1)} <strong>: {val.count?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} %</strong>
+                                                            {val?.source === "" ? 'Organic' : val?.OS === 'ios' ? 'iOS' : val?.OS.charAt(0).toUpperCase() + val?.OS.slice(1)}{" "}
+                                                                <b>: {val?.Count} </b>
+                                                                {/* {val.os && val.os === 'ios' ? 'iOS' : val.os.charAt(0).toUpperCase() + val.os.slice(1)} <strong>: {val.Count?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} %</strong> */}
                                                             </li>
                                                         </>
                                                     )
@@ -357,7 +359,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                     <p className="border-left-secondary m-0" style={{ paddingLeft: 5, paddingTop: 4 }}>Data From {`${moment(res?.Bofu?.startDate).format('DD-MMM-YYYY')} to ${moment(res?.Bofu?.endDate).format('DD-MMM-YYYY')}`}</p>
                                 </div>
                                 <PerfectScrollbar className=" w-100 p-0 border-left-secondary">
-                                    {/* <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of users who have created a cart" >
+                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of users who have created a cart" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-secondary" />
                                             <p className="fw-bold m-0 text-secondary">Add To Cart – </p>
@@ -368,7 +370,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <b>{res?.Bofu?.add_to_cart?.toLocaleString()}</b>
                                             </p>
                                         </div>
-                                    </div> */}
+                                    </div>
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Number of Users who have initiated checkout" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-secondary" />
@@ -539,45 +541,30 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Conversion?.conversions}</b>
+                                                <b>{res?.Conversion?.conversions_revenue?.conversions}</b>
                                             </p>
                                         </div>
-                                    </div>
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Revenue" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
-                                            <p className="fw-bold text-success m-0">Revenue ($) – </p>
+                                            <p className="fw-bold text-success m-0">Revenue – </p>
                                         </div>
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Conversion?.revenue?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
+                                                <b>{res?.Conversion?.conversions_revenue?.revenue?.toFixed(2)}</b>
                                             </p>
                                         </div>
-                                    </div>
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Spends / Number Of Sales" >
+                                        <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Spends / Number Of Sales" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
                                             <p className="fw-bold text-success m-0">
-                                                Cost Per Conversion ($) –{" "}
+                                            Customer Aquisition Cost (CAC) –{" "}
                                             </p>
                                         </div>
                                         <div className="ml-1 mb-1">
                                             <p className="m-0 ml-2">
                                                 {" "}
-                                                <b>{res?.Conversion?.cost_per_conversion?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Revenue / Total Spends" >
-                                        <div className="d-flex align-items-center p-0 m-0">
-                                            <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
-                                            <p className="fw-bold text-success m-0">ROAS – </p>
-                                        </div>
-                                        <div className="ml-1 mb-1">
-                                            <p className="m-0 ml-2">
-                                                {" "}
-                                                <b>{res?.Conversion?.roas?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b>
+                                                <b>{res?.Conversion?.cac}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -595,23 +582,49 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </p>
                                         </div>
                                     </div>
+                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Revenue / Total Spends" >
+                                        <div className="d-flex align-items-center p-0 m-0">
+                                            <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
+                                            <p className="fw-bold text-success m-0">Return on Ad Spends (ROAS) – </p>
+                                        </div>
+                                        <div className="ml-1 mb-1">
+                                            <p className="m-0 ml-2">
+                                                {" "}
+                                                <b>{res?.Conversion?.roas?.toFixed(2)}</b>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Revenue / Total Spends" >
+                                        <div className="d-flex align-items-center p-0 m-0">
+                                            <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
+                                            <p className="fw-bold text-success m-0">ROAS by Paid Source – </p>
+                                        </div>
+                                        <div className="ml-1 mb-1">
+                                            <p className="m-0 ml-2">
+                                                {" "}
+                                                <b>{res?.Conversion?.roas_by_source?.toFixed(2)}</b>
+                                            </p>
+                                        </div>
+                                    </div>
+
                                     <div className="d-block" data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" >
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-success" />
                                             <p className="fw-bold text-success m-0">
-                                                Source –{" "}
+                                            Sales By Source (based on last click attribution) –{" "}
                                             </p>
                                         </div>
                                         <div className="ml-1 mb-1">
-                                            {res?.Conversion?.soure &&
-                                                res?.Conversion?.soure.map((val) => {
+                                            {res?.Conversion?.sales_by_source &&
+                                                res?.Conversion?.sales_by_source.map((val) => {
                                                     return (
                                                         <>
                                                             <li className="m-0" key={val?.source}>
                                                                 {/* {val?.source === "" ? 'Organic' : */}
                                                                 {/* {val?.source?.charAt(0).toUpperCase() + val?.source?.slice(1)}{" "} */}
                                                                 {/* <b>: {val.sum.toLocaleString()}</b> */}
-                                                                {val?.source === '' ? 'Organic' : val?.source.charAt(0).toUpperCase() + val?.source.slice(1)} <strong>: {val.count || 0}</strong>
+                                                                {val?.source === '' ? 'Organic' : val?.source.charAt(0).toUpperCase() + val?.source.slice(1)} <strong>: {val.Count || 0}  | {val?.total_price}</strong>
                                                             </li>
                                                         </>
                                                     )
@@ -622,7 +635,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <div className="d-flex align-items-center p-0 m-0">
                                             <IoIosArrowRoundForward size={32} className="text-success" />
                                             <p className="fw-bold text-success m-0">
-                                                OS –{" "}
+                                                Sales By OS (based on last click attribution) –{" "}
                                             </p>
                                         </div>
                                         <div className="ml-1 mb-1">
@@ -630,15 +643,16 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 res?.Conversion?.os_counts.map((val) => {
                                                     return (
                                                         <>
-                                                            <li className="m-0" key={val?.source}>
-                                                                {val?.source === "" ? 'Organic' : val?.source === 'ios' ? 'iOS' : val?.source.charAt(0).toUpperCase() + val?.source.slice(1)}{" "}
-                                                                <b>: {val.sum.toLocaleString()}</b>
+                                                            <li className="m-0" key={val?.OS}>
+                                                                {val?.source === "" ? 'Organic' : val?.OS === 'ios' ? 'iOS' : val?.OS.charAt(0).toUpperCase() + val?.OS.slice(1)}{" "}
+                                                                <b>: {val?.Count} | {val?.Sum_of_Prices}</b>
                                                             </li>
                                                         </>
                                                     )
                                                 })}
                                         </div>
                                     </div>
+                                        </div>
                                 </PerfectScrollbar>
                             </div>
                         </div>

@@ -209,17 +209,18 @@ const SelectOptions = () => {
     sessionStorage.setItem("overall_campaign", JSON.stringify(selval1))
   }
   const handleOnChange2 = event => {
-    const valReg = []
-    const selval1 = []
     
-    event.map(res => {
-      const val1 = {}
-      val1["value"] = res.value.replace("&", "@@@")
-      val1["label"] = res.value.replace("&", "@@@")
-      selval1.push(val1)
+    // const valReg = []
+    // const selval1 = []
+    
+    // event.map(res => {
+    //   const val1 = {}
+    //   val1["value"] = res.value.replace("&", "@@@")
+    //   val1["label"] = res.value.replace("&", "@@@")
+    //   selval1.push(val1)
 
-    })
-    sessionStorage.setItem("overall_traffic", JSON.stringify(selval1))
+    // })
+    sessionStorage.setItem("overall_traffic", JSON.stringify(event))
   }
   const handleOnChange3 = event => {
     const valReg = []
