@@ -25,13 +25,16 @@ export default function DripCampaign() {
 
   const [UpdateModal, setUpdateModal] = useState(false)
   const [previewNotificationModal, setPreviewNotificationModal] = useState(false)
+  const [campaignDetailModal, setCampaignDetailModal] = useState(false)
   const [editData, seteditData] = useState([])
   const [previewNotification, setPreviewNotification] = useState([])
+  const [detailData, setDetailData] = useState([])
 
   const handleDelete = async (id) => {
     try {
       const response = await axios.post("https://srvr1px.cyberads.io/notificationDelete/", { id })
       toast.success("Deleted Success")
+      window.location.reload(false)
     } catch (error) {
       toast.error("Deleted Failed")
       console.log(error)
@@ -43,7 +46,7 @@ export default function DripCampaign() {
       name: "Campaign Name",
       selector: (row) => row.name,
       sortable: true
-   },
+    },
     {
       name: "Start Date",
       selector: (row) => row.startDate,
@@ -93,6 +96,34 @@ export default function DripCampaign() {
     }
   ]
 
+  const detailColumns = [
+    {
+      name: "date",
+      // selector: (row) => row.date,
+      selector: (row) => '2023-04-20',
+      sortable: true
+    },
+    {
+      name: "Reach",
+      // selector: (row) => row.startDate,
+      selector: (row) => 152,
+      sortable: true,
+      minWidth: '100px'
+    },
+    {
+      name: "CTR",
+      // selector: (row) => row.endDate,
+      selector: (row) => 12,
+      sortable: true
+    },
+    {
+      name: "View",
+      // selector: (row) => "Push Notification",
+      selector: (row) => 180,
+      sortable: true
+    }
+  ]
+
   const option = [
     // { value: "1", label: "ToFu" },
     { value: "2", label: "MoFu" },
@@ -112,6 +143,14 @@ export default function DripCampaign() {
     { value: "Tablet", label: "Tablet" },
     { value: "Mobile", label: "Mobile" }
     // { value: "4", label: "TV" }
+  ]
+
+  const location = [
+    { value: "1", label: "Delhi" },
+    { value: "2", label: "Mumbai" },
+    { value: "3", label: "Gujrat" },
+    { value: "4", label: "Chennai" },
+    { value: "5", label: "Hyderabad" }
   ]
 
   const option1 = [
@@ -252,7 +291,12 @@ export default function DripCampaign() {
           // selectableRowsHighlight
           subHeader
           subHeaderComponent={header()}
-          style= {{ whiteSpace: 'wrap' }}
+          style={{ whiteSpace: 'wrap' }}
+          pointerOnHover
+          onRowClicked={(e) => {
+            setCampaignDetailModal(true)
+            setDetailData(e)
+          }}
         />
       </Card>
 
@@ -265,7 +309,7 @@ export default function DripCampaign() {
           <MdClose size={16} style={style} className='rounded' onClick={() => setModal(false)} />
         </CardHeader>
         <Formik
-          initialValues={{ name: "", startDate: "", endDate: "", Frequency: "", AudienceType: "", Audience: [], device: "", message: "", url: "", image: "" }}
+          initialValues={{ name: "", startDate: "", endDate: "", Frequency: "", AudienceType: "", Audience: [], device: "", message: "", url: "", image: "", Location: "" }}
 
           onSubmit={async (values, { setSubmitting }) => {
             try {
@@ -306,27 +350,6 @@ export default function DripCampaign() {
                     <Label className="mt-1" for="startDate">
                       Start Date <span className='text-danger'>*</span>
                     </Label>
-                    {/* <Input
-                      id="startDate"
-                      type='date'
-                      name="startDate"
-                      required
-                      // placeholder="date placeholder"
-                      onChange={(e) => console.log(e.target.value)}
-                    /> */}
-                    {/* <Flatpickr
-                      type="date"
-                      required
-                      // data-enable-time
-                      // value={date}
-                      onChange={handleChange}
-                      id='range-picker'
-                      className='form-control'
-                      options={{
-                        mode: 'single',
-                        dateFormat: 'j M Y'
-                      }}
-                    /> */}
                     <Flatpickr
                       id='range-picker'
                       className='form-control'
@@ -336,22 +359,6 @@ export default function DripCampaign() {
                       }}
                       onChange={(e) => setFieldValue('startDate', moment(e[0]).format('YYYY-MM-DD'))}
                     />
-                    {/* <Flatpickr
-                      // type="date"
-                      name="startDate"
-                      placeholder="date placeholder"
-                      required
-                      // dateFormat="Y-m-d"
-                      // data-enable-time
-                      // value={date}
-                      
-                      onChange={(e) => console.log(e)}
-                      id='range-picker'
-                      className='form-control'
-                      options={{
-                        dateFormat: 'Y-m-d'
-                      }}
-                    /> */}
                   </Col>
                   <Col>
                     <Label className="mt-1" for="endDate">
@@ -377,19 +384,36 @@ export default function DripCampaign() {
                     <FileBase64 onDone={e => setFieldValue("image", e.base64)} />
                   </Col>
                 </Row>
-                <Label className="mt-1" for="frequencyTime">
-                  Frequency Time <span className='text-danger'>*</span>
-                </Label>
-                <Select
-                  required
-                  onChange={e => {
-                    setFieldValue("Frequency", e)
-                  }}
-                  options={option1}
-                  name="Frequency"
-                  placeholder="Frequency"
-                />
-
+                <Row>
+                  <Col>
+                    <Label className="mt-1" for="frequencyTime">
+                      Frequency Time <span className='text-danger'>*</span>
+                    </Label>
+                    <Select
+                      required
+                      onChange={e => {
+                        setFieldValue("Frequency", e)
+                      }}
+                      options={option1}
+                      name="Frequency"
+                      placeholder="Frequency"
+                    />
+                  </Col>
+                  <Col>
+                    <Label className="mt-1" for="frequencyTime">
+                      Location <span className='text-danger'>*</span>
+                    </Label>
+                    <Select
+                      required
+                      onChange={e => {
+                        setFieldValue("Location", e)
+                      }}
+                      options={location}
+                      name="Location"
+                      placeholder="Location"
+                    />
+                  </Col>
+                </Row>
                 <Row>
                   <Col>
                     <Label className="mt-1" for="endDate">
@@ -533,7 +557,6 @@ export default function DripCampaign() {
         </Formik>
       </Modal>
 
-
       {/* Update Module */}
       <Modal size="md" isOpen={UpdateModal} toggle={() => setUpdateModal(!UpdateModal)}>
         <CardHeader className='d-flex justify-content-between align-items-top'>
@@ -543,7 +566,7 @@ export default function DripCampaign() {
           <MdClose size={16} style={style} className='rounded' onClick={() => setUpdateModal(false)} />
         </CardHeader>
         <Formik
-          initialValues={{ name: editData?.name, startDate: editData?.startDate, endDate: editData?.endDate, Frequency: editData?.Frequency, AudienceType: editData?.AudienceType, Audience: editData?.Audience, device: editData?.device, message: editData?.message, url: editData?.url, OS: editData?.OS, image: editData?.image }}
+          initialValues={{ name: editData?.name, startDate: editData?.startDate, endDate: editData?.endDate, Frequency: editData?.Frequency, AudienceType: editData?.AudienceType, Audience: editData?.Audience, device: editData?.device, message: editData?.message, url: editData?.url, OS: editData?.OS, image: editData?.image, Location: editData?.Location }}
 
           onSubmit={async (values, { setSubmitting }) => {
             try {
@@ -597,7 +620,6 @@ export default function DripCampaign() {
                       onChange={(e) => setFieldValue('startDate', moment(e[0]).format('YYYY-MM-DD'))}
                     />
                   </Col>
-                  {console.log(values)}
                   <Col>
                     <Label className="mt-1" for="endDate">
                       End Date <span className='text-danger'>*</span>
@@ -623,18 +645,36 @@ export default function DripCampaign() {
                     <FileBase64 onDone={e => setFieldValue("image", e.base64)} />
                   </Col>
                 </Row>
-                <Label className="mt-1" for="frequencyTime">
-                  Frequency Time <span className='text-danger'>*</span>
-                </Label>
-                <Select
-                  defaultValue={values.Frequency}
-                  onChange={e => {
-                    setFieldValue("Frequency", e)
-                  }}
-                  options={option1}
-                  name="Frequency"
-                  placeholder="Frequency"
-                />
+                <Row>
+                  <Col>
+                    <Label className="mt-1" for="frequencyTime">
+                      Frequency Time <span className='text-danger'>*</span>
+                    </Label>
+                    <Select
+                      defaultValue={values.Frequency}
+                      onChange={e => {
+                        setFieldValue("Frequency", e)
+                      }}
+                      options={option1}
+                      name="Frequency"
+                      placeholder="Frequency"
+                    />
+                  </Col>
+                  <Col>
+                    <Label className="mt-1" for="location">
+                      Location <span className='text-danger'>*</span>
+                    </Label>
+                    <Select
+                      defaultValue={values.Location}
+                      onChange={e => {
+                        setFieldValue("Location", e)
+                      }}
+                      options={location}
+                      name="Location"
+                      placeholder="Location"
+                    />
+                  </Col>
+                </Row>
 
                 <Row>
                   <Col>
@@ -818,6 +858,61 @@ export default function DripCampaign() {
           </div>
         </div>
       </Modal>
-    </div>
+
+      {/* Show Campaign Detail */}
+      <Modal size="xl" isOpen={campaignDetailModal}>
+        <CardHeader className='d-flex justify-content-between align-items-top'>
+          <h5>
+            <span className=''>Details</span>
+          </h5>
+          <MdClose size={16} className='rounded' style={style} onClick={() => setCampaignDetailModal(false)} />
+        </CardHeader>
+        <ModalBody>
+          <Row className='mb-1'>
+            <Col>
+              <strong>Campaign Name:</strong> {detailData.name}
+              {console.log(detailData)}
+            </Col>
+            <Col>
+              <strong>Start Date:</strong> {detailData.startDate}
+            </Col>
+            <Col>
+              <strong>End Date:</strong> {detailData.endDate}
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <strong>Audience Type:</strong> {detailData.AudienceType?.label}
+            </Col>
+            <Col>
+              <strong>Location:</strong> {detailData.Location?.label}
+              {console.log(detailData)}
+            </Col>
+            <Col>
+              {/* <strong>End Date:</strong> {detailData.endDate} */}
+            </Col>
+          </Row>
+          <hr />
+          <Row>
+            <DataTable
+              noHeader
+              pagination
+              responsive
+              paginationServer
+              columns={detailColumns}
+              sortIcon={<ChevronDown size={10} />}
+              className="react-dataTable"
+              paginationComponent={CustomPagination}
+              data={filteredData}
+              // selectableRows
+              // selectableRowsHighlight
+              // subHeader
+              // subHeaderComponent={header()}
+              style={{ whiteSpace: 'wrap' }}
+            />
+          </Row>
+        </ModalBody>
+      </Modal>
+    </div >
   )
 }

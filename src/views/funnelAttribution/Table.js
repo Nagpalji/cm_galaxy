@@ -91,7 +91,7 @@ const Table = ({ data, selectedCategory, loadMore }) => {
         <>
             <Row className='mb-1 '>
                 <Col></Col>
-                <Col xl={3} sm={5} xs={5}>
+                <Col xl='3' md='4' sm='5' xs='5'>
                     <Select
                         required
                         //   onChange={e => {
@@ -103,7 +103,7 @@ const Table = ({ data, selectedCategory, loadMore }) => {
                         className='mr-1 react-select'
                     />
                 </Col>
-                <Col md={2} sm={3} xs={4}>
+                <Col lg='2' sm='3' xs='4'>
                     {loading ? (<div className='p-1'><Spinner color="primary" /></div>) : (<Button.Ripple color="primary" onClick={downloadHandle}>Download</Button.Ripple>)}
                 </Col>
             </Row>
