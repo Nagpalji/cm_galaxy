@@ -109,7 +109,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 </div>
                                                 <div className="ml-3">
                                                     <p>
-                                                        <b>{res?.Tofu?.spends?.toFixed(2)}</b>
+                                                        <b>{res?.Tofu?.spends?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                                     </p>
                                                 </div>
                                             </div>
@@ -137,9 +137,9 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                         res?.Tofu?.age.map((val) => {
                                                             return (
                                                                 <>
-                                                                    <li className="m-0" key={val.Gender}>
+                                                                    <li className="m-0" key={val?.Gender}>
                                                                         {/* {console.log(val)} */}
-                                                                        {val.Age} <strong>: {val.Total_Clicks}</strong>
+                                                                        {val?.Age} <strong>: {val?.Total_Clicks?.toLocaleString()}</strong>
                                                                         {/* {val?.Gender?.charAt(0).toUpperCase() + val?.Gender?.slice(1)}{" "}
                                                                 <b>: {val.Sessions?.toLocaleString()}</b> */}
                                                                     </li>
@@ -162,7 +162,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                                         {/* {console.log(val)} */}
                                                                         {/* {val.Gender} */}
 
-                                                                        {val.Gender} <strong>: {val.Total_Clicks}</strong>
+                                                                        {val.Gender} <strong>: {val?.Total_Clicks?.toLocaleString()}</strong>
 
                                                                         {/* {val?.Gender?.charAt(0).toUpperCase() + val?.Gender?.slice(1)}{" "}
                                                                 <b>: {val.Sessions?.toLocaleString()}</b> */}
@@ -220,7 +220,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
                                                         {" "}
-                                                        <b>{res?.Mofu?.user || 0}</b>
+                                                        <b>{res?.Mofu?.user?.toLocaleString() || 0}</b>
                                                     </p>
                                                 </div>
                                             </div>
@@ -234,7 +234,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
                                                         {" "}
-                                                        <b>{res?.Mofu?.sessions || 0}</b>
+                                                        <b>{res?.Mofu?.sessions?.toLocaleString() || 0}</b>
                                                     </p>
                                                 </div>
                                             </div>
@@ -252,7 +252,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                                 <>
                                                                     <li className="m-0" key={val.product_name}>
                                                                         {val.title}{" "}
-                                                                        <b>: {val.count.toLocaleString()}</b>
+                                                                        <b>: {val?.count?.toLocaleString()}</b>
                                                                     </li>
                                                                 </>
                                                             )
@@ -273,7 +273,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                                 <>
                                                                     <li className="m-0" key={val.product_name}>
                                                                         {val.title}{" "}
-                                                                        <b>: {val.average_time_diff.toLocaleString()}</b>
+                                                                        <b>: {val.average_time_diff?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                                                     </li>
                                                                 </>
                                                             )
@@ -337,7 +337,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                                 <>
                                                                     <li className="m-0" key={val.OS}>
                                                                         {val?.source === "" ? 'Organic' : val?.OS}{" "}
-                                                                        <b>: {val?.Count} </b>
+                                                                        <b>: {val?.Count?.toLocaleString()} </b>
                                                                         {/* {val.os && val.os === 'ios' ? 'iOS' : val.os.charAt(0).toUpperCase() + val.os.slice(1)} <strong>: {val.Count?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} %</strong> */}
                                                                     </li>
                                                                 </>
@@ -413,9 +413,9 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
                                                         {" "}
-                                                        User <strong>: {res?.Bofu?.abandoned_cart?.count}</strong>
+                                                        User <strong>: {res?.Bofu?.abandoned_cart?.count?.toLocaleString()}</strong>
                                                         <br />
-                                                        Value <strong>: {parseFloat(res?.Bofu?.abandoned_cart?.value).toFixed(2)}</strong>
+                                                        Value <strong>: {res?.Bofu?.abandoned_cart?.value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong>
                                                     </p>
                                                 </div>
                                             </div>
@@ -429,9 +429,9 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
                                                         {" "}
-                                                        User <strong>: {res?.Bofu?.returning_users_cart_value?.count}</strong>
+                                                        User <strong>: {res?.Bofu?.returning_users_cart_value?.count?.toLocaleString()}</strong>
                                                         <br />
-                                                        Value <strong>: {parseFloat(res?.Bofu?.returning_users_cart_value?.value).toFixed(2)}</strong>
+                                                        Value <strong>: {res?.Bofu?.returning_users_cart_value?.value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong>
                                                         {/* {res?.Bofu?.returning_users_cart_value?.avg.toFixed(2)} */}
                                                     </p>
                                                 </div>
@@ -446,10 +446,10 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
                                                         {" "}
-                                                        Users <strong>: {res?.Bofu?.new_users_cart_value?.count} </strong>
+                                                        Users <strong>: {res?.Bofu?.new_users_cart_value?.count?.toLocaleString()} </strong>
                                                         <br />
                                                         {/* ?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} */}
-                                                        Avg Value <strong>: {res?.Bofu?.new_users_cart_value?.avg}</strong>
+                                                        Avg Value <strong>: {res?.Bofu?.new_users_cart_value?.avg?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong>
                                                         {/* //?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} */}
 
                                                     </p>
@@ -500,7 +500,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
                                                         {" "}
-                                                        <b>{res?.Conversion?.conversions_revenue?.conversions}</b>
+                                                        <b>{res?.Conversion?.conversions_revenue?.conversions?.toLocaleString()}</b>
                                                     </p>
                                                 </div>
                                                 <div className="d-flex align-items-center p-0 m-0">
@@ -510,7 +510,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
                                                         {" "}
-                                                        <b>{res?.Conversion?.conversions_revenue?.revenue?.toFixed(2)}</b>
+                                                        <b>{res?.Conversion?.conversions_revenue?.revenue?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                                     </p>
                                                 </div>
                                                 <div className="d-block" data-toggle="tooltip" data-placement="top" title="Total Spends / Number Of Sales" >
@@ -523,7 +523,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                     <div className="ml-1 mb-1">
                                                         <p className="m-0 ml-2">
                                                             {" "}
-                                                            <b>{res?.Conversion?.cac}</b>
+                                                            <b>{res?.Conversion?.cac?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -549,7 +549,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                     <div className="ml-1 mb-1">
                                                         <p className="m-0 ml-2">
                                                             {" "}
-                                                            <b>{res?.Conversion?.roas?.toFixed(2)}</b>
+                                                            <b>{res?.Conversion?.roas?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -562,7 +562,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                     <div className="ml-1 mb-1">
                                                         <p className="m-0 ml-2">
                                                             {" "}
-                                                            <b>{res?.Conversion?.roas_by_source?.toFixed(2)}</b>
+                                                            <b>{res?.Conversion?.roas_by_source?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2})}</b>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -583,7 +583,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                                             {/* {val?.source === "" ? 'Organic' : */}
                                                                             {/* {val?.source?.charAt(0).toUpperCase() + val?.source?.slice(1)}{" "} */}
                                                                             {/* <b>: {val.sum.toLocaleString()}</b> */}
-                                                                            {val?.source === '' ? 'Organic' : val?.source.charAt(0).toUpperCase() + val?.source.slice(1)} <strong>: {val.Count || 0}  | {val?.total_price}</strong>
+                                                                            {val?.source === '' ? 'Organic' : val?.source.charAt(0).toUpperCase() + val?.source.slice(1)} <strong>: {val?.Count?.toLocaleString() || 0}  | {val?.total_price?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2})}</strong>
                                                                         </li>
                                                                     </>
                                                                 )
@@ -604,7 +604,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                                     <>
                                                                         <li className="m-0" key={val?.OS}>
                                                                             {val?.OS}{" "}
-                                                                            <b>: {val?.Count} | {val?.Sum_of_Prices}</b>
+                                                                            <b>: {val?.Count?.toLocaleString()} | {val?.Sum_of_Prices?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2})}</b>
                                                                         </li>
                                                                     </>
                                                                 )

@@ -111,13 +111,13 @@ export default function DripCampaign() {
       minWidth: '100px'
     },
     {
-      name: "CTR",
+      name: "Click",
       // selector: (row) => row.endDate,
-      selector: (row) => 12,
+      selector: (row) => '12 %',
       sortable: true
     },
     {
-      name: "View",
+      name: "Viewability",
       // selector: (row) => "Push Notification",
       selector: (row) => 180,
       sortable: true
@@ -863,7 +863,13 @@ export default function DripCampaign() {
       <Modal size="xl" isOpen={campaignDetailModal}>
         <CardHeader className='d-flex justify-content-between align-items-top'>
           <h5>
-            <span className=''>Drip Campaign Report</span>
+            <span className=''>Drip Campaign Report</span>{" "}
+            <a>
+              <FaEdit size={20} className="text-warning" color="#625f6e" onClick={(e) => {
+                setUpdateModal(true)
+                seteditData(detailData)
+              }} />
+            </a>
           </h5>
           <MdClose size={16} className='rounded' style={style} onClick={() => setCampaignDetailModal(false)} />
         </CardHeader>
