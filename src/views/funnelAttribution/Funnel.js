@@ -446,7 +446,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
                                                         {" "}
-                                                        <strong data-toggle="tooltip" data-placement="top" title="Total">{res?.Conversion?.conversions_revenue?.revenue?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
+                                                        <strong data-toggle="tooltip" data-placement="top" title="">{res?.Conversion?.conversions_revenue?.revenue?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
                                                     </p>
                                                 </div>
                                                 <div className="d-block" >

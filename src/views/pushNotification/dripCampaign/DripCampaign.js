@@ -146,11 +146,11 @@ export default function DripCampaign() {
   ]
 
   const location = [
-    { value: "1", label: "Delhi" },
-    { value: "2", label: "Mumbai" },
-    { value: "3", label: "Gujrat" },
-    { value: "4", label: "Chennai" },
-    { value: "5", label: "Hyderabad" }
+    { value: "1", label: "Auckland" },
+    { value: "2", label: "Canterbury" },
+    { value: "3", label: "Waikato" },
+    { value: "4", label: "Wellington" },
+    { value: "5", label: "Manawatu-Wanganui" }
   ]
 
   const option1 = [
