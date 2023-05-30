@@ -256,7 +256,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="ml-1 mb-1">
                                                 <p className="m-0 ml-2">
                                                     {" "}
-                                                    <strong data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions">{res?.Mofu?.bounce_rate || 0}%</strong>
+                                                    <strong data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions">{res?.Mofu?.bounce_rate?.toFixed(2) || 0}%</strong>
                                                 </p>
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
@@ -270,7 +270,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                             <>
                                                                 <li className="m-0" key={val.OS}>
                                                                     <span data-toggle="tooltip" data-placement="top" title="Device OS % (IOS, Android, Windows & Others)">{val?.source === "" ? 'Organic' : val?.OS}{" "}
-                                                                        <strong>: {val?.Count?.toLocaleString()} </strong></span>
+                                                                        <strong>: {val?.Percentage?.toLocaleString()}% </strong></span>
                                                                 </li>
                                                             </>
                                                         )
@@ -297,8 +297,14 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 </div>
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
-                                                        {" "}
-                                                        <strong data-toggle="tooltip" data-placement="top" title="Number of users who have created a cart">{res?.Bofu?.add_to_cart?.toLocaleString()}</strong>
+                                                    <span data-toggle="tooltip" data-placement="top" title="Number of Users who have initiated checkout">
+                                                            User <strong>: {res?.Bofu?.add_to_cart?.toLocaleString()}</strong>
+                                                            <br />
+                                                            Value <strong>: {res?.Bofu?.crat_value?.toLocaleString()}</strong>
+                                                        </span>
+
+                                                        {/* {" "}
+                                                        <strong data-toggle="tooltip" data-placement="top" title="Number of users who have created a cart">{res?.Bofu?.add_to_cart?.toLocaleString()}</strong> */}
                                                     </p>
                                                 </div>
                                             </div>
