@@ -32,7 +32,7 @@ const Router = () => {
     const permission = await Notification.requestPermission()
     if (permission === "granted") {
       // Generate Token
-      const token = await getToken(messaging, { vapidKey:"BKlgg-yZdutENiYbqRZp-rXJwSmsuTMcAD1iRHLdeupmgnWTS_ui_WB85ssDgRKAuqrhao3yYBw2lPsUno0_ZKQ"})
+      const token = await getToken(messaging, { vapidKey:"BBzelbO3WjlotINrIFlXaRvJo-HLUk3Sc_kAfVJnc97v425di76GnWzvFWsuvzgonPf2eD8V3cx_sqHPQSaQMWQ"})
       console.log("Token Gen", token)
       fetch('https://srvr1px.cyberads.io/saveUserTokenData/', {
         method: "POST",

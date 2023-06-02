@@ -10,18 +10,20 @@ importScripts(
 
 // Initialize the Firebase app in the service worker by passing the generated config
 var firebaseConfig = {
-  apiKey: "AIzaSyDsxsaZLORKXQTNadmXH8yussN_nytiFCk",
-  authDomain: "cmgalaxy-f6c13.firebaseapp.com",
-  projectId: "cmgalaxy-f6c13",
-  storageBucket: "cmgalaxy-f6c13.appspot.com",
-  messagingSenderId: "939419770063",
-  appId: "1:939419770063:web:78c064c622d26a216d6bba",
-};
+  apiKey: "AIzaSyCAPJx_1Jc5eH6STHwysTsVdGt7hliLgz0",
+  authDomain: "cmgalaxy-8de7d.firebaseapp.com",
+  projectId: "cmgalaxy-8de7d",
+  storageBucket: "cmgalaxy-8de7d.appspot.com",
+  messagingSenderId: "595038576433",
+  appId: "1:595038576433:web:73e296d27fbda0f44b9a10",
+  measurementId: "G-GKSE4F21K7"
+};;
 
 firebase.initializeApp(firebaseConfig);
 
 // Retrieve firebase messaging
 const messaging = firebase.messaging();
+const analytics = firebase.getAnalytics(app);
 
 messaging.onBackgroundMessage(function (payload) {
   console.log("Received background message ", payload);
