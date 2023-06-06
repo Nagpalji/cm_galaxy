@@ -54,7 +54,7 @@ const ThemeNavbar = props => {
   return (
 
     <Fragment>
-      <div className='bookmark-wrapper d-flex align-items-center'>
+      <div className='bookmark-wrapper text-nowrap d-flex align-items-center'>
         <NavbarBookmarks setMenuVisibility={setMenuVisibility} />
         <CardTitle className='mt-20 mobilefontsize' tag='h4'>{pathToTitleMap[location.pathname]}</CardTitle>
 
@@ -70,17 +70,13 @@ const ThemeNavbar = props => {
             {/* <DateRangePicker /> */}
           </NavLink>
         </NavItem>
-        <Row className="d-none d-lg-block match-height">
-          <Col className="CustomDropDownWidth" xl="12" md="12" xs="12">
-            <CustomDropDown />
-          </Col>
-        </Row>
-        <Row className='d-none d-lg-block match-height'>
-          <Col className='widthdate' xl='12' md='12' xs='12'>
-            <DateRangePicker />
-          </Col>
-        </Row>
-        
+        <Col className="d-none d-lg-block match-height CustomDropDownWidth">
+          <CustomDropDown />
+        </Col>
+        <Col className='d-none d-lg-block match-height widthdate' lg='4'>
+          <DateRangePicker />
+        </Col>
+
         {/* <Bell /> */}
         {/* <NavbarSearch /> */}
         {/* <CartDropdown /> */}
