@@ -434,6 +434,7 @@ export default function DripCampaign() {
                       Audience <span className='text-danger'>*</span>
                     </Label>
                     <Select
+                      isClearable={false}
                       required
                       isMulti
                       onChange={e => {
@@ -458,6 +459,7 @@ export default function DripCampaign() {
                                 Age <span className='text-danger'>*</span>
                               </Label>
                               <Select
+                                isClearable={false}
                                 isMulti
                                 onChange={e => {
                                   // console.log(e)
@@ -477,6 +479,7 @@ export default function DripCampaign() {
                                 Gender <span className='text-danger'>*</span>
                               </Label>
                               <Select
+                                isClearable={false}
                                 isMulti
                                 onChange={e => {
                                   // console.log(e)
@@ -495,7 +498,9 @@ export default function DripCampaign() {
                               <Label className="mt-1" for="endDate">
                                 Device <span className='text-danger'>*</span>
                               </Label>
-                              <Select isMulti
+                              <Select
+                                isClearable={false}
+                                isMulti
                                 onChange={e => {
                                   // console.log(e)
                                   setFieldValue("device", e)
@@ -513,7 +518,9 @@ export default function DripCampaign() {
                               <Label className="mt-1" for="endDate">
                                 OS
                               </Label>
-                              <Select isMulti
+                              <Select
+                                isClearable={false}
+                                isMulti
                                 onChange={e => {
                                   // console.log(e)
                                   setFieldValue("OS", e)
@@ -697,6 +704,7 @@ export default function DripCampaign() {
                       Audience <span className='text-danger'>*</span>
                     </Label>
                     <Select
+                      isClearable={false}
                       isMulti
                       defaultValue={values.Audience}
                       onChange={e => {
@@ -737,6 +745,7 @@ export default function DripCampaign() {
                               Age <span className='text-danger'>*</span>
                             </Label>
                             <Select
+                              isClearable={false}
                               isMulti
                               defaultValue={editData.age}
                               onChange={e => {
@@ -757,6 +766,7 @@ export default function DripCampaign() {
                               Gender <span className='text-danger'>*</span>
                             </Label>
                             <Select
+                              isClearable={false}
                               isMulti
                               defaultValue={editData.gender}
                               onChange={e => {
@@ -777,6 +787,7 @@ export default function DripCampaign() {
                               Device <span className='text-danger'>*</span>
                             </Label>
                             <Select
+                              isClearable={false}
                               isMulti
                               defaultValue={editData.device}
                               onChange={e => {
@@ -797,6 +808,7 @@ export default function DripCampaign() {
                               Os <span className='text-danger'>*</span>
                             </Label>
                             <Select
+                              isClearable={false}
                               isMulti
                               defaultValue={editData.OS}
                               onChange={e => {
