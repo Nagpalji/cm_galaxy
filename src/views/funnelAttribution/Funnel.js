@@ -80,7 +80,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <PerfectScrollbar className="w-100 border-left-warning">
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-warning" />
-                                                <p className="fw-bold text-warning m-0">Impressions –</p>
+                                                <p className="fw-bold text-warning m-0">Impressions</p>
                                             </div>
                                             <div className="ml-1">
                                                 <p className="ml-2">
@@ -89,7 +89,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-warning" />
-                                                <p className="fw-bold text-warning m-0">Clicks –</p>
+                                                <p className="fw-bold text-warning m-0">Clicks</p>
                                             </div>
                                             <div className="ml-1">
                                                 <p className="ml-2">
@@ -98,7 +98,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-warning" />
-                                                <p className="fw-bold text-warning m-0">Spends –</p>
+                                                <p className="fw-bold text-warning m-0">Spends</p>
                                             </div>
                                             <div className="ml-1">
                                                 <p className="ml-2">
@@ -107,7 +107,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-warning" />
-                                                <p className="fw-bold text-warning m-0">CTR % –</p>
+                                                <p className="fw-bold text-warning m-0">CTR %</p>
                                             </div>
                                             <div className="ml-1">
                                                 <p className="ml-2">
@@ -116,7 +116,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-warning" />
-                                                <p className="fw-bold text-warning m-0">Demographics Age –</p>
+                                                <p className="fw-bold text-warning m-0">Demographics Age</p>
                                             </div>
                                             <div className="ml-1 mb-1">
                                                 {res?.Tofu?.age &&
@@ -132,7 +132,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-warning" />
-                                                <p className="fw-bold text-warning m-0">Demographics Gender –</p>
+                                                <p className="fw-bold text-warning m-0">Demographics Gender</p>
                                             </div>
                                             <div className="ml-1 mb-1">
                                                 {res?.Tofu?.gender &&
@@ -163,7 +163,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
                                                 <p className="fw-bold text-primary m-0">
-                                                    Users –{" "}
+                                                    Users{" "}
                                                 </p>
                                             </div>
                                             <div className="ml-1 mb-1">
@@ -175,7 +175,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
                                                 <p className="fw-bold text-primary m-0">
-                                                    Sessions –{" "}
+                                                    Sessions{" "}
                                                 </p>
                                             </div>
                                             <div className="ml-1">
@@ -186,7 +186,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
                                                 <p className="fw-bold text-primary m-0">
-                                                    Product Preference –{" "}
+                                                    Product Preference{" "}
                                                 </p>
                                             </div>
                                             <div className="ml-1 mb-1">
@@ -205,7 +205,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
                                                 <p className="fw-bold text-primary m-0">
-                                                    Product Engagement –{" "}
+                                                    Product Engagement
                                                 </p>
                                             </div>
                                             <div className="ml-1 mb-1">
@@ -224,7 +224,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
                                                 <p className="fw-bold text-primary m-0">
-                                                    Avg. Pages per session –{" "}
+                                                    Avg. Pages per session{" "}
                                                 </p>
                                             </div>
                                             <div className="ml-1 mb-1">
@@ -238,7 +238,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
                                                 <p className="fw-bold text-primary m-0">
-                                                    Avg. Time Per Session (in secs) –{" "}
+                                                    Avg. Time Per Session (in secs){" "}
                                                 </p>
                                             </div>
                                             <div className="ml-1 mb-1">
@@ -250,7 +250,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
                                                 <p className="fw-bold text-primary m-0">
-                                                    Bounce Rate –{" "}
+                                                    Bounce Rate{" "}
                                                 </p>
                                             </div>
                                             <div className="ml-1 mb-1">
@@ -261,7 +261,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
-                                                <p className="fw-bold text-primary m-0">OS Preference – </p>
+                                                <p className="fw-bold text-primary m-0">OS Preference</p>
                                             </div>
                                             <div className="ml-1 mb-1">
                                                 {res?.Mofu?.os &&
@@ -293,11 +293,11 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-block" >
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-secondary" />
-                                                    <p className="fw-bold m-0 text-secondary">Add To Cart – </p>
+                                                    <p className="fw-bold m-0 text-secondary">Add To Cart</p>
                                                 </div>
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
-                                                    <span data-toggle="tooltip" data-placement="top" title="Number of Users who have initiated checkout">
+                                                        <span data-toggle="tooltip" data-placement="top" title="Number of Users who have initiated checkout">
                                                             User <strong>: {res?.Bofu?.add_to_cart?.toLocaleString()}</strong>
                                                             <br />
                                                             Value <strong>: {res?.Bofu?.crat_value?.toLocaleString()}</strong>
@@ -312,7 +312,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-secondary" />
                                                     <p className="fw-bold m-0 text-secondary">
-                                                        Initiate Checkout –{" "}
+                                                        Initiate Checkout{" "}
                                                     </p>
                                                 </div>
                                                 <div className="ml-1 mb-1">
@@ -330,7 +330,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
                                                     <p className="fw-bold m-0 text-secondary">
-                                                        Users to Cart Conversion Rate % -
+                                                        Users to Cart Conversion Rate %
                                                     </p>
                                                 </div>
                                                 <div className="ml-1 mb-1">
@@ -399,7 +399,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-secondary" />
                                                     <p className="fw-bold text-secondary m-0">
-                                                        Source –{" "}
+                                                        Source{" "}
                                                     </p>
                                                 </div>
                                                 <div className="ml-1 mb-1">
@@ -437,7 +437,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-block" >
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
-                                                    <p className="fw-bold text-success m-0">Conversions – </p>
+                                                    <p className="fw-bold text-success m-0">Conversions</p>
                                                 </div>
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
@@ -447,7 +447,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 </div>
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
-                                                    <p className="fw-bold text-success m-0">Revenue – </p>
+                                                    <p className="fw-bold text-success m-0">Revenue</p>
                                                 </div>
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
@@ -459,7 +459,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                     <div className="d-flex align-items-center p-0 m-0">
                                                         <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
                                                         <p className="fw-bold text-success m-0">
-                                                            Customer Aquisition Cost (CAC) –{" "}
+                                                            Customer Aquisition Cost (CAC){" "}
                                                         </p>
                                                     </div>
                                                     <div className="ml-1 mb-1">
@@ -473,7 +473,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                     <div className="d-flex align-items-center p-0 m-0">
                                                         <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
                                                         <p className="fw-bold text-success m-0">
-                                                            Avg. Order Value ($) –{" "}
+                                                            Avg. Order Value ($)
                                                         </p>
                                                     </div>
                                                     <div className="ml-1 mb-1">
@@ -486,7 +486,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="d-block" >
                                                     <div className="d-flex align-items-center p-0 m-0">
                                                         <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
-                                                        <p className="fw-bold text-success m-0">Return on Ad Spends (ROAS) – </p>
+                                                        <p className="fw-bold text-success m-0">Return on Ad Spends (ROAS)</p>
                                                     </div>
                                                     <div className="ml-1 mb-1">
                                                         <p className="m-0 ml-2">
@@ -496,10 +496,10 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                     </div>
                                                 </div>
 
-                                                <div className="d-block" >
+                                                {/* <div className="d-block" >
                                                     <div className="d-flex align-items-center p-0 m-0">
                                                         <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
-                                                        <p className="fw-bold text-success m-0">ROAS by Paid Source – </p>
+                                                        <p className="fw-bold text-success m-0">ROAS by Paid Source</p>
                                                     </div>
                                                     <div className="ml-1 mb-1">
                                                         <p className="m-0 ml-2">
@@ -507,13 +507,13 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                             <strong data-toggle="tooltip" data-placement="top" title="Total Revenue / Total Spends">{res?.Conversion?.roas_by_source?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
                                                         </p>
                                                     </div>
-                                                </div>
+                                                </div> */}
 
                                                 <div className="d-block" >
                                                     <div className="d-flex align-items-center p-0 m-0">
                                                         <IoIosArrowRoundForward size={32} className="text-success" />
                                                         <p className="fw-bold text-success m-0">
-                                                            Sales By Source (based on last click attribution) –{" "}
+                                                            Sales By Source (based on last click attribution)
                                                         </p>
                                                     </div>
                                                     <div className="ml-1 mb-1">
@@ -535,7 +535,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                     <div className="d-flex align-items-center p-0 m-0">
                                                         <IoIosArrowRoundForward size={32} className="text-success" />
                                                         <p className="fw-bold text-success m-0">
-                                                            Sales By OS (based on last click attribution) –{" "}
+                                                            Sales By OS (based on last click attribution)
                                                         </p>
                                                     </div>
                                                     <div className="ml-1 mb-1">
