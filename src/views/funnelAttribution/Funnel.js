@@ -210,16 +210,31 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="ml-1 mb-1">
                                                 {res?.Mofu?.product_info &&
-                                                    res?.Mofu?.product_info.map((val) => {
-                                                        return (
-                                                            <>
-                                                                <li className="m-0" key={val.product_name}>
-                                                                    <span data-toggle="tooltip" data-placement="top" title="Count Of Product pages visited / Number Of Visitors">{val.title}{" "}
-                                                                        <strong>: {val.average_time_diff?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong></span>
-                                                                </li>
-                                                            </>
-                                                        )
-                                                    })}
+                                                    res?.Mofu?.product_info
+                                                        .slice() // Create a shallow copy of the array
+                                                        .sort((a, b) => b.average_time_diff - a.average_time_diff) // Sort in descending order
+                                                        .map((val) => {
+                                                            return (
+                                                                <>
+                                                                    <li className="m-0" key={val.product_name}>
+                                                                        <span
+                                                                            data-toggle="tooltip"
+                                                                            data-placement="top"
+                                                                            title="Count Of Product pages visited / Number Of Visitors"
+                                                                        >
+                                                                            {val.title}{" "}
+                                                                            <strong>
+                                                                                :{" "}
+                                                                                {val.average_time_diff?.toLocaleString(undefined, {
+                                                                                    minimumFractionDigits: 2,
+                                                                                    maximumFractionDigits: 2
+                                                                                })}
+                                                                            </strong>
+                                                                        </span>
+                                                                    </li>
+                                                                </>
+                                                            )
+                                                        })}
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
@@ -533,7 +548,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                                     <>
                                                                         <li className="m-0" key={val?.source}>
                                                                             <span data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors">
-                                                                                {val?.source === '' ? 'Organic' : val?.source.charAt(0).toUpperCase() + val?.source.slice(1)} <strong>: {val?.Count?.toLocaleString() || 0}  | {val?.total_price?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 })}</strong>
+                                                                                {val?.source === '' ? 'Organic' : val?.source.charAt(0).toUpperCase() + val?.source.slice(1)} <strong>: {val?.count?.toLocaleString() || 0}  | {val?.total_price?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 })}</strong>
                                                                             </span>
                                                                         </li>
                                                                     </>
