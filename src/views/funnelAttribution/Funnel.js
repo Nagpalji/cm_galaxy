@@ -334,13 +334,13 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
                                                     <p className="fw-bold m-0 text-secondary">
-                                                        Users to Cart Conversion Creation %
+                                                        Users to Cart Creation %
                                                     </p>
                                                 </div>
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
                                                         {" "}
-                                                        <strong data-toggle="tooltip" data-placement="top" title="Total value of orders added to cart.">{res?.Bofu?.user_to_cart_conversion_rate?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
+                                                        <strong data-toggle="tooltip" data-placement="top" title="Total value of orders added to cart.">{res?.Bofu?.user_to_cart_creation?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
                                                     </p>
                                                 </div>
                                             </div>
@@ -393,7 +393,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                         <span data-toggle="tooltip" data-placement="top" title="Number of abandoned carts">
                                                             Users <strong>: {res?.Bofu?.new_users_cart_value?.count?.toLocaleString()} </strong>
                                                             <br />
-                                                            Avg Value <strong>: {res?.Bofu?.new_users_cart_value?.avg?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
+                                                            Avg. Value <strong>: {res?.Bofu?.new_users_cart_value?.avg?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
                                                         </span>
 
                                                     </p>
@@ -466,7 +466,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
                                                         {" "}
-                                                        <strong data-toggle="tooltip" data-placement="top" title="">{''}</strong>
+                                                        <strong data-toggle="tooltip" data-placement="top" title="">{res?.Conversion?.cart_to_conversion_user}</strong>
                                                     </p>
                                                 </div>
                                                 <div className="d-block" >
