@@ -217,19 +217,8 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                             return (
                                                                 <>
                                                                     <li className="m-0" key={val.product_name}>
-                                                                        <span
-                                                                            data-toggle="tooltip"
-                                                                            data-placement="top"
-                                                                            title="Count Of Product pages visited / Number Of Visitors"
-                                                                        >
-                                                                            {val.title}{" "}
-                                                                            <strong>
-                                                                                :{" "}
-                                                                                {val.average_time_diff?.toLocaleString(undefined, {
-                                                                                    minimumFractionDigits: 2,
-                                                                                    maximumFractionDigits: 2
-                                                                                })}
-                                                                            </strong>
+                                                                        <span data-toggle="tooltip" data-placement="top" title="Count Of Product pages visited / Number Of Visitors">
+                                                                            {val.title}{" "} <strong> :{" "} {val.average_time_diff?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
                                                                         </span>
                                                                     </li>
                                                                 </>
