@@ -330,7 +330,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
                                                     <p className="fw-bold m-0 text-secondary">
-                                                        Users to Cart Conversion Rate %
+                                                        Users to Cart Conversion Creation %
                                                     </p>
                                                 </div>
                                                 <div className="ml-1 mb-1">
@@ -371,7 +371,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                         <span data-toggle="tooltip" data-placement="top" title="Leads or Carts created / Visitors * 100">
                                                             User <strong>: {res?.Bofu?.returning_users_cart_value?.count?.toLocaleString()}</strong>
                                                             <br />
-                                                            Value <strong>: {res?.Bofu?.returning_users_cart_value?.value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
+                                                            Avg. Value <strong>: {res?.Bofu?.returning_users_cart_value?.value?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
                                                         </span>
                                                     </p>
                                                 </div>
@@ -453,6 +453,16 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                     <p className="m-0 ml-2">
                                                         {" "}
                                                         <strong data-toggle="tooltip" data-placement="top" title="">{res?.Conversion?.conversions_revenue?.revenue?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
+                                                    </p>
+                                                </div>
+                                                <div className="d-flex align-items-center p-0 m-0">
+                                                    <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
+                                                    <p className="fw-bold text-success m-0">Cart to conversion user %</p>
+                                                </div>
+                                                <div className="ml-1 mb-1">
+                                                    <p className="m-0 ml-2">
+                                                        {" "}
+                                                        <strong data-toggle="tooltip" data-placement="top" title="">{''}</strong>
                                                     </p>
                                                 </div>
                                                 <div className="d-block" >
