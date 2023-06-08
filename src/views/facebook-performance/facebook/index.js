@@ -42,7 +42,7 @@ const EcommerceDashboard = () => {
   const [modal, setModal] = useState(true)
 
   const MySwal = withReactContent(Swal)
-  if (['theivdocus@cmgalaxy.com', 'demo_account@cmrsl.net', 'cmgalaxy.apeejay@gmail.com', 'cmgalaxy.okana@cmgalaxy.com', 'globallogic@cmrsl.ne', 'admin@cmrsl.net', 'dhavalg@cmrsl.net', 'gauravg@cmrsl.net'].includes(localStorage.getItem("email"))) {
+  if (['theivdocus@cmgalaxy.com', 'demo_account@cmrsl.net', 'cmgalaxy.apeejay@gmail.com', 'cmgalaxy.okana@cmgalaxy.com', 'globallogic@cmrsl.net', 'admin@cmrsl.net', 'dhavalg@cmrsl.net', 'gauravg@cmrsl.net'].includes(localStorage.getItem("email"))) {
     return (
       <div id='dashboard-ecommerce'>
         <Row className='laptophideCustomdropdown match-height mt-1 mb-1'>

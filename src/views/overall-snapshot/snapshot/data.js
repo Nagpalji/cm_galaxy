@@ -196,6 +196,57 @@ export const theivserverSideColumns = [
   //   minWidth: '20px'
   // }
 ]
+// Case Of globallogic
+export const globallogicSideColumns = [
+  {
+    name: 'Traffic Source',
+    selector: 'Traffic Source',
+    sortable: true,
+    minWidth: '180px'
+  },
+  {
+    name: 'Spends',
+    selector: 'Spends',
+    sortable: true,
+    minWidth: '120px'
+  },
+  {
+    name: 'CTR(%)',
+    selector: 'CTR',
+    sortable: true,
+    minWidth: '75px'
+  },
+  {
+    name: 'CPC',
+    selector: 'CPC',
+    sortable: true,
+    minWidth: '120px'
+  },
+  {
+    name: 'Engagements',
+    selector: 'Leads',
+    sortable: true,
+    minWidth: '120px'
+  },
+  {
+    name: 'CPE',
+    selector: 'CPL',
+    sortable: true,
+    minWidth: '180px'
+  }
+  // {
+  //   name: 'Leads',
+  //   selector: 'start_date',
+  //   sortable: true,
+  //   minWidth: '20px'
+  // },
+  // {
+  //   name: 'CPL',
+  //   selector: 'salary',
+  //   sortable: true,
+  //   minWidth: '20px'
+  // }
+]
 
 
 // ** Platform performance table 2

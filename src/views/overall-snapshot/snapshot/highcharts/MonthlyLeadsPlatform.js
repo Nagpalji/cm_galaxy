@@ -81,7 +81,7 @@ colors: ['#ffc413', '#4acade',  '#83ffff', '#97f7c4', '#52c777'],
     },
       
       title: {
-          text: ['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? 'Orders' : (['theivdocus@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? "Conversions" : 'Leads')
+          text: ['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? 'Orders' : (['theivdocus@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? "Conversions" : (['globallogic@cmrsl.net'].includes(localStorage.getItem('user_name')) ? "Engagements" : 'Leads'))
       },
       stackLabels: {
           enabled: false
@@ -141,7 +141,7 @@ colors: ['#ffc413', '#4acade',  '#83ffff', '#97f7c4', '#52c777'],
       <Row className='match-height'>
           <Col lg='9' md='12'>
             <CardHeader>
-              <CardTitle tag='h4'>Monthly {['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? 'Orders' : (['theivdocus@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? "Conversions" : 'Leads')} by Platform</CardTitle>
+              <CardTitle tag='h4'>Monthly {['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? 'Orders' : (['theivdocus@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? "Conversions" : (['globallogic@cmrsl.net'].includes(localStorage.getItem('user_name')) ? "Engagements" : 'Leads'))} by Platform</CardTitle>
             </CardHeader>
           </Col>
   
@@ -160,7 +160,7 @@ colors: ['#ffc413', '#4acade',  '#83ffff', '#97f7c4', '#52c777'],
   return (
     <Card>
       <CardHeader>
-        <CardTitle tag='h4'>Monthly {['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? 'Orders' : (['theivdocus@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? "Conversions" : 'Leads')} by Platforms</CardTitle>
+        <CardTitle tag='h4'>Monthly {['cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? 'Orders' : (['theivdocus@cmgalaxy.com'].includes(localStorage.getItem('user_name')) ? "Conversions" : (['globallogic@cmrsl.net'].includes(localStorage.getItem('user_name')) ? "Engagements" : 'Leads'))} by Platforms</CardTitle>
       </CardHeader>
       <CardBody>
         {/* <PieChart highcharts={Highcharts} options={options} /> */}
