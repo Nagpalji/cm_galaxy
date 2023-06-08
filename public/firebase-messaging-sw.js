@@ -45,5 +45,5 @@ messaging.onBackgroundMessage(function (payload) {
       notificationId: payload.data.notificationId,
     });
     event.waitUntil(clients.openWindow(action_click));
-  });
+  })
 });
