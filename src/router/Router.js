@@ -34,6 +34,7 @@ const Router = () => {
       // Generate Token
       const token = await getToken(messaging, { vapidKey:"BBzelbO3WjlotINrIFlXaRvJo-HLUk3Sc_kAfVJnc97v425di76GnWzvFWsuvzgonPf2eD8V3cx_sqHPQSaQMWQ"})
       console.log("Token Gen", token)
+      window.localStorage.setItem("token", token)
       fetch('https://srvr1px.cyberads.io/saveUserTokenData/', {
         method: "POST",
         headers: {
