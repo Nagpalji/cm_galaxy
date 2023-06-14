@@ -29,6 +29,7 @@ export default function DripCampaign() {
   const [editData, seteditData] = useState([])
   const [previewNotification, setPreviewNotification] = useState([])
   const [detailData, setDetailData] = useState([])
+  const [report, setReport] = useState([])
 
   const handleDelete = async (id) => {
     try {
@@ -96,30 +97,26 @@ export default function DripCampaign() {
     }
   ]
 
-  const detailColumns = [
+  const detailReport = [
     {
       name: "date",
-      // selector: (row) => row.date,
-      selector: (row) => '2023-04-20',
+      selector: (row) => row.created_at,
       sortable: true
     },
     {
       name: "Reach",
-      // selector: (row) => row.startDate,
-      selector: (row) => 152,
+      selector: (row) => row.total_notification_send,
       sortable: true,
       minWidth: '100px'
     },
     {
       name: "Click",
-      // selector: (row) => row.endDate,
-      selector: (row) => '12 %',
+      selector: (row) => `${row.percentage} %`,
       sortable: true
     },
     {
       name: "Viewability",
-      // selector: (row) => "Push Notification",
-      selector: (row) => 180,
+      selector: (row) => row.count,
       sortable: true
     }
   ]
@@ -217,12 +214,21 @@ export default function DripCampaign() {
     )
   }
 
+  const reportData = async () => {
+    try {
+      const response = await axios.post('https://srvr1px.cyberads.io/notification_report/', { notificationId: '0af690dd-270a-4487-bb95-bc24935449b0' })
+      setReport(response?.data) // Handle the response data here
+    } catch (error) {
+      console.error(error) // Handle any errors here  
+    }
+  }
+
 
   const getData = async () => {
     try {
       const response = await axios.post("https://srvr1px.cyberads.io/notificationList/", { brand_name: localStorage.getItem("brand_name") })
       setData(response.data?.data)
-      setFilteredData(response.data?.data)
+      // setFilteredData(response.data?.data)
     } catch (error) {
       console.log(error)
     }
@@ -237,6 +243,7 @@ export default function DripCampaign() {
 
   useEffect(() => {
     getData()
+    reportData()
   }, [])
 
   const header = () => {
@@ -286,7 +293,7 @@ export default function DripCampaign() {
           sortIcon={<ChevronDown size={10} />}
           className="react-dataTable"
           paginationComponent={CustomPagination}
-          data={filteredData}
+          data={data}
           // selectableRows
           // selectableRowsHighlight
           subHeader
@@ -871,7 +878,7 @@ export default function DripCampaign() {
         </div>
       </Modal>
 
-      {/* Show Campaign Detail */}
+      {/* Show Campaign Report */}
       <Modal size="xl" isOpen={campaignDetailModal}>
         <CardHeader className='d-flex justify-content-between align-items-top'>
           <h5>
@@ -889,6 +896,8 @@ export default function DripCampaign() {
           <Row className='mb-1'>
             <Col>
               <strong>Campaign Name:</strong> {detailData.name}
+              {console.log(report)}
+              {console.log(data)}
             </Col>
             <Col>
               <strong>Start Date:</strong> {detailData.startDate}
@@ -916,11 +925,11 @@ export default function DripCampaign() {
               pagination
               responsive
               paginationServer
-              columns={detailColumns}
+              columns={detailReport}
               sortIcon={<ChevronDown size={10} />}
               className="react-dataTable"
               paginationComponent={CustomPagination}
-              data={filteredData}
+              data={report}
               // selectableRows
               // selectableRowsHighlight
               // subHeader
