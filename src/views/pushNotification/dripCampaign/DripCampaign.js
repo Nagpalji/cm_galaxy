@@ -214,9 +214,10 @@ export default function DripCampaign() {
     )
   }
 
-  const reportData = async () => {
+  const reportData = async (Id) => {
     try {
-      const response = await axios.post('https://srvr1px.cyberads.io/notification_report/', { notificationId: '4cc1931e-f26d-4a51-8af3-5211e053bcee' })
+      setReport([])
+      const response = await axios.post('https://srvr1px.cyberads.io/notification_report/', { notificationId: Id })
       setReport(response?.data) // Handle the response data here
     } catch (error) {
       console.error(error) // Handle any errors here  
@@ -243,7 +244,6 @@ export default function DripCampaign() {
 
   useEffect(() => {
     getData()
-    reportData()
   }, [])
 
   const header = () => {
@@ -303,6 +303,7 @@ export default function DripCampaign() {
           onRowClicked={(e) => {
             setCampaignDetailModal(true)
             setDetailData(e)
+            reportData(e.notification_id)
           }}
         />
       </Card>
@@ -445,7 +446,6 @@ export default function DripCampaign() {
                       required
                       isMulti
                       onChange={e => {
-                        // console.log(e)
                         setFieldValue("Audience", e)
                       }}
                       options={option01}
@@ -469,7 +469,6 @@ export default function DripCampaign() {
                                 isClearable={false}
                                 isMulti
                                 onChange={e => {
-                                  // console.log(e)
                                   setFieldValue("age", e)
                                 }}
                                 options={ageGroup}
@@ -489,7 +488,6 @@ export default function DripCampaign() {
                                 isClearable={false}
                                 isMulti
                                 onChange={e => {
-                                  // console.log(e)
                                   setFieldValue("gender", e)
                                 }}
                                 options={option04}
@@ -509,7 +507,6 @@ export default function DripCampaign() {
                                 isClearable={false}
                                 isMulti
                                 onChange={e => {
-                                  // console.log(e)
                                   setFieldValue("device", e)
                                 }}
                                 options={option02}
@@ -529,7 +526,6 @@ export default function DripCampaign() {
                                 isClearable={false}
                                 isMulti
                                 onChange={e => {
-                                  // console.log(e)
                                   setFieldValue("OS", e)
                                 }}
                                 options={option05}
@@ -715,7 +711,6 @@ export default function DripCampaign() {
                       isMulti
                       defaultValue={values.Audience}
                       onChange={e => {
-                        // console.log(e)
                         setFieldValue("Audience", e)
                       }}
                       options={option01}
@@ -756,7 +751,6 @@ export default function DripCampaign() {
                               isMulti
                               defaultValue={editData.age}
                               onChange={e => {
-                                // console.log(e)
                                 setFieldValue("age", e)
                               }}
                               options={ageGroup}
@@ -777,7 +771,6 @@ export default function DripCampaign() {
                               isMulti
                               defaultValue={editData.gender}
                               onChange={e => {
-                                // console.log(e)
                                 setFieldValue("gender", e)
                               }}
                               options={option04}
@@ -798,7 +791,6 @@ export default function DripCampaign() {
                               isMulti
                               defaultValue={editData.device}
                               onChange={e => {
-                                // console.log(e)
                                 setFieldValue("device", e)
                               }}
                               options={option02}
@@ -819,7 +811,6 @@ export default function DripCampaign() {
                               isMulti
                               defaultValue={editData.OS}
                               onChange={e => {
-                                // console.log(e)
                                 setFieldValue("OS", e)
                               }}
                               options={option05}
@@ -895,25 +886,24 @@ export default function DripCampaign() {
         <ModalBody>
           <Row className='mb-1'>
             <Col>
-              <strong>Campaign Name:</strong> {report[0]?.title}
-              {console.log(report)}
+              <strong>Campaign Name:</strong> {detailData?.name}
             </Col>
             <Col>
-              <strong>Start Date:</strong> {report[0]?.startDate}
+              <strong>Start Date:</strong> {detailData?.startDate}
             </Col>
             <Col>
-              <strong>End Date:</strong> {report[0]?.endDate}
+              <strong>End Date:</strong> {detailData?.endDate}
             </Col>
           </Row>
           <Row>
             <Col>
-              <strong>Audience Type:</strong> {report[0]?.AudienceType}
+              <strong>Audience Type:</strong> {detailData?.AudienceType?.label}
             </Col>
             <Col>
-              <strong>Location:</strong> {report[0]?.Location}
+              <strong>Location:</strong> {detailData?.Location?.label}
             </Col>
             <Col>
-              <strong>Status:</strong> {report[0]?.delete_data}
+              <strong>Status:</strong> {detailData?.del === 0 ? 'Active' : 'Inactive' /* 0 for "Active", 1 for "Inactive"  */}
             </Col>
           </Row>
           <hr />
