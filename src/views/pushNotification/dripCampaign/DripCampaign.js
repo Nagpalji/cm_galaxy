@@ -111,7 +111,7 @@ export default function DripCampaign() {
     },
     {
       name: "Click",
-      selector: (row) => `${row.percentage} %`,
+      selector: (row) => `${row.percentage.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 })} %`,
       sortable: true
     },
     {
@@ -216,7 +216,7 @@ export default function DripCampaign() {
 
   const reportData = async () => {
     try {
-      const response = await axios.post('https://srvr1px.cyberads.io/notification_report/', { notificationId: '0af690dd-270a-4487-bb95-bc24935449b0' })
+      const response = await axios.post('https://srvr1px.cyberads.io/notification_report/', { notificationId: '4cc1931e-f26d-4a51-8af3-5211e053bcee' })
       setReport(response?.data) // Handle the response data here
     } catch (error) {
       console.error(error) // Handle any errors here  
@@ -895,27 +895,25 @@ export default function DripCampaign() {
         <ModalBody>
           <Row className='mb-1'>
             <Col>
-              <strong>Campaign Name:</strong> {detailData.name}
+              <strong>Campaign Name:</strong> {report[0]?.title}
               {console.log(report)}
-              {console.log(data)}
             </Col>
             <Col>
-              <strong>Start Date:</strong> {detailData.startDate}
+              <strong>Start Date:</strong> {report[0]?.startDate}
             </Col>
             <Col>
-              <strong>End Date:</strong> {detailData.endDate}
+              <strong>End Date:</strong> {report[0]?.endDate}
             </Col>
           </Row>
           <Row>
             <Col>
-              <strong>Audience Type:</strong> {detailData.AudienceType?.label}
+              <strong>Audience Type:</strong> {report[0]?.AudienceType}
             </Col>
             <Col>
-              <strong>Location:</strong> {detailData.Location?.label}
-              {console.log(detailData)}
+              <strong>Location:</strong> {report[0]?.Location}
             </Col>
             <Col>
-              <strong>Status:</strong> Inactive
+              <strong>Status:</strong> {report[0]?.delete_data}
             </Col>
           </Row>
           <hr />
