@@ -111,12 +111,12 @@ export default function DripCampaign() {
     },
     {
       name: "Click",
-      selector: (row) => `${row.percentage.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 })} %`,
+      selector: (row) => row.count,
       sortable: true
     },
     {
       name: "Viewability",
-      selector: (row) => row.count,
+      selector: (row) => `${row.percentage.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 })} %`,
       sortable: true
     }
   ]
