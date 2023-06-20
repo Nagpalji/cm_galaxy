@@ -300,6 +300,7 @@ export default function DripCampaign() {
           subHeaderComponent={header()}
           style={{ whiteSpace: 'wrap' }}
           pointerOnHover
+          highlightOnHover
           onRowClicked={(e) => {
             setCampaignDetailModal(true)
             setDetailData(e)
@@ -889,24 +890,24 @@ export default function DripCampaign() {
         <ModalBody>
           <Row className='mb-1'>
             <Col>
-              <strong>Campaign Name:</strong> {detailData?.name}
+              <strong>Campaign Name:</strong> {report[0]?.title}
             </Col>
             <Col>
-              <strong>Start Date:</strong> {detailData?.startDate}
+              <strong>Start Date:</strong> {report[0]?.startDate}
             </Col>
             <Col>
-              <strong>End Date:</strong> {detailData?.endDate}
+              <strong>End Date:</strong> {report[0]?.endDate}
             </Col>
           </Row>
           <Row>
             <Col>
-              <strong>Audience Type:</strong> {detailData?.AudienceType?.label}
+              <strong>Audience Type:</strong> {report[0]?.AudienceType}
             </Col>
             <Col>
-              <strong>Location:</strong> {detailData?.Location?.label}
+              <strong>Location:</strong> {report[0]?.Location}
             </Col>
             <Col>
-              <strong>Status:</strong> {detailData?.del === 0 ? 'Active' : 'Inactive' /* 0 for "Active", 1 for "Inactive"  */}
+              <strong>Status:</strong> {report[0]?.delete_data === '0' ? 'Active' : 'Inactive' /* 0 for "Active", 1 for "Inactive"  */}
             </Col>
           </Row>
           <hr />
@@ -918,6 +919,7 @@ export default function DripCampaign() {
               paginationServer
               columns={detailReport}
               sortIcon={<ChevronDown size={10} />}
+              className="react-dataTable"
               paginationComponent={CustomPagination}
               data={report}
               // selectableRows
