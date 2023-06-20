@@ -5,7 +5,7 @@ import { ChevronDown } from "react-feather"
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa"
 import { MdClose } from "react-icons/md"
 import Select from "react-select"
-import { Badge, Button, Card, CardBody, CardHeader, Col, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row, Table } from "reactstrap"
+import { Badge, Button, Card, CardBody, CardHeader, Col, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row, Spinner, Table } from "reactstrap"
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
 import FileBase64 from 'react-file-base64'
@@ -305,6 +305,9 @@ export default function DripCampaign() {
             setDetailData(e)
             reportData(e.notification_id)
           }}
+          noDataComponent={
+            <Spinner color='primary' className='mb-1' />
+          }
         />
       </Card>
 
@@ -915,7 +918,6 @@ export default function DripCampaign() {
               paginationServer
               columns={detailReport}
               sortIcon={<ChevronDown size={10} />}
-              className="react-dataTable"
               paginationComponent={CustomPagination}
               data={report}
               // selectableRows
@@ -923,6 +925,9 @@ export default function DripCampaign() {
               // subHeader
               // subHeaderComponent={header()}
               style={{ whiteSpace: 'wrap' }}
+              noDataComponent={
+                <Spinner color='primary' className='mb-1' />
+              }
             />
           </Row>
         </ModalBody>
