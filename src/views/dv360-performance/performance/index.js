@@ -38,9 +38,7 @@ import { Link } from 'react-router-dom'
 const EcommerceDashboard = () => {
   const { colors } = useContext(ThemeColors),
     trackBgColor = '#e9ecef'
-
   const [modal, setModal] = useState(true)
-
   const MySwal = withReactContent(Swal)
   if (['demo_account@cmrsl.net', 'admin@cmrsl.net', 'dhavalg@cmrsl.net', 'gauravg@cmrsl.net', 'adomantradigital2@cmgalaxy.com', 'pldigital@cmgalaxy.com', 'jiosaavn@cmgalaxy.com', 'redrocksent@cmgalaxy.com', 'thebrandbrewery@cmgalaxy.com', 'abpnetwork@cmgalaxy.com', 'bizad@cmgalaxy.com', 'bidsoptnew@cmgalaxy.com', 'cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem("email"))) {
     return (
