@@ -80,7 +80,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <PerfectScrollbar className="w-100 border-left-warning">
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-warning" />
-                                                <p data-toggle="tooltip" data-placement="top" title="Total Number Of People Reached" className="fw-bold text-warning m-0">Impressions</p>
+                                                <p data-toggle="tooltip" data-placement="top" title="Reach of the ads across users" className="fw-bold text-warning m-0">Impressions</p>
                                             </div>
                                             <div className="ml-1">
                                                 <p className="ml-2">
@@ -89,7 +89,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-warning" />
-                                                <p data-toggle="tooltip" data-placement="top" title="Total Number Of People Reached" className="fw-bold text-warning m-0">Clicks</p>
+                                                <p data-toggle="tooltip" data-placement="top" title="Number of clicks on ads" className="fw-bold text-warning m-0">Clicks</p>
                                             </div>
                                             <div className="ml-1">
                                                 <p className="ml-2">
@@ -98,7 +98,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-warning" />
-                                                <p data-toggle="tooltip" data-placement="top" title="Sum Of Total Spends" className="fw-bold text-warning m-0">Spends</p>
+                                                <p data-toggle="tooltip" data-placement="top" title="Sum of total spends" className="fw-bold text-warning m-0">Spends</p>
                                             </div>
                                             <div className="ml-1">
                                                 <p className="ml-2">
@@ -107,7 +107,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-warning" />
-                                                <p data-toggle="tooltip" data-placement="top" title="Number of Clicks / Total Number Of Impression" className="fw-bold text-warning m-0">CTR %</p>
+                                                <p data-toggle="tooltip" data-placement="top" title="(Total clicks / Total impressions) * 100" className="fw-bold text-warning m-0">CTR %</p>
                                             </div>
                                             <div className="ml-1">
                                                 <p className="ml-2">
@@ -116,7 +116,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-warning" />
-                                                <p data-toggle="tooltip" data-placement="top" title="Post Clicks ( M/F) – Post click on Gender, Age data to show up" className="fw-bold text-warning m-0">Demographics Age</p>
+                                                <p data-toggle="tooltip" data-placement="top" title="Clicks by age-demographic" className="fw-bold text-warning m-0">Demographics Age</p>
                                             </div>
                                             <div className="ml-1 mb-1">
                                                 {res?.Tofu?.age &&
@@ -132,7 +132,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-warning" />
-                                                <p data-toggle="tooltip" data-placement="top" title="Post Clicks ( M/F) – Post click on Gender, Age data to show up" className="fw-bold text-warning m-0">Demographics Gender</p>
+                                                <p data-toggle="tooltip" data-placement="top" title="Clicks by gender-demographic" className="fw-bold text-warning m-0">Demographics Gender</p>
                                             </div>
                                             <div className="ml-1 mb-1">
                                                 {res?.Tofu?.gender &&
@@ -162,7 +162,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                         <PerfectScrollbar className="w-100 border-left-primary">
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
-                                                <p data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions" className="fw-bold text-primary m-0">
+                                                <p data-toggle="tooltip" data-placement="top" title="Unique users who have initiated at least one visit on brand landing page(s)" className="fw-bold text-primary m-0">
                                                     Users{" "}
                                                 </p>
                                             </div>
@@ -174,7 +174,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
-                                                <p data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions" className="fw-bold text-primary m-0">
+                                                <p data-toggle="tooltip" data-placement="top" title="Number of visits by unique users to the landing page(s)" className="fw-bold text-primary m-0">
                                                     Sessions{" "}
                                                 </p>
                                             </div>
@@ -185,7 +185,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
-                                                <p data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" className="fw-bold text-primary m-0">
+                                                <p data-toggle="tooltip" data-placement="top" title="Top 5 product pages based on pageviews" className="fw-bold text-primary m-0">
                                                     Product Preference{" "}
                                                 </p>
                                             </div>
@@ -204,7 +204,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
-                                                <p  data-toggle="tooltip" data-placement="top" title="Count Of Product pages visited / Number Of Visitors" className="fw-bold text-primary m-0">
+                                                <p  data-toggle="tooltip" data-placement="top" title="Top 5 product pages based on average time spend" className="fw-bold text-primary m-0">
                                                     Product Engagement
                                                 </p>
                                             </div>
@@ -241,7 +241,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
-                                                <p data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions" className="fw-bold text-primary m-0">
+                                                <p data-toggle="tooltip" data-placement="top" title="Total time spent / Total number of sessions" className="fw-bold text-primary m-0">
                                                     Avg. Time Per Session (in secs){" "}
                                                 </p>
                                             </div>
@@ -253,7 +253,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
-                                                <p data-toggle="tooltip" data-placement="top" title="Total Website Duration / Total Number of Sessions" className="fw-bold text-primary m-0">
+                                                <p data-toggle="tooltip" data-placement="top" title="The % of single-page sessions" className="fw-bold text-primary m-0">
                                                     Bounce Rate{" "}
                                                 </p>
                                             </div>
@@ -265,7 +265,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
-                                                <p data-toggle="tooltip" data-placement="top" title="Device OS % (IOS, Android, Windows & Others)" className="fw-bold text-primary m-0">OS Preference</p>
+                                                <p data-toggle="tooltip" data-placement="top" title="Device OS % by users" className="fw-bold text-primary m-0">OS Preference</p>
                                             </div>
                                             <div className="ml-1 mb-1">
                                                 {res?.Mofu?.os &&
@@ -297,7 +297,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-block" >
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-secondary" />
-                                                    <p data-toggle="tooltip" data-placement="top" title="Number of Users who have initiated checkout" className="fw-bold m-0 text-secondary">Add To Cart</p>
+                                                    <p data-toggle="tooltip" data-placement="top" title="Number of users who have created a cart & Aggregate cart value" className="fw-bold m-0 text-secondary">Add To Cart</p>
                                                 </div>
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
@@ -315,7 +315,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-block" >
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-secondary" />
-                                                    <p data-toggle="tooltip" data-placement="top" title="Number of Users who have initiated checkout" className="fw-bold m-0 text-secondary">
+                                                    <p data-toggle="tooltip" data-placement="top" title="Number of users who have initiated checkout & Aggregate checkout value" className="fw-bold m-0 text-secondary">
                                                         Initiate Checkout{" "}
                                                     </p>
                                                 </div>
@@ -333,7 +333,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-block" >
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
-                                                    <p data-toggle="tooltip" data-placement="top" title="Total value of orders added to cart." className="fw-bold m-0 text-secondary">
+                                                    <p data-toggle="tooltip" data-placement="top" title="(Total carts created / Total number of users) * 100" className="fw-bold m-0 text-secondary">
                                                         Users to Cart Creation %
                                                     </p>
                                                 </div>
@@ -347,7 +347,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-block" >
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
-                                                    <p data-toggle="tooltip" data-placement="top" title="Total Checkout value / total spends" className="fw-bold m-0 text-secondary">
+                                                    <p data-toggle="tooltip" data-placement="top" title="Users who have abandoned carts & Aggregate abandoned cart value" className="fw-bold m-0 text-secondary">
                                                         Abandoned Checkout
                                                     </p>
                                                 </div>
@@ -365,7 +365,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-block" >
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
-                                                    <p data-toggle="tooltip" data-placement="top" title="Leads or Carts created / Visitors * 100" className="fw-bold m-0 text-secondary">
+                                                    <p data-toggle="tooltip" data-placement="top" title="Number of returning users & Avgerage cart value of returning users" className="fw-bold m-0 text-secondary">
                                                         Returning Users Cart Value
                                                     </p>
                                                 </div>
@@ -383,7 +383,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-block" >
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-secondary p-0 m-0" />
-                                                    <p data-toggle="tooltip" data-placement="top" title="Number of abandoned carts" className="fw-bold m-0 text-secondary">
+                                                    <p data-toggle="tooltip" data-placement="top" title="Number of new users & Average cart value for new users" className="fw-bold m-0 text-secondary">
                                                         New Users Cart Value
                                                     </p>
                                                 </div>
@@ -402,7 +402,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-block" >
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-secondary" />
-                                                    <p data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" className="fw-bold text-secondary m-0">
+                                                    <p data-toggle="tooltip" data-placement="top" title="Number of users who have created cart & Aggregate add-to-cart value by each traffic source" className="fw-bold text-secondary m-0">
                                                         Source{" "}
                                                     </p>
                                                 </div>
@@ -441,7 +441,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             <div className="d-block" >
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
-                                                    <p data-toggle="tooltip" data-placement="top" title="Total Number of Sales" className="fw-bold text-success m-0">Conversions</p>
+                                                    <p data-toggle="tooltip" data-placement="top" title="Total number of unit sales" className="fw-bold text-success m-0">Conversions</p>
                                                 </div>
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
@@ -451,7 +451,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 </div>
                                                 <div className="d-flex align-items-center p-0 m-0">
                                                     <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
-                                                    <p data-toggle="tooltip" data-placement="top" title="" className="fw-bold text-success m-0">Revenue</p>
+                                                    <p data-toggle="tooltip" data-placement="top" title="Total sales earnings" className="fw-bold text-success m-0">Revenue</p>
                                                 </div>
                                                 <div className="ml-1 mb-1">
                                                     <p className="m-0 ml-2">
@@ -472,7 +472,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="d-block" >
                                                     <div className="d-flex align-items-center p-0 m-0">
                                                         <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
-                                                        <p data-toggle="tooltip" data-placement="top" title="Total Spends / Number Of Sales" className="fw-bold text-success m-0">
+                                                        <p data-toggle="tooltip" data-placement="top" title="Total spends / Number of unit sale" className="fw-bold text-success m-0">
                                                             Customer Aquisition Cost (CAC){" "}
                                                         </p>
                                                     </div>
@@ -486,7 +486,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="d-block" >
                                                     <div className="d-flex align-items-center p-0 m-0">
                                                         <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
-                                                        <p data-toggle="tooltip" data-placement="top" title="Total Revenue / Number Of Sales" className="fw-bold text-success m-0">
+                                                        <p data-toggle="tooltip" data-placement="top" title="Total revenue / Number of sales earnings" className="fw-bold text-success m-0">
                                                             Avg. Order Value ($)
                                                         </p>
                                                     </div>
@@ -500,7 +500,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="d-block" >
                                                     <div className="d-flex align-items-center p-0 m-0">
                                                         <IoIosArrowRoundForward size={32} className="text-success p-0 m-0" />
-                                                        <p data-toggle="tooltip" data-placement="top" title="Total Revenue / Total Spends" className="fw-bold text-success m-0">Return on Ad Spends (ROAS)</p>
+                                                        <p data-toggle="tooltip" data-placement="top" title="Total revenue by marketing source / Total spends on respective source" className="fw-bold text-success m-0">Return on Ad Spends (ROAS)</p>
                                                     </div>
                                                     <div className="ml-1 mb-1">
                                                         <p className="m-0 ml-2">
@@ -526,7 +526,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="d-block" >
                                                     <div className="d-flex align-items-center p-0 m-0">
                                                         <IoIosArrowRoundForward size={32} className="text-success" />
-                                                        <p data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" className="fw-bold text-success m-0">
+                                                        <p data-toggle="tooltip" data-placement="top" title="Number of unit sales by marketing source & Aggregate sales value by respective source" className="fw-bold text-success m-0">
                                                             Sales By Source (based on last click attribution)
                                                         </p>
                                                     </div>
@@ -548,7 +548,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                 <div className="d-block" >
                                                     <div className="d-flex align-items-center p-0 m-0">
                                                         <IoIosArrowRoundForward size={32} className="text-success" />
-                                                        <p data-toggle="tooltip" data-placement="top" title="Rank or Top 5 Products by Total Visitors" className="fw-bold text-success m-0">
+                                                        <p data-toggle="tooltip" data-placement="top" title="Number of sales by device OS & Aggregate sales earnings by device OS" className="fw-bold text-success m-0">
                                                             Sales By OS (based on last click attribution)
                                                         </p>
                                                     </div>
