@@ -67,7 +67,7 @@ function MonthlyPageviewsandAvgTimeSpend(props) {
                     format: ''
                 },
                 title: {
-                    text: 'Avg. Time Spend (Min.)'
+                    text: 'Avg. Time Spend (Sec.)'
                 },
                 opposite: true
 
@@ -120,9 +120,9 @@ function MonthlyPageviewsandAvgTimeSpend(props) {
                 }
                 
             }, {
-                name: 'Avg. Time Spend (Min.)',
+                name: 'Avg. Time Spend (Sec.)',
                 type: 'line',
-                data: props.series?.map((e) => { return e.minutes }),
+                data: props.series?.map((e) => { return e.seconds }),
                 // data: [17, 6, 34, 14, 28, 51],
                 // data: click,
                 tooltip: {
