@@ -122,7 +122,7 @@ function MonthlyPageviewsandAvgTimeSpend(props) {
             }, {
                 name: 'Avg. Time Spend (Sec.)',
                 type: 'line',
-                data: props.series?.map((e) => { return e.seconds }),
+                data: props.series?.map((e) => { return parseFloat(e.seconds.toFixed(2)) }),
                 // data: [17, 6, 34, 14, 28, 51],
                 // data: click,
                 tooltip: {

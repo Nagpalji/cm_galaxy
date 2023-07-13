@@ -65,7 +65,7 @@ const MonthlyLeadsPlatform = () => {
           }
   },
 
-colors: ['#ffc413', '#4acade',  '#83ffff', '#97f7c4', '#52c777'],
+colors: ['#ffc413', '#4acade', '#52c777', '#97f7c4', '#83ffff'],
 
   title: {
       text: ''

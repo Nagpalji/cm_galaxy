@@ -66,19 +66,19 @@ function MonthlyProductsPurchaseByValue(props) {
                 <div>Total Purchase Value: $${parseFloat(this.y).toFixed(2)}</div>
                 <br />
             ${(this.x === moment(props.series[0].created_at).format('MMM YYYY')) ? props.series[0].line_items?.map(e => {
-                    return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}:  ${e.total_discount === 0 ? e.price : `<span style="text-decoration: line-through">$${e.price}</span> $${e.price - e.total_discount}`}`)
+                    return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}:  ${e.total_discount === 0 ? `$${e.price}` : `$${e.price - e.total_discount} (Actual Item Value: $${e.price}) `}`)
                 }).join('<br />') : (this.x === moment(props.series[1].created_at).format('MMM YYYY')) ? props.series[1].line_items?.map(e => {
-                    return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}:  ${e.total_discount === 0 ? e.price : `<span style="text-decoration: line-through">$${e.price}</span> $${e.price - e.total_discount}`}`)
+                    return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}:  ${e.total_discount === 0 ? `$${e.price}` : `$${e.price - e.total_discount} (Actual Item Value: $${e.price}) `}`)
                 }).join('<br />') : (this.x === moment(props.series[2].created_at).format('MMM YYYY')) ? props.series[2].line_items?.map(e => {
-                    return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}:  ${e.total_discount === 0 ? e.price : `<span style="text-decoration: line-through">$${e.price}</span> $${e.price - e.total_discount}`}`)
+                    return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}:  ${e.total_discount === 0 ? `$${e.price}` : `$${e.price - e.total_discount} (Actual Item Value: $${e.price}) `}`)
                 }).join('<br />') : (this.x === moment(props.series[3].created_at).format('MMM YYYY')) ? props.series[3].line_items?.map(e => {
-                    return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}:  ${e.total_discount === 0 ? e.price : `<span style="text-decoration: line-through">$${e.price}</span> $${e.price - e.total_discount}`}`)
+                    return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}:  ${e.total_discount === 0 ? `$${e.price}` : `$${e.price - e.total_discount} (Actual Item Value: $${e.price}) `}`)
                 }).join('<br />') : (this.x === moment(props.series[4].created_at).format('MMM YYYY')) ? props.series[4].line_items?.map(e => {
-                    return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}:  ${e.total_discount === 0 ? e.price : `<span style="text-decoration: line-through">$${e.price}</span> $${e.price - e.total_discount}`}`)
+                    return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}:  ${e.total_discount === 0 ? `$${e.price}` : `$${e.price - e.total_discount} (Actual Item Value: $${e.price}) `}`)
                 }).join('<br />') : (this.x === moment(props.series[5].created_at).format('MMM YYYY')) ? props.series[5].line_items?.map(e => {
-                    return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}: ${e.total_discount === 0 ? e.price : `<span style="text-decoration: line-through">$${e.price}</span> $${e.price - e.total_discount}`}`)
+                    return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}: ${e.total_discount === 0 ? `$${e.price}` : `$${e.price - e.total_discount} (Actual Item Value: $${e.price}) `}`)
                 }).join('<br />') : props.series[6].line_items?.map(e => {
-                    return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}:  ${e.total_discount === 0 ? e.price : `<span style="text-decoration: line-through">$${e.price}</span> $${e.price - e.total_discount}`}`)
+                    return (`<span style="color: ${this.points[0].color} ">● </span>${e.product_name}:  ${e.total_discount === 0 ? `$${e.price}` : `$${e.price - e.total_discount} (Actual Item Value: $${e.price}) `}`)
                 }).join('<br />')}
             `
             },

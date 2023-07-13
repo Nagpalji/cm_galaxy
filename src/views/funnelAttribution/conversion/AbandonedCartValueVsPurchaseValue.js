@@ -30,9 +30,9 @@ function AbandonedCartValueVsPurchaseValue(props) {
                 return `<div>${this.key}: $${this.key === 'Abandoned Cart Value' ? parseFloat(props.seriesData?.draftTotalPrice + props.seriesData?.orderTotalPrice).toFixed(2) : parseFloat(props.seriesData?.orderTotalPrice).toFixed(2)}, Quantity: ${this.y}</div> 
                 <br />
                 ${(this.key === 'Abandoned Cart Value') ? props.seriesData?.draftItems?.map((e) => {
-                    return `<span style="color: ${this.point.color} ">● </span>${e?.product_name}:  ${e.total_discount === 0 ? e.price : `<span style="text-decoration: line-through">$${e.price}</span> $${e.price - e.total_discount}`}`
+                    return `<span style="color: ${this.point.color} ">● </span>${e?.product_name}:  ${e.total_discount === 0 ? `$${e.price}` : `$${e.price - e.total_discount} (Actual Item Value: $${e.price})`}`
                 }).join("<br>") : props.seriesData?.orderItems?.map((e) => {
-                    return `<span style="color: ${this.point.color} ">● </span>${e?.product_name}:  ${e.total_discount === 0 ? e.price : `<span style="text-decoration: line-through">$${e.price}</span> $${e.price - e.total_discount}`}`
+                    return `<span style="color: ${this.point.color} ">● </span>${e?.product_name}:  ${e.total_discount === 0 ? `$${e.price}` : `$${e.price - e.total_discount} (Actual Item Value: $${e.price})`}`
                 }).join("<br>")
                     }`
             },
