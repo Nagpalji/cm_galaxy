@@ -23,7 +23,7 @@ const sy = localStorage.getItem("sy")
   const f1 = "&f="
   const reg = localStorage.getItem("google_region")
   
-  
+
   if (ey === 'NaN') {
     ey = sy
 }
@@ -84,18 +84,21 @@ const SelectOptions = () => {
         )
   })
   const colorOptions00 = JSON.parse(sessionStorage.getItem('google_campaign_sel'))
+  const campaign = "&campaign="
+  const campaignPar = sessionStorage.getItem('google_campaign_sel')
+  
   const [colorOptions1, setColorOptions1] = useState([])
   
   const fett1 = 'https://srvr1px.cyberads.io/adword_region/?brand_name='
   const fet1 = fett1 + brand_name
   useEffect(() => { 
-    fetch(fet1 + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed, {
+    fetch(fet1 + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed + campaign + campaignPar, {
          method: 'GET'
     })
     .then(res => res.json())  
     .then((result) => {
           result.map((item) => { 
-  
+
             colorOptions1.push({
             label: item.label,
             value: item.value
@@ -112,12 +115,13 @@ const SelectOptions = () => {
   })
  
   const colorOptions11 = JSON.parse(sessionStorage.getItem('google_region_sel'))
+  
 const [colorOptions2, setColorOptions2] = useState([])
 
   const fett2 = 'https://srvr1px.cyberads.io/adword_adgroup/?brand_name='
   const fet2 = fett2 + brand_name
   useEffect(() => { 
-    fetch(fet2 + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed, {
+    fetch(fet2 + sy1 + sy + sm1 + sm + sd1 + sd + ey1 + ey + em1 + em + ed1 + ed + campaign + campaignPar, {
          method: 'GET'
     })
     .then(res => res.json())  
@@ -182,7 +186,8 @@ const [colorOptions2, setColorOptions2] = useState([])
       selval1.push(val1)
 
     })
-    sessionStorage.setItem("google_campaign_sel", JSON.stringify(selval1))
+    selval1.length === 0 ? sessionStorage.setItem("google_campaign_sel", JSON.stringify(null)) : sessionStorage.setItem("google_campaign_sel", JSON.stringify(selval1))
+    // sessionStorage.setItem("google_campaign_sel", JSON.stringify(selval1))
   }
   const handleOnChange1 = event => {
     const valReg = []
@@ -195,7 +200,8 @@ const [colorOptions2, setColorOptions2] = useState([])
       selval1.push(val1)
 
     })
-    sessionStorage.setItem("google_region_sel", JSON.stringify(selval1))
+    selval1.length === 0 ? sessionStorage.setItem("google_region_sel", JSON.stringify(null)) : sessionStorage.setItem("google_region_sel", JSON.stringify(selval1))
+    // sessionStorage.setItem("google_region_sel", JSON.stringify(selval1))
   }
   const handleOnChange2 = event => {
     const valReg = []
@@ -208,7 +214,8 @@ const [colorOptions2, setColorOptions2] = useState([])
       selval1.push(val1)
 
     })
-    sessionStorage.setItem("google_adgroup_sel", JSON.stringify(selval1))
+    selval1.length === 0 ? sessionStorage.setItem("google_adgroup_sel", JSON.stringify(null)) : sessionStorage.setItem("google_adgroup_sel", JSON.stringify(selval1))
+    // sessionStorage.setItem("google_adgroup_sel", JSON.stringify(selval1))
   }
   const handleOnChange3 = event => {
     const valReg = []
@@ -221,7 +228,8 @@ const [colorOptions2, setColorOptions2] = useState([])
       selval1.push(val1)
 
     })
-    sessionStorage.setItem("google_device_sel", JSON.stringify(selval1))
+    selval1.length === 0 ? sessionStorage.setItem("google_device_sel", JSON.stringify(null)) : sessionStorage.setItem("google_device_sel", JSON.stringify(selval1))
+    // sessionStorage.setItem("google_device_sel", JSON.stringify(selval1))
   }
   
   const filterColors1 = inputValue => {

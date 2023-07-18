@@ -161,7 +161,7 @@ colors: ['#ffc413', '#4acade', '#83ffff', '#97f7c4', '#52c777'],
 
             <Col lg='3' md='12'>
               <div className='demo-inline-spacing justify-content-between loader_mobileal' style={{ marginLeft: 30 }}>
-                <Spinner color='primary' />
+                {/* <Spinner color='primary' /> */}
               </div>
               {/* <PieChart containerProps={{ style: { height: "430px" } }} highcharts={Highcharts}  /> */}
               <div style={{ height: "430px", visibility: 'hidden' }} ></div>

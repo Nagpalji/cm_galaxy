@@ -7,18 +7,24 @@ import { serverSideColumns } from './data'
 // ** Store & Actions
 import { getData } from './actions'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 // ** Third Party Components
 import ReactPaginate from 'react-paginate'
 import { ChevronDown } from 'react-feather'
 import DataTable from 'react-data-table-component'
-import { Card, CardHeader, CardTitle, Input, Label, Row, Col, Spinner } from 'reactstrap'
+import { Card, CardHeader, CardTitle, Input, Label, Row, Col, Spinner, Modal, ModalBody, Button } from 'reactstrap'
+
 
 const DataAudienceOverview = () => {
+  const [modal, setModal] = useState(true)
   // ** Store Vars
   const dispatch = useDispatch()
   const store = useSelector(state => state.dataTables)
 
+  const handleRefresh = () => {
+    window.location.reload()
+  }
   // ** States
   const [currentPage, setCurrentPage] = useState(1)
   const [rowsPerPage, setRowsPerPage] = useState(7)
@@ -74,9 +80,8 @@ const DataAudienceOverview = () => {
       })
       .then(res => res.json())
       .then((result) => {
-
-        // setStore(result)
-
+        
+        
         setAllData(result)
         result.map(res => {
           setPages(res.total_pages)
@@ -90,6 +95,7 @@ const DataAudienceOverview = () => {
       )
   })
 
+  
   // ** Get data on mount
   useEffect(() => {
     dispatch(
@@ -235,6 +241,27 @@ const DataAudienceOverview = () => {
             </Col>
           </Row>
         </Card>
+      </Fragment>)
+  } else if (allData.length === 1) {
+    sessionStorage.removeItem('google_region_sel')
+    sessionStorage.removeItem('google_campaign_sel')
+    sessionStorage.removeItem('google_adgroup_sel')
+    sessionStorage.removeItem('google_device_sel')
+    return (
+      <Fragment>
+
+        <Modal size='lg' isOpen={modal} centered backdrop="static" keyboard={false} >
+          <ModalBody className='text-center m-1'>
+            <div className='m-xl-2 m-sx-0'>
+              <p style={{ fontSize: 25 }}>Data not found please refine your search.</p>
+            </div>
+            <span>
+              <Button.Ripple color="primary" className='mt-1' tag={Link} to="/dashboard/ecommerce" onClick={handleRefresh}>
+                Close
+              </Button.Ripple>
+            </span>
+          </ModalBody>
+        </Modal>
       </Fragment>)
   } else {
     return (
