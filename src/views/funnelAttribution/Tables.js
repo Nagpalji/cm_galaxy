@@ -11,7 +11,7 @@ import { MdClose } from 'react-icons/md'
 import MonthlyProductsPurchaseByValue from './conversion/MonthlyProductsPurchaseByValue'
 import Select from "react-select"
 
-const Table = ({ data, selectedCategory, loadMore }) => {
+const Tables = ({ data, selectedCategory, loadMore }) => {
     console.log({ length: data?.convertionsData && data?.convertionsData.length })
     const style = {
         marginTop: '-5px',
@@ -320,4 +320,4 @@ const Table = ({ data, selectedCategory, loadMore }) => {
         </>
     )
 }
-export default Table
+export default Tables

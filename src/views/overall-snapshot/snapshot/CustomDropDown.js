@@ -34,41 +34,41 @@ const orderOptions = values => {
 // )
 
 const CustomDropDown = () => {
-  
+
   const brand_name = localStorage.getItem("email")
   const [colorOptions, setColorOptions] = useState([])
   const fett1 = 'https://srvr1px.cyberads.io/user_dropdown/?brand_name='
   const fet1 = fett1 + brand_name
 
-  
-  useState(() => { 
+
+  useState(() => {
     fetch(fet1, {
-         method: 'GET'
+      method: 'GET'
     })
-    .then(res => res.json())  
-    .then((result) => {
-          result.map((item) => { 
-  
-            colorOptions.push({
+      .then(res => res.json())
+      .then((result) => {
+        result.map((item) => {
+
+          colorOptions.push({
             label: item.label,
             value: item.value
           })
-            
-          })
-          setColorOptions(colorOptions)
-          //console.log(colorOptions)
-        },
-          (error) => {
-            //this.setState({ error });
-          }
-        )
+
+        })
+        setColorOptions(colorOptions)
+        //console.log(colorOptions)
+      },
+        (error) => {
+          //this.setState({ error });
+        }
+      )
   })
   sessionStorage.setItem('menu', JSON.stringify(colorOptions))
   const colorOptions00 = JSON.parse(sessionStorage.getItem('brand_selection'))
   const handleOnChange = event => {
     const valReg = []
     const selval1 = []
-    
+
     event.map(res => {
       const val1 = {}
       val1["value"] = res.value.replace("&", "@@@")
@@ -82,7 +82,7 @@ const CustomDropDown = () => {
     } else if (selval1.length === 0 && (localStorage.getItem('email')) === ("dhavalg@cmrsl.net" || 'admin@cmrsl.net' || 'gauravg@cmrsl.net')) {
       sessionStorage.removeItem("brand_selection")
       localStorage.setItem("brand_name", "masteraccess")
-    } else if (selval1.length === 0 && (localStorage.getItem('email')) !==  ("dhavalg@cmrsl.net" || 'admin@cmrsl.net' || 'gauravg@cmrsl.net')) {
+    } else if (selval1.length === 0 && (localStorage.getItem('email')) !== ("dhavalg@cmrsl.net" || 'admin@cmrsl.net' || 'gauravg@cmrsl.net')) {
       sessionStorage.removeItem("brand_selection")
       localStorage.setItem("brand_name", JSON.stringify(colorOptions))
     } else {
@@ -91,7 +91,7 @@ const CustomDropDown = () => {
     // localStorage.setItem("brand_selection", JSON.stringify(selval1))
     // localStorage.setItem("brand_name", JSON.stringify(selval1[0]['value']))
   }
-  
+
   const filterColors1 = inputValue => {
     return colorOptions.filter(i => i.label.toLowerCase().includes(inputValue.toLowerCase()))
   }
@@ -137,34 +137,34 @@ const CustomDropDown = () => {
       }, 2000)
     })
   }
-  
+
   if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getItem("email") === 'dhavalg@cmrsl.net' || localStorage.getItem("email") === 'gauravg@cmrsl.net' || (localStorage.getItem("level") === 'Manager'))) {
     return (
-        <Row>
-          <Col className='mb-0 mt-0 mb-9' md='12' sm='12'>
+      <Row>
+        <Col className='mb-0 mt-0 mb-9' md='12' sm='12'>
           {/* <h6 className='font-weight-bold'>Product</h6> */}
-            <Select
-              isClearable={false}
-              theme={selectThemeColors}
-              isMulti
-              name='colors'
-              options={colorOptions}
-              defaultValue={colorOptions00}
-              className='react-select'
-              onChange={handleOnChange}
-              placeholder='Users'
-              classNamePrefix='select'
-            />
-          </Col>
-        </Row>
-  )
+          <Select
+            isClearable={false}
+            theme={selectThemeColors}
+            isMulti
+            name='colors'
+            options={colorOptions}
+            defaultValue={colorOptions00}
+            className='react-select'
+            onChange={handleOnChange}
+            placeholder='Users'
+            classNamePrefix='select'
+          />
+        </Col>
+      </Row>
+    )
   } else {
     return (
       <Row>
         <Col className='mb-0 mt-0 mb-9' md='12' sm='12'>
         </Col>
       </Row>
-)
+    )
   }
 }
 export default CustomDropDown

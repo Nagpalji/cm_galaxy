@@ -3,8 +3,8 @@ import { IoIosArrowRoundForward, IoIosArrowForward } from "react-icons/io"
 import PerfectScrollbar from "react-perfect-scrollbar"
 import "./Funnel.css"
 import { rectangle } from "leaflet"
-import { Card, CardHeader, CardTitle, CardBody, Row, Col } from "reactstrap"
-import Table from "./Table"
+import { Card, CardHeader, CardTitle, CardBody, Row, Col, Table } from "reactstrap"
+import Tables from "./Tables"
 import moment from "moment"
 
 export default function Funnel({ res, table, refreshfunction }) {
@@ -204,7 +204,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                             </div>
                                             <div className="d-flex align-items-center p-0 m-0">
                                                 <IoIosArrowRoundForward size={32} className="text-primary" />
-                                                <p  data-toggle="tooltip" data-placement="top" title="Top 5 product pages based on average time spend" className="fw-bold text-primary m-0">
+                                                <p data-toggle="tooltip" data-placement="top" title="Top 5 product pages based on average time spend" className="fw-bold text-primary m-0">
                                                     Product Engagement
                                                 </p>
                                             </div>
@@ -531,29 +531,67 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                         </p>
                                                     </div>
                                                     <div className="ml-1 mb-1">
-                                                        {res?.Conversion?.sales_by_source &&
-                                                            res?.Conversion?.sales_by_source.map((val) => {
-                                                                return (
-                                                                    <>
-                                                                        <li className="m-0" key={val?.source}>
-                                                                            <span>
-                                                                                {val?.source === '' ? 'Organic' : val?.source.charAt(0).toUpperCase() + val?.source.slice(1)} <strong>: {val?.count?.toLocaleString() || 0}  | {val?.total_price?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 })}</strong>
-                                                                            </span>
-                                                                        </li>
-                                                                    </>
-                                                                )
-                                                            })}
+                                                        <Table size='sm'>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>Source</th>
+                                                                    <th>No. Of Sales</th>
+                                                                    <th>Sales ($)</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {res?.Conversion?.sales_by_source &&
+                                                                    res?.Conversion?.sales_by_source.map((val, i) => {
+                                                                        return (
+                                                                            <>
+                                                                                <tr>
+                                                                                    <td className='text-black'>{i + 1}</td>
+                                                                                    <td className='text-black'>{val?.source?.charAt(0).toUpperCase() + val?.source?.slice(1)}</td>
+                                                                                    <td className='text-black'>{val?.count?.toLocaleString() || 0}</td>
+                                                                                    <td className='text-black'>{val?.total_price?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 })}</td>
+                                                                                </tr>
+                                                                            </>
+                                                                        )
+                                                                    })}
+                                                            </tbody>
+                                                        </Table>
                                                     </div>
                                                 </div>
                                                 <div className="d-block" >
-                                                    <div className="d-flex align-items-center p-0 m-0">
+                                                    <div className="d-flex align-items-center p-0 m-0 mt-2">
                                                         <IoIosArrowRoundForward size={32} className="text-success" />
                                                         <p data-toggle="tooltip" data-placement="top" title="Number of sales by device OS & Aggregate sales earnings by device OS" className="fw-bold text-success m-0">
                                                             Sales By OS (based on last click attribution)
                                                         </p>
                                                     </div>
                                                     <div className="ml-1 mb-1">
-                                                        {res?.Conversion?.os_counts &&
+                                                        <Table size='sm' >
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>OS</th>
+                                                                    <th>No. Of Sales</th>
+                                                                    <th>Sales ($)</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {res?.Conversion?.os_counts &&
+                                                                    res?.Conversion?.os_counts.map((val, i) => {
+                                                                        return (
+                                                                            <>
+                                                                                <tr>
+                                                                                    <td className='text-black'>{i + 1}</td>
+                                                                                    <td className='text-black'>{val?.OS}{" "}</td>
+                                                                                    <td className='text-black'>{val?.Count?.toLocaleString()}</td>
+                                                                                    <td className='text-black'>{val?.Sum_of_Prices?.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 })}</td>
+                                                                                </tr>
+                                                                            </>
+                                                                        )
+                                                                    })}
+                                                            </tbody>
+                                                        </Table>
+                                                        {/* {res?.Conversion?.os_counts &&
                                                             res?.Conversion?.os_counts.map((val) => {
                                                                 return (
                                                                     <>
@@ -565,7 +603,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                                                                         </li>
                                                                     </>
                                                                 )
-                                                            })}
+                                                            })} */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -581,7 +619,7 @@ export default function Funnel({ res, table, refreshfunction }) {
                     {/* ---- Table Data Start Here ---- */}
                     <Row className="match-height">
                         <Col xs="12">
-                            <Table data={table} selectedCategory={category} loadMore={loadMore} />
+                            <Tables data={table} selectedCategory={category} loadMore={loadMore} />
                         </Col>
                     </Row>
                     {/* ---- Table Data Start Here ---- */}
