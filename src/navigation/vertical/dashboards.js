@@ -110,7 +110,7 @@
 //   // }
 // ]
 // import { Home, Circle, Facebook, Linkedin, Youtube, Chrome, Globe, Settings, Command, Twitter, Package, Play, Atsign, AtSign, Filter, Users  } from 'react-feather'
-import { FaHome, FaFacebook, FaLinkedin, FaYoutube, FaChrome, FaMeta, Globe, Settings, Command, FaTwitter, Package, FaPlay, FaAmazon, FaFilter, FaUserAlt, FaUsers, FaUser, FaBullhorn, FaBell, FaInstagram, FaMapMarkedAlt, FaFacebookMessenger, FaFacebookF, FaKey, FaWpforms } from 'react-icons/fa'
+import { FaHome, FaFacebook, FaLinkedin, FaYoutube, FaChrome, FaMeta, Globe, Settings, Command, FaTwitter, Package, FaPlay, FaAmazon, FaFilter, FaUserAlt, FaUsers, FaUser, FaBullhorn, FaBell, FaInstagram, FaMapMarkedAlt, FaFacebookMessenger, FaFacebookF, FaKey, FaWpforms, FaTicketAlt } from 'react-icons/fa'
 import { BsMeta } from 'react-icons/bs'
 // import { MdMeta } from 'react-icons/md'
 let sample
@@ -188,6 +188,12 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
       // icon: <Chrome size={12} />,
       icon: <FaBell size={12} />,
       navLink: '/pushNotification/index'
+    },
+    {
+      id: 'eCommerceDash',
+      title: 'Ticket System',
+      icon: <FaTicketAlt size={12} />,
+      navLink: '/ticket/index'
     },
     {
       id: 'eCommerceDash',
@@ -333,7 +339,7 @@ if ((localStorage.getItem("email") === 'admin@cmrsl.net') || (localStorage.getIt
 //   })
 // }
 
-if (['demo_account@cmrsl.net', 'cmgalaxy.okana@cmgalaxy.com'].includes(localStorage.getItem("email"))) {
+if (['demo_account@cmrsl.net', 'cmgalaxy.okana@cmgalaxy.com', 'gemssmart@gmail.com'].includes(localStorage.getItem("email"))) {
   sample.splice(1, 0, {
     id: 'eCommerceDash',
     title: 'Funnel Attribution',
