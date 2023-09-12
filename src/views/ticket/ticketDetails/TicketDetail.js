@@ -11,15 +11,34 @@ function TicketDetail({ selectedEmail }) {
           <Row>
             <Col>
               <Row className='m-0 my-1'>
-                <Col tag='h4' className='p-0 mb-2'>Announcements, Updates, and Recent Posts</Col>
+                <Col tag='h4' className='p-0'>Announcements, Updates, and Recent Posts</Col>
               </Row>
-              <Row className='m-0'>
-                <Col className='d-flex'>
+              <Row>
+                <Col>
+                  <h6 className='p-0 m-0'>Yogesh Kalara</h6>
+                  <p className='p-0 m-0'>yogeshkalara@cmrsl.net</p>
+                </Col>
+              </Row>
+              <Row>
+                <Col className='d-flex p-0'>
                   <div>
-                    <h6 className='p-0 m-0'>Yogesh Kalara</h6>
-                    <p className='p-0 m-0'>yogeshkalara@cmrsl.net</p>
-                    <Row className='m-2'>
-                      <Col>
+                    <Row className='my-2'>
+                      <Col className='mr-2 ml-5'>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                      </Col>
+                    </Row>
+                  </div>
+                </Col>
+              </Row>
+              <hr />
+              <Row>
+                <Col className='d-flex p-0'>
+                  <div>
+                    <img src="/assets/images/CMLogo.png" alt="logo" className='my-2 mx-1' style={{ height: 30 }} />
+                  </div>
+                  <div>
+                    <Row className='my-2'>
+                      <Col className='mr-2'>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
                       </Col>
                     </Row>
@@ -27,26 +46,13 @@ function TicketDetail({ selectedEmail }) {
                 </Col>
               </Row>
               <Row>
-                <Col className='d-flex'>
-                  <img src="/assets/images/CMLogo.png" alt="logo" className='m-1' style={{ height: 30 }} />
-                  <div>
-                    <h6 className='p-0 m-0'>Yogesh Kalara</h6>
-                    <p className='p-0 m-0'>yogeshkalara@cmrsl.net</p>
-                    <Row className='my-2'>
-                      <Col>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-                      </Col>
-                    </Row>
-                  </div>
+                <Col>
+                  <Button color='primary' outline className='rounded-pill'><FaReply /> Reply</Button>
                 </Col>
               </Row>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <Button color='primary' outline className='rounded-pill'><FaReply /> Reply</Button>
-            </Col>
-          </Row>
+
         </Col>
       </Row>
     )
